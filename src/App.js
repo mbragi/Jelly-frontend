@@ -1,11 +1,18 @@
-import "./App.css";
-import Button from "./components/button/Button";
-
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { path } from "./routes";
+import LoginPage from "../src/pages/login/LoginPage";
 function App() {
   return (
-    <div className="App">
-      <Button />
-    </div>
+    <>
+      <section style={{ width: "100%" }}>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path={path.loginPage} element={<LoginPage />} />
+          </Routes>
+        </BrowserRouter>
+      </section>
+    </>
   );
 }
 

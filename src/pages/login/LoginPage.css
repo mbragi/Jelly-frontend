@@ -1,0 +1,29 @@
+.login-page{
+    max-width: 100%;
+    width: 350px;
+    margin: auto;
+}
+
+.login-page-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-page-header h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.login-button{
+    margin-top: 30px;
+    color: white;
+}
+
+.forgot-password, span{
+    color: blue;
+    font: 1.2rem;
+}
+
+.create-new-account{
+    width: 100%;
+    font-size: 12px;
+}

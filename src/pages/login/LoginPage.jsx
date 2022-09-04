@@ -3,6 +3,7 @@ import './LoginPage.css'
 import Button from '../../components/button/Button'
 
 function LoginPage() {
+
  return (
   <div className='container'>
    <div className='cancel-button'>
@@ -47,4 +48,5 @@ function LoginPage() {
   </div>
  )
 }
+
 export default LoginPage;
