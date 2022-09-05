@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './LoginPage.css'
 import Button from '../../components/button/Button'
 
 function LoginPage() {
+    const [data, setData] =useState({});
+
+    function getDetails(event){
+        const {name, value} =event.target
+        const newData = {...data};
+        newData[name] = value;
+        setData(newData);
+
+        console.log (newData)
+    }
+
     return (
         <div className='login-container'>
 
@@ -16,15 +27,15 @@ function LoginPage() {
                     <h2>Login via E-mail</h2>
                 </div>
 
-                <form action="" className='login-page-form'>
+                <form action="" className='login-page-form' >
                     <div className='email-input'>
                         <p>E-mail*</p>
-                        <input className='gen-input' name='email' />
+                        <input className='gen-input' onChange={getDetails} name='email' />
                     </div>
 
                     <div className='password-input'>
                         <p>Password*</p>
-                        <input className='gen-input' name='password' />
+                        <input className='gen-input'  onChange={getDetails} name='password' />
                     </div>
 
 
