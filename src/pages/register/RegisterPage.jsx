@@ -1,8 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './RegisterPage.css'
 import Button from '../../components/button/Button'
 
 function RegisterPage() {
+    const [data, setData] =useState({});
+
+    function sendDetails(event){
+        const {name, value} = event.target
+        const newData = {...data}
+        newData[name] = value;
+        setData(newData);
+
+        console.log (newData);
+       
+    }
+
     return (
         <div className='register-container'>    
             
@@ -16,28 +28,28 @@ function RegisterPage() {
                     <h2>Signup a new account</h2>
                 </div>
                 
-                <form action="">
+                <form action="" className='register-page-form'>
                     <div className='fullname-input'>           
                         <p>Fullname*</p>
-                        <input className='gen-input' name='email'/>               
+                        <input className='gen-input' onChange={sendDetails} name='fullname'/>               
                     </div>
 
 
                     <div className='email-input'>
                         <p>E-mail*</p>
-                        <input className='gen-input' name='email'/>
+                        <input className='gen-input' onChange={sendDetails} name='email'/>
                     </div>
 
 
                     <div className='password-input'>
                         <p>Paasword*</p>
-                        <input className='gen-input' name='email'/>
+                        <input className='gen-input' onChange={sendDetails}  name='password'/>
                     </div>
 
 
                     <div className='confirm-password-input'>
                         <p>Confirm password*</p>
-                        <input className='gen-input' name='email'/>
+                        <input className='gen-input' onChange={sendDetails} name='confirm password'/>
                     </div>
 
 
