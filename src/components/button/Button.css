@@ -1,8 +1,8 @@
 .custom-button{
     width: 200px;
-    height: 30px;
+    height: 50px;
     color: white;
-    background-color: blue;
+    background-color: rgb(53, 112, 236);
     border: none;
     border-radius: 60px;
     padding: 5px;
@@ -10,7 +10,6 @@
     font-size: 20px;
 }
 .custom-button:hover{
-    height: 40px;
     transition: .3s ease;
     font-size: 25px;
 }
