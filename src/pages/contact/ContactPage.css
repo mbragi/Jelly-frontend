@@ -1,0 +1,139 @@
+.contact-page{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.contact-us-header{
+   background-color: whitesmoke;
+   padding: 10px;
+}
+
+.contact-us-header h2{
+    text-align: center;
+    color: blue;
+    font-weight: bolder;
+}
+
+.know-us-better h2{
+    text-align: center;
+}
+
+.phone-email-address{
+    display: flex;
+    justify-content: space-between;  
+    margin-bottom: 50px;
+}
+
+.phone-email-address img{
+   width:50px;
+   height: 50px;
+}
+
+.phone{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.email-id{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.address {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ph-em-ad h2{
+  margin-bottom: 0;
+}
+
+.ph-em-ad p{
+    margin-top: 0;
+}
+
+
+.get-in-touch{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.get-in-touch p{
+    width: 70%;
+    margin: 0 auto;
+    font-size: 1.5rem;
+}
+
+
+.fullname-mobile-email{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.fullname-mobile-email input{
+    padding: 20px;
+    font-size: 20px;
+    background-color: whitesmoke;
+    width: 300px;
+    outline: none;
+    border: none;
+}
+
+.subject input{
+    padding: 20px;
+    margin-bottom: 40px;
+    width: 100%;
+    font-size: 20px;
+    background-color: whitesmoke;
+    outline: none;
+    border: none;
+}
+
+.message textarea{
+    margin-bottom: 20px;
+    width: 100%;
+    word-wrap:break-word;
+    padding: 10px;
+    height: 150px;
+    text-align:top;
+    top: 0;
+    font-size: 20px;
+    background-color: whitesmoke;
+    outline: none;
+    border: none;
+}
+
+.send-message{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+footer{
+    background-color: black;
+    height: 100px;
+    color: white;
+}
+
+
+
+@media screen and (max-width:1000px) {
+    .fullname-mobile-email{
+        display: block;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    .fullname-mobile-email input{
+        margin-bottom: 20px;
+    }
+
+    .phone-email-address {
+        display: grid;
+        margin-bottom: 50px;
+    }
+  
+}
