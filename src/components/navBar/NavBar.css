@@ -1,0 +1,79 @@
+.nav-bar{
+    width: 100%;
+    height: 100px;
+    color: white;
+    background-color: white;
+}
+.top{
+    width: 100%;
+    height: 30%;
+    background-color: rgb(53, 112, 236);
+    display: flex;
+    justify-content: space-between;
+}
+.contact-details-container{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.phone, .email, .store-locator, .dealers-enquiry{
+    display: flex;
+    align-items: center;
+}
+.location-container{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.icon{
+    padding-left: 5px;
+    padding-right: 5px;
+    /* background-color: green; */
+}
+
+.bottom{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+.logo-container{
+    width: 30%;
+    height: 100%;
+    /* background-color: red; */
+}
+.links{
+    width: 60%;
+    height: 100%;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.link{
+    color: black;
+    cursor: pointer;
+}
+.home-link{
+    border-bottom: 2px solid black;
+}
+.cart-container{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    /* background-color: red; */
+}
+.cart-quantity{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgb(53, 112, 236);
+}
