@@ -7,7 +7,7 @@ import turnSignal from "../../assets/turn-signal.png";
 import Button from "../../components/button/Button";
 import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
-import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus } from "react-icons/md";
+import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 function Home() {
   return (
     <div className='container'>
@@ -55,6 +55,16 @@ function Home() {
           <img src={turnSignal} alt="promo" className='promo-img' />
           <div className='promo-info'>
             <h2 className='promo-header'>Jelly e-indicaator</h2>
+
+            <div className='ratings'>
+              <MdOutlineStar size={20} color="yellow" />
+              <MdOutlineStar size={20} color="yellow" />
+              <MdOutlineStar size={20} color="yellow" />
+              <MdOutlineStar size={20} color="yellow" />
+              <MdOutlineStar size={20} color="yellow" />
+              <p className='number-of-ratings'>(20)</p>
+            </div>
+
             <p className='promo-price'>Buy at: $99</p>
             <p className='promo-desc'>
               Refer friends and get upto Rs. 5000/- OFF on final price Jelly App connected | Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes

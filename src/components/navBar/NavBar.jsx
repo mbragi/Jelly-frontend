@@ -43,7 +43,7 @@ export default function NavBar() {
         <div className='bottom'>
           <div className='logo-container'></div>
           <div className='links'>
-            <p className='link'>Home</p>
+            <p className='link home-link'>Home</p>
             <p className='link'About Us></p>
             <p className='link'>Shop</p>
             <p className='link'>Product</p>

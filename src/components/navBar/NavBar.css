@@ -56,6 +56,10 @@
 }
 .link{
     color: black;
+    cursor: pointer;
+}
+.home-link{
+    border-bottom: 2px solid black;
 }
 .cart-container{
     width: 30px;

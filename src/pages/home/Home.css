@@ -80,12 +80,18 @@
 .promo-img{
     width: 60%;
     height: 100%;
-    max-height: 300px;
+    max-height: 450px;
 }
 .promo-info{
     width: 40%;
     height: 100%;
     padding: 20px;
+}
+.ratings{
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .accessories-div{
@@ -95,12 +101,14 @@
     align-items: center;
     padding: 20px;
     margin-top: 30px;
-    /* background-color: red;; */
 }
 .accessories-header{
     width: 80%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    margin-bottom: 5px;
+    /* background-color: red; */
 }
 .accessories-title{
     font-size: 50px;
