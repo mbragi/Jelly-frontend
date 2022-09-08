@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { path } from "./routes";
 import LoginPage from "../src/pages/login/LoginPage";
 
+
 function App() {
   return (
     <>
