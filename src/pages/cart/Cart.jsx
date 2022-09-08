@@ -2,7 +2,7 @@ import React from 'react';
 import './Cart.css';
 import NavBar from '../../components/navBar/NavBar';
 import Button from '../../components/button/Button';
-
+import { BsArrowLeft } from 'react-icons/bs';
 function Cart() {
   return (
     <div className='cart'>
@@ -36,7 +36,12 @@ function Cart() {
                     
                 </div>
             </div>
+
         </div>
+        <p className='continue'>
+            <BsArrowLeft size={30} />
+            Continue Shopping
+        </p>
         
     </div>
   )
