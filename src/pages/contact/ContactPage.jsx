@@ -1,6 +1,6 @@
 import React from 'react'
 import './ContactPage.css'
-// import NavBar from '../../components/navBar/NavBar'
+import NavBar from "../../components/navBar/NavBar";
 import email from '../../assets/images/email.png'
 import phone from '../../assets/images/phone.png'
 import address from '../../assets/images/address.png'
@@ -10,18 +10,17 @@ function ContactPage() {
   return (
     <div>
         <div className='navigation-bar'>
-            <h2>NAVBAR</h2>
-            {/* <NavBar/> */}
+            <NavBar />
         </div>
 
         <div className='contact-us-header'>
-            <h2>Contact Us</h2>
+            <h1>Contact Us</h1>
         </div>
 
         <div className='contact-page' >
 
             <div className='know-us-better'>
-                <h2>Would you like to get to know us better ?</h2>
+                <h1>Would you like to get to know us better ?</h1>
             </div>
 
             <div className='phone-email-address'>
@@ -29,7 +28,7 @@ function ContactPage() {
                     <img src={phone} alt="phone" />
                     <div className='ph-em-ad'>
                         <h2>Phone</h2>
-                        <p>0000000</p> 
+                        <p>+86 18057232978</p> 
                     </div>
                 </div>
 
@@ -37,22 +36,24 @@ function ContactPage() {
                     <img src={email} alt="email" />
                     <div className='ph-em-ad'>
                         <h2>Email Id</h2>
-                        <p>hello@jelly.com</p> 
+                        <p>254510608@qq.com</p> 
                     </div>
                 </div>
 
                 <div className='address'>
                     <img src={address} alt="address"/>
-                    <div className='ph-em-ad'>
+                    <div className='ph-em-ad' id='move'>
                         <h2>Address</h2>
-                        <p>India</p> 
+                        <p>Building 3, No. 97, Yuehai <br />
+                             Real Estate, 128 <br /> Industrial Zone, Tangxia Town, <br /> Dongguan City, CHINA 523710
+                        </p> 
                     </div>
                 </div>
 
             </div>
 
             <div className='get-in-touch'>
-                <h2>Get in touch with us</h2>
+                <h1>Get in touch with us</h1>
                 <p>For more enquiry about our product and services - please fill the form below and we will contact you shortly</p>
             </div>
 
@@ -84,7 +85,7 @@ function ContactPage() {
         
 
             <div className='send-message'>
-                <Button type={'submit'} content='Send Message' style={{ width: '25%', height: '50px', borderRadius: '30px' }} />
+                <Button type={'submit'} content='Send Message' style={{ width: '25%', height: '50px', borderRadius: '30px', fontSize: '1.7rem' }} />
             </div>
         </div>
 

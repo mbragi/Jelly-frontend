@@ -12,11 +12,11 @@ export default function NavBar() {
             <div className='contact-details-container'>
               <p className='phone'>
                 <MdLocalPhone size={30} color="rgba(203, 182, 182)" className="icon" />
-                0000000000
+                +86 1805723297
               </p>
               <p className='email'>
                 <MdOutlineMailOutline size={30} color="rgba(203, 182, 182)" className="icon" />
-                hello@jelly.co
+                254510608@qq.com
               </p>
             </div>
 
