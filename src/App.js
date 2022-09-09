@@ -5,6 +5,7 @@ import LoginPage from "../src/pages/login/LoginPage";
 import Home from "./pages/home/Home";
 import Cart from "./pages/cart/Cart";
 import Contact from "./pages/contact/ContactPage"
+import CheckOut from "./pages/checkout/CheckOut";
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         </BrowserRouter>
            
       </section>
-      <Contact  />
+      <CheckOut  />
     </>
   );
 }
