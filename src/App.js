@@ -18,8 +18,9 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<LoginPage />} />
             <Route exact path="/register" element={<RegisterPage />} />
+            <Route exact path="/Contact" element={<Contact />} />
             <Route exact path="/cart" element={<Cart />} />
-            <Route exact path="/checkout" element={<Checkout />} />
+            <Route exact path="/checkout" element={<CheckOut />} />
           </Routes>
         </BrowserRouter>
            
