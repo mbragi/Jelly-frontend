@@ -57,7 +57,6 @@ export default function NavBar() {
             </div>
           </div>
       </nav>
-      <div className='hid'>hidd</div>
     </div>
   )
 }

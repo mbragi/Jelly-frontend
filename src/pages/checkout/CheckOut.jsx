@@ -2,7 +2,8 @@ import React from "react";
 import './CheckOut.css';
 import NavBar from "../../components/navBar/NavBar";
 import { FaArrowLeft } from 'react-icons/fa'
-
+import item from "../../assets/turn-signal.png"
+import Button from '../../components/button/Button'
 function CheckOut (){
     return(
         <div>
@@ -42,11 +43,51 @@ function CheckOut (){
                         <input type="text" placeholder="City" /><br />
                     </div>
                     <div className="flex" style = {{color: 'blue',fontSize: '1.3rem', fontWeight: 'bold'}}>
-                        <FaArrowLeft style = {{fontSize: '1.4rem', marginTop: '3%'}} /> Continue Shopping <br /><br />
+                        <FaArrowLeft style = {{fontSize: '1.2rem', marginTop: '3%'}} /> Continue Shopping <br /><br />
                     </div>
                 </div>
                 <div className="cart-order">
-                    <h1>Your order</h1>
+                    <h2>Your order</h2>
+                    <hr />
+                    <div className="col-3">
+                        <section className="groupc">
+                            <img src={item} alt="product" />
+                            <h2>evTop e-indicator</h2>
+                        </section>
+                        <h3>元1410</h3>
+                    </div>
+                    <hr />
+                    <section className="section">
+                        <hr />
+                        <div className="groupc" style={{width: '100%'}}>
+                            <h2 style={{color: 'gray'}}>Cart Subtotal</h2>
+                            <h3>元1410</h3>
+                        </div>
+                        <hr />
+                        <div className="groupc" style={{width: '100%'}}>
+                            <h2 style={{color: 'gray'}}>Shippping</h2>
+                            <h3>+元250</h3>
+                        </div>
+                        <hr />
+                        <div className="groupc" style={{width: '100%'}}>
+                            <h2>Order Total</h2>
+                            <h3>元1660</h3>
+                        </div>
+                        <hr />
+                        <div className="paymeth">
+                            <h2>Payment Method</h2>
+                            <hr />
+                            <div className="paypal">
+                                <div className="groupc"  style= {{ height: '100%', width: '40%', margin: 'auto 10% '}}>
+                                    <span style = {{fontSize: '5rem', color: 'lightgray'}}>●</span>
+                                    <h2>Paypal</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="btnc">
+                            <Button content = 'Proceed To Checout' style = {{marginTop: '5%', width: '100%', height: '60px'}} /> <br />
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>

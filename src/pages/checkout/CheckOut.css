@@ -4,8 +4,8 @@
 }
 .col-2{
     display: flex;
-    width: 95%;
-    margin: 5% auto 0;
+    width: 89%;
+    margin: 8% auto 0;
     justify-content: space-between;
 }
 .cart-sum, .cart-order{
@@ -39,8 +39,8 @@
 }
 .flex{
     display: flex;
-    justify-content: space-between;
-    width: 30%;
+    justify-content: space-around;
+    width: 35%;
     height: 25px;
 }
 .input span{
@@ -57,4 +57,56 @@
 }
 .cart-order{
     background: rgba(247, 241, 241, 0.889);
+    padding: .5% 2% 3%;
+}
+h2 + hr{
+    background: black;
+}
+.col-3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4%;
+}
+.col-3 .groupc img{
+    width: 30%;
+    height: 30%;
+    object-fit: cover;
+}
+.groupc{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+.col-3 + hr{
+    margin-top: 4%;
+}
+.section{
+    margin-top: 10%;
+}
+.section hr{
+    background: black;
+}
+.paymeth{
+    width: 92%;
+    margin: 9% auto;
+}
+.paymeth hr{
+    background: black;
+}
+.paypal:hover{
+    border: 2px solid red;
+    transition: ease-in .5s;
+}
+.paypal{
+    background: white;
+    margin: 5% auto 0;
+    width: 90%;
+    height: 70px;
+    border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.groupc span{
+    margin-bottom: 15%;
 }
