@@ -5,6 +5,9 @@ import Home from "./pages/home/Home";
 import LoginPage from "../src/pages/login/LoginPage";
 import RegisterPage from "../src/pages/register/RegisterPage";
 import Cart from "./pages/cart/Cart";
+import Contact from "./pages/contact/ContactPage"
+import CheckOut from "./pages/checkout/CheckOut";
+
 
 function App() {
   return (
@@ -16,11 +19,11 @@ function App() {
             <Route exact path="/login" element={<LoginPage />} />
             <Route exact path="/register" element={<RegisterPage />} />
             <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/checkout" element={<Checkout />} />
           </Routes>
         </BrowserRouter>
            
       </section>
-      {/* <Home  /> */}
     </>
   );
 }

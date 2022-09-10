@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from "../../components/navBar/NavBar";
 import intro from "../../assets/intro.mp4";
-import features from "../../assets/features.png";
+import features from "../../assets/Features.png";
 import bike from "../../assets/bike.png";
 import turnSignal from "../../assets/turn-signal.png";
 import Button from "../../components/button/Button";
