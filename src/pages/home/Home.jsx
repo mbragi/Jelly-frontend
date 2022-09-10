@@ -8,6 +8,7 @@ import Button from "../../components/button/Button";
 import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
+import { Zoom } from "react-awesome-reveal";
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
   const featuresArray = ["bike.png", "turn-signal.png"]
@@ -35,7 +36,9 @@ function Home() {
 
           <div className='features-slider-div'>
             <BiChevronLeftCircle size={50} className='icon' onClick={() => {prev()}}/>
-            <img src={require(`../../assets/${featuresArray[featuresIndex]}`)} alt="bike" className='slider-item' />
+            <Zoom className='slider-attention-seeker'>
+              <img src={require(`../../assets/${featuresArray[featuresIndex]}`)} alt="bike" className='slider-item' />
+            </Zoom>
             <BiChevronRightCircle size={50} className='icon' onClick={() => {next()}}/>
           </div>
 
@@ -66,7 +69,9 @@ function Home() {
         </div>
 
         <div className='promo'>
-          <img src={turnSignal} alt="promo" className='promo-img' />
+          <Zoom className='promo-attention-seeker'>
+            <img src={turnSignal} alt="promo" className='promo-img' />
+          </Zoom>
           <div className='promo-info'>
             <h2 className='promo-header'>Jelly e-indicaator</h2>
 
@@ -98,17 +103,23 @@ function Home() {
             <BiChevronLeftCircle size={50} className='icon' />
 
             <div className='accessories-slider-item'>
-              <img src={bike} alt="bike" className='accessories-slider-item-image' />
+              <Zoom>
+                <img src={bike} alt="bike" className='accessories-slider-item-image' />
+              </Zoom>
               <Button content="Add to Cart" style={{}} />
             </div>
             
             <div className='accessories-slider-item'>
-              <img src={bike} alt="bike" className='accessories-slider-item-image' />
+              <Zoom>
+                <img src={bike} alt="bike" className='accessories-slider-item-image' />
+              </Zoom>
               <Button content="Add to Cart" style={{}} />
             </div>
             
             <div className='accessories-slider-item'>
-              <img src={bike} alt="bike" className='accessories-slider-item-image' />
+              <Zoom>
+                <img src={bike} alt="bike" className='accessories-slider-item-image' />
+              </Zoom>
               <Button content="Add to Cart" style={{}} />
             </div>
 
