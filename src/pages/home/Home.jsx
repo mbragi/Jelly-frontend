@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavBar from "../../components/navBar/NavBar";
 import intro from "../../assets/intro.mp4";
 import features from "../../assets/features.png";
@@ -9,6 +9,20 @@ import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 function Home() {
+  const [featuresIndex, setFeaturesIndex] = useState(0);
+  const featuresArray = ["bike.png", "turn-signal.png"]
+  const prev = () => {
+    setFeaturesIndex(featuresIndex => {
+      if (featuresIndex === 0) return featuresArray.length - 1;
+      return featuresIndex - 1;
+    })
+  }
+  const next = () => {
+    setFeaturesIndex(featuresIndex => {
+      if (featuresIndex === (featuresArray.length - 1)) return 0;
+      return featuresIndex + 1;
+    })
+  }
   return (
     <div className='container'>
 
@@ -20,9 +34,9 @@ function Home() {
           <img src={features} alt="header" className='features-header' />
 
           <div className='features-slider-div'>
-            <BiChevronLeftCircle size={50} className='icon' />
-            <img src={bike} alt="bike" className='slider-item' />
-            <BiChevronRightCircle size={50} className='icon' />
+            <BiChevronLeftCircle size={50} className='icon' onClick={() => {prev()}}/>
+            <img src={require(`../../assets/${featuresArray[featuresIndex]}`)} alt="bike" className='slider-item' />
+            <BiChevronRightCircle size={50} className='icon' onClick={() => {next()}}/>
           </div>
 
         </div>

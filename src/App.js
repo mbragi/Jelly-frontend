@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { path } from "./routes";
-import LoginPage from "../src/pages/login/LoginPage";
+// import { path } from "./routes";
 import Home from "./pages/home/Home";
+import LoginPage from "../src/pages/login/LoginPage";
+import RegisterPage from "../src/pages/register/RegisterPage";
 import Cart from "./pages/cart/Cart";
 
 function App() {
@@ -11,12 +12,15 @@ function App() {
       <section style={{ width: "100%" }}>
         <BrowserRouter>
           <Routes>
-            <Route exact path={path.loginPage} element={<LoginPage />} />
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/login" element={<LoginPage />} />
+            <Route exact path="/register" element={<RegisterPage />} />
+            <Route exact path="/cart" element={<Cart />} />
           </Routes>
         </BrowserRouter>
            
       </section>
-      <Home  />
+      {/* <Home  /> */}
     </>
   );
 }

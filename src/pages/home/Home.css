@@ -1,6 +1,7 @@
 .intro{
     min-width: 100%;
     height: 80vh;
+    background-color: black;
 }
 .container{
     height: 100vh;
@@ -13,7 +14,6 @@
     align-items: center;
     padding: 20px;
     margin-top: 30px;
-    /* background-color: red; */
 }
 .features-header{
     width: 500px;
@@ -26,9 +26,10 @@
     justify-content: space-evenly;
     margin-top: 30px;
 }
-/* .slider-item{
-    
-} */
+.slider-item{
+    width: 80%;
+    height: 600px;
+}
 .transport-cost-div{
     width: 100%;
     display: flex;
