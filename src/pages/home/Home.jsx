@@ -42,11 +42,6 @@ function Home() {
             <BiChevronRightCircle size={50} className='icon' onClick={() => {next()}}/>
           </div>
 
-        <div className='features-slider-div'>
-          <BiChevronLeftCircle size={50} className='icon' />
-          <img src={bike} alt="bike" className='slider-item' />
-          <BiChevronRightCircle size={50} className='icon' />
-        </div>
 
       </div>
 
@@ -105,14 +100,7 @@ function Home() {
           <Button content="View More" style={{}} />
         </div>
 
-        <div className='accessories-slider'>
 
-          <BiChevronLeftCircle size={50} className='icon' />
-
-          <div className='accessories-slider-item'>
-            <img src={bike} alt="bike" className='accessories-slider-item-image' />
-            <Button content="Add to Cart" style={{}} />
-          </div>
 
           <div className='accessories-slider'>
             
@@ -140,15 +128,6 @@ function Home() {
             </div>
 
             <BiChevronRightCircle size={50} className='icon' />
-
-          </div>
-
-          <div className='accessories-slider-item'>
-            <img src={bike} alt="bike" className='accessories-slider-item-image' />
-            <Button content="Add to Cart" style={{}} />
-          </div>
-
-          <BiChevronRightCircle size={50} className='icon' />
 
         </div>
       </div>
