@@ -24,6 +24,7 @@ function RegisterPage() {
             },
             body: JSON.stringify(request)
         })
+        console.log(response);
 
     }
 
