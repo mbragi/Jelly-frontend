@@ -42,7 +42,7 @@ function Cart() {
                 </div>
 
                 <div className='cart-summary'>
-                    <p className='cart-summary-item cart-summary-item-header'>
+                    <p className='cart-summary-item cart-summary-header'>
                         <p>cart summary</p>
                     </p>
                     <p className='cart-summary-item'>

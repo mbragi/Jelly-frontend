@@ -3,18 +3,28 @@
         "_id": 1,
         "name": "Sports Bike",
         "img_url": "bike.png",
-        "price": 300
+        "price": 300,
+        "ratings": 4
     },
     {
         "_id": 2,
         "name": "Turn Signal",
         "img_url": "turn-signal.png",
-        "price": 100
+        "price": 100,
+        "ratings": 4
     },
     {
         "_id": 3,
         "name": "Sports Bike",
         "img_url": "bike.png",
-        "price": 300
+        "price": 300,
+        "ratings": 4
+    },
+    {
+        "_id": 4,
+        "name": "Turn Signal",
+        "img_url": "turn-signal.png",
+        "price": 100,
+        "ratings": 4
     }
 ]
