@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+*{
+    font-family: 'Oswald', sans-serif;
+}
+.contact-page{
+    width: 100%;
+    margin: 3% auto;
+}
+
+.contact-us-header{
+   background-color: #d9d9d971;
+   height: 35vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.contact-us-header h1{
+    color: #1E1EB2;
+    font-weight: bolder;
+    font-size: 3rem;
+}
+
+.know-us-better h1{
+    text-align: center;
+    font-size: 2.8rem;
+}
+.phone-email-address{
+    display: flex;
+    justify-content: space-between;  
+    margin: 2% auto 0;
+    width: 95%;
+}
+
+.phone-email-address img{
+   width:50px;
+   height: 50px;
+}
+
+.phone{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.email-id{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.address {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ph-em-ad h2{
+  margin-bottom: 0;
+}
+#move{
+    margin-top: 30%;
+}
+.ph-em-ad p{
+    margin-top: 0;
+}
+
+
+.get-in-touch{
+    text-align: center;
+    margin-top: 5%;
+}
+.get-in-touch h1{
+    font-size: 2.8rem;
+}
+
+.get-in-touch p{
+    width: 60%;
+    margin: 0 auto;
+    font-size: 1.8rem;
+}
+
+
+.fullname-mobile-email{
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0 40px;
+}
+
+.fullname-mobile-email input{
+    padding: 20px;
+    font-size: 20px;
+    background-color: #d9d9d971;
+    width: 300px;
+    outline: none;
+    border: none;
+}
+
+.subject input{
+    padding: 20px;
+    margin-bottom: 40px;
+    width: 100%;
+    font-size: 20px;
+    background-color: #d9d9d971;
+    outline: none;
+    border: none;
+}
+
+.message textarea{
+    margin-bottom: 20px;
+    width: 100%;
+    word-wrap:break-word;
+    padding: 10px;
+    height: 150px;
+    text-align:top;
+    top: 0;
+    font-size: 20px;
+    background-color: #d9d9d971;
+    outline: none;
+    border: none;
+}
+
+.send-message{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+footer{
+    background-color: black;
+    height: 100px;
+    color: white;
+}
+
+
+
+@media screen and (max-width:1000px) {
+    .fullname-mobile-email{
+        display: block;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    .fullname-mobile-email input{
+        margin-bottom: 20px;
+    }
+
+    .phone-email-address {
+        display: grid;
+        margin-bottom: 50px;
+    }
+  
+}
