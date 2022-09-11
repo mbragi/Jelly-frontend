@@ -43,7 +43,7 @@ function RegisterPage() {
                 <form onSubmit={httpRegisterUser} className='register-page-form'>
                     <div className='fullname-input'>
                         <p>Fullname*</p>
-                        <input className='gen-input' onChange={sendDetails} name='fullname' />
+                        <input className='gen-input' onChange={sendDetails} name='fullName' />
                     </div>
 
 
@@ -61,7 +61,7 @@ function RegisterPage() {
 
                     <div className='confirm-password-input'>
                         <p>Confirm password*</p>
-                        <input className='gen-input' onChange={sendDetails} name='confirm password' />
+                        <input className='gen-input' onChange={sendDetails} name='confirmPassword' />
                     </div>
 
 
