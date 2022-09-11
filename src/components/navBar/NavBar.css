@@ -1,3 +1,8 @@
+.top-margin{
+    width: 100%;
+    height: 100px;
+
+}
 .nav-bar{
     width: 100%;
     height: 100px;
@@ -63,6 +68,7 @@
 .link{
     color: black;
     cursor: pointer;
+    text-decoration: none;
 }
 .home-link{
     border-bottom: 2px solid black;

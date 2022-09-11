@@ -21,6 +21,7 @@ function App() {
             <Route exact path="/Contact" element={<Contact />} />
             <Route exact path="/cart" element={<Cart />} />
             <Route exact path="/checkout" element={<CheckOut />} />
+            <Route exact path="*" element={<h1>404</h1>} />
           </Routes>
         </BrowserRouter>
            
