@@ -4,10 +4,12 @@ import { MdLocalPhone, MdOutlineMailOutline, MdLocationOn } from "react-icons/md
 import { GrFormEdit } from "react-icons/gr";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdCart } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
     <div>
+      <div className='top-margin'></div>
       <nav className='nav-bar'>
           <div className='top'>
               <div className='contact-details-container'>
@@ -44,16 +46,16 @@ export default function NavBar() {
           <div className='bottom'>
             <div className='logo-container'></div>
             <div className='links'>
-              <p className='link home-link'>Home</p>
+              <Link to='/' className='link home-link'>Home</Link>
               <p className='link'About Us></p>
               <p className='link'>Shop</p>
               <p className='link'>Product</p>
-              <p className='link'>Contact Us</p>
+              <Link to="/contact" className='link'>Contact Us</Link>
               <p className='link'>FAQ</p>
-              <div className='cart-container'>
+              <Link to='/cart' className='link cart-container'>
                 <p className='cart-quantity'>0</p>
                 <IoMdCart size={30} color="black" />
-              </div>
+              </Link>
             </div>
           </div>
       </nav>
