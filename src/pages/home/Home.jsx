@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavBar from "../../components/navBar/NavBar";
 import intro from "../../assets/intro.mp4";
-import features from "../../assets/Features.png";
+import features from "../../assets/features.png";
 import bike from "../../assets/bike.png";
 import turnSignal from "../../assets/turn-signal.png";
 import Button from "../../components/button/Button";
 import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
+import { Fade, Zoom } from "react-awesome-reveal";
 function Home() {
+  const [featuresIndex, setFeaturesIndex] = useState(0);
+  const featuresArray = ["bike.png", "turn-signal.png"]
+  const prev = () => {
+    setFeaturesIndex(featuresIndex => {
+      if (featuresIndex === 0) return featuresArray.length - 1;
+      return featuresIndex - 1;
+    })
+  }
+  const next = () => {
+    setFeaturesIndex(featuresIndex => {
+      if (featuresIndex === (featuresArray.length - 1)) return 0;
+      return featuresIndex + 1;
+    })
+  }
   return (
     <div className='container'>
 
@@ -17,13 +32,16 @@ function Home() {
 
       <div className='features-div'>
 
-        <img src={features} alt="header" className='features-header' />
+          <img src={features} alt="header" className='features-header' />
 
-        <div className='features-slider-div'>
-          <BiChevronLeftCircle size={50} className='icon' />
-          <img src={bike} alt="bike" className='slider-item' />
-          <BiChevronRightCircle size={50} className='icon' />
-        </div>
+          <div className='features-slider-div'>
+            <BiChevronLeftCircle size={50} className='icon' onClick={() => {prev()}}/>
+            <Fade direction="up" spy={featuresIndex} className='slider-attention-seeker'>
+              <img src={require(`../../assets/${featuresArray[featuresIndex]}`)} alt="bike" className='slider-item' />
+            </Fade>
+            <BiChevronRightCircle size={50} className='icon' onClick={() => {next()}}/>
+          </div>
+
 
       </div>
 
@@ -51,10 +69,13 @@ function Home() {
         </div>
       </div>
 
-      <div className='promo'>
-        <img src={turnSignal} alt="promo" className='promo-img' />
-        <div className='promo-info'>
-          <h2 className='promo-header'>Jelly e-indicaator</h2>
+        <div className='promo'>
+          <Fade direction="up" spy={featuresIndex} className='promo-attention-seeker'>
+            <img src={turnSignal} alt="promo" className='promo-img' />
+          </Fade>
+          <div className='promo-info'>
+            <h2 className='promo-header'>Jelly e-indicaator</h2>
+
 
           <div className='ratings'>
             <MdOutlineStar size={20} color="yellow" />
@@ -79,26 +100,34 @@ function Home() {
           <Button content="View More" style={{}} />
         </div>
 
-        <div className='accessories-slider'>
 
-          <BiChevronLeftCircle size={50} className='icon' />
 
-          <div className='accessories-slider-item'>
-            <img src={bike} alt="bike" className='accessories-slider-item-image' />
-            <Button content="Add to Cart" style={{}} />
-          </div>
+          <div className='accessories-slider'>
+            
+            <BiChevronLeftCircle size={50} className='icon' />
 
-          <div className='accessories-slider-item'>
-            <img src={bike} alt="bike" className='accessories-slider-item-image' />
-            <Button content="Add to Cart" style={{}} />
-          </div>
+            <div className='accessories-slider-item'>
+              <Zoom direction="up">
+                <img src={bike} alt="bike" className='accessories-slider-item-image' />
+              </Zoom>
+              <Button content="Add to Cart" style={{}} />
+            </div>
+            
+            <div className='accessories-slider-item'>
+              <Zoom direction="up">
+                <img src={bike} alt="bike" className='accessories-slider-item-image' />
+              </Zoom>
+              <Button content="Add to Cart" style={{}} />
+            </div>
+            
+            <div className='accessories-slider-item'>
+              <Zoom direction="up">
+                <img src={bike} alt="bike" className='accessories-slider-item-image' />
+              </Zoom>
+              <Button content="Add to Cart" style={{}} />
+            </div>
 
-          <div className='accessories-slider-item'>
-            <img src={bike} alt="bike" className='accessories-slider-item-image' />
-            <Button content="Add to Cart" style={{}} />
-          </div>
-
-          <BiChevronRightCircle size={50} className='icon' />
+            <BiChevronRightCircle size={50} className='icon' />
 
         </div>
       </div>

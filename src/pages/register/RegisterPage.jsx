@@ -25,6 +25,7 @@ function RegisterPage() {
                 "content-Type": "application/json",
             },
             body: JSON.stringify(request)
+
         }).catch(err => { console.log(err.message) })
         const allData = await response.json()
         // console.log(allData)
@@ -33,6 +34,7 @@ function RegisterPage() {
         }, 4000)
         setResData(allData)
         setTimeout()
+
     }
 
     return (
