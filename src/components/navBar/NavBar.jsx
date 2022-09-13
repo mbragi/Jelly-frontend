@@ -35,7 +35,7 @@ export default function NavBar() {
 
               <div className='location-container'>
                 <p className='store-locator'>
-                  <MdLocationOn size={30} color="rgba(203, 182, 182)" className="icon" />
+                  <MdLocationOn size={25} color="rgba(203, 182, 182)" className="icon" />
                   Store Locator
                 </p>
 
@@ -48,7 +48,7 @@ export default function NavBar() {
 
                 <span> / </span>
 
-                  <FaUserAlt size={30} color="rgba(203, 182, 182)" className="icon" />
+                  <FaUserAlt size={25} color="rgba(203, 182, 182)" className="icon" />
 
               </div>
           </div>
