@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./NavBar.css";
 import { MdLocalPhone, MdOutlineMailOutline, MdLocationOn } from "react-icons/md";
 import { GrFormEdit } from "react-icons/gr";
@@ -7,10 +7,20 @@ import { IoMdCart } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 export default function NavBar() {
+  const [navbar, setNavbar] = useState(false);
+
+  const changeNav = () => {
+    if(window.scrollY >= 100){
+      setNavbar(true);
+    }else{
+      setNavbar(false)
+    }
+  };
+  window.addEventListener('scroll', changeNav)
   return (
     <div>
       <div className='top-margin'></div>
-      <nav className='nav-bar'>
+      <nav className={navbar ? 'nav-bar active' : 'nav-bar'}>
           <div className='top'>
               <div className='contact-details-container'>
                 <p className='phone'>
