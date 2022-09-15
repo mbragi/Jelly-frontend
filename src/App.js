@@ -3,10 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { path } from "./routes";
 import Home from "./pages/home/Home";
 import LoginPage from "./pages/login/LoginPage";
-import Cart from "./pages/cart/Cart";
+import Cart from "./pages/cart/Cart.jsx";
 import RegisterPage from "./pages/register/RegisterPage";
 import CheckOut from "./pages/checkout/CheckOut";
-
+import ContactPage from './pages/contact/ContactPage'
 function App() {
   return (
     <>
