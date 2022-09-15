@@ -26,6 +26,7 @@ function App() {
             <Route exact path={path.registerpage} element={<RegisterPage />} />
             <Route exact path={path.cart} element={<Cart />} />
             <Route exact path="/checkout" element={<CheckOut />} />
+            <Route exact path="/contact" element={<ContactPage />} />
             <Route exact path="*" element={<h1>404</h1>} />
           </Routes>
         </BrowserRouter>
