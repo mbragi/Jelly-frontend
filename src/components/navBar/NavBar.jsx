@@ -1,0 +1,74 @@
+import React, { useState } from 'react';
+import "./NavBar.css";
+import { MdLocalPhone, MdOutlineMailOutline, MdLocationOn } from "react-icons/md";
+import { GrFormEdit } from "react-icons/gr";
+import { FaUserAlt } from "react-icons/fa";
+import { IoMdCart } from "react-icons/io";
+import { Link } from "react-router-dom";
+
+export default function NavBar() {
+  const [navbar, setNavbar] = useState(false);
+
+  const changeNav = () => {
+    if(window.scrollY >= 100){
+      setNavbar(true);
+    }else{
+      setNavbar(false)
+    }
+  };
+  window.addEventListener('scroll', changeNav)
+  return (
+    <div>
+      <div className='top-margin'></div>
+      <nav className={navbar ? 'nav-bar active' : 'nav-bar'}>
+          <div className='top'>
+              <div className='contact-details-container'>
+                <p className='phone'>
+                  <MdLocalPhone size={30} color="rgba(203, 182, 182)" className="icon" />
+                  +86 1805723297
+                </p>
+                <p className='email'>
+                  <MdOutlineMailOutline size={30} color="rgba(203, 182, 182)" className="icon" />
+                  254510608@qq.com
+                </p>
+              </div>
+
+              <div className='location-container'>
+                <p className='store-locator'>
+                  <MdLocationOn size={25} color="rgba(203, 182, 182)" className="icon" />
+                  Store Locator
+                </p>
+
+                <span> / </span>
+                
+                <p className='dealers-enquiry'>
+                  <GrFormEdit size={30} color="rgba(203, 182, 182)" className="icon" />
+                  Dealers Enquiry
+                </p>
+
+                <span> / </span>
+
+                  <FaUserAlt size={25} color="rgba(203, 182, 182)" className="icon" />
+
+              </div>
+          </div>
+
+          <div className='bottom'>
+            <div className='logo-container'></div>
+            <div className='links'>
+              <Link to='/' className='link home-link'>Home</Link>
+              <p className='link'About Us></p>
+              <p className='link'>Shop</p>
+              <p className='link'>Product</p>
+              <Link to="/contact" className='link'>Contact Us</Link>
+              <p className='link'>FAQ</p>
+              <Link to='/cart' className='link cart-container'>
+                <p className='cart-quantity'>0</p>
+                <IoMdCart size={30} color="black" />
+              </Link>
+            </div>
+          </div>
+      </nav>
+    </div>
+  )
+}
