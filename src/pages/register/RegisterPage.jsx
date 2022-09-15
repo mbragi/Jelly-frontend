@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import './RegisterPage.css'
 import Button from '../../components/button/Button'
+import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
     const [data, setData] = useState({});
-
+    const [resData, setResData] = useState({})
+    const navigate = useNavigate()
 
     function sendDetails(event) {
         const { name, value } = event.target
@@ -23,8 +25,16 @@ function RegisterPage() {
                 "content-Type": "application/json",
             },
             body: JSON.stringify(request)
-        })
-        console.log(response);
+
+        }).catch(err => { console.log(err.message) })
+        const allData = await response.json()
+        // console.log(allData)
+        setTimeout(() => {
+            navigate('/')
+        }, 4000)
+        setResData(allData)
+        setTimeout()
+
     }
 
     return (
@@ -43,7 +53,7 @@ function RegisterPage() {
                 <form onSubmit={httpRegisterUser} className='register-page-form'>
                     <div className='fullname-input'>
                         <p>Fullname*</p>
-                        <input className='gen-input' onChange={sendDetails} name='fullname' />
+                        <input className='gen-input' onChange={sendDetails} name='fullName' />
                     </div>
 
 
@@ -61,7 +71,7 @@ function RegisterPage() {
 
                     <div className='confirm-password-input'>
                         <p>Confirm password*</p>
-                        <input className='gen-input' onChange={sendDetails} name='confirm password' />
+                        <input className='gen-input' onChange={sendDetails} name='confirmPassword' />
                     </div>
 
 
@@ -71,6 +81,7 @@ function RegisterPage() {
 
 
                     <div className='Have-an-account'>
+                        <p>{resData.message}</p>
                         <h3>Have an account? <span>Login</span></h3>
                     </div>
 
