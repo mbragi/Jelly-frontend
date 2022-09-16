@@ -152,3 +152,17 @@
 .icon{
     cursor: pointer
 }
+
+@media screen and (max-width: 720px){
+    .intro{
+        height: 50vh;
+    }
+    .features-header{
+        width: 300px;
+        height: 40px;
+    }
+    .features-slider-div{
+        height: 100px;
+        background-color: red;
+    }
+}

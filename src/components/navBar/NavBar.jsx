@@ -5,6 +5,8 @@ import { GrFormEdit } from "react-icons/gr";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdCart } from "react-icons/io";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
+import menu from "../../assets/menu.png";
 
 export default function NavBar() {
   return (
@@ -29,14 +31,14 @@ export default function NavBar() {
                   Store Locator
                 </p>
 
-                <span> / </span>
+                <span className='slash'> / </span>
                 
                 <p className='dealers-enquiry'>
                   <GrFormEdit size={30} color="rgba(203, 182, 182)" className="icon" />
                   Dealers Enquiry
                 </p>
 
-                <span> / </span>
+                <span className='slash'> / </span>
 
                   <FaUserAlt size={30} color="rgba(203, 182, 182)" className="icon" />
 
@@ -44,11 +46,19 @@ export default function NavBar() {
           </div>
 
           <div className='bottom'>
-            <div className='logo-container'></div>
+            <div className='logo-container'>
+              <Link to='/'>
+                <img src={logo} alt="logo" className='logo' />
+              </Link>
+            </div>
+
+            {/* <div className='menu-div'> */}
+            {/* </div> */}
             <div className='links'>
+              <img src={menu} alt="menu" className='menu' />
               <Link to='/' className='link home-link'>Home</Link>
               <p className='link'About Us></p>
-              <p className='link'>Shop</p>
+              <Link to="/shop" className='link'>Shop</Link>
               <p className='link'>Product</p>
               <Link to="/contact" className='link'>Contact Us</Link>
               <p className='link'>FAQ</p>
