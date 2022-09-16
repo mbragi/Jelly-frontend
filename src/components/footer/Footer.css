@@ -8,7 +8,6 @@
 }
 
 footer{
-    position: fixed;
     bottom: 0px;
     width: 100%;
     background: rgb(21, 21, 108);
@@ -35,7 +34,7 @@ footer{
 .box .content{
     margin: 20px 0 0 0;
     line-height: 35px;
-    position: relative;
+    /* position: relative; */
 }
 
 #address{
