@@ -65,7 +65,7 @@ export default function NavBar() {
             {/* <div className='menu-div'> */}
             {/* </div> */}
             <div className='links'>
-              <img src={menu} alt="menu" className='menu' />
+              {/* <img src={menu} alt="menu" className='menu' /> */}
               <Link to='/' className='link home-link'>Home</Link>
               <p className='link'About Us></p>
               <Link to="/shop" className='link'>Shop</Link>
