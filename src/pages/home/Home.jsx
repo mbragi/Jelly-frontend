@@ -5,6 +5,7 @@ import features from "../../assets/features.png";
 import bike from "../../assets/bike.jpg";
 import turnSignal from "../../assets/turn-signal.jpg";
 import Button from "../../components/button/Button";
+import Footer from '../../components/footer/Footer';
 import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
@@ -132,6 +133,7 @@ function Home() {
         </div>
       </div>
 
+    <Footer />
     </div>
   )
 }

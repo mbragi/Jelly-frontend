@@ -5,7 +5,7 @@
 .col-2{
     display: flex;
     width: 89%;
-    margin: 8% auto 0;
+    margin: 2% auto 0;
     justify-content: space-between;
 }
 .cart-sum, .cart-order{
