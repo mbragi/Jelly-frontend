@@ -6,7 +6,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { IoMdCart } from "react-icons/io";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import menu from "../../assets/menu.png";
+// import menu from "../../assets/menu.png";
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
