@@ -5,7 +5,7 @@ import Home from "./pages/home/Home";
 import LoginPage from "./pages/login/LoginPage";
 import Cart from "./pages/cart/Cart.jsx";
 import RegisterPage from "./pages/register/RegisterPage";
-import Product from "./pages/product/Product";
+import Products from "./pages/products/Products.jsx";
 import CheckOut from "./pages/checkout/CheckOut";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
             <Route exact path={path.registerpage} element={<RegisterPage />} />
             <Route exact path={path.cart} element={<Cart />} />
             <Route exact path={path.checkout} element={<CheckOut />} />
-            <Route exact path={path.product} element={<Product />} />
+            <Route exact path={path.product} element={<Products />} />
             <Route exact path="*" element={<h1>404</h1>} />
           </Routes>
         </BrowserRouter>
