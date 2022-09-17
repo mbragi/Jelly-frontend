@@ -59,7 +59,31 @@
 .logo-container{
     width: 30%;
     height: 100%;
-    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+}
+.logo{
+    width: 100px;
+    height: 70px;
+    background-color: none;
+    object-fit: cover;
+}
+/* .menu-div{
+} */
+.menu{
+    width: 50px;
+    height: 30px;
+    align-self: center;
+    /* background-color: blue; */
+    /* display: flex;
+    align-items: center;
+    justify-content: space-evenly; */
+    cursor: pointer;
+    /* width: 80%;
+    height: 50%; */
+}
+.menu:hover + .links{
+    display: flex;
 }
 .links{
     width: 60%;
@@ -93,8 +117,46 @@
     position: absolute;
     border-radius: 50%;
     background-color: rgb(53, 112, 236);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: .8rem;
+}
+@media screen and (max-width: 720px){
+    /* .top-margin, .nav-bar{
+        height: 75px;
+    } */
+    /* .top{
+        display: none;
+    } */
+    .email, .store-locator, .dealers-enquiry{
+        display: none;
+    }
+    .bottom{
+        /* height: 100%;
+        flex-direction: column; */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .links{
+        flex-direction: column;
+    }
+    .links:hover .link{
+        width: 100%;
+        /* height: 100%; */
+        /* position: absolute; */
+        /* background-color: red; */
+        display: flex;
+        margin-top: 100px;
+    }
+    .link{
+        display: none;
+    }
+    .logo-container{
+        width: 20%;
+    }
+    .logo{ 
+        width: 100%;
+        height: 100%;
+        
+    }
+    /* .contact-details-container{
+        flex-direction: column;
+    } */
 }

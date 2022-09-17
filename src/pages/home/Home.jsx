@@ -9,6 +9,7 @@ import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
+import Footer from '../../components/footer/Footer';
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
   const featuresArray = ["bike.png", "turn-signal.png"]
@@ -131,7 +132,7 @@ function Home() {
 
         </div>
       </div>
-
+      <Footer />
     </div>
   )
 }

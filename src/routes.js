@@ -3,4 +3,6 @@ export const path = Object.freeze({
   cart: "/cart",
   loginPage: "/login",
   registerpage: "/register",
+  checkout: "/checkout",
+  product: "/shop"
 });

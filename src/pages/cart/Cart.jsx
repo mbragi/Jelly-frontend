@@ -4,6 +4,7 @@ import NavBar from '../../components/navBar/NavBar';
 import Button from '../../components/button/Button';
 import { BsArrowLeft } from 'react-icons/bs';
 import cart from "./cart.json";
+import Footer from '../../components/footer/Footer';
 function Cart() {
   return (
     <div className='cart'>
@@ -71,7 +72,7 @@ function Cart() {
             <BsArrowLeft size={30} />
             Continue Shopping
         </p>
-        
+       <Footer />
     </div>
   )
 }
