@@ -28,7 +28,7 @@ function Home() {
   return (
     <div className='container'>
 
-      <NavBar />
+      <NavBar currentPage="home" />
       <video controls autostart autoPlay loop src={intro} type="video/mp4" className='intro' />
 
       <div className='features-div'>

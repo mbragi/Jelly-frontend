@@ -31,7 +31,7 @@ function Products() {
 
   return (
     <div className='container'>
-        <NavBar />
+        <NavBar currentPage="shop" />
         <div className='products-page'>
 
           <div className='product-header'>
