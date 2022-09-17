@@ -12,7 +12,7 @@ function Products() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
-  const productsPerPage = 6;
+  const productsPerPage = 8;
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
