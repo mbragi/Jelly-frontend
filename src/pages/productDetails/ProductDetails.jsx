@@ -1,5 +1,6 @@
 import React from 'react'
 import './ProductDetails.css'
+import { RatingStar } from "rating-star";
 // import NavBar from '../../components/navBar/NavBar'
 import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer'
@@ -8,7 +9,17 @@ import cart from '../../assets/images/cart.png'
 
 
 
+
 function ProductDetails() {
+
+    const [rating, setRating] = React.useState(0);
+
+    const onRatingChange = (score) => {
+      setRating(score);
+    };
+
+
+
   return (
 
     <div>
@@ -142,14 +153,26 @@ function ProductDetails() {
 
                             <div className='verified-ratings-box'>
                                 <h2>3.5/5</h2>
-                                RATINGS
+                                <RatingStar
+                                clickable
+                                maxScore={60}
+                                id="123"
+                                rating={rating}
+                                onRatingChange={onRatingChange}/>
+
                                 <p>245 verified ratings</p>
                             </div>
                         </div>
 
                         <div className='comments-from-v-purchases1'>
                             <h3>COMMENTS FROM VERIFIED PURCHASES</h3>
-                                RATINGS            
+                                <RatingStar
+                                clickable
+                                maxScore={100}
+                                id="123"
+                                rating={rating}
+                                onRatingChange={onRatingChange}/>   
+
                                 <p style={{fontWeight:'bold'}}>I like it</p>
                                 <p>Simple</p>
                                 <p>15-09-2022</p>
@@ -163,16 +186,58 @@ function ProductDetails() {
                         <div className='verified-ratings'>
                                                     
                             <div className='verified-rating-count'>
-                                <p>5######### </p>
-                                <p>4#########</p>
-                                <p>3#########</p>
-                                <p>2#########</p>
-                                <p>1#########</p>
+                                <p>5 <RatingStar
+                                    clickable
+                                    numberOfStar='1'
+                                    maxScore={100}
+                                    id="123"
+                                    rating={rating}
+                                    onRatingChange={onRatingChange}/>
+                                </p>
+
+                                <p>4 <RatingStar
+                                    clickable
+                                    numberOfStar='1'
+                                    maxScore={100}
+                                    id="123"
+                                    rating={rating}
+                                    onRatingChange={onRatingChange}/>
+                                </p>
+                                <p>3 <RatingStar
+                                    clickable
+                                    numberOfStar='1'
+                                    maxScore={100}
+                                    id="123"
+                                    rating={rating}
+                                    onRatingChange={onRatingChange}/>
+                                </p>
+                                <p>2 <RatingStar
+                                    clickable
+                                    numberOfStar='1'
+                                    maxScore={100}
+                                    id="123"
+                                    rating={rating}
+                                    onRatingChange={onRatingChange}/>
+                                </p>
+                                <p>1 <RatingStar
+                                    clickable
+                                    numberOfStar='1'
+                                    maxScore={100}
+                                    id="123"
+                                    // rating={rating}
+                                    onRatingChange={onRatingChange}/>
+                                </p>
                             </div>
                         </div>
 
                         <div className='comments-from-v-purchases2'>
-                            RATINGS            
+                            <RatingStar
+                            clickable
+                            maxScore={100}
+                            id="123"
+                            rating={rating}
+                            onRatingChange={onRatingChange}/>  
+                                        
                             <p style={{fontWeight:'bold'}}>I like it</p>
                             <p>Simple</p>
                             <p>15-09-2022</p>
