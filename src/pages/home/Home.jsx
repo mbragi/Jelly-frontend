@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import NavBar from "../../components/navBar/NavBar";
 import intro from "../../assets/intro.mp4";
 import features from "../../assets/features.png";
-import bike from "../../assets/bike.png";
-import turnSignal from "../../assets/turn-signal.png";
+import bike from "../../assets/bike.jpg";
+import turnSignal from "../../assets/turn-signal.jpg";
 import Button from "../../components/button/Button";
+import Footer from '../../components/footer/Footer';
 import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
-import Footer from '../../components/footer/Footer';
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
-  const featuresArray = ["bike.png", "turn-signal.png"]
+  const featuresArray = ["bike.jpg", "turn-signal.jpg"]
   const prev = () => {
     setFeaturesIndex(featuresIndex => {
       if (featuresIndex === 0) return featuresArray.length - 1;
@@ -132,7 +132,8 @@ function Home() {
 
         </div>
       </div>
-      <Footer />
+
+    <Footer />
     </div>
   )
 }

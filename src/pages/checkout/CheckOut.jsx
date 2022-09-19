@@ -2,7 +2,7 @@ import React from "react";
 import './CheckOut.css';
 import NavBar from "../../components/navBar/NavBar";
 import { FaArrowLeft } from 'react-icons/fa'
-import item from "../../assets/turn-signal.png"
+import item from "../../assets/turn-signal.jpg"
 import Button from '../../components/button/Button'
 import Footer from "../../components/footer/Footer";
 function CheckOut (){
