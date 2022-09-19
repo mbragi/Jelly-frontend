@@ -12,7 +12,7 @@ import cart from '../../assets/images/cart.png'
 
 function ProductDetails() {
 
-    const [rating, setRating] = React.useState(0);
+    const [rating, setRating] = React.useState(42);
 
     const onRatingChange = (score) => {
       setRating(score);
@@ -143,7 +143,7 @@ function ProductDetails() {
                 <div className='verified-customer-fb'>
                     <div className='verified-customer-fb-header'>
                         <h1>Verified Customers Feedback</h1>
-                        <span>SEE ALL {">"} </span>
+                        <span>SEE ALL <Button type={'submit'} content='>' style={{ width: '20%', height: '50px', borderRadius: '100px', backgroundColor:'white', color:'blue'}} />  </span>
                     </div> 
     
                     <div className='verified-ratings-comments1'>
@@ -154,7 +154,7 @@ function ProductDetails() {
                             <div className='verified-ratings-box'>
                                 <h2>3.5/5</h2>
                                 <RatingStar
-                                clickable
+                                clickable= 'false'
                                 maxScore={60}
                                 id="123"
                                 rating={rating}
@@ -170,7 +170,7 @@ function ProductDetails() {
                                 clickable
                                 maxScore={100}
                                 id="123"
-                                rating={rating}
+                                rating={3}
                                 onRatingChange={onRatingChange}/>   
 
                                 <p style={{fontWeight:'bold'}}>I like it</p>
@@ -186,47 +186,75 @@ function ProductDetails() {
                         <div className='verified-ratings'>
                                                     
                             <div className='verified-rating-count'>
-                                <p>5 <RatingStar
-                                    clickable
-                                    numberOfStar='1'
-                                    maxScore={100}
-                                    id="123"
-                                    rating={rating}
-                                    onRatingChange={onRatingChange}/>
-                                </p>
+                                <div className='verified-rating-slider'>
+                                     <p>5</p>
+                                        <RatingStar
+                                        clickable
+                                        numberOfStar='1'
+                                        maxScore={100}
+                                        id="123"
+                                        rating={rating}
+                                        onRatingChange={onRatingChange}/>
+                                    
+                                    <input type="range" />
 
-                                <p>4 <RatingStar
-                                    clickable
-                                    numberOfStar='1'
-                                    maxScore={100}
-                                    id="123"
-                                    rating={rating}
-                                    onRatingChange={onRatingChange}/>
-                                </p>
-                                <p>3 <RatingStar
-                                    clickable
-                                    numberOfStar='1'
-                                    maxScore={100}
-                                    id="123"
-                                    rating={rating}
-                                    onRatingChange={onRatingChange}/>
-                                </p>
-                                <p>2 <RatingStar
-                                    clickable
-                                    numberOfStar='1'
-                                    maxScore={100}
-                                    id="123"
-                                    rating={rating}
-                                    onRatingChange={onRatingChange}/>
-                                </p>
-                                <p>1 <RatingStar
-                                    clickable
-                                    numberOfStar='1'
-                                    maxScore={100}
-                                    id="123"
-                                    // rating={rating}
-                                    onRatingChange={onRatingChange}/>
-                                </p>
+                                </div>
+
+                                <div className='verified-rating-slider'>
+                                    <p>4 </p> 
+                                    <RatingStar
+                                        clickable
+                                        numberOfStar='1'
+                                        maxScore={100}
+                                        id="123"
+                                        rating={rating}
+                                        onRatingChange={onRatingChange}/>
+                                   
+                                    <input type="range" />
+
+                                </div>
+
+                                <div className='verified-rating-slider'>
+                                    <p>3 </p>
+                                    <RatingStar
+                                        clickable
+                                        numberOfStar='1'
+                                        maxScore={100}
+                                        id="123"
+                                        rating={rating}
+                                        onRatingChange={onRatingChange}/>
+                                   
+                                    <input type="range" />
+
+                                </div>
+
+                                <div className='verified-rating-slider'>
+                                    <p>2 </p>                
+                                    <RatingStar
+                                        clickable
+                                        numberOfStar='1'
+                                        maxScore={100}
+                                        id="123"
+                                        rating={rating}
+                                        onRatingChange={onRatingChange}/>
+                                    <input type="range" />
+
+                                </div>
+
+                                <div className='verified-rating-slider'>
+                                    <p>1 </p>
+                                    <RatingStar
+                                        clickable
+                                        numberOfStar='1'
+                                        maxScore={100}
+                                        id="123"
+                                        rating={rating}
+                                        onRatingChange={onRatingChange}/>
+                                    
+                                    <input type="range" />
+
+                                </div>
+                               
                             </div>
                         </div>
 

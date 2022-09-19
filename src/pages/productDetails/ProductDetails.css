@@ -197,7 +197,13 @@
 
 
 .verified-rating-count{
+    vertical-align:middle;
     width: 250px;
+}
+
+.verified-rating-slider{
+    display: flex;
+    align-items: center;
 }
 
 .comments-from-v-purchases2{
