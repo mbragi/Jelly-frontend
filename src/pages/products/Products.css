@@ -83,7 +83,7 @@
     }
     .categories{
         /* flex-direction: row; */
-        width: 80%;
+        width: 90%;
         margin-bottom: 20px;
         cursor: pointer;
         transition: .9s ease;

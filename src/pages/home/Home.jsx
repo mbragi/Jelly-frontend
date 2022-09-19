@@ -98,7 +98,7 @@ function Home() {
       <div className='accessories-div'>
         <div className='accessories-header'>
           <p className='accessories-title'>Accessories</p>
-          <Button content="View More" style={{}} />
+          <Button content="View More" style={{ width: "20%", height: "15%", fontSize: "100%" }} />
         </div>
 
 
@@ -111,21 +111,21 @@ function Home() {
               <Zoom direction="up">
                 <img src={bike} alt="bike" className='accessories-slider-item-image' />
               </Zoom>
-              <Button content="Add to Cart" style={{}} />
+              <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
             </div>
             
             <div className='accessories-slider-item'>
               <Zoom direction="up">
                 <img src={bike} alt="bike" className='accessories-slider-item-image' />
               </Zoom>
-              <Button content="Add to Cart" style={{}} />
+              <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
             </div>
             
             <div className='accessories-slider-item'>
               <Zoom direction="up">
                 <img src={bike} alt="bike" className='accessories-slider-item-image' />
               </Zoom>
-              <Button content="Add to Cart" style={{}} />
+              <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
             </div>
 
             <BiChevronRightCircle size={50} className='icon' />

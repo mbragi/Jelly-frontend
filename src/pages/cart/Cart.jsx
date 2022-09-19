@@ -4,6 +4,9 @@ import NavBar from '../../components/navBar/NavBar';
 import Button from '../../components/button/Button';
 import { BsArrowLeft } from 'react-icons/bs';
 import cart from "./cart.json";
+import { Link } from 'react-router-dom';
+import Footer from '../../components/footer/Footer';
+
 function Cart() {
   return (
     <div className='cart'>
@@ -11,7 +14,7 @@ function Cart() {
         <h1 className='cart-header'>Cart</h1>
 
         <div className='cart-body'>
-            <h3>Your Cart</h3>
+            {/* <h3>Your Cart</h3> */}
             <div className='cart-body-inner'>
 
                 <div className='items-div'>
@@ -67,11 +70,12 @@ function Cart() {
             </div>
 
         </div>
-        <p className='continue'>
+        <Link to="/shop" className='continue'>
             <BsArrowLeft size={30} />
             Continue Shopping
-        </p>
+        </Link>
         
+        <Footer />
     </div>
   )
 }
