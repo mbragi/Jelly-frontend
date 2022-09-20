@@ -5,6 +5,7 @@ import email from '../../assets/images/email.png'
 import phone from '../../assets/images/phone.png'
 import address from '../../assets/images/address.png'
 import Button from '../../components/button/Button'
+import Footer from '../../components/footer/Footer';
 
 function ContactPage() {
   return (
@@ -89,11 +90,7 @@ function ContactPage() {
             </div>
         </div>
 
-        <footer>
-            <h2>FOOTER</h2>
-
-        </footer>
-
+        <Footer />
     </div>
   )
 }

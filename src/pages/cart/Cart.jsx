@@ -4,8 +4,9 @@ import NavBar from '../../components/navBar/NavBar';
 import Button from '../../components/button/Button';
 import { BsArrowLeft } from 'react-icons/bs';
 import cart from "./cart.json";
-import { Link } from 'react-router-dom';
 import Footer from '../../components/footer/Footer';
+import { Link } from 'react-router-dom';
+
 
 function Cart() {
   return (
@@ -73,6 +74,8 @@ function Cart() {
         <Link to="/shop" className='continue'>
             <BsArrowLeft size={30} />
             Continue Shopping
+        </p>
+       <Footer />
         </Link>
         
         <Footer />

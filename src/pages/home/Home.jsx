@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NavBar from "../../components/navBar/NavBar";
 import intro from "../../assets/intro.mp4";
 import features from "../../assets/features.png";
-import bike from "../../assets/bike.jpg";
+import bike from "../../assets/51.png";
 import turnSignal from "../../assets/turn-signal.jpg";
 import Button from "../../components/button/Button";
 import Footer from '../../components/footer/Footer';
@@ -12,7 +12,7 @@ import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } fro
 import { Fade, Zoom } from "react-awesome-reveal";
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
-  const featuresArray = ["bike.jpg", "turn-signal.jpg"]
+  const featuresArray = ["51.png", "bike.jpg"]
   const prev = () => {
     setFeaturesIndex(featuresIndex => {
       if (featuresIndex === 0) return featuresArray.length - 1;
