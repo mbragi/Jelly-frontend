@@ -6,9 +6,9 @@ import { FaUserAlt } from "react-icons/fa";
 import { IoMdCart } from "react-icons/io";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import menu from "../../assets/menu.png";
+// import menu from "../../assets/menu.png";
 
-export default function NavBar() {
+export default function NavBar({ currentPage }) {
   const [navbar, setNavbar] = useState(false);
 
   const changeNav = () => {
@@ -19,6 +19,14 @@ export default function NavBar() {
     }
   };
   window.addEventListener('scroll', changeNav)
+
+  function page(page){
+    if(page === currentPage) return {
+      borderBottom:" 2px solid black"
+    };
+    return {};
+  }
+
   return (
     <div>
       <div className='top-margin'></div>
@@ -65,13 +73,13 @@ export default function NavBar() {
             {/* <div className='menu-div'> */}
             {/* </div> */}
             <div className='links'>
-              <img src={menu} alt="menu" className='menu' />
-              <Link to='/' className='link home-link'>Home</Link>
-              <p className='link'About Us></p>
-              <Link to="/shop" className='link'>Shop</Link>
-              <p className='link'>Product</p>
-              <Link to="/contact" className='link'>Contact Us</Link>
-              <p className='link'>FAQ</p>
+              {/* <img src={menu} alt="menu" className='menu' /> */}
+              <Link to='/' className='link home-link' style={page("home")}>Home</Link>
+              <p className='link'About Us style={page("about")}></p>
+              <Link to="/shop" className='link' style={page("shop")}>Shop</Link>
+              <p className='link' style={page("products")}>Product</p>
+              <Link to="/contact" className='link' style={page("contact")}>Contact Us</Link>
+              <p className='link' style={page("faq")}>FAQ</p>
               <Link to='/cart' className='link cart-container'>
                 <p className='cart-quantity'>0</p>
                 <IoMdCart size={30} color="black" />

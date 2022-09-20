@@ -73,3 +73,35 @@
 .products::-webkit-scrollbar{
     display: none;
 }
+
+
+
+@media screen and ( max-width: 1000px ) {
+    .product-body{
+        flex-direction: column;
+        align-items: center;
+    }
+    .categories{
+        /* flex-direction: row; */
+        width: 90%;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: .9s ease;
+        background-color: white;
+    }
+    .categories:hover{
+        position: absolute;
+    }
+    .categories:hover .category, .categories:hover .price-filter{
+        display: flex;
+    }
+    .category, .price-filter{
+        /* visibility: hidden; */
+        display: none;
+        margin-top: 10px;
+    }
+
+    .products{
+        width: 100%;
+    }
+}

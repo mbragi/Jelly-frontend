@@ -6,6 +6,7 @@ import logoFaint from '../../assets/logo-faint.png';
 import Product from '../../components/product/Product';
 import Paigination from '../../components/pagination/Pagination';
 import JSONproducts from './products.json';
+import Footer from '../../components/footer/Footer';
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -31,7 +32,7 @@ function Products() {
 
   return (
     <div className='container'>
-        <NavBar />
+        <NavBar currentPage="shop" />
         <div className='products-page'>
 
           <div className='product-header'>
@@ -103,6 +104,7 @@ function Products() {
             <Paigination productsPerPage={productsPerPage} totalProducts={totalProducts} currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
         </div>
+        <Footer />
     </div>
   )
 }

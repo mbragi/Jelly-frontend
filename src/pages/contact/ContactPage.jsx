@@ -11,7 +11,7 @@ function ContactPage() {
   return (
     <div>
         <div className='navigation-bar'>
-            <NavBar />
+            <NavBar currentPage="contact" />
         </div>
 
         <div className='contact-us-header'>
