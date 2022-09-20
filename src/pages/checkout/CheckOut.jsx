@@ -4,6 +4,7 @@ import NavBar from "../../components/navBar/NavBar";
 import { FaArrowLeft } from 'react-icons/fa'
 import item from "../../assets/turn-signal.jpg"
 import Button from '../../components/button/Button'
+import Footer from "../../components/footer/Footer";
 function CheckOut (){
     return(
         <div>
@@ -90,6 +91,7 @@ function CheckOut (){
                     </section>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
