@@ -29,19 +29,19 @@ function Home() {
     <div className='container'>
 
       <NavBar currentPage="home" />
-      <video controls autostart autoPlay loop src={intro} type="video/mp4" className='intro' />
+      <video controls autoPlay loop src={intro} type="video/mp4" className='intro' />
 
       <div className='features-div'>
 
-          <img src={features} alt="header" className='features-header' />
+        <img src={features} alt="header" className='features-header' />
 
-          <div className='features-slider-div'>
-            <BiChevronLeftCircle size={50} className='icon' onClick={() => {prev()}}/>
-            <Fade direction="up" spy={featuresIndex} className='slider-attention-seeker'>
-              <img src={require(`../../assets/${featuresArray[featuresIndex]}`)} alt="bike" className='slider-item' />
-            </Fade>
-            <BiChevronRightCircle size={50} className='icon' onClick={() => {next()}}/>
-          </div>
+        <div className='features-slider-div'>
+          <BiChevronLeftCircle size={50} className='icon' onClick={() => { prev() }} />
+          <Fade direction="up" spy={featuresIndex} className='slider-attention-seeker'>
+            <img src={require(`../../assets/${featuresArray[featuresIndex]}`)} alt="bike" className='slider-item' />
+          </Fade>
+          <BiChevronRightCircle size={50} className='icon' onClick={() => { next() }} />
+        </div>
 
 
       </div>
@@ -70,12 +70,12 @@ function Home() {
         </div>
       </div>
 
-        <div className='promo'>
-          <Fade direction="up" spy={featuresIndex} className='promo-attention-seeker'>
-            <img src={turnSignal} alt="promo" className='promo-img' />
-          </Fade>
-          <div className='promo-info'>
-            <h2 className='promo-header'>Jelly e-indicaator</h2>
+      <div className='promo'>
+        <Fade direction="up" spy={featuresIndex} className='promo-attention-seeker'>
+          <img src={turnSignal} alt="promo" className='promo-img' />
+        </Fade>
+        <div className='promo-info'>
+          <h2 className='promo-header'>Jelly e-indicaator</h2>
 
 
           <div className='ratings'>
@@ -103,37 +103,37 @@ function Home() {
 
 
 
-          <div className='accessories-slider'>
-            
-            <BiChevronLeftCircle size={50} className='icon' />
+        <div className='accessories-slider'>
 
-            <div className='accessories-slider-item'>
-              <Zoom direction="up">
-                <img src={bike} alt="bike" className='accessories-slider-item-image' />
-              </Zoom>
-              <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
-            </div>
-            
-            <div className='accessories-slider-item'>
-              <Zoom direction="up">
-                <img src={bike} alt="bike" className='accessories-slider-item-image' />
-              </Zoom>
-              <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
-            </div>
-            
-            <div className='accessories-slider-item'>
-              <Zoom direction="up">
-                <img src={bike} alt="bike" className='accessories-slider-item-image' />
-              </Zoom>
-              <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
-            </div>
+          <BiChevronLeftCircle size={50} className='icon' />
 
-            <BiChevronRightCircle size={50} className='icon' />
+          <div className='accessories-slider-item'>
+            <Zoom direction="up">
+              <img src={bike} alt="bike" className='accessories-slider-item-image' />
+            </Zoom>
+            <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
+          </div>
+
+          <div className='accessories-slider-item'>
+            <Zoom direction="up">
+              <img src={bike} alt="bike" className='accessories-slider-item-image' />
+            </Zoom>
+            <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
+          </div>
+
+          <div className='accessories-slider-item'>
+            <Zoom direction="up">
+              <img src={bike} alt="bike" className='accessories-slider-item-image' />
+            </Zoom>
+            <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
+          </div>
+
+          <BiChevronRightCircle size={50} className='icon' />
 
         </div>
       </div>
 
-    <Footer />
+      <Footer />
     </div>
   )
 }
