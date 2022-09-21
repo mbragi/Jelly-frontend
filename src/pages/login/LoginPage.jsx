@@ -3,15 +3,15 @@ import './LoginPage.css'
 import Button from '../../components/button/Button'
 
 function LoginPage() {
-    const [data, setData] =useState({});
+    const [data, setData] = useState({});
 
-    function getDetails(event){
-        const {name, value} =event.target
-        const newData = {...data};
+    function getDetails(event) {
+        const { name, value } = event.target
+        const newData = { ...data };
         newData[name] = value;
         setData(newData);
 
-        console.log (newData)
+        console.log(newData)
     }
 
     return (
@@ -35,7 +35,7 @@ function LoginPage() {
 
                     <div className='password-input'>
                         <p>Password*</p>
-                        <input className='gen-input'  onChange={getDetails} name='password' />
+                        <input className='gen-input' onChange={getDetails} name='password' />
                     </div>
 
 
@@ -55,7 +55,7 @@ function LoginPage() {
                 </form>
 
             </div>
-            
+
         </div>
     )
 }
