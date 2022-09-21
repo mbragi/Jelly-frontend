@@ -41,7 +41,7 @@ function Products() {
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  // console.log(currentProducts.length);
+  console.log(currentProducts.length);
 
   return (
     <div className='container'>

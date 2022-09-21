@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import './LoginPage.css'
 import Button from '../../components/button/Button'
-import { type } from '@testing-library/user-event/dist/type';
-
 function LoginPage() {
     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
     const [data, setData] = useState({});
     const [message, setMessage] = useState('')
-    const [type, setType] = useState('')
+    // const [type, setType] = useState('')
 
     function getDetails(event) {
         const { name, value } = event.target
@@ -30,9 +28,9 @@ function LoginPage() {
         const resData = await res.json()
         console.log(resData)
         let message = resData.message
-        let type = resData.type
+        // let type = resData.type
         setMessage(message)
-        setType(type)
+        // setType(type)
     }
 
     return (
