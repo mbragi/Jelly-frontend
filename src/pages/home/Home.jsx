@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import NavBar from "../../components/navBar/NavBar";
-import intro from "../../assets/intro.mp4";
+// import intro from "../../assets/intro.mp4";
 import features from "../../assets/features.png";
-import bike from "../../assets/51.png";
+import bike from "../../assets/512.png";
 import turnSignal from "../../assets/turn-signal.jpg";
 import Button from "../../components/button/Button";
 import Footer from '../../components/footer/Footer';
@@ -10,12 +10,9 @@ import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
-import item1 from "../../assets/51.png"
-import item2 from "../../assets/bike.jpg"
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
-
-  const featuresArray = [item1, item2]
+  const featuresArray = ["512.png", "bike.jpg"]
   const prev = () => {
     setFeaturesIndex(featuresIndex => {
       if (featuresIndex === 0) return featuresArray.length - 1;
@@ -32,7 +29,9 @@ function Home() {
     <div className='container'>
 
       <NavBar currentPage="home" />
-      <video controls autoPlay loop src={intro} type="video/mp4" className='intro' />
+      <div className="imgcontainer">
+        <img src={bike} alt="evtop"  className = 'evtopimg'/>
+      </div>
 
       <div className='features-div'>
 
@@ -41,7 +40,7 @@ function Home() {
         <div className='features-slider-div'>
           <BiChevronLeftCircle size={50} className='icon' onClick={() => { prev() }} />
           <Fade direction="up" spy={featuresIndex} className='slider-attention-seeker'>
-            <img src={featuresArray[featuresIndex]} alt="bike" className='slider-item' />
+            <img src={require(`../../assets/${featuresArray[featuresIndex]}`)} alt="bike" className='slider-item' />
           </Fade>
           <BiChevronRightCircle size={50} className='icon' onClick={() => { next() }} />
         </div>

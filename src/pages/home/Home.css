@@ -1,7 +1,18 @@
-.intro{
+/* .intro{
     width: 100%;
     height: 80vh;
     background-color: black;
+} */
+.imgcontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.evtopimg{
+    width: 85%;
+    margin: 0 auto;
 }
 .container{
     height: 100vh;
