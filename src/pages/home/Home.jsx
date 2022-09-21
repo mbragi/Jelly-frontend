@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import NavBar from "../../components/navBar/NavBar";
-import intro from "../../assets/intro.mp4";
+// import intro from "../../assets/intro.mp4";
 import features from "../../assets/features.png";
-import bike from "../../assets/51.png";
+import bike from "../../assets/512.png";
 import turnSignal from "../../assets/turn-signal.jpg";
 import Button from "../../components/button/Button";
 import Footer from '../../components/footer/Footer';
@@ -12,7 +12,7 @@ import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } fro
 import { Fade, Zoom } from "react-awesome-reveal";
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
-  const featuresArray = ["51.png", "bike.jpg"]
+  const featuresArray = ["512.png", "bike.jpg"]
   const prev = () => {
     setFeaturesIndex(featuresIndex => {
       if (featuresIndex === 0) return featuresArray.length - 1;
@@ -29,7 +29,9 @@ function Home() {
     <div className='container'>
 
       <NavBar currentPage="home" />
-      <video controls autoPlay loop src={intro} type="video/mp4" className='intro' />
+      <div className="imgcontainer">
+        <img src={bike} alt="evtop"  className = 'evtopimg'/>
+      </div>
 
       <div className='features-div'>
 
