@@ -8,7 +8,7 @@ function RegisterPage() {
     const [data, setData] = useState({});
     const [resData, setResData] = useState({})
     const [message, setMessage] = useState('')
-    // const [type, setType] = useState('')
+    const [type, setType] = useState('')
     // const navigate = useNavigate()
 
     function sendDetails(event) {
@@ -32,7 +32,7 @@ function RegisterPage() {
         console.log(allData)
         setResData(allData)
         const message = resData.message
-
+        console.log(type)
         setType(resData.type)
 
         setMessage(message)
