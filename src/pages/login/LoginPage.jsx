@@ -54,9 +54,9 @@ function LoginPage() {
 
                 </form>
 
-            </div>
+            </div >
 
-        </div>
+        </div >
     )
 }
 
