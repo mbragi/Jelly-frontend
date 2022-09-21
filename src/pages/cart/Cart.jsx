@@ -74,7 +74,7 @@ function Cart() {
         <Link to="/shop" className='continue'>
             <BsArrowLeft size={30} />
             Continue Shopping
-        </p>
+        {/* </p> */}
        <Footer />
         </Link>
         
