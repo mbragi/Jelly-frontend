@@ -1,17 +1,38 @@
 import React, { useState } from 'react'
 import './LoginPage.css'
 import Button from '../../components/button/Button'
+import { type } from '@testing-library/user-event/dist/type';
 
 function LoginPage() {
+    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
     const [data, setData] = useState({});
+    const [message, setMessage] = useState('')
+    const [type, setType] = useState('')
 
     function getDetails(event) {
         const { name, value } = event.target
         const newData = { ...data };
         newData[name] = value;
         setData(newData);
-
         console.log(newData)
+    }
+
+    async function httpLoginUser(e) {
+        e.preventDefault()
+        let request = JSON.stringify(data)
+        const res = await fetch(`${BASE_URL}/login`, {
+            method: 'post',
+            headers: {
+                'content-Type': 'application/json'
+            },
+            body: request
+        })
+        const resData = await res.json()
+        console.log(resData)
+        let message = resData.message
+        let type = resData.type
+        setMessage(message)
+        setType(type)
     }
 
     return (
@@ -26,8 +47,8 @@ function LoginPage() {
                 <div className='login-page-header'>
                     <h2>Login via E-mail</h2>
                 </div>
-
-                <form action="" className='login-page-form' >
+                <p>{message}</p>
+                <form onSubmit={httpLoginUser} className='login-page-form' >
                     <div className='email-input'>
                         <p>E-mail*</p>
                         <input className='gen-input' onChange={getDetails} name='email' />
@@ -54,9 +75,9 @@ function LoginPage() {
 
                 </form>
 
-            </div >
+            </div>
 
-        </div >
+        </div>
     )
 }
 

@@ -1,6 +1,7 @@
 .intro{
-    min-width: 100%;
+    width: 100%;
     height: 80vh;
+    background-color: black;
 }
 .container{
     height: 100vh;
@@ -13,7 +14,6 @@
     align-items: center;
     padding: 20px;
     margin-top: 30px;
-    /* background-color: red; */
 }
 .features-header{
     width: 500px;
@@ -26,9 +26,19 @@
     justify-content: space-evenly;
     margin-top: 30px;
 }
-/* .slider-item{
-    
-} */
+.slider-attention-seeker{
+    width: 80%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider-item{
+    width: 80%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: contain;
+}
 .transport-cost-div{
     width: 100%;
     display: flex;
@@ -56,6 +66,7 @@
     justify-content: space-evenly;
     /* background-color: yellow; */
 }
+
 .input-range-div{
     width: 80%;
     display: flex;
@@ -76,16 +87,26 @@
     width: 100%;
     display: flex;
     padding: 20px;
+    background-color: #E2E6E9;
+}
+.promo-attention-seeker{
+    width: 60%;
+    /* height: 100%; */
+    height: 400px;
 }
 .promo-img{
-    width: 60%;
+    width: 100%;
     height: 100%;
-    max-height: 450px;
+    /* max-height: 450px; */
+    object-fit: cover;
 }
 .promo-info{
     width: 40%;
-    height: 100%;
+    height: 400px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .ratings{
     width: 100px;
@@ -136,4 +157,34 @@
 }
 .icon{
     cursor: pointer
+}
+
+@media screen and (max-width: 720px){
+    .intro{
+        height: 50vh;
+    }
+    .features-header{
+        width: 320px;
+        height: 60px;
+    }
+    .features-slider-div{
+        height: 300px;
+        /* background-color: red; */
+    }
+    .vehicles{
+        margin-top: 50px;
+    }
+    .vehicle{
+        height: 80px;
+    }
+    .accessories-header{
+        width: 100%;
+    }
+    .accessories-btn{
+        width: 10px;
+        font-size: 20px;
+    }
+    .accessories-title{
+        font-size: 30px;
+    }
 }

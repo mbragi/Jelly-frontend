@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+footer *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+footer{
+    color: #d9d9d9;
+    bottom: 0px;
+    width: 100%;
+    background: #002B5B;
+    margin-top: 5%;
+}
+
+.content ul,li {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.main-content{
+    display: flex;
+}
+.box h2{
+    color: #FF0000;
+}
+#vtop-logo{
+    width: 280px;
+    height:220px;
+    object-fit: cover;
+}
+.contact-us .content ul li{
+    cursor: initial;
+}
+.main-content .box{
+    flex-basis: 60%;
+    padding: 10px 20px;
+}
+
+.box .content{
+    margin: 20px 0 0 0;
+    line-height: 35px;
+    /* position: relative; */
+}
+
+#address{
+    line-height: 22px;
+}
+.footer-bottom, center{
+    padding: 5px;
+    font-size: 0.9rem;
+    background:  #3570EC;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-right-bottom ul{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+
+@media screen and (max-width: 900px) {
+  footer{
+    position: relative;
+    bottom: 0px;
+  }
+  .main-content{
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .main-content .box{
+    margin: 5px 0;
+  }
+}

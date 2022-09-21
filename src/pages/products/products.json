@@ -1,0 +1,170 @@
+[
+    {
+        "_id": 1,
+        "name": "Yellow Bike",
+        "img": "1.jpg",
+        "price": 800,
+        "rating": 5
+    },
+    {
+        "_id": 2,
+        "name": "Scooter",
+        "img": "3.jpg",
+        "price": 200,
+        "rating": 5
+    },
+    {
+        "_id": 3,
+        "name": "Fuel pump",
+        "img": "4.jpg",
+        "price": 800,
+        "rating": 5
+    },
+    {
+        "_id": 4,
+        "name": "White Scooter",
+        "img": "5.jpg",
+        "price": 200,
+        "rating": 5
+    },
+    {
+        "_id": 5,
+        "name": "Power Bike",
+        "img": "bike.jpg",
+        "price": 200,
+        "rating": 5
+    },
+    {
+        "_id": 6,
+        "name": "Turn Signal",
+        "img": "turn-signal.jpg",
+        "price": 500,
+        "rating": 5
+    },
+    {
+        "_id": 7,
+        "name": "2600mah Battery",
+        "img": "2600mah 1.jpg",
+        "price": 800,
+        "rating": 5
+    },
+    {
+        "_id": 8,
+        "name": "LFP-BMS 3",
+        "img": "LFP-BMS3.jpg",
+        "price": 200,
+        "rating": 5
+    },
+    {
+        "_id": 9,
+        "name": "Power Bike",
+        "img": "bike.jpg",
+        "price": 200,
+        "rating": 5
+    },
+    {
+        "_id": 10,
+        "name": "2500mah Battery",
+        "img": "2500mah.jpg",
+        "price": 800,
+        "rating": 5
+    },
+    {
+        "_id": 11,
+        "name": "LFP-BMS 2",
+        "img": "LFP-BMS2.jpg",
+        "price": 200,
+        "rating": 5
+    },
+    {
+        "_id": 12,
+        "name": "Turn Signal",
+        "img": "turn-signal.jpg",
+        "price": 500,
+        "rating": 5
+    },
+    {
+        "_id": 13,
+        "name": "LFP-BMS 1",
+        "img": "LFP-BMS1.jpg",
+        "price": 200,
+        "rating": 5
+    },
+    {
+        "_id": 14,
+        "name": "Power Bike",
+        "img": "bike.jpg",
+        "price": 200,
+        "rating": 5
+    },
+    {
+        "_id": 15,
+        "name": "Turn Signal",
+        "img": "turn-signal.jpg",
+        "price": 500,
+        "rating": 5
+    },
+    {
+        "_id": 16,
+        "name": "Turn Signal",
+        "img": "turn-signal.jpg",
+        "price": 500,
+        "rating": 5
+    },
+    {
+        "_id": 17,
+        "name": "Power Bike",
+        "img": "bike.jpg",
+        "price": 200,
+        "rating": 5
+    },
+    {
+        "_id": 18,
+        "name": "Turn Signal",
+        "img": "turn-signal.jpg",
+        "price": 500,
+        "rating": 5
+    },
+    {
+        "_id": 19,
+        "name": "Battery",
+        "img": "6000mah.jpg",
+        "price": 800,
+        "rating": 5
+    },
+    {
+        "_id": 20,
+        "name": "Turn Signal",
+        "img": "turn-signal.jpg",
+        "price": 500,
+        "rating": 5
+    },
+    {
+        "_id": 21,
+        "name": "Power Bike",
+        "img": "bike.jpg",
+        "price": 200,
+        "rating": 5
+    },
+    {
+        "_id": 22,
+        "name": "Turn Signal",
+        "img": "turn-signal.jpg",
+        "price": 500,
+        "rating": 5
+    },
+    {
+        "_id": 23,
+        "name": "Turn Signal",
+        "img": "turn-signal.jpg",
+        "price": 500,
+        "rating": 5
+    },
+    {
+        "_id": 24,
+        "name": "Battery",
+        "img": "4800mah.jpg",
+        "price": 800,
+        "rating": 5
+    }
+]
