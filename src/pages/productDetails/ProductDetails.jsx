@@ -142,7 +142,7 @@ function ProductDetails() {
 
                             <div className='verified-ratings-box'>
                                 <h2>3.5/5</h2>
-                                    <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
+                                    <tar size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                     <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                     <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                     <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
