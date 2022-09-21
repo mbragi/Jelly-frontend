@@ -19,17 +19,19 @@ function Products() {
   const productsPerPage = 8;
   useEffect(() => {
     // const URL = process.env.REACT_APP_SERVER_URL
-    const URL = 'https://jelly-online-api.herokuapp.com'
+
+    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+
     const fetchData = async () => {
       setLoading(true);
-      const res = await fetch(`${URL}/category`)
+      const res = await fetch(`${BASE_URL}/category`)
       const data = await res.json()
       const category = data.Cdata
       const product = data.Pdata
       setCategories(category)
       // console.log(categories)
       setProducts(product);
-      // console.log(products)
+
       setTotalProducts(product.length);
       setLoading(false);
     };
@@ -85,7 +87,7 @@ function Products() {
           <div className='products'>
 
             {loading ? <h1>Loading...</h1> :
-              products.map((product, index) => {
+              currentProducts.map((product, index) => {
 
                 console.log(product)
                 return (

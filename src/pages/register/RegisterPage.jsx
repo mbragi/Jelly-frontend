@@ -32,8 +32,9 @@ function RegisterPage() {
         console.log(allData)
         setResData(allData)
         const message = resData.message
-        // const type = resData.type
-        // setType(type)
+
+        setType(resData.type)
+
         setMessage(message)
         // if (type === 'error') {
         // return console.log(message)
