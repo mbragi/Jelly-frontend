@@ -10,9 +10,12 @@ import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
+import item1 from '../../assets/51.png'
+import item2 from '../../assets/bike.png'
+
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
-  const featuresArray = ["51.png", "bike.jpg"]
+  const featuresArray = [item1, item2]
   const prev = () => {
     setFeaturesIndex(featuresIndex => {
       if (featuresIndex === 0) return featuresArray.length - 1;
@@ -38,7 +41,7 @@ function Home() {
         <div className='features-slider-div'>
           <BiChevronLeftCircle size={50} className='icon' onClick={() => { prev() }} />
           <Fade direction="up" spy={featuresIndex} className='slider-attention-seeker'>
-            <img src={require(`../../assets/${featuresArray[featuresIndex]}`)} alt="bike" className='slider-item' />
+            <img src={featuresArray[featuresIndex]} alt="bike" className='slider-item' />
           </Fade>
           <BiChevronRightCircle size={50} className='icon' onClick={() => { next() }} />
         </div>
