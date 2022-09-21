@@ -1,6 +1,5 @@
 import React from 'react'
 import './ProductDetails.css'
-import { RatingStar } from "rating-star";
 import NavBar from '../../components/navBar/NavBar'
 import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer'
@@ -11,14 +10,6 @@ import cart from '../../assets/images/cart.png'
 
 
 function ProductDetails() {
-
-    const [rating, setRating] = React.useState(42);
-
-    const onRatingChange = (score) => {
-        setRating(score);
-    };
-
-
 
     return (
 
@@ -62,9 +53,6 @@ function ProductDetails() {
                     </div>
 
                 </div>
-
-
-
 
 
                 <div className='product-details'>
@@ -150,12 +138,6 @@ function ProductDetails() {
 
                             <div className='verified-ratings-box'>
                                 <h2>3.5/5</h2>
-                                <RatingStar
-                                    clickable='false'
-                                    maxScore={60}
-                                    id="123"
-                                    rating={rating}
-                                    onRatingChange={onRatingChange} />
 
                                 <p>245 verified ratings</p>
                             </div>
@@ -163,12 +145,6 @@ function ProductDetails() {
 
                         <div className='comments-from-v-purchases1'>
                             <h3>COMMENTS FROM VERIFIED PURCHASES</h3>
-                            <RatingStar
-                                clickable
-                                maxScore={100}
-                                id="123"
-                                rating={3}
-                                onRatingChange={onRatingChange} />
 
                             <p style={{ fontWeight: 'bold' }}>I like it</p>
                             <p>Simple</p>
@@ -185,93 +161,55 @@ function ProductDetails() {
                             <div className='verified-rating-count'>
                                 <div className='verified-rating-slider'>
                                     <p>5</p>
-                                    <RatingStar
-                                        clickable
-                                        numberOfStar='1'
-                                        maxScore={100}
-                                        id="123"
-                                        rating={rating}
-                                        onRatingChange={onRatingChange} />
 
                                     <input type="range" />
 
-                                </div>
+                                </div >
 
                                 <div className='verified-rating-slider'>
                                     <p>4 </p>
-                                    <RatingStar
-                                        clickable
-                                        numberOfStar='1'
-                                        maxScore={100}
-                                        id="123"
-                                        rating={rating}
-                                        onRatingChange={onRatingChange} />
+
 
                                     <input type="range" />
 
-                                </div>
+                                </div >
 
                                 <div className='verified-rating-slider'>
                                     <p>3 </p>
-                                    <RatingStar
-                                        clickable
-                                        numberOfStar='1'
-                                        maxScore={100}
-                                        id="123"
-                                        rating={rating}
-                                        onRatingChange={onRatingChange} />
 
                                     <input type="range" />
 
-                                </div>
+                                </div >
 
                                 <div className='verified-rating-slider'>
                                     <p>2 </p>
-                                    <RatingStar
-                                        clickable
-                                        numberOfStar='1'
-                                        maxScore={100}
-                                        id="123"
-                                        rating={rating}
-                                        onRatingChange={onRatingChange} />
+
                                     <input type="range" />
 
-                                </div>
+                                </div >
 
                                 <div className='verified-rating-slider'>
                                     <p>1 </p>
-                                    <RatingStar
-                                        clickable
-                                        numberOfStar='1'
-                                        maxScore={100}
-                                        id="123"
-                                        rating={rating}
-                                        onRatingChange={onRatingChange} />
+
 
                                     <input type="range" />
 
-                                </div>
+                                </div >
 
-                            </div>
-                        </div>
+                            </div >
+                        </div >
 
                         <div className='comments-from-v-purchases2'>
-                            <RatingStar
-                                clickable
-                                maxScore={100}
-                                id="123"
-                                rating={rating}
-                                onRatingChange={onRatingChange} />
 
                             <p style={{ fontWeight: 'bold' }}>I like it</p>
                             <p>Simple</p>
                             <p>15-09-2022</p>
-                        </div>
+                        </div >
 
-                    </div>
-                </div>
+                    </div >
+                </div >
 
-            </div>
+            </div >
 
 
 
@@ -279,7 +217,7 @@ function ProductDetails() {
                 <Footer />
             </div>
 
-        </div>
+        </div >
 
     )
 }

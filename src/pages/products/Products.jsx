@@ -4,8 +4,10 @@ import Button from '../../components/button/Button';
 import './Products.css';
 import logoFaint from '../../assets/logo-faint.png';
 import Product from '../../components/product/Product';
-import Paigination from '../../components/pagination/Pagination';
+import Pagination from '../../components/pagination/Pagination';
 import Footer from '../../components/footer/Footer';
+import Category from '../../components/category/Category';
+
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -21,7 +23,7 @@ function Products() {
       setLoading(true);
       const res = await fetch(`${URL}/category`)
       const data = await res.json()
-      const category = [data.Cdata]
+      const category = data.Cdata
       const product = data.Pdata
       setCategories(category)
       // console.log(categories)
@@ -37,7 +39,7 @@ function Products() {
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  console.log(currentProducts.length);
+  // console.log(currentProducts.length);
 
   return (
     <div className='container'>
@@ -60,42 +62,14 @@ function Products() {
           <div className='categories'>
             <h2>Categories</h2>
 
-            {/* {loading ? <h1>Loading...</h1> : */}
-            {/* categories.map((category, idx) => { */}
-            {console.log(categories)}
-            {/*  return ( */}
-            {/* <div className='category' key={idx}> */}
-            {/* <input id={`${category._id}`} type="checkbox" name={category.categoryName} /> */}
-            {/* <label htmlFor='' className='label'>{category.categoryName}</label> */}
-            {/* </div> */}
-            {/* ) */}
-            {/*  }) */}
-            {/* } */}
-
-            <div className='category'>
-              <input id="" type="checkbox" name="" />
-              <label htmlFor='' className='label'>LFP BMS</label>
-            </div>
-
-            <div className='category'>
-              <input id="" type="checkbox" name="" />
-              <label htmlFor='' className='label'>Li-ion cell for EV</label>
-            </div>
-
-            <div className='category'>
-              <input id="" type="checkbox" name="" />
-              <label htmlFor='' className='label'>LFP BMS</label>
-            </div>
-
-            <div className='category'>
-              <input id="" type="checkbox" name="" />
-              <label htmlFor='' className='label'>Li-ion cell for EV</label>
-            </div>
-
-            <div className='category'>
-              <input id="" type="checkbox" name="" />
-              <label htmlFor='' className='label'>LFP BMS</label>
-            </div>
+            {loading ? <h1>Loading...</h1> :
+              categories.map((category, idx) => {
+                console.log(category)
+                return (
+                  <Category key={idx} category={category} />
+                )
+              })
+            }
 
             <div className="price-filter">
               <h2>Price Filter</h2>
@@ -112,16 +86,17 @@ function Products() {
 
             {loading ? <h1>Loading...</h1> :
               products.map((product, index) => {
+
+                console.log(product)
                 return (
                   < Product key={index} product={product} />
-                  // console.log(`${product}`)
                 )
               })
 
             }
           </div>
         </div>
-        <Paigination productsPerPage={productsPerPage} totalProducts={totalProducts} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <Pagination productsPerPage={productsPerPage} totalProducts={totalProducts} currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
       </div >
       <Footer />
