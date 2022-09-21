@@ -7,7 +7,7 @@ function LoginPage() {
     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
     const [data, setData] = useState({});
     const [message, setMessage] = useState('')
-    const [type, setType] = useState('')
+    // const [type, setType] = useState('')
 
     function getDetails(event) {
         const { name, value } = event.target
@@ -30,11 +30,13 @@ function LoginPage() {
         const resData = await res.json()
         console.log(resData)
         let message = resData.message
+
         setMessage(message)
         if(type === 'error'){
             console.log(message)
         }
         setType(resData.type)
+
     }
 
     return (
