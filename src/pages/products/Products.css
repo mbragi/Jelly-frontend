@@ -69,6 +69,7 @@
     flex-wrap: wrap;
     overflow: scroll;
     scrollbar-width: none;
+    gap: 30px 30px;
 }
 .products::-webkit-scrollbar{
     display: none;
