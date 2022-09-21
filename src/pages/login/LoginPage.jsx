@@ -30,11 +30,13 @@ function LoginPage() {
         const resData = await res.json()
         console.log(resData)
         let message = resData.message
+
         setMessage(message)
         if(type === 'error'){
             console.log(message)
         }
         setType(resData.type)
+
     }
 
     return (

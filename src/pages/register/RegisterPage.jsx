@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './RegisterPage.css'
 import Button from '../../components/button/Button'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
@@ -9,7 +9,7 @@ function RegisterPage() {
     const [resData, setResData] = useState({})
     const [message, setMessage] = useState('')
     const [type, setType] = useState('')
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     function sendDetails(event) {
         const { name, value } = event.target
@@ -32,16 +32,18 @@ function RegisterPage() {
         console.log(allData)
         setResData(allData)
         const message = resData.message
+        console.log(type)
         setType(resData.type)
+
         setMessage(message)
-        if (type === 'error') {
-            return console.log(message)
-        } else if (type === 'success') {
-            console.log('success')
-            setTimeout(() => {
-                navigate('/')
-            }, 1500)
-        }
+        // if (type === 'error') {
+        // return console.log(message)
+        // } else if (type === 'success') {
+        // console.log('success')
+        // setTimeout(() => {
+        // navigate('/')
+        // }, 1500)
+        // }
     }
 
     return (
