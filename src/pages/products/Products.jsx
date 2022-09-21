@@ -18,10 +18,12 @@ function Products() {
 
   const productsPerPage = 8;
   useEffect(() => {
-    const URL = process.env.REACT_APP_SERVER_URL
+    // const URL = process.env.REACT_APP_SERVER_URL
+    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+
     const fetchData = async () => {
       setLoading(true);
-      const res = await fetch(`${URL}/category`)
+      const res = await fetch(`${BASE_URL}/category`)
       const data = await res.json()
       const category = data.Cdata
       const product = data.Pdata
