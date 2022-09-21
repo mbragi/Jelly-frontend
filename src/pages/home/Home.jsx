@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavBar from "../../components/navBar/NavBar";
 import intro from "../../assets/intro.mp4";
-// import features from "../../assets/features.png";
+import features from "../../assets/features.png";
 import bike from "../../assets/51.png";
 import turnSignal from "../../assets/turn-signal.jpg";
 import Button from "../../components/button/Button";
@@ -10,44 +10,44 @@ import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
-// import item1 from '../../assets/51.png'
-// import item2 from '../../assets/bike.png'
-
+import item1 from "../../assets/51.png"
+import item2 from "../../assets/bike.jpg"
 function Home() {
-  // const [featuresIndex, setFeaturesIndex] = useState(0);
-  // const featuresArray = [item1, item2]
-  // const prev = () => {
-  // setFeaturesIndex(featuresIndex => {
-  // if (featuresIndex === 0) return featuresArray.length - 1;
-  // return featuresIndex - 1;
-  // })
-  // }
-  // const next = () => {
-  // setFeaturesIndex(featuresIndex => {
-  // if (featuresIndex === (featuresArray.length - 1)) return 0;
-  // return featuresIndex + 1;
-  // })
-  // }
+  const [featuresIndex, setFeaturesIndex] = useState(0);
+
+  const featuresArray = [item1, item2]
+  const prev = () => {
+    setFeaturesIndex(featuresIndex => {
+      if (featuresIndex === 0) return featuresArray.length - 1;
+      return featuresIndex - 1;
+    })
+  }
+  const next = () => {
+    setFeaturesIndex(featuresIndex => {
+      if (featuresIndex === (featuresArray.length - 1)) return 0;
+      return featuresIndex + 1;
+    })
+  }
   return (
     <div className='container'>
 
       <NavBar currentPage="home" />
       <video controls autoPlay loop src={intro} type="video/mp4" className='intro' />
 
-      {/* <div className='features-div'> */}
+      <div className='features-div'>
 
-      {/* <img src={features} alt="header" className='features-header' /> */}
+        <img src={features} alt="header" className='features-header' />
 
-      {/* <div className='features-slider-div'> */}
-      {/* <BiChevronLeftCircle size={50} className='icon' onClick={() => { prev() }} /> */}
-      {/* <Fade direction="up" spy={featuresIndex} className='slider-attention-seeker'> */}
-      {/* <img src={featuresArray[featuresIndex]} alt="bike" className='slider-item' /> */}
-      {/* </Fade> */}
-      {/* <BiChevronRightCircle size={50} className='icon' onClick={() => { next() }} /> */}
-      {/* </div> */}
+        <div className='features-slider-div'>
+          <BiChevronLeftCircle size={50} className='icon' onClick={() => { prev() }} />
+          <Fade direction="up" spy={featuresIndex} className='slider-attention-seeker'>
+            <img src={featuresArray[featuresIndex]} alt="bike" className='slider-item' />
+          </Fade>
+          <BiChevronRightCircle size={50} className='icon' onClick={() => { next() }} />
+        </div>
 
 
-      {/* </div> */}
+      </div>
 
 
       <div className='transport-cost-div'>
@@ -74,7 +74,7 @@ function Home() {
       </div>
 
       <div className='promo'>
-        <Fade direction="up" spy="" className='promo-attention-seeker'>
+        <Fade direction="up" spy={featuresIndex} className='promo-attention-seeker'>
           <img src={turnSignal} alt="promo" className='promo-img' />
         </Fade>
         <div className='promo-info'>

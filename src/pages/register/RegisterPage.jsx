@@ -8,7 +8,7 @@ function RegisterPage() {
     const [data, setData] = useState({});
     const [resData, setResData] = useState({})
     const [message, setMessage] = useState('')
-    // const [type, setType] = useState('')
+    const [type, setType] = useState('')
     const navigate = useNavigate()
 
     function sendDetails(event) {
@@ -33,7 +33,7 @@ function RegisterPage() {
         setResData(allData)
         const message = resData.message
         const type = resData.type
-        // setType(type)
+        setType(type)
         setMessage(message)
         if (type === 'error') {
             return console.log(message)

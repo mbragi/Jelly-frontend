@@ -19,11 +19,10 @@ function Products() {
   const productsPerPage = 8;
   useEffect(() => {
     // const URL = process.env.REACT_APP_SERVER_URL
-    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
-
+    const URL = 'https://jelly-online-api.herokuapp.com'
     const fetchData = async () => {
       setLoading(true);
-      const res = await fetch(`${BASE_URL}/category`)
+      const res = await fetch(`${URL}/category`)
       const data = await res.json()
       const category = data.Cdata
       const product = data.Pdata
@@ -31,7 +30,6 @@ function Products() {
       // console.log(categories)
       setProducts(product);
       // console.log(products)
-
       setTotalProducts(product.length);
       setLoading(false);
     };
@@ -41,7 +39,7 @@ function Products() {
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  console.log(currentProducts.length);
+  console.log(currentProducts);
 
   return (
     <div className='container'>
