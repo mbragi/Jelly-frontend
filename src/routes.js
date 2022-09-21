@@ -4,5 +4,6 @@ export const path = Object.freeze({
   loginPage: "/login",
   registerpage: "/register",
   checkout: "/checkout",
-  product: "/shop"
+  product: "/shop",
+  detail:'/details'
 });

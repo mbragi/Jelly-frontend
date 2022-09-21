@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
+footer *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,17 +16,23 @@ footer{
 
 .content ul,li {
     list-style-type: none;
+    cursor: pointer;
 }
 
 .main-content{
     display: flex;
 }
-
+.box h2{
+    color: #FF0000;
+}
 #vtop-logo{
     width: 280px;
     height:220px;
+    object-fit: cover;
 }
-
+.contact-us .content ul li{
+    cursor: initial;
+}
 .main-content .box{
     flex-basis: 60%;
     padding: 10px 20px;

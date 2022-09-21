@@ -7,6 +7,8 @@ function RegisterPage() {
     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
     const [data, setData] = useState({});
     const [resData, setResData] = useState({})
+    const [message, setMessage] = useState('')
+    const [type, setType] = useState('')
     const navigate = useNavigate()
 
     function sendDetails(event) {
@@ -17,8 +19,7 @@ function RegisterPage() {
     }
     async function httpRegisterUser(e) {
         e.preventDefault();
-        let request = { ...data }
-        // console.log(request);
+        let request = data         // console.log(request);
         let response = await fetch(`${BASE_URL}/register`, {
             method: "post",
             headers: {
@@ -28,13 +29,20 @@ function RegisterPage() {
 
         }).catch(err => { console.log(err.message) })
         const allData = await response.json()
-        // console.log(allData)
-        setTimeout(() => {
-            navigate('/')
-        }, 4000)
+        console.log(allData)
         setResData(allData)
-        setTimeout()
-
+        const message = resData.message
+        const type = resData.type
+        setType(type)
+        setMessage(message)
+        if (type === 'error') {
+            return console.log(message)
+        } else if (type === 'success') {
+            console.log('success')
+            setTimeout(() => {
+                navigate('/')
+            }, 1500)
+        }
     }
 
     return (
@@ -52,7 +60,7 @@ function RegisterPage() {
 
                 <form onSubmit={httpRegisterUser} className='register-page-form'>
                     <div className='fullname-input'>
-                        <p>Fullname*</p>
+                        <p>FullName*</p>
                         <input className='gen-input' onChange={sendDetails} name='fullName' />
                     </div>
 
@@ -64,7 +72,7 @@ function RegisterPage() {
 
 
                     <div className='password-input'>
-                        <p>Paasword*</p>
+                        <p>Password*</p>
                         <input className='gen-input' onChange={sendDetails} name='password' />
                     </div>
 
@@ -81,7 +89,7 @@ function RegisterPage() {
 
 
                     <div className='Have-an-account'>
-                        <p>{resData.message}</p>
+                        <p>{message}</p>
                         <h3>Have an account? <span>Login</span></h3>
                     </div>
 
