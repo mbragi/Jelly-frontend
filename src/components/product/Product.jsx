@@ -9,7 +9,7 @@ function Product({ product }) {
   const [data, setData] = useState({})
   function getDetails(e) {
     const { name } = e.target
-    const findData = { name, token }
+    const findData = { name }
     setData(findData)
   }
   async function httpGetDetails(e) {
