@@ -41,7 +41,7 @@ function Products() {
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  console.log(currentProducts);
+  // console.log(currentProducts);
 
   return (
     <div className='container'>
@@ -66,7 +66,7 @@ function Products() {
 
             {loading ? <h1>Loading...</h1> :
               categories.map((category, idx) => {
-                console.log(category)
+                // console.log(category)
                 return (
                   <Category key={idx} category={category} />
                 )
@@ -89,7 +89,7 @@ function Products() {
             {loading ? <h1>Loading...</h1> :
               currentProducts.map((product, index) => {
 
-                console.log(product)
+                // console.log(product)
                 return (
                   < Product key={index} product={product} />
                 )
