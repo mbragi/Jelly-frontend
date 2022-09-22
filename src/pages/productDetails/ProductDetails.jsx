@@ -1,6 +1,6 @@
 import React from 'react'
 import './ProductDetails.css'
-import {Star} from 'phosphor-react'
+// import {Star} from 'phosphor-react'
 import NavBar from '../../components/navBar/NavBar'
 import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer'
@@ -10,8 +10,7 @@ import cart from '../../assets/images/cart.png'
 
 
 function ProductDetails() {
-    var Rating = require('react-rating');
-    
+      
   return (
 
     <div>
@@ -142,23 +141,23 @@ function ProductDetails() {
 
                             <div className='verified-ratings-box'>
                                 <h2>3.5/5</h2>
-                                    <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
+                                    {/* <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                     <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                     <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                     <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                     <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
-                               
+                                */}
                                 <p>245 verified ratings</p>
                             </div>
                         </div>
 
                         <div className='comments-from-v-purchases1'>
                             <h3>COMMENTS FROM VERIFIED PURCHASES</h3>
+                                {/* <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                 <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                 <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                 <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
-                                <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
-                                <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
+                                <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/> */}
                                 <p style={{fontWeight:'bold'}}>I like it</p>
                                 <p>Simple</p>
                                 <p>15-09-2022</p>
@@ -174,11 +173,11 @@ function ProductDetails() {
                             <div className='verified-rating-count'>
                                 <div className='verified-rating-slider'>
                                     <p> 5
+                                        {/* <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
-                                        <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
-                                        <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
+                                        <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/> */}
                                     </p>
                                     <input type="range" />
 
@@ -186,11 +185,11 @@ function ProductDetails() {
 
                                 <div className='verified-rating-slider'>
                                     <p>4 
+                                        {/* <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
-                                        <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
-                                        <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
+                                        <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/> */}
                                     </p> 
                                   
                                    
@@ -200,11 +199,11 @@ function ProductDetails() {
 
                                 <div className='verified-rating-slider'>
                                     <p>3
-                                        <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
+                                        {/* <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
-                                        <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
+                                        <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/> */}
                                     </p>
                                    
                                     <input type="range" />
@@ -213,11 +212,11 @@ function ProductDetails() {
 
                                 <div className='verified-rating-slider'>
                                     <p>2 
-                                        <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
+                                        {/* <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
-                                        <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>    
+                                        <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>     */}
                                     </p>                
                                    
                                     <input type="range" />
@@ -226,11 +225,11 @@ function ProductDetails() {
 
                                 <div className='verified-rating-slider'>
                                     <p>1
-                                        <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
+                                        {/* <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                                         <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
-                                        <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
+                                        <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/> */}
                                     </p>
                                    
                                     
@@ -242,11 +241,11 @@ function ProductDetails() {
                         </div>
 
                         <div className='comments-from-v-purchases2'>
+                            {/* <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                             <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                             <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
                             <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
-                            <Star size={20} color="gold" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>
-                            <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>   
+                            <Star size={20} color="#c9c9c9" weight="fill" onMouseOver={{color:'yellow', weight:'fill'}}/>    */}
                             <p style={{fontWeight:'bold'}}>I like it</p>
                             <p>Simple</p>
                             <p>15-09-2022</p>
