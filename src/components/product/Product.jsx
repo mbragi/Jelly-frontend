@@ -8,7 +8,7 @@ function Product({ product }) {
   const navigate = useNavigate()
   const [data, setData] = useState({})
   function getDetails(e) {
-    const { name, token } = e.target
+    const { name } = e.target
     const findData = { name, token }
     setData(findData)
   }
@@ -36,7 +36,6 @@ function Product({ product }) {
       <Button content="Details"
         style={{ borderRadius: "10px", width: '80%', margin: '0.4rem' }}
         name={product.name}
-        token={product.token}
         onClick={getDetails} />
     </form>
   )
