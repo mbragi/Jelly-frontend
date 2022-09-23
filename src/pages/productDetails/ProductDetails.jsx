@@ -8,9 +8,7 @@ import battery from '../../assets/battery.png'
 import cart from '../../assets/images/cart.png'
 
 
-
 function ProductDetails() {
-    var Rating = require('react-rating');
     
   return (
 
@@ -80,7 +78,6 @@ function ProductDetails() {
                     </div>
                 </div>
           
-
                 <div className='other-products'>
                     <div className='other-products-header'>
                         <h2>Other products you might like</h2>
