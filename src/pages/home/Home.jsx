@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from "../../components/navBar/NavBar";
 // import intro from "../../assets/intro.mp4";
-import features from "../../assets/features.png";
 import bike from "../../assets/512.png";
 import turnSignal from "../../assets/turn-signal.jpg";
 import Button from "../../components/button/Button";
@@ -34,8 +33,6 @@ function Home() {
       </div>
 
       <div className='features-div'>
-
-        <img src={features} alt="header" className='features-header' />
 
         <div className='features-slider-div'>
           <BiChevronLeftCircle size={50} className='icon' onClick={() => { prev() }} />
