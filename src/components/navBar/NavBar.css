@@ -23,6 +23,10 @@
     height: 30%;
     background-color: rgb(53, 112, 236);
     display: flex;
+}
+.btop{
+    display: flex;
+    width: 100%;
     justify-content: space-between;
 }
 .contact-details-container{
@@ -162,4 +166,10 @@
     /* .contact-details-container{
         flex-direction: column;
     } */
+}
+@media(min-width: 1280px){
+    .btop{
+        max-width: 1300px;
+        margin: 0 auto;
+    }
 }
