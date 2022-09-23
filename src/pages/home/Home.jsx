@@ -25,8 +25,26 @@ function Home() {
       return featuresIndex + 1;
     })
   }
+
+  function addToCart(newProduct){
+    let cart = localStorage.getItem('cart');
+    if(cart) {
+      cart = JSON.prse(cart);
+      const itemInCart = cart.find((product) => product._id === newProduct._id );
+
+      if(itemInCart){
+        cart.map((product) => {
+          if(product._id === newProduct._id) return {...product, quantity: product.quantity + 1}
+        });
+      }
+
+    }else{
+      localStorage.setItem('cart', JSON.stringify([]));
+
+    }
+  }
   return (
-    <div className='container'>
+    <div className='cntainer'>
 
       <NavBar currentPage="home" />
       <div className="imgcontainer">
