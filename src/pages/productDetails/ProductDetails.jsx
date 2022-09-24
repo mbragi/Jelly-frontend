@@ -35,40 +35,47 @@ function ProductDetails() {
           })
 
         setProduct(productDetail)
-        console.log(productDetail)
+        //console.log(productDetail)
 
         setLoading(false);
         };
         fetchData();
     }, []);
 
+    const priceRange = product.price_range
+   //console.log(priceRange)
+
+
     
   return (
+
+
 
     <div>
         <div className='navigation-bar'>
             <NavBar/>
         </div>
-
+        {loading ? <h1 style={{textAlign:'center'}}>Loading...</h1> :
             <div className='product-details-container'>
                 <div className='product-name'>
                     <div className='product-name-images'>
                         <div className='product-image-big'>
-                            <img src={battery} alt="" />
+                            <img src={product.img} alt="" />
                         </div>
 
                         <div className='product-image-small'>
                             <Button content='<' style={{ width: '10%', height: '50px',backgroundColor:'white', color:'black'  }} />
-                            <img src={battery } alt=""  />
-                            <img src={battery } alt="" />
-                            <img src={battery } alt="" />
+                            <img src={product.img } alt="product"  />
+                            <img src={product.img } alt="product" />
+                            <img src={product.img } alt="product" />
                             <Button content='>' style={{ width: '10%', height: '50px', backgroundColor:'white',color:'black'  }} />
                         </div>
                     </div>
 
                     <div className='product-name-content'>
                         <h2>{product.name}</h2>
-                        <p> <b> Price Range:</b>   $200 -$500</p>
+                        <p> <b> Price Range:</b>   ${product.price} -$500</p>
+                        {/* {product.price_range[0].one} -${product.price_range[0].two */}
 
                         <p>Available colors:</p>
                         <div className='available-colors'>
@@ -284,13 +291,13 @@ function ProductDetails() {
            
             </div>
 
+        }
 
-
-            <div className='footer'>
-                <Footer/>
-            </div>
-
+        <div className='footer'>
+            <Footer/>
         </div>
+
+    </div>
    
   )
 }
