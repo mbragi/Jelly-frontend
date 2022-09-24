@@ -6,7 +6,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 // import cart from "./cart.json";
 import Footer from '../../components/footer/Footer';
 import { Link } from 'react-router-dom';
-import { decreaseQuantity } from '../../helpers/cart';
+import { addToCart, decreaseQuantity } from '../../helpers/cart';
 
 
 function Cart() {
@@ -46,7 +46,7 @@ function Cart() {
                                     </p>
                                     <p className='item'>${item.price}</p>
                                     <p className='item'>
-                                        <Button content="+" style={{ width: "40px", height: "40px" }} />
+                                        <Button content="+" style={{ width: "40px", height: "40px" }} onClick={() => { addToCart(item) }} />
                                         <p className='item-quantity'>{item.quantity}</p>
                                         <Button content="-" style={{ width: "40px", height: "40px" }} onClick={() => { decreaseQuantity(item) }} />
                                     </p>
