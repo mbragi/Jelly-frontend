@@ -11,11 +11,9 @@ import { useParams } from 'react-router-dom'
 
 
 function ProductDetails() {
-    const [product, setProduct] = useState({});
-    const [priceRange, setPriceRange] = useState({});
+    const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(false);
     const param = useParams()
-    //console.log(param.token)
 
     useEffect(() => {
         // const URL = process.env.REACT_APP_SERVER_URL
@@ -36,22 +34,16 @@ function ProductDetails() {
 
             if(data.message === 'successful'){
                 const newData = data.data
-                setProduct({...newData})
+                setProduct(newData)
             }else{
                 setProduct(null)
             }
             setLoading(false);
         };
         fetchData();
-    }, []);
-    console.log(product)
+    }, [])
 
-    
-    
   return (
-
-
-
     <div>
         <div className='navigation-bar'>
             <NavBar/>
