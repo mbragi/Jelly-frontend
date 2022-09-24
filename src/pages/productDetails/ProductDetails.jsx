@@ -6,9 +6,12 @@ import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer'
 import battery from '../../assets/battery.png'
 import cart from '../../assets/images/cart.png'
+import { useParams } from 'react-router-dom'
 
 
 function ProductDetails() {
+    const param = useParams()
+    console.log(param)
     
   return (
 
@@ -18,7 +21,6 @@ function ProductDetails() {
         </div>
 
             <div className='product-details-container'>
-
                 <div className='product-name'>
                     <div className='product-name-images'>
                         <div className='product-image-big'>

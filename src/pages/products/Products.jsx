@@ -57,7 +57,6 @@ function Products() {
       const category = data.Cdata
       const product = data.Pdata
       setCategories(category)
-      // console.log(product)
       setProducts(product);
       // console.log(category);
       
