@@ -1,4 +1,4 @@
-function addToCart(newProduct){
+function addToCart(newProduct, cb){
     let cart = localStorage.getItem('cart');
     if(cart) {
         cart = JSON.parse(cart);
@@ -17,10 +17,10 @@ function addToCart(newProduct){
     }else{
         localStorage.setItem('cart', JSON.stringify([newProduct]));
     }
-    // console.log(JSON.parse(localStorage.getItem('cart')));
-    }
+    if(cb) cb();    
+}
 
-function removeFromCart(product){
+function removeFromCart(product, cb){
     let cart = localStorage.getItem('cart');
     // console.log(typeof(cart))
     if(cart){
@@ -29,23 +29,25 @@ function removeFromCart(product){
         ));
         localStorage.setItem('cart', JSON.stringify(cart));
     }
+    if(cb) cb();    
 }
 
-function decreaseQuantity(productInFocus){
+function decreaseQuantity(productInFocus, cb){
     let cart = localStorage.getItem('cart');
-    console.log(productInFocus.name);
+    
     if(cart){
         cart = JSON.parse(cart);
         let product = cart.find((product) => product._id === productInFocus._id);
         if (!product) return;
         if(product.quantity === 1) {
-            return removeFromCart(product);
+            return removeFromCart(product, cb);
         }
 
         cart = cart.map(product => product._id === productInFocus._id ? { ...product, quantity: product.quantity - 1 } : product);
         localStorage.setItem('cart', JSON.stringify(cart));
     }
-
+    
+    if(cb) cb();    
 }
 
 export { addToCart, removeFromCart, decreaseQuantity };

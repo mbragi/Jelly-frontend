@@ -166,6 +166,18 @@
     padding: 5px;
     /* background-color: red; */
 }
+.item-quantity{
+    width: 40px;
+    height: 20px;
+    border-radius: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: white;
+    background-color: rgb(88, 122, 7) 
+}
 .accessories-slider-item-image{
     width: 100%;
     height: 250px;
