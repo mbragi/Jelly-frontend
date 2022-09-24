@@ -33,38 +33,40 @@ export default function NavBar({ currentPage }) {
       <div className='top-margin'></div>
       <nav className={navbar ? 'nav-bar active' : 'nav-bar'}>
         <div className='top'>
-          <div className='contact-details-container'>
-            <p className='phone'>
-              <MdLocalPhone size={30} color="rgba(203, 182, 182)" className="icon" />
-              +86 1805723297
-            </p>
-            <p className='email'>
-              <MdOutlineMailOutline size={30} color="rgba(203, 182, 182)" className="icon" />
-              254510608@qq.com
-            </p>
-          </div>
+          <div className="btop">
+            <div className='contact-details-container'>
+              <p className='phone'>
+                <MdLocalPhone size={30} color="rgba(203, 182, 182)" className="icon" />
+                +86 1805723297
+              </p>
+              <p className='email'>
+                <MdOutlineMailOutline size={30} color="rgba(203, 182, 182)" className="icon" />
+                254510608@qq.com
+              </p>
+            </div>
 
-          <div className='location-container'>
-            <p className='store-locator'>
-              <MdLocationOn size={25} color="rgba(203, 182, 182)" className="icon" />
-              Store Locator
-            </p>
+            <div className='location-container'>
+              <p className='store-locator'>
+                <MdLocationOn size={25} color="rgba(203, 182, 182)" className="icon" />
+                Store Locator
+              </p>
 
-            <span className='slash'> / </span>
+              <span className='slash'> / </span>
 
-            <p className='dealers-enquiry'>
-              <GrFormEdit size={30} color="rgba(203, 182, 182)" className="icon" />
-              Dealers Enquiry
-            </p>
+              <p className='dealers-enquiry'>
+                <GrFormEdit size={30} color="rgba(203, 182, 182)" className="icon" />
+                Dealers Enquiry
+              </p>
 
-            <span className='slash'> / </span>
+              <span className='slash'> / </span>
 
-            <FaUserAlt size={25} color="rgba(203, 182, 182)" className="icon" />
+              <FaUserAlt size={25} color="rgba(203, 182, 182)" className="icon" />
 
+            </div>
           </div>
         </div>
 
-        <div className='bottom'>
+        <div className='bottom btop'>
           <div className='logo-container'>
             <Link to='/'>
               <img src={logo} alt="logo" className='logo' />

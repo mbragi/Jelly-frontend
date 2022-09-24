@@ -149,7 +149,7 @@
 .other-products-box-slider{
     width: 50px;
     position: absolute;
-    margin-left: 71%;
+    margin-left: 78%;
 }
 
 
@@ -190,6 +190,9 @@
     padding: 20px 0px;
     text-align: center;
     line-height: 40px;
+}
+.verified-ratings-box h2 > *{
+    margin-left: 5px;
 }
 
 .comments-from-v-purchases1{
