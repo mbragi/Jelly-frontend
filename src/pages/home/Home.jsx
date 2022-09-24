@@ -17,9 +17,15 @@ function Home() {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
-
-  const productsPerPage = 3;
-
+  const [productsPerPage, setProductsPerPage] = useState(0);
+  function pageResized(){
+    if(window.innerWidth > 1000) setProductsPerPage(3);
+    if((window.innerWidth <= 1000) && (window.innerWidth >= 500)) setProductsPerPage(2);
+    if(window.innerWidth < 500) setProductsPerPage(1);
+  }
+  window.addEventListener('resize', pageResized);
+  // useEffect(() => {
+  // }, [window.innerWidth]);
   const featuresArray = ["512.png", "bike.jpg"];
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -47,6 +53,7 @@ function Home() {
       // getCurrentProducts(product);
     };
     fetchData();
+    pageResized();
   }, []);
 
   const prev = () => {
