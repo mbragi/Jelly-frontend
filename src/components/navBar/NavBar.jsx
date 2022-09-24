@@ -27,7 +27,7 @@ export default function NavBar({ currentPage }) {
     return {};
   }
 
-  const cart = JSON.parse(localStorage.getItem('cart')).length;
+  const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
   return (
     <div>
       <div className='top-margin'></div>

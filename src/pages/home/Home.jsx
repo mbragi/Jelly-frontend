@@ -10,6 +10,8 @@ import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
+import { addToCart, removeFromCart } from '../../helpers/cart';
+
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -69,28 +71,6 @@ function Home() {
     if (currentPage < numberOfPages) setCurrentPage(currentPage => currentPage + 1);
   }
 
-  function addToCart(newProduct){
-    let cart = localStorage.getItem('cart');
-    if(cart) {
-      cart = JSON.parse(cart);
-      const itemInCart = cart.find((product) => product._id === newProduct._id );
-
-      if(itemInCart){
-        cart = cart.map((product) => (
-          product._id === newProduct._id ? {...product, quantity: product.quantity + 1} : product
-        ));
-        localStorage.setItem('cart', JSON.stringify(cart));
-      }else{
-        cart.push({ ...newProduct, quantity: 1 });
-        localStorage.setItem('cart', JSON.stringify(cart));
-      }
-
-    }else{
-      localStorage.setItem('cart', JSON.stringify([]));
-      addToCart(newProduct);
-    }
-    console.log(JSON.parse(localStorage.getItem('cart')));
-  }
   return (
     <div className='cntainer'>
 
@@ -176,7 +156,7 @@ function Home() {
           <BiChevronLeftCircle size={50} className='icon' onClick={() => { accessoriesPrev() }} />
           {
             currentProducts.map((product) => (
-              <div className='accessories-slider-item'>
+              <div key={product._id} className='accessories-slider-item'>
                 <p>{product.name}</p>
                 <Zoom direction="up">
                   <img src={product.img} alt={product.name} className='accessories-slider-item-image' />
