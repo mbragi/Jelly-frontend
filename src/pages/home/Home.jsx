@@ -18,23 +18,21 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
   const [productsPerPage, setProductsPerPage] = useState(0);
+
+  const featuresArray = ["512.png", "bike.jpg"];
+  
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
   function pageResized(){
     if(window.innerWidth > 1000) setProductsPerPage(3);
     if((window.innerWidth <= 1000) && (window.innerWidth >= 500)) setProductsPerPage(2);
     if(window.innerWidth < 500) setProductsPerPage(1);
   }
   window.addEventListener('resize', pageResized);
-  // useEffect(() => {
-  // }, [window.innerWidth]);
-  const featuresArray = ["512.png", "bike.jpg"];
 
-  const indexOfLastProduct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-
-  useEffect(() => {
-    // const URL = process.env.REACT_APP_SERVER_URL
-
+  // const URL = process.env.REACT_APP_SERVER_URL
+  
     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
     const fetchData = async () => {
@@ -52,6 +50,20 @@ function Home() {
       setLoading(false);
       // getCurrentProducts(product);
     };
+
+    function getQuantity(_id){
+      let cart = localStorage.getItem('cart');
+    
+      if(cart){
+        cart = JSON.parse(cart);
+        let cartProduct = cart.find((product) => product._id === _id);
+        
+        if(cartProduct) return <span className="item-quantity">{cartProduct.quantity}</span>;
+        return '';
+      }
+  }
+
+  useEffect(() => {
     fetchData();
     pageResized();
   }, []);
@@ -163,11 +175,11 @@ function Home() {
           {loading ? <h1>Loading...</h1> :
             currentProducts.map((product) => (
               <div key={product._id} className='accessories-slider-item'>
-                <p>{product.name}</p>
+                <p>{getQuantity(product._id)} {product.name}</p>
                 <Zoom direction="up">
                   <img src={product.img} alt={product.name} className='accessories-slider-item-image' />
                 </Zoom>
-                <Button onClick={() => { addToCart(product) }} content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
+                <Button onClick={() => { addToCart(product, fetchData) }} content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
               </div>
             ))
           }
