@@ -29,6 +29,14 @@ function Product({ product }) {
     })
     const product = await res.json()
     console.log(product)
+    //check if the product exit before setting the local storage
+    const productExit = JSON.parse(localStorage.getItem('product'))
+    if(productExit){
+      localStorage.removeItem('product')
+      localStorage.setItem('product',JSON.stringify(product))
+    }else{
+      localStorage.setItem('product',JSON.stringify(product))
+    }
     //save response to browser storage
   }
   return (
