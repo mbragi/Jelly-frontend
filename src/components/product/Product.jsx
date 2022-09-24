@@ -36,7 +36,8 @@ function Product({ product }) {
       <Button content="Details"
         style={{ borderRadius: "10px", width: '80%', margin: '0.4rem' }}
         name={product.name}
-        onClick={getDetails} />
+        onClick={getDetails} 
+      />
     </form>
   )
 }
