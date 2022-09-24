@@ -59,7 +59,7 @@ function Products() {
       setCategories(category)
       setProducts(product);
       //console.log(category);
-      console.log(product);
+      //console.log(product);
       
       setTotalProducts(product.length);
       setLoading(false);
