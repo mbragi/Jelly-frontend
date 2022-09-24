@@ -12,6 +12,7 @@ function Product({ product }) {
   function getDetails(e) {
     const { name } = e.target
     const findData = { name }
+    //will clean this later
     setData(findData)
   }
   async function httpGetDetails(e) {

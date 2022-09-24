@@ -78,7 +78,7 @@ export default function NavBar({ currentPage }) {
           <div className='links'>
             {/* <img src={menu} alt="menu" className='menu' /> */}
             <Link to='/' className='link home-link' style={page("home")}>Home</Link>
-            <p className='link' About Us style={page("about")}></p>
+           <p className='link' About Us style={page("about")}></p>
             <Link to="/shop" className='link' style={page("shop")}>Shop</Link>
             <p className='link' style={page("products")}>Product</p>
             <Link to="/contact" className='link' style={page("contact")}>Contact Us</Link>
