@@ -1,0 +1,1 @@
+products page: clicking page 2, 3, ..., n before filtering causes an empty page

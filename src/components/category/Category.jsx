@@ -6,7 +6,7 @@ const Category = ({ category }) => {
   <>
    <div className='category'>
     <input id={category._id} type="checkbox" name={category.name} />
-    <label htmlFor='' className='label'>{category.name}</label>
+    <label htmlFor={category._id} className='label'>{category.name}</label>
    </div>
   </>
  )
