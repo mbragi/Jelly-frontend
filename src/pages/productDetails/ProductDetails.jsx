@@ -11,7 +11,8 @@ import { useParams } from 'react-router-dom'
 
 
 function ProductDetails() {
-    const [product, setProduct] = useState([]);
+    const [product, setProduct] = useState({});
+    const [priceRange, setPriceRange] = useState({});
     const [loading, setLoading] = useState(false);
     const param = useParams()
     //console.log(param.token)
@@ -22,30 +23,30 @@ function ProductDetails() {
         const BASE_URL = 'https://jelly-online-api.herokuapp.com'
     
         const fetchData = async () => {
-          setLoading(true);
-          const res = await fetch(`${BASE_URL}/category`)
-          const data = await res.json()
-          const products = data.Pdata
-          //console.log(products)
-          let productDetail = null
-          products.forEach((productD) =>{
-            if(productD.token === param.token){
-                productDetail = productD
+            setLoading(true);
+            const res = await fetch(`${BASE_URL}/details`,{
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({name:param.productName}),
+            })
+
+            const data = await res.json()
+
+            if(data.message === 'successful'){
+                const newData = data.data
+                setProduct({...newData})
+            }else{
+                setProduct(null)
             }
-          })
-
-        setProduct(productDetail)
-        //console.log(productDetail)
-
-        setLoading(false);
+            setLoading(false);
         };
         fetchData();
     }, []);
+    console.log(product)
 
-    //const priceRange = product.price_range
-   //console.log(priceRange)
-
-
+    
     
   return (
 
@@ -74,8 +75,12 @@ function ProductDetails() {
 
                     <div className='product-name-content'>
                         <h2>{product.name}</h2>
-                        <p> <b> Price Range:</b>   ${product.price} -$500</p>
-                        {/* {product.price_range[0].one} -${product.price_range[0].two */}
+                        {/* <p> <b> Price Range:</b>   ${product.price} -$500</p> */}
+                        {
+                            product.price_range === true? 
+                            <p><b> Price Range: </b>${product.price_range[0].one} -${product.price_range[0].two}</p>:
+                            <p><b>Price: </b> ${product.price}</p> 
+                        }
 
                         <p>Available colors:</p>
                         <div className='available-colors'>
