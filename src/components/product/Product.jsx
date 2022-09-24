@@ -9,6 +9,8 @@ function Product({ product }) {
   const navigate = useNavigate()
   function httpGetDetails(e) {
     e.preventDefault()
+    //remove the item before setting new one
+    localStorage.removeItem('product')
     //save response to browser storage
     localStorage.setItem('product',JSON.stringify({token:product.token}))
     //navigate to the product page with product name
