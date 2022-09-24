@@ -1,42 +1,81 @@
 import React from 'react'
 import './ProductDetails.css'
+import { useState,useEffect } from 'react'
 import { BsStarFill } from 'react-icons/bs'
 import NavBar from '../../components/navBar/NavBar'
 import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer'
 import battery from '../../assets/battery.png'
 import cart from '../../assets/images/cart.png'
+import { useParams } from 'react-router-dom'
 
 
 function ProductDetails() {
+    const [product, setProduct] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const param = useParams()
+    //console.log(param.token)
+
+    useEffect(() => {
+        // const URL = process.env.REACT_APP_SERVER_URL
+    
+        const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+    
+        const fetchData = async () => {
+          setLoading(true);
+          const res = await fetch(`${BASE_URL}/category`)
+          const data = await res.json()
+          const products = data.Pdata
+          //console.log(products)
+          let productDetail = null
+          products.forEach((productD) =>{
+            if(productD.token === param.token){
+                productDetail = productD
+            }
+          })
+
+        setProduct(productDetail)
+        //console.log(productDetail)
+
+        setLoading(false);
+        };
+        fetchData();
+    }, []);
+
+    //const priceRange = product.price_range
+   //console.log(priceRange)
+
+
     
   return (
+
+
 
     <div>
         <div className='navigation-bar'>
             <NavBar/>
         </div>
-
+        { loading ? <h1 style={{textAlign:'center'}}>Loading...</h1> : !product ? <h1 style={{textAlign:'center'}}>404 error can't find product</h1> :
             <div className='product-details-container'>
-
                 <div className='product-name'>
                     <div className='product-name-images'>
                         <div className='product-image-big'>
-                            <img src={battery} alt="" />
+                            <img src={product.img} alt="" />
                         </div>
 
                         <div className='product-image-small'>
                             <Button content='<' style={{ width: '10%', height: '50px',backgroundColor:'white', color:'black'  }} />
-                            <img src={battery } alt=""  />
-                            <img src={battery } alt="" />
-                            <img src={battery } alt="" />
+                            <img src={product.img } alt="product"  />
+                            <img src={product.img } alt="product" />
+                            <img src={product.img } alt="product" />
                             <Button content='>' style={{ width: '10%', height: '50px', backgroundColor:'white',color:'black'  }} />
                         </div>
                     </div>
 
                     <div className='product-name-content'>
-                        <h2>Product Name</h2>
-                        <p> <b> Price Range:</b>   $200 -$500</p>
+                        <h2>{product.name}</h2>
+                        <p> <b> Price Range:</b>   ${product.price} -$500</p>
+                        {/* {product.price_range[0].one} -${product.price_range[0].two */}
 
                         <p>Available colors:</p>
                         <div className='available-colors'>
@@ -251,14 +290,12 @@ function ProductDetails() {
                 </div>
            
             </div>
-
-
-
-            <div className='footer'>
-                <Footer/>
-            </div>
-
+        }
+        <div className='footer'>
+            <Footer/>
         </div>
+
+    </div>
    
   )
 }
