@@ -18,7 +18,7 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
   const [productsPerPage, setProductsPerPage] = useState(0);
-  
+
   const featuresArray = ["512.png", "bike.jpg"];
   
   const indexOfLastProduct = currentPage * productsPerPage;
