@@ -42,7 +42,7 @@ function ProductDetails() {
         fetchData();
     }, []);
 
-    const priceRange = product.price_range
+    //const priceRange = product.price_range
    //console.log(priceRange)
 
 
@@ -55,7 +55,7 @@ function ProductDetails() {
         <div className='navigation-bar'>
             <NavBar/>
         </div>
-        {loading ? <h1 style={{textAlign:'center'}}>Loading...</h1> :
+        { loading ? <h1 style={{textAlign:'center'}}>Loading...</h1> : !product ? <h1 style={{textAlign:'center'}}>404 error can't find product</h1> :
             <div className='product-details-container'>
                 <div className='product-name'>
                     <div className='product-name-images'>
@@ -290,9 +290,7 @@ function ProductDetails() {
                 </div>
            
             </div>
-
         }
-
         <div className='footer'>
             <Footer/>
         </div>
