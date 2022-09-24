@@ -1,5 +1,6 @@
 import React from 'react'
 import './ProductDetails.css'
+import { useState,useEffect } from 'react'
 import { BsStarFill } from 'react-icons/bs'
 import NavBar from '../../components/navBar/NavBar'
 import Button from '../../components/button/Button'
@@ -10,8 +11,37 @@ import { useParams } from 'react-router-dom'
 
 
 function ProductDetails() {
+    const [product, setProduct] = useState([]);
+    const [loading, setLoading] = useState(false);
     const param = useParams()
-    console.log(param.productName)
+    //console.log(param.token)
+
+    useEffect(() => {
+        // const URL = process.env.REACT_APP_SERVER_URL
+    
+        const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+    
+        const fetchData = async () => {
+          setLoading(true);
+          const res = await fetch(`${BASE_URL}/category`)
+          const data = await res.json()
+          const products = data.Pdata
+          //console.log(products)
+          let productDetail = null
+          products.forEach((productD) =>{
+            if(productD.token === param.token){
+                productDetail = productD
+            }
+          })
+
+        setProduct(productDetail)
+        console.log(productDetail)
+
+        setLoading(false);
+        };
+        fetchData();
+    }, []);
+
     
   return (
 
@@ -37,7 +67,7 @@ function ProductDetails() {
                     </div>
 
                     <div className='product-name-content'>
-                        <h2>Product Name</h2>
+                        <h2>{product.name}</h2>
                         <p> <b> Price Range:</b>   $200 -$500</p>
 
                         <p>Available colors:</p>

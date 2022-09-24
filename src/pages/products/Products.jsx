@@ -58,7 +58,8 @@ function Products() {
       const product = data.Pdata
       setCategories(category)
       setProducts(product);
-      // console.log(category);
+      //console.log(category);
+      console.log(product);
       
       setTotalProducts(product.length);
       setLoading(false);
