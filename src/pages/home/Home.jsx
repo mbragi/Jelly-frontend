@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from "../../components/navBar/NavBar";
 // import intro from "../../assets/intro.mp4";
 import bike from "../../assets/512.png";
@@ -9,9 +9,46 @@ import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
+import { addToCart, removeFromCart } from '../../helpers/cart';
+
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
-  const featuresArray = ["512.png", "bike.jpg"]
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalProducts, setTotalProducts] = useState(0);
+
+  const productsPerPage = 3;
+
+  const featuresArray = ["512.png", "bike.jpg"];
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  useEffect(() => {
+    // const URL = process.env.REACT_APP_SERVER_URL
+
+    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+
+    const fetchData = async () => {
+      setLoading(true);
+      const res = await fetch(`${BASE_URL}/category`)
+      const data = await res.json()
+      const category = data.Cdata
+      const product = data.Pdata
+      // setCategories(category)
+      // console.log(product)
+      setProducts(product);
+      // console.log(category);
+      
+      setTotalProducts(product.length);
+      setLoading(false);
+      // getCurrentProducts(product);
+    };
+    fetchData();
+  }, []);
+
   const prev = () => {
     setFeaturesIndex(featuresIndex => {
       if (featuresIndex === 0) return featuresArray.length - 1;
@@ -24,8 +61,17 @@ function Home() {
       return featuresIndex + 1;
     })
   }
+
+  const accessoriesPrev = () => {
+    if (currentPage > 1) setCurrentPage(currentPage => currentPage - 1);
+  }
+  const accessoriesNext = () => {
+    const numberOfPages = Math.ceil(totalProducts / productsPerPage);
+    if (currentPage < numberOfPages) setCurrentPage(currentPage => currentPage + 1);
+  }
+
   return (
-    <div className='container'>
+    <div className='cntainer'>
 
       <NavBar currentPage="home" />
       <div className="imgcontainer resize-max">
@@ -106,30 +152,20 @@ function Home() {
 
         <div className='accessories-slider'>
 
-          <BiChevronLeftCircle size={50} className='icon' />
+          <BiChevronLeftCircle size={50} className='icon' onClick={() => { accessoriesPrev() }} />
+          {
+            currentProducts.map((product) => (
+              <div key={product._id} className='accessories-slider-item'>
+                <p>{product.name}</p>
+                <Zoom direction="up">
+                  <img src={product.img} alt={product.name} className='accessories-slider-item-image' />
+                </Zoom>
+                <Button onClick={() => { addToCart(product) }} content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
+              </div>
+            ))
+          }
 
-          <div className='accessories-slider-item'>
-            <Zoom direction="up">
-              <img src={bike} alt="bike" className='accessories-slider-item-image' />
-            </Zoom>
-            <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
-          </div>
-
-          <div className='accessories-slider-item'>
-            <Zoom direction="up">
-              <img src={bike} alt="bike" className='accessories-slider-item-image' />
-            </Zoom>
-            <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
-          </div>
-
-          <div className='accessories-slider-item'>
-            <Zoom direction="up">
-              <img src={bike} alt="bike" className='accessories-slider-item-image' />
-            </Zoom>
-            <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
-          </div>
-
-          <BiChevronRightCircle size={50} className='icon' />
+          <BiChevronRightCircle size={50} className='icon' onClick={() => { accessoriesNext() }} />
 
         </div>
       </div>
