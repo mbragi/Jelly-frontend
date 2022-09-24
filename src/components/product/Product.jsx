@@ -12,7 +12,8 @@ function Product({ product }) {
     //save response to browser storage
     localStorage.setItem('product',JSON.stringify({token:product.token}))
     //navigate to the product page with product name
-    navigate(`/details/${product.name.trim()}`)
+    // navigate(`/details/${product.name.replaceAll(' ','')}`)
+    navigate(`/details/${product.token}`)
    }
   return (
     <form className='product' onSubmit={httpGetDetails}>

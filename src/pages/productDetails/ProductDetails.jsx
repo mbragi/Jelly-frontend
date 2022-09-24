@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom'
 
 function ProductDetails() {
     const param = useParams()
-    console.log(param)
+    console.log(param.productName)
     
   return (
 
