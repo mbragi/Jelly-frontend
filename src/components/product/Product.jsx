@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './Product.css';
 import Button from '../button/Button';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 function Product({ product }) {
-  // const URL = 'https://jelly-online-api.herokuapp.com'
-  const URL2 = 'http://localhost:1050'
-  const navigate = useNavigate()
+  const URL = 'https://jelly-online-api.herokuapp.com'
+  // const URL2 = 'http://localho/st:1050'
+  // const navigate = useNavigate()
   const [data, setData] = useState({})
   function getDetails(e) {
     const { name } = e.target
@@ -17,7 +17,7 @@ function Product({ product }) {
     let request = JSON.stringify(data)
     console.log(request)
     //get response 
-    const res = await fetch(`${URL2}/product/detail`, {
+    const res = await fetch(`${URL}/product/detail`, {
       method: 'post',
       headers: {
         'content-Type': 'application/json'

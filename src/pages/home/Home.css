@@ -160,11 +160,13 @@
     align-items: center;
     justify-content: space-between;
     padding: 5px;
+    /* background-color: red; */
 }
 .accessories-slider-item-image{
     width: 100%;
-    height: 80%;
+    height: 250px;
     margin-bottom: 20px;
+    object-fit: contain;
 }
 .icon{
     cursor: pointer
