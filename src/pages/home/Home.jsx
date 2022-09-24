@@ -10,7 +10,7 @@ import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
-import { addToCart, removeFromCart } from '../../helpers/cart';
+import { addToCart } from '../../helpers/cart';
 
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
@@ -36,7 +36,7 @@ function Home() {
       setLoading(true);
       const res = await fetch(`${BASE_URL}/category`)
       const data = await res.json()
-      const category = data.Cdata
+      // const category = data.Cdata
       const product = data.Pdata
       // setCategories(category)
       // console.log(product)
@@ -154,7 +154,7 @@ function Home() {
         <div className='accessories-slider'>
 
           <BiChevronLeftCircle size={50} className='icon' onClick={() => { accessoriesPrev() }} />
-          {
+          {loading ? <h1>Loading...</h1> :
             currentProducts.map((product) => (
               <div key={product._id} className='accessories-slider-item'>
                 <p>{product.name}</p>
