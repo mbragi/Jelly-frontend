@@ -76,7 +76,9 @@ function Cart() {
 
                         <p className='cart-summary-disclaimer'>
                             <p className='disclaimer'>Shipping price might change based on your location</p>
-                            <Button content="CHECK OUT" style={{ borderRadius: 5 }} className='button' />
+                            <Link to="/checkout">
+                                <Button content="CHECK OUT" style={{ borderRadius: 5 }} className='button' />
+                            </Link>
                         </p>
 
                     </div>
@@ -88,7 +90,6 @@ function Cart() {
                 <p>
                     Continue Shopping
                 </p>
-                <Footer />
             </Link>
 
             <Footer />
