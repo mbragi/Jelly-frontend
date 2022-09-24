@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from "../../components/navBar/NavBar";
 // import intro from "../../assets/intro.mp4";
-import features from "../../assets/features.png";
 import bike from "../../assets/512.png";
 import turnSignal from "../../assets/turn-signal.jpg";
 import Button from "../../components/button/Button";
@@ -75,13 +74,11 @@ function Home() {
     <div className='cntainer'>
 
       <NavBar currentPage="home" />
-      <div className="imgcontainer">
+      <div className="imgcontainer resize-max">
         <img src={bike} alt="evtop"  className = 'evtopimg'/>
       </div>
 
       <div className='features-div'>
-
-        <img src={features} alt="header" className='features-header' />
 
         <div className='features-slider-div'>
           <BiChevronLeftCircle size={50} className='icon' onClick={() => { prev() }} />
@@ -95,7 +92,7 @@ function Home() {
       </div>
 
 
-      <div className='transport-cost-div'>
+      <div className='transport-cost-div resize-max'>
         <h1 className='transport-cost-header'>Transportation Cost Comparison (Monthly)</h1>
         <div className='vehicles'>
           <div className='vehicle'>
@@ -119,31 +116,33 @@ function Home() {
       </div>
 
       <div className='promo'>
-        <Fade direction="up" spy={featuresIndex} className='promo-attention-seeker'>
-          <img src={turnSignal} alt="promo" className='promo-img' />
-        </Fade>
-        <div className='promo-info'>
-          <h2 className='promo-header'>Jelly e-indicaator</h2>
+        <div className="resize-promo resize-max">
+          <Fade direction="up" spy={featuresIndex} className='promo-attention-seeker'>
+            <img src={turnSignal} alt="promo" className='promo-img' />
+          </Fade>
+          <div className='promo-info'>
+            <h2 className='promo-header'>Jelly e-indicaator</h2>
 
 
-          <div className='ratings'>
-            <MdOutlineStar size={20} color="yellow" />
-            <MdOutlineStar size={20} color="yellow" />
-            <MdOutlineStar size={20} color="yellow" />
-            <MdOutlineStar size={20} color="yellow" />
-            <MdOutlineStar size={20} color="yellow" />
-            <p className='number-of-ratings'>(20)</p>
+            <div className='ratings'>
+              <MdOutlineStar size={20} color="yellow" />
+              <MdOutlineStar size={20} color="yellow" />
+              <MdOutlineStar size={20} color="yellow" />
+              <MdOutlineStar size={20} color="yellow" />
+              <MdOutlineStar size={20} color="yellow" />
+              <p className='number-of-ratings'>(20)</p>
+            </div>
+
+            <p className='promo-price'>Buy at: $99</p>
+            <p className='promo-desc'>
+              Refer friends and get upto Rs. 5000/- OFF on final price Jelly App connected | Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes
+            </p>
+            <Button content="Buy Now" style={{}} />
           </div>
-
-          <p className='promo-price'>Buy at: $99</p>
-          <p className='promo-desc'>
-            Refer friends and get upto Rs. 5000/- OFF on final price Jelly App connected | Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes
-          </p>
-          <Button content="Buy Now" style={{}} />
         </div>
       </div>
 
-      <div className='accessories-div'>
+      <div className='accessories-div resize-max'>
         <div className='accessories-header'>
           <p className='accessories-title'>Accessories</p>
           <Button content="View More" style={{ width: "20%", height: "15%", fontSize: "100%" }} />

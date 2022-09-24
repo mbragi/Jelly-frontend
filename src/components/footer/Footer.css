@@ -6,7 +6,7 @@ footer *{
     font-family: 'Poppins', sans-serif;
 }
 
-footer{
+.footer{
     color: #d9d9d9;
     bottom: 0px;
     width: 100%;
@@ -74,4 +74,10 @@ footer{
   .main-content .box{
     margin: 5px 0;
   }
+}
+@media(min-width: 1280px){
+    .resize-max{
+        max-width: 1300px;
+        margin: 0 auto;
+    }
 }

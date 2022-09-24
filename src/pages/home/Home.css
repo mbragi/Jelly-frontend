@@ -35,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: 30px;
+    margin-top: 0px;
 }
 .slider-attention-seeker{
     width: 80%;
@@ -99,6 +99,10 @@
     display: flex;
     padding: 20px;
     background-color: #E2E6E9;
+}
+.resize-promo{
+    display: flex;
+    width: 100%;
 }
 .promo-attention-seeker{
     width: 60%;
@@ -199,5 +203,15 @@
     }
     .accessories-title{
         font-size: 30px;
+    }
+}
+@media(min-width: 1280px){
+    .features-slider-div{
+        max-width: 1300px;
+        margin: inherit auto 0;
+    }
+    .resize-max{
+        max-width: 1300px;
+        margin: 0 auto;
     }
 }
