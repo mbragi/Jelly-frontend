@@ -63,7 +63,7 @@ function Home() {
         cart = JSON.parse(cart);
         let cartProduct = cart.find((product) => product._id === _id);
         
-        if(cartProduct) return <span className="item-quantity">{cartProduct.quantity}</span>;
+        if(cartProduct) return <span className="item-quantity-in-cart">{cartProduct.quantity}</span>;
         return '';
       }
   }
