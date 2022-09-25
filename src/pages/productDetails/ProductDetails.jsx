@@ -12,8 +12,6 @@ import { useParams } from 'react-router-dom'
 
 function ProductDetails() {
     const [product, setProduct] = useState(null);
-    const [productDetails, setProductDetails] = useState([]);
-    const [priceRange, setPriceRange] = useState([]);
     const [loading, setLoading] = useState(false);
     const param = useParams()
 
@@ -25,27 +23,8 @@ function ProductDetails() {
         const res = await fetch(`${BASE_URL}/details/${param.id}`)
         const data = await res.json()
         setProduct(data.data)
-        setProductDetails(data.data.product_detail[0])
-        setPriceRange(data.data.price_range[0])
         setLoading(false);
     };
-
-    console.log(productDetails)
-    console.log(product)
-    console.log(priceRange)
-
-
-
-    // useEffect(() => {
-    //     // const URL = process.env.REACT_APP_SERVER_URL
-    //     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
-
-    //     setLoading(true);
-    //     fetch(`${BASE_URL}/details/${param.id}`)
-    //     .then(response => response.json())
-    //     .then(data =>  setProduct(data.data))
-    //     setLoading(false);
-    // }, [])
 
     useEffect(() => { 
         fetchData();
@@ -78,7 +57,7 @@ function ProductDetails() {
                         <h2>{product.name}</h2>
                         {/* <p> <b> Price Range:</b>   ${product.price} -$500</p> */}
                         {
-                            product.price_range === true? 
+                            product.price_range.length? 
                             <p><b> Price Range: </b>${product.price_range[0].one} -${product.price_range[0].two}</p>:
                             <p><b>Price: </b> ${product.price}</p> 
                         }
