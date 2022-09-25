@@ -88,17 +88,19 @@ function ProductDetails() {
                     <div className='product-details-content'>
                         <h3>Key Features:</h3>
                         <li>100% and high quality, durable!</li>
-                        <li>Light weight and compact, easy to move and clean</li>
+                        <li>{product.product_detail[0].key_features}</li>
+                        {/* <li>Light weight and compact, easy to move and clean</li>
                         <li>Simple to assemble and with covers to prevent any dust</li>
                         <li>A nice solution to the shoes and great helper for the housekeeping</li>
                         <li>This shoe rack cover keeps your shoes un-viewable and keeps your room neat.</li>
-                        <li>Easy to Assemble</li>
+                    <li>Easy to Assemble</li> */}
 
                         <h3>Specification:</h3>
                         <li>100% and high quality, durable!</li> 
-                        <li>Lightweight and compact, easy to move and clean</li>
+                        <li>{product.product_detail[0].specifications}</li>
+                        {/* <li>Lightweight and compact, easy to move and clean</li>
                         <li>Simple to assemble and with covers to prevent any dust</li>
-                        <li>Color: purple.</li>
+                        <li>Color: purple.</li> */}
                     </div>
                 </div>
           
