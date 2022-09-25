@@ -17,24 +17,12 @@ function ProductDetails() {
 
     useEffect(() => {
         // const URL = process.env.REACT_APP_SERVER_URL
-    
         const BASE_URL = 'https://jelly-online-api.herokuapp.com'
-    
-        const fetchData = async () => {
-            setLoading(true);
-            const res = await fetch(`${BASE_URL}/details`)
-
-            const data = await res.json()
-
-            if(data.message === 'successful'){
-                const newData = data.data
-                setProduct(newData)
-            }else{
-                setProduct(null)
-            }
-            setLoading(false);
-        };
-        fetchData();
+        setLoading(true);
+        fetch(`${BASE_URL}/details/${param.id}`)
+        .then(response => response.json())
+        .then(data => setProduct(data.data))
+        setLoading(false);
     }, [])
 
   return (
