@@ -24,13 +24,14 @@ function ProductDetails() {
         .then(data => setProduct(data.data))
         setLoading(false);
     }, [])
-
+    if(loading) return <h1 style={{textAlign:'center'}}>Loading...</h1>;
+    if(!loading && !product) return <h1 style={{textAlign:'center'}}>404 error can't find product</h1>;
   return (
     <div>
         <div className='navigation-bar'>
             <NavBar/>
         </div>
-        { loading ? <h1 style={{textAlign:'center'}}>Loading...</h1> : !product ? <h1 style={{textAlign:'center'}}>404 error can't find product</h1> :
+
             <div className='product-details-container'>
                 <div className='product-name'>
                     <div className='product-name-images'>
@@ -51,7 +52,7 @@ function ProductDetails() {
                         <h2>{product.name}</h2>
                         {/* <p> <b> Price Range:</b>   ${product.price} -$500</p> */}
                         {
-                            product.price_range === true? 
+                            product.price_range.length? 
                             <p><b> Price Range: </b>${product.price_range[0].one} -${product.price_range[0].two}</p>:
                             <p><b>Price: </b> ${product.price}</p> 
                         }
@@ -269,7 +270,7 @@ function ProductDetails() {
                 </div>
            
             </div>
-        }
+        
         <div className='footer'>
             <Footer/>
         </div>
