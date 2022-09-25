@@ -26,7 +26,7 @@ function App() {
             <Route exact path={path.product} element={<Products />} />
 
             <Route exact path="/contact" element={<ContactPage />} />
-            <Route exact path="/details/:productName" element={<ProductDetails/>} />
+            <Route exact path="/details/:id" element={<ProductDetails/>} />
             <Route exact path="/forgotpassword" element={<ForgotPassword/>} />
             <Route exact path="*" element={<h1>404</h1>} />
           </Routes>
