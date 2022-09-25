@@ -12,11 +12,12 @@ function Product({ product }) {
     //remove the item before setting new one
     localStorage.removeItem('product')
     //save response to browser storage
-    localStorage.setItem('product',JSON.stringify({token:product.token}))
+    localStorage.setItem('product',JSON.stringify({id:product._id}))
     //navigate to the product page with product name
     // navigate(`/details/${product.name.replaceAll(' ','')}`)
-    navigate(`/details/${product.token}`)
+    navigate(`/details/${product._id}`)
    }
+   //console.log(product._id)
   return (
     <form className='product' onSubmit={httpGetDetails}>
       <p className='product-name' name={product.name}  >{product.name}</p>

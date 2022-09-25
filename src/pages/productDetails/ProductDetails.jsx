@@ -11,46 +11,21 @@ import { useParams } from 'react-router-dom'
 
 
 function ProductDetails() {
-    const [product, setProduct] = useState([]);
+    const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(false);
     const param = useParams()
-    //console.log(param.token)
 
     useEffect(() => {
         // const URL = process.env.REACT_APP_SERVER_URL
-    
         const BASE_URL = 'https://jelly-online-api.herokuapp.com'
-    
-        const fetchData = async () => {
-          setLoading(true);
-          const res = await fetch(`${BASE_URL}/category`)
-          const data = await res.json()
-          const products = data.Pdata
-          //console.log(products)
-          let productDetail = null
-          products.forEach((productD) =>{
-            if(productD.token === param.token){
-                productDetail = productD
-            }
-          })
-
-        setProduct(productDetail)
-        //console.log(productDetail)
-
+        setLoading(true);
+        fetch(`${BASE_URL}/details/${param.id}`)
+        .then(response => response.json())
+        .then(data => setProduct(data.data))
         setLoading(false);
-        };
-        fetchData();
-    }, []);
+    }, [])
 
-    //const priceRange = product.price_range
-   //console.log(priceRange)
-
-
-    
   return (
-
-
-
     <div>
         <div className='navigation-bar'>
             <NavBar/>
@@ -74,8 +49,12 @@ function ProductDetails() {
 
                     <div className='product-name-content'>
                         <h2>{product.name}</h2>
-                        <p> <b> Price Range:</b>   ${product.price} -$500</p>
-                        {/* {product.price_range[0].one} -${product.price_range[0].two */}
+                        {/* <p> <b> Price Range:</b>   ${product.price} -$500</p> */}
+                        {
+                            product.price_range === true? 
+                            <p><b> Price Range: </b>${product.price_range[0].one} -${product.price_range[0].two}</p>:
+                            <p><b>Price: </b> ${product.price}</p> 
+                        }
 
                         <p>Available colors:</p>
                         <div className='available-colors'>
