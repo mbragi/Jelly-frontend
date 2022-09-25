@@ -15,7 +15,7 @@ function Product({ product }) {
     localStorage.setItem('product',JSON.stringify({id:product._id}))
     //navigate to the product page with product name
     // navigate(`/details/${product.name.replaceAll(' ','')}`)
-    navigate(`/details/${product.name}`)
+    navigate(`/details/${product._id}`)
    }
    //console.log(product._id)
   return (

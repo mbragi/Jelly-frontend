@@ -15,33 +15,21 @@ function ProductDetails() {
     const [loading, setLoading] = useState(false);
     const param = useParams()
 
-    useEffect(() => {
-        // const URL = process.env.REACT_APP_SERVER_URL
-    
-        const BASE_URL = 'https://jelly-online-api.herokuapp.com'
-    
-        const fetchData = async () => {
-            setLoading(true);
-            const res = await fetch(`${BASE_URL}/details`,{
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({name:param.productName}),
-            })
 
-            const data = await res.json()
+    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+    
+    const fetchData = async () => {
+        setLoading(true);
+        const res = await fetch(`${BASE_URL}/details/${param.id}`)
+        const data = await res.json()
+        setProduct(data.data)
+        setLoading(false);
+    };
 
-            if(data.message === 'successful'){
-                const newData = data.data
-                setProduct(newData)
-            }else{
-                setProduct(null)
-            }
-            setLoading(false);
-        };
+    useEffect(() => { 
         fetchData();
     }, [])
+
 
   return (
     <div>
@@ -69,7 +57,7 @@ function ProductDetails() {
                         <h2>{product.name}</h2>
                         {/* <p> <b> Price Range:</b>   ${product.price} -$500</p> */}
                         {
-                            product.price_range === true? 
+                            product.price_range.length? 
                             <p><b> Price Range: </b>${product.price_range[0].one} -${product.price_range[0].two}</p>:
                             <p><b>Price: </b> ${product.price}</p> 
                         }
@@ -100,17 +88,19 @@ function ProductDetails() {
                     <div className='product-details-content'>
                         <h3>Key Features:</h3>
                         <li>100% and high quality, durable!</li>
-                        <li>Light weight and compact, easy to move and clean</li>
+                        <li>{product.product_detail[0].key_features}</li>
+                        {/* <li>Light weight and compact, easy to move and clean</li>
                         <li>Simple to assemble and with covers to prevent any dust</li>
                         <li>A nice solution to the shoes and great helper for the housekeeping</li>
                         <li>This shoe rack cover keeps your shoes un-viewable and keeps your room neat.</li>
-                        <li>Easy to Assemble</li>
+                    <li>Easy to Assemble</li> */}
 
                         <h3>Specification:</h3>
                         <li>100% and high quality, durable!</li> 
-                        <li>Lightweight and compact, easy to move and clean</li>
+                        <li>{product.product_detail[0].specifications}</li>
+                        {/* <li>Lightweight and compact, easy to move and clean</li>
                         <li>Simple to assemble and with covers to prevent any dust</li>
-                        <li>Color: purple.</li>
+                        <li>Color: purple.</li> */}
                     </div>
                 </div>
           
