@@ -149,11 +149,11 @@ function Home() {
 
 
             <div className='ratings'>
-              <MdOutlineStar size={20} color="yellow" />
-              <MdOutlineStar size={20} color="yellow" />
-              <MdOutlineStar size={20} color="yellow" />
-              <MdOutlineStar size={20} color="yellow" />
-              <MdOutlineStar size={20} color="yellow" />
+              <MdOutlineStar size={20} color="orange" />
+              <MdOutlineStar size={20} color="orange" />
+              <MdOutlineStar size={20} color="orange" />
+              <MdOutlineStar size={20} color="orange" />
+              <MdOutlineStar size={20} color="orange" />
               <p className='number-of-ratings'>(20)</p>
             </div>
 
@@ -161,7 +161,7 @@ function Home() {
             <p className='promo-desc'>
               Refer friends and get upto Rs. 5000/- OFF on final price Jelly App connected | Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes
             </p>
-            <Button content="Buy Now" style={{}} />
+            <Button content="Buy Now" style={{width: '100%', height: '50px'}} />
           </div>
         </div>
       </div>
