@@ -27,7 +27,7 @@ export default function NavBar({ currentPage }) {
     return {};
   }
 
-  // const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
+  const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
   const shower = () =>{
     setShow(!show);
   }
@@ -90,7 +90,7 @@ export default function NavBar({ currentPage }) {
               <Link to="/contact" className='link' style={page("contact")}>Contact Us</Link>
               <p className='link' style={page("faq")}>FAQ</p>
               <Link to='/cart' className='link cart-container'>
-                <p className='cart-quantity'>0</p>
+                <p className='cart-quantity'>{cart}</p>
                 <IoMdCart size={30} color="black" />
               </Link>
               <span className='borrowed-link align'>
