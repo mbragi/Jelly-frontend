@@ -216,6 +216,9 @@
     .accessories-title{
         font-size: 30px;
     }
+    .resize-promo{
+        display: block;
+    }
 }
 @media(min-width: 1280px){
     .features-slider-div{
@@ -226,4 +229,26 @@
         max-width: 1300px;
         margin: 0 auto;
     }
+}
+@media(max-width: 495px){
+    .transport-cost-header{
+        text-align: center;
+    }
+   .description-price{
+    font-size: .8rem;
+   }
+   .promo-attention-seeker{
+    width: 100%;
+   }
+   .promo-info{
+    width: 100%;
+   }
+   .promo-info h2{
+    font-size: 2.1rem;
+   }
+}
+@media(max-width: 375px){
+   .description-price{
+    font-size: .6rem;
+   }
 }

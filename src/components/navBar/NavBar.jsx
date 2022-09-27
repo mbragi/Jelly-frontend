@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import "./NavBar.css";
-import { MdLocalPhone, MdOutlineMailOutline, MdLocationOn } from "react-icons/md";
-import { GrFormEdit } from "react-icons/gr";
-import { FaUserAlt } from "react-icons/fa";
+import { MdLocalPhone, MdOutlineMailOutline, MdCancel} from "react-icons/md";
+import { FaUserAlt, FaSearchLocation } from "react-icons/fa";
+import { HiPencilAlt } from "react-icons/hi";
 import { IoMdCart } from "react-icons/io";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
-// import menu from "../../assets/menu.png";
+import menu from "../../assets/menu.png";
 
 export default function NavBar({ currentPage }) {
   const [navbar, setNavbar] = useState(false);
-
+  const [show, setShow] = useState(false)
   const changeNav = () => {
     if (window.scrollY >= 100) {
       setNavbar(true);
@@ -22,14 +22,18 @@ export default function NavBar({ currentPage }) {
 
   function page(page) {
     if (page === currentPage) return {
-      borderBottom: " 2px solid black"
+      borderBottom: " none"
     };
     return {};
   }
 
-  const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
+  // const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
+  const shower = () =>{
+    setShow(!show);
+  }
+
   return (
-    <div>
+    <div className= {show ? 'opacity' : ''}>
       <div className='top-margin'></div>
       <nav className={navbar ? 'nav-bar active' : 'nav-bar'}>
         <div className='top'>
@@ -47,14 +51,14 @@ export default function NavBar({ currentPage }) {
 
             <div className='location-container'>
               <p className='store-locator'>
-                <MdLocationOn size={25} color="rgba(203, 182, 182)" className="icon" />
+                <FaSearchLocation size={25} color="rgba(203, 182, 182)" className="icon" />
                 Store Locator
               </p>
 
               <span className='slash'> / </span>
 
               <p className='dealers-enquiry'>
-                <GrFormEdit size={30} color="rgba(203, 182, 182)" className="icon" />
+                <HiPencilAlt size={25} color="rgba(203, 182, 182)" className="icon" />
                 Dealers Enquiry
               </p>
 
@@ -75,18 +79,30 @@ export default function NavBar({ currentPage }) {
 
           {/* <div className='menu-div'> */}
           {/* </div> */}
-          <div className='links'>
-            {/* <img src={menu} alt="menu" className='menu' /> */}
-            <Link to='/' className='link home-link' style={page("home")}>Home</Link>
-           <p className='link' About Us style={page("about")}></p>
-            <Link to="/shop" className='link' style={page("shop")}>Shop</Link>
-            <p className='link' style={page("products")}>Product</p>
-            <Link to="/contact" className='link' style={page("contact")}>Contact Us</Link>
-            <p className='link' style={page("faq")}>FAQ</p>
-            <Link to='/cart' className='link cart-container'>
-              <p className='cart-quantity'>{cart}</p>
-              <IoMdCart size={30} color="black" />
-            </Link>
+          <div className="links-section">
+            <img src={menu} alt="menu" className='menu' onClick={shower} />
+            <div className={show ? 'links show' : 'links'}>
+              <p onClick={shower} style = {{cursor: 'pointer'}} className = 'exit'><MdCancel size = {35}/></p>
+              <Link to='/' className='link home-link' style={page("home")} >Home</Link>
+              <p className='link' About Us style={page("about")}></p>
+              <Link to="/shop" className='link' style={page("shop")}>Shop</Link>
+              <p className='link' style={page("products")}>Product</p>
+              <Link to="/contact" className='link' style={page("contact")}>Contact Us</Link>
+              <p className='link' style={page("faq")}>FAQ</p>
+              <Link to='/cart' className='link cart-container'>
+                <p className='cart-quantity'>0</p>
+                <IoMdCart size={30} color="black" />
+              </Link>
+              <span className='borrowed-link align'>
+                <FaSearchLocation size={15} color="rgba(203, 182, 182)" className="icon" />
+                <span>Store Locator</span> 
+              </span>
+              <span className='borrowed-link align'>
+                <HiPencilAlt size={15} color="rgba(203, 182, 182)" className="icon" />
+                <span>Dealers Enquiry</span>
+              </span>
+            </div>
+
           </div>
         </div>
       </nav>
