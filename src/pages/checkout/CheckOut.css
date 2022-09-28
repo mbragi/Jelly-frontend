@@ -42,6 +42,7 @@
     justify-content: space-around;
     width: 35%;
     height: 25px;
+    margin-bottom: 20px;
 }
 .input span{
     font-size: .9rem;
@@ -110,3 +111,34 @@ h2 + hr{
 .groupc span{
     margin-bottom: 15%;
 }
+
+
+
+@media screen and (max-width: 900px) {
+    .col-2{
+        display: grid;
+    }
+
+    .cart-sum{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .cart-order{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .input input{
+        margin-top: 3%;
+        font-size: 1.1rem;
+        height: 7vh;
+        padding: 0px 5% 0;
+    }
+
+    .input span{
+        height: 7vh;
+        padding: 3.5% 5% 0;
+    }
+  }
+ 

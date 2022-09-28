@@ -5,13 +5,15 @@ import { FaArrowLeft } from 'react-icons/fa'
 import item from "../../assets/turn-signal.jpg"
 import Button from '../../components/button/Button'
 import Footer from "../../components/footer/Footer";
+
+
 function CheckOut (){
     return(
         <div>
             <NavBar />
             <div className="col-2">
                 <div className="cart-sum">
-                    <h1>User Information</h1>
+                    <h1>USER INFORMATION</h1>
                     <h2>Shipping Address</h2>
                     <div className="input">
                         <input type="text" placeholder="Full name*" />
@@ -86,7 +88,7 @@ function CheckOut (){
                             </div>
                         </div>
                         <div className="btnc">
-                            <Button content = 'Proceed To Checout' style = {{marginTop: '5%', width: '100%', height: '60px'}} /> <br />
+                            <Button content = 'Proceed To Checkout' style = {{marginTop: '5%', width: '100%', height: '60px'}} /> <br />
                         </div>
                     </section>
                 </div>
