@@ -1,5 +1,5 @@
 .product{
-    width: 220px;
+    width: 20%;
     height: 250px;
     display: flex;
     flex-direction: column;
@@ -8,10 +8,15 @@
     box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.19);
     padding-bottom: 20px;
     margin-bottom: 20px;
+    border-radius: 5%;
     /* background-color: red; */
 }
 .product-img{
-    width: 150px;
+    width: 10rem;
     height: 100px;
+    margin-bottom: -1rem;
     object-fit: contain;
+}
+.product-name{
+    margin-top: 1rem;
 }

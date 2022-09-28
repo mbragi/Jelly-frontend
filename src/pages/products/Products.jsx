@@ -15,31 +15,71 @@ function Products() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
+  const [currentProducts, setCurrentProducts] = useState([]);
+  const [priceFilter, setPriceFilter] = useState(1000);
 
   const productsPerPage = 8;
+
+  function getCurrentProducts(gottenProducts){
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    setCurrentProducts(gottenProducts ? 
+      gottenProducts.filter((product) => (
+      parseInt(product.price) <= priceFilter
+      )).slice(indexOfFirstProduct, indexOfLastProduct) 
+      : 
+      products.filter((product) => (
+        parseInt(product.price) <= priceFilter
+        )).slice(indexOfFirstProduct, indexOfLastProduct)
+    );
+
+    setTotalProducts(gottenProducts ? 
+      gottenProducts.filter((product) => (
+      parseInt(product.price) <= priceFilter
+      )).length 
+      : 
+      products.filter((product) => (
+      parseInt(product.price) <= priceFilter
+      )).length);
+    // console.log(products.filter((product) => (
+    //   parseInt(product.price) <= priceFilter
+    //   )).slice(indexOfFirstProduct, indexOfLastProduct));
+  }
   useEffect(() => {
-    const URL = process.env.REACT_APP_SERVER_URL
+    // const URL = process.env.REACT_APP_SERVER_URL
+
+    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+
     const fetchData = async () => {
       setLoading(true);
-      const res = await fetch(`${URL}/category`)
+      const res = await fetch(`${BASE_URL}/category`)
       const data = await res.json()
       const category = data.Cdata
       const product = data.Pdata
       setCategories(category)
-      // console.log(categories)
       setProducts(product);
-      // console.log(products)
-
+      //console.log(category);
+      //console.log(product);
+      
       setTotalProducts(product.length);
       setLoading(false);
+      getCurrentProducts(product);
     };
     fetchData();
   }, []);
 
-  const indexOfLastProduct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  // console.log(currentProducts.length);
+  useEffect(() => {
+    getCurrentProducts();
+  }, [currentPage]);
+
+  
+  // console.log(currentProducts);
+
+  function filterPrice(event){
+    event.preventDefault();
+    const { value } = event.target;
+    setPriceFilter(value);
+  }
 
   return (
     <div className='container'>
@@ -64,7 +104,7 @@ function Products() {
 
             {loading ? <h1>Loading...</h1> :
               categories.map((category, idx) => {
-                console.log(category)
+                // console.log(category)
                 return (
                   <Category key={idx} category={category} />
                 )
@@ -73,10 +113,10 @@ function Products() {
 
             <div className="price-filter">
               <h2>Price Filter</h2>
-              <input type="range" className='price-range' />
+              <input type="range" className='price-range' value={priceFilter} min={0} max={1000} onInput={filterPrice} />
               <div className='price'>
-                <p><span>Price</span>: $0.00 - $0.00</p>
-                <Button content="Filter" style={{ borderRadius: "10px" }} />
+                <p><span>Price</span>: $0.00 - ${priceFilter}.00</p>
+                <Button content="Filter" style={{ borderRadius: "10px" }} onClick={() => {   getCurrentProducts() }} />
               </div>
             </div>
 
@@ -85,9 +125,9 @@ function Products() {
           <div className='products'>
 
             {loading ? <h1>Loading...</h1> :
-              products.map((product, index) => {
+              currentProducts.map((product, index) => {
 
-                console.log(product)
+                // console.log(product)
                 return (
                   < Product key={index} product={product} />
                 )

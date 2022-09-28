@@ -191,6 +191,9 @@
     text-align: center;
     line-height: 40px;
 }
+.verified-ratings-box h2 > *{
+    margin-left: 5px;
+}
 
 .comments-from-v-purchases1{
     padding: 20px 40px;   

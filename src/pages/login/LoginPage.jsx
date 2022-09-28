@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './LoginPage.css'
 import Button from '../../components/button/Button'
-import { type } from '@testing-library/user-event/dist/type';
+// import { type } from '@testing-library/user-event/dist/type';
 
 function LoginPage() {
     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
@@ -30,9 +30,13 @@ function LoginPage() {
         const resData = await res.json()
         console.log(resData)
         let message = resData.message
-        let type = resData.type
+
         setMessage(message)
-        setType(type)
+        if(type === 'error'){
+            console.log(message)
+        }
+        setType(resData.type)
+
     }
 
     return (
