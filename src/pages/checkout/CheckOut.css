@@ -39,10 +39,10 @@
 }
 .flex{
     display: flex;
-    justify-content: space-around;
-    width: 35%;
+    gap: 10px;
+    width: 45%;
     height: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 .input span{
     font-size: .9rem;
@@ -112,8 +112,6 @@ h2 + hr{
     margin-bottom: 15%;
 }
 
-
-
 @media screen and (max-width: 900px) {
     .col-2{
         display: grid;
@@ -140,5 +138,6 @@ h2 + hr{
         height: 7vh;
         padding: 3.5% 5% 0;
     }
+
   }
  
