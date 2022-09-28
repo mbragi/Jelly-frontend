@@ -2,6 +2,8 @@ import React from 'react'
 import './ProductDetails.css'
 import { useState,useEffect } from 'react'
 import { BsStarFill } from 'react-icons/bs'
+import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import NavBar from '../../components/navBar/NavBar'
 import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer'
@@ -45,11 +47,11 @@ function ProductDetails() {
                         </div>
 
                         <div className='product-image-small'>
-                            <Button content='<' style={{ width: '10%', height: '50px',backgroundColor:'white', color:'black'  }} />
+                            <BiChevronLeft size={50} className='icon' />
                             <img src={product.img } alt="product"  />
                             <img src={product.img } alt="product" />
                             <img src={product.img } alt="product" />
-                            <Button content='>' style={{ width: '10%', height: '50px', backgroundColor:'white',color:'black'  }} />
+                            <BiChevronRight size={50} className='icon'/>
                         </div>
                     </div>
 
@@ -64,9 +66,17 @@ function ProductDetails() {
 
                         <p>Available colors:</p>
                         <div className='available-colors'>
-                            <div className='purple'></div>
-                            <div className='black'></div>
-                            <div className='blue'></div>
+                            <div className='purple'>
+                                <Button type={'submit'} />
+                            </div>
+
+                            <div className='black'>
+                                <Button type={'submit'} />
+                            </div>
+
+                            <div className='blue'>
+                                <Button type={'submit'} />
+                            </div>
                         </div>
 
                         <div className='add-to-cart'>
@@ -109,38 +119,42 @@ function ProductDetails() {
                         <h2>Other products you might like</h2>
                     </div> 
 
-                    <div className='other-products-content'>                
-                        <div className='other-products box'>
-                            <h3>Product Name</h3>
-                            <img src={battery} alt=''/>
-                            <p>$200</p>
-                            <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px', fontWeight:'bold' }} />
-                        </div>
+                    <div className='other-products-content'>   
 
-                        <div className='other-products box'>
-                            <h3>Product Name</h3>
-                            <img src={battery} alt=''/>
-                            <p>$200</p>
-                            <Button type={'submit'} content='GO TO DETAILS'  style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px' , fontWeight:'bold' }} />
-                        </div>
+                        <BiChevronLeftCircle size={70} className='icon'  />
+                        <div className='other-products-boxs'>
+                            <div className='other-products box'>
+                                <h3>Product Name</h3>
+                                <img src={battery} alt=''/>
+                                <p>$200</p>
+                                <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px', fontWeight:'bold' }} />
+                            </div>
 
-                        <div className='other-products box'>
-                            <h3>Product Name</h3>
-                            <img src={battery} alt=''/>
-                            <p>$200</p>
-                            <Button type={'submit'} content='GO TO DETAILS'  style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px' , fontWeight:'bold' }} />
-                        </div>
+                            <div className='other-products box'>
+                                <h3>Product Name</h3>
+                                <img src={battery} alt=''/>
+                                <p>$200</p>
+                                <Button type={'submit'} content='GO TO DETAILS'  style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px' , fontWeight:'bold' }} />
+                            </div>
 
-                        <div className='other-products box'>
-                            <h3>Product Name</h3>
-                            <img src={battery} alt=''/>
-                            <p>$200</p>
-                            <Button type={'submit'} content='GO TO DETAILS'  style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px' , fontWeight:'bold' }} />
-                        </div>  
+                            <div className='other-products box'>
+                                <h3>Product Name</h3>
+                                <img src={battery} alt=''/>
+                                <p>$200</p>
+                                <Button type={'submit'} content='GO TO DETAILS'  style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px' , fontWeight:'bold' }} />
+                            </div>
 
-                        <div className='other-products-box-slider'>
-                            <Button type={'submit'} content='>' style={{ width: '100%', height: '50px', borderRadius: '100px', backgroundColor:'grey'}} /> 
+                            <div className='other-products box'>
+                                <h3>Product Name</h3>
+                                <img src={battery} alt=''/>
+                                <p>$200</p>
+                                <Button type={'submit'} content='GO TO DETAILS'  style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px' , fontWeight:'bold' }} />
+                            </div>
                         </div>
+                      
+
+                        <BiChevronRightCircle size={70} className='icon' position="fixed"/>
+                    
                         
                     </div>
                 </div>
@@ -201,6 +215,7 @@ function ProductDetails() {
                                         <BsStarFill style = {{color: 'gold', weight: 'fill', fontSize: '19'}}/>
                                         <BsStarFill style = {{color: 'gold', weight: 'fill', fontSize: '19'}}/>
                                     </p>
+
                                     <input type="range" />
 
                                 </div>
@@ -213,8 +228,7 @@ function ProductDetails() {
                                         <BsStarFill style = {{color: 'gold', weight: 'fill', fontSize: '19'}}/>
                                         <BsStarFill style = {{color: '#c9c9c9', weight: 'fill', fontSize: '19'}}/>
                                     </p> 
-                                  
-                                   
+
                                     <input type="range" />
 
                                 </div>
