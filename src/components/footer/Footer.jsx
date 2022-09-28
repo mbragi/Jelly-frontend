@@ -5,7 +5,7 @@ import vtopLogo from '../../assets/vtopLogo.png'
 function Footer() {
   return (
     <div className='footer'>
-        <footer>        
+        <footer className='resize-max'>        
             <div class="main-content">
 
                 <div class="logo box">

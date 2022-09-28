@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from "../../components/navBar/NavBar";
 // import intro from "../../assets/intro.mp4";
-import features from "../../assets/features.png";
 import bike from "../../assets/512.png";
 import turnSignal from "../../assets/turn-signal.jpg";
 import Button from "../../components/button/Button";
@@ -10,9 +9,70 @@ import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
+//import { addToCart, removeFromCart } from '../../helpers/cart';
+import { addToCart } from '../../helpers/cart';
+
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
-  const featuresArray = ["512.png", "bike.jpg"]
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalProducts, setTotalProducts] = useState(0);
+  const [productsPerPage, setProductsPerPage] = useState(0);
+
+  const featuresArray = ["512.png", "bike.jpg"];
+  
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  function pageResized(){
+    if(window.innerWidth > 1000) setProductsPerPage(3);
+    if((window.innerWidth <= 1000) && (window.innerWidth >= 500)) setProductsPerPage(2);
+    if(window.innerWidth < 500) setProductsPerPage(1);
+  }
+  window.addEventListener('resize', pageResized);
+
+  // const URL = process.env.REACT_APP_SERVER_URL
+  
+    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+
+    const fetchData = async () => {
+      setLoading(true);
+      const res = await fetch(`${BASE_URL}/category`)
+      const data = await res.json()
+      //const category = data.Cdata
+      const product = data.Pdata
+      // setCategories(category)
+      // console.log(product)
+      setProducts(product);
+      // console.log(category);
+  
+      
+      setTotalProducts(product.length);
+      setLoading(false);
+      // getCurrentProducts(product);
+
+      //remove this after using i have to do this to avoid build errors
+      console.log(loading)
+    };
+
+    function getQuantity(_id){
+      let cart = localStorage.getItem('cart');
+    
+      if(cart){
+        cart = JSON.parse(cart);
+        let cartProduct = cart.find((product) => product._id === _id);
+        
+        if(cartProduct) return <span className="item-quantity-in-cart">{cartProduct.quantity}</span>;
+        return '';
+      }
+  }
+
+  useEffect(() => {
+    fetchData();
+    pageResized();
+  }, []);
+
   const prev = () => {
     setFeaturesIndex(featuresIndex => {
       if (featuresIndex === 0) return featuresArray.length - 1;
@@ -25,17 +85,24 @@ function Home() {
       return featuresIndex + 1;
     })
   }
+
+  const accessoriesPrev = () => {
+    if (currentPage > 1) setCurrentPage(currentPage => currentPage - 1);
+  }
+  const accessoriesNext = () => {
+    const numberOfPages = Math.ceil(totalProducts / productsPerPage);
+    if (currentPage < numberOfPages) setCurrentPage(currentPage => currentPage + 1);
+  }
+
   return (
-    <div className='container'>
+    <div className='cntainer'>
 
       <NavBar currentPage="home" />
-      <div className="imgcontainer">
+      <div className="imgcontainer resize-max">
         <img src={bike} alt="evtop"  className = 'evtopimg'/>
       </div>
 
       <div className='features-div'>
-
-        <img src={features} alt="header" className='features-header' />
 
         <div className='features-slider-div'>
           <BiChevronLeftCircle size={50} className='icon' onClick={() => { prev() }} />
@@ -49,7 +116,7 @@ function Home() {
       </div>
 
 
-      <div className='transport-cost-div'>
+      <div className='transport-cost-div resize-max'>
         <h1 className='transport-cost-header'>Transportation Cost Comparison (Monthly)</h1>
         <div className='vehicles'>
           <div className='vehicle'>
@@ -73,31 +140,33 @@ function Home() {
       </div>
 
       <div className='promo'>
-        <Fade direction="up" spy={featuresIndex} className='promo-attention-seeker'>
-          <img src={turnSignal} alt="promo" className='promo-img' />
-        </Fade>
-        <div className='promo-info'>
-          <h2 className='promo-header'>Jelly e-indicaator</h2>
+        <div className="resize-promo resize-max">
+          <Fade direction="up" spy={featuresIndex} className='promo-attention-seeker'>
+            <img src={turnSignal} alt="promo" className='promo-img' />
+          </Fade>
+          <div className='promo-info'>
+            <h2 className='promo-header'>Jelly e-indicaator</h2>
 
 
-          <div className='ratings'>
-            <MdOutlineStar size={20} color="yellow" />
-            <MdOutlineStar size={20} color="yellow" />
-            <MdOutlineStar size={20} color="yellow" />
-            <MdOutlineStar size={20} color="yellow" />
-            <MdOutlineStar size={20} color="yellow" />
-            <p className='number-of-ratings'>(20)</p>
+            <div className='ratings'>
+              <MdOutlineStar size={20} color="orange" />
+              <MdOutlineStar size={20} color="orange" />
+              <MdOutlineStar size={20} color="orange" />
+              <MdOutlineStar size={20} color="orange" />
+              <MdOutlineStar size={20} color="orange" />
+              <p className='number-of-ratings'>(20)</p>
+            </div>
+
+            <p className='promo-price'>Buy at: $99</p>
+            <p className='promo-desc'>
+              Refer friends and get upto Rs. 5000/- OFF on final price Jelly App connected | Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes
+            </p>
+            <Button content="Buy Now" style={{width: '100%', height: '50px'}} />
           </div>
-
-          <p className='promo-price'>Buy at: $99</p>
-          <p className='promo-desc'>
-            Refer friends and get upto Rs. 5000/- OFF on final price Jelly App connected | Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes
-          </p>
-          <Button content="Buy Now" style={{}} />
         </div>
       </div>
 
-      <div className='accessories-div'>
+      <div className='accessories-div resize-max'>
         <div className='accessories-header'>
           <p className='accessories-title'>Accessories</p>
           <Button content="View More" style={{ width: "20%", height: "15%", fontSize: "100%" }} />
@@ -107,30 +176,20 @@ function Home() {
 
         <div className='accessories-slider'>
 
-          <BiChevronLeftCircle size={50} className='icon' />
+          <BiChevronLeftCircle size={50} className='icon' onClick={() => { accessoriesPrev() }} />
+          {loading ? <h1>Loading...</h1> :
+            currentProducts.map((product) => (
+              <div key={product._id} className='accessories-slider-item'>
+                <p>{getQuantity(product._id)} {product.name}</p>
+                <Zoom direction="up">
+                  <img src={product.img} alt={product.name} className='accessories-slider-item-image' />
+                </Zoom>
+                <Button onClick={() => { addToCart(product, fetchData) }} content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
+              </div>
+            ))
+          }
 
-          <div className='accessories-slider-item'>
-            <Zoom direction="up">
-              <img src={bike} alt="bike" className='accessories-slider-item-image' />
-            </Zoom>
-            <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
-          </div>
-
-          <div className='accessories-slider-item'>
-            <Zoom direction="up">
-              <img src={bike} alt="bike" className='accessories-slider-item-image' />
-            </Zoom>
-            <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
-          </div>
-
-          <div className='accessories-slider-item'>
-            <Zoom direction="up">
-              <img src={bike} alt="bike" className='accessories-slider-item-image' />
-            </Zoom>
-            <Button content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
-          </div>
-
-          <BiChevronRightCircle size={50} className='icon' />
+          <BiChevronRightCircle size={50} className='icon' onClick={() => { accessoriesNext() }} />
 
         </div>
       </div>
