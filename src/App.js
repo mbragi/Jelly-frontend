@@ -1,6 +1,6 @@
 import React from "react";
 import ProductDetails from "./pages/productDetails/ProductDetails";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { path } from "./routes";
 import Home from "./pages/home/Home";
 import LoginPage from "./pages/login/LoginPage";
@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <section style={{ width: "100%" }}>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route exact path={path.homepage} element={<Home />} />
             <Route exact path={path.loginPage} element={<LoginPage />} />
@@ -30,7 +30,7 @@ function App() {
             <Route exact path="/forgotpassword" element={<ForgotPassword/>} />
             <Route exact path="*" element={<h1>404</h1>} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </section>
     </>
   );
