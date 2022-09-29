@@ -13,6 +13,7 @@ function Cart() {
     const [cart, setCart] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
     function calculateCartTotal(){
+        if(!localStorage.getItem('cart')) return;
         setCart(JSON.parse(localStorage.getItem('cart')));
 
         let cartSum = 0;

@@ -29,14 +29,14 @@ function ProductDetails() {
     useEffect(() => { 
         fetchData();
     }, [])
-
-
+    if(loading) return <h1 style={{textAlign:'center'}}>Loading...</h1>;
+    if(!loading && !product) return <h1 style={{textAlign:'center'}}>404 error can't find product</h1>;
   return (
     <div>
         <div className='navigation-bar'>
             <NavBar/>
         </div>
-        { loading ? <h1 style={{textAlign:'center'}}>Loading...</h1> : !product ? <h1 style={{textAlign:'center'}}>404 error can't find product</h1> :
+
             <div className='product-details-container'>
                 <div className='product-name'>
                     <div className='product-name-images'>
@@ -277,7 +277,7 @@ function ProductDetails() {
                 </div>
            
             </div>
-        }
+        
         <div className='footer'>
             <Footer/>
         </div>
