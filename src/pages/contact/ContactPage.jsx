@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './ContactPage.css'
 import NavBar from "../../components/navBar/NavBar";
 import email from '../../assets/images/email.png'
@@ -8,6 +8,17 @@ import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer';
 
 function ContactPage() {
+
+    const [data, setData] = useState({});
+
+    function contactDetails(event) {
+        const { name, value } = event.target
+        const newData = { ...data }
+        newData[name] = value;
+        setData(newData);
+        console.log(newData)
+    }
+
   return (
     <div>
         <div className='navigation-bar'>
@@ -25,7 +36,7 @@ function ContactPage() {
             </div>
 
             <div className='phone-email-address'>
-                <div className='phone'>
+                <div className='phone-id'>
                     <img src={phone} alt="phone" />
                     <div className='ph-em-ad'>
                         <h2>Phone</h2>
@@ -41,12 +52,12 @@ function ContactPage() {
                     </div>
                 </div>
 
-                <div className='address'>
+                <div className='address-id'>
                     <img src={address} alt="address"/>
-                    <div className='ph-em-ad' id='move'>
+                    <div className='ph-em-ad' id='address-cp'>
                         <h2>Address</h2>
-                        <p>Building 3, No. 97, Yuehai <br />
-                             Real Estate, 128 <br /> Industrial Zone, Tangxia Town, <br /> Dongguan City, CHINA 523710
+                        <p>Building 3, No. 97, Yuehai,
+                             Real Estate, <br />128  Industrial Zone, Tangxia Town, <br /> Dongguan City, CHINA 523710
                         </p> 
                     </div>
                 </div>
@@ -55,38 +66,36 @@ function ContactPage() {
 
             <div className='get-in-touch'>
                 <h1>Get in touch with us</h1>
-                <p>For more enquiry about our product and services - please fill the form below and we will contact you shortly</p>
+                <p>For more enquiry about our product and services - please fill up the form below and we will contact you shortly</p>
             </div>
 
-            <form action="">
+            <form action="" className='contact-page-form'>
                 <div className='fullname-mobile-email'>
                     <div className='full-name'>
-                        <input className='fme-input' name='fullName' placeholder='Enter Full Name'/>
+                        <input className='fme-input' onChange={contactDetails} name='fullName' placeholder='Enter Full Name'/>
                     </div>
 
                     <div className='mobile-number'>
-                        <input className='fme-input' name='mobile' placeholder='Enter Mobile Number'/>
+                        <input className='fme-input' onChange={contactDetails} name='mobile' placeholder='Enter Mobile Number'/>
                     </div>
 
                     <div className='email-address'>
-                        <input className='fme-input' name='email' placeholder='Enter Email Address' />
+                        <input className='fme-input' onChange={contactDetails}  name='email' placeholder='Enter Email Address' />
                     </div>
                 
                 </div>
 
                 <div className='subject'>
-                    <input className='subject-input'  name='email' placeholder='Enter Subject' />
+                    <input className='subject-input' onChange={contactDetails} name='subject' placeholder='Enter Subject' />
                 </div>
 
                 <div className='message'>
-                    <textarea name="message" id="message-input" cols="30" rows="10" placeholder='Enter Message....'></textarea>
+                    <textarea  id="message-input" onChange={contactDetails} name="message" cols="30" rows="10" placeholder='Enter Message....'></textarea>
                 </div>
-            </form>
-
-        
+            </form>    
 
             <div className='send-message'>
-                <Button type={'submit'} content='Send Message' style={{ width: '25%', height: '50px', borderRadius: '30px', fontSize: '1.7rem' }} />
+                <Button type={'submit'} content='Send Message' style={{ width: '350px', height: '70px', borderRadius: '70px'}} />
             </div>
         </div>
 
