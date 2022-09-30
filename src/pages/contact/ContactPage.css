@@ -142,6 +142,11 @@
         margin-top: 20px;
     }
 
+    .get-in-touch p{
+        width: 80%;
+        margin: 0 auto;
+    }
+
     .fullname-mobile-email{
         display: block;
         margin: 5% 0 0px;

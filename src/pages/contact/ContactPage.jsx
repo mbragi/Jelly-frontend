@@ -95,7 +95,7 @@ function ContactPage() {
             </form>    
 
             <div className='send-message'>
-                <Button type={'submit'} content='Send Message' style={{ width: '350px', height: '70px', borderRadius: '70px'}} />
+                <Button id="sm-button" type={'submit'} content='Send Message' style={{ width: '350px', height: '70px', borderRadius: '70px'}} />
             </div>
         </div>
 
