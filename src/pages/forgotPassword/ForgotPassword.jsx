@@ -7,7 +7,7 @@ function ForgotPassword() {
 
         const [data, setData] = useState({});
           
-        function forgottenpassword(event) {
+        function forgottenPassword(event) {
             const { name, value } = event.target
             const newData = { ...data };
             newData[name] = value;
@@ -30,11 +30,11 @@ function ForgotPassword() {
             <form className='forgot-password-form' >
                 <div className='email-input'>
                     <p>E-mail*</p>
-                    <input className='gen-input' onChange={forgottenpassword} name='email' />
+                    <input className='gen-input' onChange={forgottenPassword} name='email' />
                 </div>
 
                 <div className='forgot-password-button'>
-                    <Button type={'submit'} content='RESET PASSWORD' style={{ width: '100%', height: '50px', borderRadius: '10px' }} />
+                    <Button type={'submit'} content='Reset Password' style={{ width: '100%', height: '50px', borderRadius: '10px' }} />
                 </div>
 
                 <div className='go-back'>
