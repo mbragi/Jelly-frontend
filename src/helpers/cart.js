@@ -15,7 +15,7 @@ function addToCart(newProduct, cb){
         }
 
     }else{
-        localStorage.setItem('cart', JSON.stringify([newProduct]));
+        localStorage.setItem('cart', JSON.stringify([{...newProduct, quantity: 1}]));
     }
     if(cb) cb();    
 }
