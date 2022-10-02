@@ -10,6 +10,7 @@ import Footer from '../../components/footer/Footer'
 import battery from '../../assets/battery.png'
 import cart from '../../assets/images/cart.png'
 import { useParams } from 'react-router-dom'
+import { addToCart } from '../../helpers/cart';
 
 
 function ProductDetails() {
@@ -81,7 +82,7 @@ function ProductDetails() {
 
                         <div className='add-to-cart'>
                             <img src={cart} alt=""/>
-                            <Button type={'submit'} content= 'ADD TO CART' style={{fontWeight:'bold'}} />
+                            <Button type={'submit'} content= 'ADD TO CART' style={{fontWeight:'bold'}} onClick={() => { addToCart(product) }} />
                         </div>
                     </div>
                
