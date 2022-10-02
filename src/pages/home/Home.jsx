@@ -19,6 +19,7 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
   const [productsPerPage, setProductsPerPage] = useState(0);
+  const [distance, setDistance] = useState(500);
 
   const featuresArray = ["512.png", "bike.jpg"];
   
@@ -121,21 +122,21 @@ function Home() {
         <div className='vehicles'>
           <div className='vehicle'>
             <MdDirectionsBike size={100} className='icon' />
-            <p className='description-price'>Description Price</p>
+            <p className='description-price'>${200 * distance}.00</p>
           </div>
           <div className='vehicle'>
             <MdDirectionsCar size={100} className='icon' />
-            <p className='description-price'>Description Price</p>
+            <p className='description-price'>${100 * distance}.00</p>
           </div>
           <div className='vehicle'>
             <MdDirectionsBus size={100} className='icon' />
-            <p className='description-price'>Description Price</p>
+            <p className='description-price'>${50 * distance}.00</p>
           </div>
         </div>
 
         <div className='input-range-div'>
           <p className='input-range-title'>Daily Usage 1km (s)</p>
-          <input type='range' className='input-range' />
+          <input type='range' className='input-range' min={0} max={1000} value={distance} onInput={(event) => { setDistance(event.target.value) }} />
         </div>
       </div>
 
