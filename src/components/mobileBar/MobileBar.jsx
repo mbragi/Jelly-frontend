@@ -6,15 +6,15 @@ function MobileBar(){
     return(
         <div className='mobile-bar'>
             <div className="mobile-icons">
-                <HiHome size ={33} />
+                <HiHome size ={30} />
                 <h3>Home</h3>
             </div>
             <div className="mobile-icons">
-                <BsShopWindow size ={33} />
+                <BsShopWindow size ={30} />
                 <h3>Shop</h3>
             </div>
             <div className="mobile-icons">
-                <HiShoppingCart size ={33} />
+                <HiShoppingCart size ={30} />
                 <h3>Cart(0)</h3>
             </div>
         </div>
