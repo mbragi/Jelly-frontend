@@ -11,6 +11,7 @@ import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } fro
 import { Fade, Zoom } from "react-awesome-reveal";
 //import { addToCart, removeFromCart } from '../../helpers/cart';
 import { addToCart } from '../../helpers/cart';
+import MobileBar from '../../components/mobileBar/MobileBar';
 
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
@@ -99,6 +100,8 @@ function Home() {
     <div className='cntainer'>
 
       <NavBar currentPage="home" />
+
+      <MobileBar />
       <div className="imgcontainer resize-max">
         <img src={bike} alt="evtop"  className = 'evtopimg'/>
       </div>
