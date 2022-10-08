@@ -11,6 +11,8 @@ import ContactPage from './pages/contact/ContactPage'
 import Products from './pages/products/Products.jsx'
 import ForgotPassword from './pages/forgotPassword/ForgotPassword'
 
+import AdminDashboard from './pages/adminDashboard/AdminDashboard';
+
 function App() {
   return (
     <>
@@ -26,8 +28,10 @@ function App() {
             <Route exact path={path.product} element={<Products />} />
 
             <Route exact path="/contact" element={<ContactPage />} />
-            <Route exact path="/details/:id" element={<ProductDetails/>} />
-            <Route exact path="/forgotpassword" element={<ForgotPassword/>} />
+            <Route exact path="/details/:id" element={<ProductDetails />} />
+            <Route exact path="/forgotpassword" element={<ForgotPassword />} />
+
+            <Route exact path="/admin" element={<AdminDashboard />} />
             <Route exact path="*" element={<h1>404</h1>} />
           </Routes>
         </HashRouter>
