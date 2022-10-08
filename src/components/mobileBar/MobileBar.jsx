@@ -4,6 +4,7 @@ import { HiHome, HiShoppingCart } from "react-icons/hi";
 import { BsShopWindow } from "react-icons/bs";
 import {Link} from "react-router-dom";
 function MobileBar(){
+    //collect details from local storage
     const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
     return(
         <div className='mobile-bar'>
