@@ -86,7 +86,7 @@ export default function NavBar({ currentPage }) {
               <Link to='/' className='link home-link' style={page("home")} >Home</Link>
               <p className='link' About Us style={page("about")}></p>
               <Link to="/shop" className='link' style={page("shop")}>Shop</Link>
-              <p className='link' style={page("products")}>Product</p>
+              <Link to="/product" className='link' style={page("products")}>Product</Link>
               <Link to="/contact" className='link' style={page("contact")}>Contact Us</Link>
               <p className='link' style={page("faq")}>FAQ</p>
               <Link to='/cart' className='link cart-container'>

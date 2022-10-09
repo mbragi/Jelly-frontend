@@ -1,0 +1,45 @@
+.search{
+    margin: 9px auto;
+    border: 1px solid black;
+    width: 60%;
+    height: 50px;
+    border-radius: 50px;
+    padding: 15px;
+}
+.search input{
+    width: 93%;
+    height: 100%;
+    border: none;
+    border-radius: inherit;
+    outline: none;
+    padding: 10px;
+    font-size: 1rem;
+}
+.files{
+    width: 70%;
+    margin: 45px auto 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.files .text .relativespec{
+    position: relative;
+    cursor: pointer;
+}
+.files .text h1{
+    position: absolute;
+    z-index: 1;
+    margin: 100px 65px 0;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+}
+
+@media(min-width: 1280px){
+    .files{
+        max-width: 1008px;
+    }
+    .search{
+        max-width: 900px;
+    }
+}
