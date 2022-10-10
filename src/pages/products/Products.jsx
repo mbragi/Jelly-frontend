@@ -7,6 +7,7 @@ import Product from '../../components/product/Product';
 import Pagination from '../../components/pagination/Pagination';
 import Footer from '../../components/footer/Footer';
 import Category from '../../components/category/Category';
+import MobileBar from '../../components/mobileBar/MobileBar';
 
 
 function Products() {
@@ -84,6 +85,8 @@ function Products() {
   return (
     <div className='container'>
       <NavBar currentPage="shop" />
+      <MobileBar />
+
       <div className='products-page'>
 
         <div className='product-header'>
