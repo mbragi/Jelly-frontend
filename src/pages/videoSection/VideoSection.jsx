@@ -1,6 +1,6 @@
 import React from 'react'
 import './VideoSection.css'
-// import NavBar from '../../components/navBar/NavBar'
+import NavBar from '../../components/navBar/NavBar'
 import intro from '../../assets/intro.mp4'
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import Footer from '../../components/footer/Footer'
@@ -11,7 +11,7 @@ function VideoSection(videos) {
     
     <div className='video-section'>
         <div className='nav-bar'>
-            {/* <NavBar />    */}
+            <NavBar />   
         </div>
 
 
