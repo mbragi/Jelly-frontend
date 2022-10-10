@@ -1,5 +1,5 @@
 .search{
-    margin: 9px auto;
+    margin: 13px auto 0;
     border: 1px solid black;
     width: 60%;
     height: 50px;
@@ -17,7 +17,7 @@
 }
 .files{
     width: 70%;
-    margin: 45px auto 0;
+    margin: 60px auto 0;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
