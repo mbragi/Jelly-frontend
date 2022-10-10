@@ -1,21 +1,22 @@
 import React from "react";
-import ProductDetails from "./pages/productDetails/ProductDetails";
-import { HashRouter, Routes, Route } from "react-router-dom";
-import { path } from "./routes";
-import Home from "./pages/home/Home";
-import LoginPage from "./pages/login/LoginPage";
-import Cart from "./pages/cart/Cart.jsx";
-import RegisterPage from "./pages/register/RegisterPage";
-import CheckOut from "./pages/checkout/CheckOut";
-import ContactPage from './pages/contact/ContactPage'
-import Products from './pages/products/Products.jsx'
-import ForgotPassword from './pages/forgotPassword/ForgotPassword'
+// import ProductDetails from "./pages/productDetails/ProductDetails";
+// import { HashRouter, Routes, Route } from "react-router-dom";
+// import { path } from "./routes";
+// import Home from "./pages/home/Home";
+// import LoginPage from "./pages/login/LoginPage";
+// import Cart from "./pages/cart/Cart.jsx";
+// import RegisterPage from "./pages/register/RegisterPage";
+// import CheckOut from "./pages/checkout/CheckOut";
+// import ContactPage from './pages/contact/ContactPage'
+// import Products from './pages/products/Products.jsx'
+// import ForgotPassword from './pages/forgotPassword/ForgotPassword'
+import VideoSection from "./pages/videoSection/VideoSection";
 
 function App() {
   return (
     <>
       <section style={{ width: "100%" }}>
-        <HashRouter>
+        {/* <HashRouter>
           <Routes>
             <Route exact path={path.homepage} element={<Home />} />
             <Route exact path={path.loginPage} element={<LoginPage />} />
@@ -30,7 +31,8 @@ function App() {
             <Route exact path="/forgotpassword" element={<ForgotPassword/>} />
             <Route exact path="*" element={<h1>404</h1>} />
           </Routes>
-        </HashRouter>
+        </HashRouter> */}
+            <VideoSection/>
       </section>
     </>
   );
