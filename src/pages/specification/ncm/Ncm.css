@@ -1,0 +1,27 @@
+.ncm-content{
+    width: 63%;
+    margin: 8px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.m-content{
+    display: flex;
+    width: 40%;
+    margin-top: 10px;
+}
+.m-content img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.m-content p{
+    color: gray;
+    margin-top: 1px;
+    font-size: .8rem;
+}
+@media(min-width: 1280px){
+    .ncm-content{
+        max-width: 890px;
+    }
+}

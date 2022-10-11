@@ -10,8 +10,10 @@ import CheckOut from "./pages/checkout/CheckOut";
 import ContactPage from './pages/contact/ContactPage'
 import Products from './pages/products/Products.jsx'
 import ForgotPassword from './pages/forgotPassword/ForgotPassword'
-import Specification from "./pages/specification/Specification";
+import SpecHead from "./pages/specification/SpecHead";
 import VideoSection from "./pages/videoSection/VideoSection";
+import Ncm from "./pages/specification/ncm/Ncm";
+import Lfp from "./pages/specification/lfp/Lfp";
 
 function App() {
   return (
@@ -30,8 +32,10 @@ function App() {
             <Route exact path="/contact" element={<ContactPage />} />
             <Route exact path="/details/:id" element={<ProductDetails/>} />
             <Route exact path="/forgotpassword" element={<ForgotPassword/>} />
-            <Route exact path="/product" element={<Specification/>} />
+            <Route exact path="/product" element={<SpecHead/>} />
             <Route exact path="/video" element={<VideoSection/>} />
+            <Route exact path="/product/ncm" element={<Ncm/>} />
+            <Route exact path="/product/lfp" element={<Lfp/>} />
             
             <Route exact path="*" element={<h1>404</h1>} />
           </Routes>
