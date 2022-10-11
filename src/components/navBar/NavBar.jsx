@@ -84,7 +84,7 @@ export default function NavBar({ currentPage }) {
             <div className={show ? 'links show' : 'links'}>
               <p onClick={shower} style = {{cursor: 'pointer'}} className = 'exit'><MdCancel size = {35}/></p>
               <Link to='/' className='link home-link' style={page("home")} >Home</Link>
-              <p className='link' About Us style={page("about")}></p>
+              <p className='link' About Us style={page("about")}>Video</p>
               <Link to="/shop" className='link' style={page("shop")}>Shop</Link>
               <Link to="/product" className='link' style={page("products")}>Product</Link>
               <Link to="/contact" className='link' style={page("contact")}>Contact Us</Link>

@@ -1,0 +1,22 @@
+.search{
+    margin: 13px auto 0;
+    border: 1px solid black;
+    width: 60%;
+    height: 50px;
+    border-radius: 50px;
+    padding: 15px;
+}
+.search input{
+    width: 93%;
+    height: 100%;
+    border: none;
+    border-radius: inherit;
+    outline: none;
+    padding: 10px;
+    font-size: 1rem;
+}
+@media(min-width: 1280px){
+    .search{
+        max-width: 900px;
+    }
+}
