@@ -1,6 +1,6 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import "./NavBar.css";
-import { MdLocalPhone, MdOutlineMailOutline, MdCancel} from "react-icons/md";
+import { MdLocalPhone, MdOutlineMailOutline, MdCancel } from "react-icons/md";
 import { FaUserAlt, FaSearchLocation } from "react-icons/fa";
 import { HiPencilAlt } from "react-icons/hi";
 import { IoMdCart } from "react-icons/io";
@@ -28,12 +28,12 @@ export default function NavBar({ currentPage }) {
   }
 
   const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
-  const shower = () =>{
+  const shower = () => {
     setShow(!show);
   }
 
   return (
-    <div className= {show ? 'opacity' : ''}>
+    <div className={show ? 'opacity' : ''}>
       <div className='top-margin'></div>
       <nav className={navbar ? 'nav-bar active' : 'nav-bar'}>
         <div className='top'>
@@ -82,12 +82,12 @@ export default function NavBar({ currentPage }) {
           <div className="links-section">
             <img src={menu} alt="menu" className='menu' onClick={shower} />
             <div className={show ? 'links show' : 'links'}>
-              <p onClick={shower} style = {{cursor: 'pointer'}} className = 'exit'><MdCancel size = {35}/></p>
+              <p onClick={shower} style={{ cursor: 'pointer' }} className='exit'><MdCancel size={35} /></p>
               <Link to='/' className='link home-link' style={page("home")} >Home</Link>
               <p className='link' About Us style={page("about")}>Video</p>
               <Link to="/shop" className='link' style={page("shop")}>Shop</Link>
               <Link to="/product" className='link' style={page("products")}>Product</Link>
-              <Link to="/contact" className='link' style={page("contact")}>Contact Us</Link>
+              <Link to="/contact" className='link' style={page("contact")}>Contact us</Link>
               <p className='link' style={page("faq")}>FAQ</p>
               <Link to='/cart' className='link cart-container'>
                 <p className='cart-quantity'>{cart}</p>
@@ -95,7 +95,7 @@ export default function NavBar({ currentPage }) {
               </Link>
               <span className='borrowed-link align'>
                 <FaSearchLocation size={15} color="rgba(203, 182, 182)" className="icon" />
-                <span>Store Locator</span> 
+                <span>Store Locator</span>
               </span>
               <span className='borrowed-link align'>
                 <HiPencilAlt size={15} color="rgba(203, 182, 182)" className="icon" />

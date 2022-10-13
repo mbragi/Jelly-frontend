@@ -5,5 +5,6 @@ export const path = Object.freeze({
   registerpage: "/register",
   checkout: "/checkout",
   product: "/shop",
-  detail:'/details'
+  detail: "/details",
+  test: "/test",
 });
