@@ -18,21 +18,21 @@ function SideNav({ currentPage }) {
             </div>
         </Link>
 
-        <Link to="/admin-users" className='route' style={{ backgroundColor: currentPage === 'users' ? '#3C95EE' : '' }} >
+        <Link to="/admin/users" className='route' style={{ backgroundColor: currentPage === 'users' ? '#3C95EE' : '' }} >
             <div className='nav-link'>
                 <FaUsers size={20} />
                 <p>Users</p>
             </div>
         </Link>
 
-        <Link to="/admin-categories" className='route' style={{ backgroundColor: currentPage === 'categories' ? '#3C95EE' : '' }} >
+        <Link to="/admin/categories" className='route' style={{ backgroundColor: currentPage === 'categories' ? '#3C95EE' : '' }} >
             <div className='nav-link'>
                 <MdOutlineHome size={20} />
                 <p>Categories</p>
             </div>
         </Link>
 
-        <Link to="/admin-products" className='route' style={{ backgroundColor: currentPage === 'products' ? '#3C95EE' : '' }} >
+        <Link to="/admin/products" className='route' style={{ backgroundColor: currentPage === 'products' ? '#3C95EE' : '' }} >
             <div className='nav-link'>
                 <MdOutlineHome size={20} />
                 <p>Products</p>

@@ -32,6 +32,7 @@ function App() {
             <Route exact path="/forgotpassword" element={<ForgotPassword />} />
 
             <Route exact path="/admin" element={<AdminDashboard />} />
+            <Route exact path="/admin/dashboard" element={<AdminDashboard />} />
             <Route exact path="*" element={<h1>404</h1>} />
           </Routes>
         </HashRouter>
