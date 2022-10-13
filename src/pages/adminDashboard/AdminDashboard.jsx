@@ -6,6 +6,13 @@ import dailySignups from '../../assets/daily-signups.png';
 import dailyOrder from '../../assets/daily-order.png';
 import './AdminDashboard.css';
 
+import websiteViews from '../../assets/website-views.png';
+import websiteSales from '../../assets/website-sales.png';
+import websiteOrder from '../../assets/website-order.png';
+import name from '../../assets/name.png';
+
+import Button from '../../components/button/Button';
+
 function AdminDashboard() {
   return (
     <AdminFrame currentPage='dashboard'>
@@ -20,7 +27,7 @@ function AdminDashboard() {
                   </div>
                   <div className='stat-desc'>
                     <span className='stat-title'>Daily Revenue</span>
-                    <span className='stat-count'>1,500</span>
+                    <span className='stat-count'>34k</span>
                   </div>
                 </div>
 
@@ -31,7 +38,7 @@ function AdminDashboard() {
 
                 <div className='top-stat'>
                   <div className='stat-img-container' style={{ backgroundColor: "rgba(67, 157, 240, 1)" }}>
-                    <img src={dailyVisitors} alt="daily-revenue" className='stat-img' />
+                    <img src={dailyVisitors} alt="daily-signups" className='stat-img' />
                   </div>
                   <div className='stat-desc'>
                     <span className='stat-title'>Daily Signups</span>
@@ -46,7 +53,7 @@ function AdminDashboard() {
 
                 <div className='top-stat'>
                   <div className='stat-img-container' style={{ backgroundColor: "rgba(154, 3, 30, 1)" }}>
-                    <img src={dailySignups} alt="daily-revenue" className='stat-img' />
+                    <img src={dailySignups} alt="daily-visitors" className='stat-img' />
                   </div>
                   <div className='stat-desc'>
                     <span className='stat-title'>Daily visitors</span>
@@ -61,7 +68,7 @@ function AdminDashboard() {
 
                 <div className='top-stat'>
                   <div className='stat-img-container' style={{ backgroundColor: "rgba(56, 56, 62, 1)" }}>
-                    <img src={dailyOrder} alt="daily-revenue" className='stat-img' />
+                    <img src={dailyOrder} alt="daily-order" className='stat-img' />
                   </div>
                   <div className='stat-desc'>
                     <span className='stat-title'>Daily Order</span>
@@ -83,7 +90,131 @@ function AdminDashboard() {
               <span className='arrow'>{">"}</span>
             </div>
           </div>
-          <div className='stat-charts'></div>
+
+          <div className='stat-charts'>
+
+            <div className='stat-chart-container'>
+              <div className='stat-chart' style={{ backgroundImage: `url(${websiteViews})`}}></div>
+              <div className='stat-chart-desc'>
+                <h3 className='chart-title'>Website Views</h3>
+                <span className='prev-performance'>Last 7 days performance</span>
+              </div>
+                <span className='time-updated'>updated 3 minutes ago</span>
+            </div>
+
+            <div className='stat-chart-container'>
+              <div className='stat-chart' style={{ backgroundImage: `url(${websiteSales})`}}></div>
+              <div className='stat-chart-desc'>
+                <h3 className='chart-title'>Website Sales</h3>
+                <span className='prev-performance'>Last 7 days performance</span>
+              </div>
+                <span className='time-updated'>updated 3 minutes ago</span>
+            </div>
+
+            <div className='stat-chart-container'>
+              <div className='stat-chart' style={{ backgroundImage: `url(${websiteOrder})`}}></div>
+              <div className='stat-chart-desc'>
+                <h3 className='chart-title'>Website Order</h3>
+                <span className='prev-performance'>Last 7 days performance</span>
+              </div>
+                <span className='time-updated'>updated 3 minutes ago</span>
+            </div>
+            
+          </div>
+
+          <div className='recent'>
+
+            <div className='recent-orders'>
+              <div className='recent-orders-header'>
+                <h3>Recent Orders</h3>
+                <Button content="View All" style={{ width: '60px', height: '30px', borderRadius: '5px', fontSize: '12px' }} />
+              </div>
+
+              <div className='ordered-items'>
+                <span className='order-item'>Name</span>
+                <span className='order-item'>Units</span>
+                <span className='order-item'>Price</span>
+                <span className='order-item'>Order Date</span>
+                <span className='order-item'>Status</span>
+
+                <span className='order-item'>Lithium-ion Battery</span>
+                <span className='order-item'>5</span>
+                <span className='order-item'>500.00</span>
+                <span className='order-item'>13/10/2022</span>
+                <span className='order-item'>pending</span>
+
+                <span className='order-item'>Lithium-ion Battery</span>
+                <span className='order-item'>5</span>
+                <span className='order-item'>500.00</span>
+                <span className='order-item'>13/10/2022</span>
+                <span className='order-item'>pending</span>
+
+                <span className='order-item'>Lithium-ion Battery</span>
+                <span className='order-item'>5</span>
+                <span className='order-item'>500.00</span>
+                <span className='order-item'>13/10/2022</span>
+                <span className='order-item'>pending</span>
+
+                <span className='order-item'>Lithium-ion Battery</span>
+                <span className='order-item'>5</span>
+                <span className='order-item'>500.00</span>
+                <span className='order-item'>13/10/2022</span>
+                <span className='order-item'>pending</span>
+                
+              </div>
+            </div>
+
+            <div className='recent-customers'>
+              <div className='customer-header'>
+                <h3>Recent Customers</h3>
+              </div>
+
+              <div className='customers'>
+
+                <div className='customer'>
+                  <img src={name} alt='name' className='customer-img'  />
+                  <div className='customer-text'>
+                    <span>name</span>
+                    <span>name@gmail.com</span>
+                  </div>
+                </div>
+
+                <div className='customer'>
+                  <img src={name} alt='name' className='customer-img'  />
+                  <div className='customer-text'>
+                    <span>name</span>
+                    <span>name@gmail.com</span>
+                  </div>
+                </div>
+
+                <div className='customer'>
+                  <img src={name} alt='name' className='customer-img'  />
+                  <div className='customer-text'>
+                    <span>name</span>
+                    <span>name@gmail.com</span>
+                  </div>
+                </div>
+
+                <div className='customer'>
+                  <img src={name} alt='name' className='customer-img'  />
+                  <div className='customer-text'>
+                    <span>name</span>
+                    <span>name@gmail.com</span>
+                  </div>
+                </div>
+
+                <div className='customer'>
+                  <img src={name} alt='name' className='customer-img'  />
+                  <div className='customer-text'>
+                    <span>name</span>
+                    <span>name@gmail.com</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
         </div>
     </AdminFrame>
   )

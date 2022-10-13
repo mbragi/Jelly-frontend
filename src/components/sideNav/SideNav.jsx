@@ -1,8 +1,8 @@
 import React from 'react';
 import './SideNav.css';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/images/logo.png';
 import { Link } from 'react-router-dom';
-import { MdOutlineHome } from 'react-icons/md';
+import { MdOutlineHome, MdLogout } from 'react-icons/md';
 import { FaUsers } from 'react-icons/fa';
 
 function SideNav({ currentPage }) {
@@ -41,7 +41,7 @@ function SideNav({ currentPage }) {
 
         <div className='route logout'>
             <div className='nav-link'>
-                <MdOutlineHome size={20} />
+                <MdLogout size={20} />
                 <p>logout</p>
             </div>
         </div>
