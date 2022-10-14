@@ -191,6 +191,7 @@
     cursor: pointer;
     border-radius: 50px;
     transition: .3s ease;
+    margin-bottom: 10px;
 }
 .customer:hover{
     color: white;

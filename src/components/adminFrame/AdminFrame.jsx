@@ -7,7 +7,7 @@ import menu from '../../assets/admin-menu.png';
 function AdminFrame({ currentPage, children }) {
   const [showSideBar, setShowSideBar] = useState(false);
   function calcShowSideBar(){
-    setShowSideBar(window.innerWidth > 1000 ? true : false);
+    setShowSideBar(window.innerWidth > 1024 ? true : false);
   }
   useEffect(() => {
     calcShowSideBar();
@@ -16,7 +16,8 @@ function AdminFrame({ currentPage, children }) {
 
   return (
     <div className='admin-frame'>
-        { showSideBar ? <SideNav currentPage={currentPage} /> : <img src={menu} alt='menu' className='admin-menu' /> }
+        { showSideBar && <SideNav currentPage={currentPage} /> }
+        { window.innerWidth <= 1024 && <img src={menu} alt='menu' className='admin-menu' onClick={ () => { setShowSideBar(!showSideBar) } } /> }
         <div className='admin-body'>
             <TopNav />
             <div className='content'>
