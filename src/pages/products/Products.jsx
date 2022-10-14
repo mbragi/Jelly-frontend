@@ -59,8 +59,8 @@ function Products() {
       const product = data.Pdata
       setCategories(category)
       setProducts(product);
-      //console.log(category);
-      //console.log(product);
+      // console.log(category);
+      // console.log(product);
 
       setTotalProducts(product.length);
       setLoading(false);
@@ -128,9 +128,9 @@ function Products() {
           <div className='products'>
 
             {loading ? <h1>Loading...</h1> :
-              currentProducts.map((product, index) => {
+              products.map((product, index) => {
 
-                // console.log(product)
+                console.log(currentProducts)
                 return (
                   < Product key={index} product={product} />
                 )

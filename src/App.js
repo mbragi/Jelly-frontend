@@ -37,7 +37,7 @@ function App() {
             <Route exact path="/video" element={<VideoSection />} />
             <Route exact path="/product/ncm" element={<Ncm />} />
             <Route exact path="/product/lfp" element={<Lfp />} />
-            <Route exact path="upload" element={<UploadImage />} />
+            <Route exact path="/upload" element={<UploadImage />} />
 
             <Route exact path="*" element={<h1>404</h1>} />
           </Routes>

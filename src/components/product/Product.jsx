@@ -1,7 +1,7 @@
 import React from 'react';
 import './Product.css';
 import Button from '../button/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 function Product({ product }) {
   // const URL = 'https://jelly-online-api.herokuapp.com'
 
