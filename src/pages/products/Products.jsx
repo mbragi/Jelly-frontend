@@ -53,13 +53,13 @@ function Products() {
     const fetchData = async () => {
       setLoading(true);
       const res = await fetch(`${BASE_URL}/category`)
+      // return console.log(res);
       const data = await res.json()
       const category = data.Cdata
       const product = data.Pdata
       setCategories(category)
       setProducts(product);
       //console.log(category);
-      //console.log(product);
       
       setTotalProducts(product.length);
       setLoading(false);

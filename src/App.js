@@ -12,6 +12,7 @@ import Products from './pages/products/Products.jsx'
 import ForgotPassword from './pages/forgotPassword/ForgotPassword'
 
 import AdminDashboard from './pages/adminDashboard/AdminDashboard';
+import AdminCategory from "./pages/adminCategory/AdminCategory";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
 
             <Route exact path="/admin" element={<AdminDashboard />} />
             <Route exact path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route exact path="/admin/categories" element={<AdminCategory />} />
             <Route exact path="*" element={<h1>404</h1>} />
           </Routes>
         </HashRouter>
