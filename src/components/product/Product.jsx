@@ -17,7 +17,6 @@ function Product({ product }) {
     // navigate(`/details/${product.name.replaceAll(' ','')}`)
     navigate(`/details/${product._id}`)
    }
-   //console.log(product._id)
   return (
     <form className='product' onSubmit={httpGetDetails}>
       <p className='product-name' name={product.name}  >{product.name}</p>
