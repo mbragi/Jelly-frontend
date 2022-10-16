@@ -52,7 +52,7 @@ function Products() {
 
     const fetchData = async () => {
       setLoading(true);
-      const res = await fetch(`${BASE_URL}/category`)
+      const res = await fetch(`${BASE_URL}/api/category`)
       // return console.log(res);
       const data = await res.json()
       const category = data.Cdata

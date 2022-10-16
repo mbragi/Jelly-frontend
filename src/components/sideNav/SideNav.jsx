@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import { MdOutlineHome, MdLogout } from 'react-icons/md';
 import { FaUsers } from 'react-icons/fa';
 
-function SideNav({ currentPage }) {
+function SideNav({ currentPage, ...otherProps }) {
   return (
     <>
     <div className='navigator' style={{ position: 'relative' }}></div>
-    <nav className='navigator'>
+    <nav className='navigator' {...otherProps}>
         <img src={logo} alt="logo" className='nav-logo' />
         <Link to="/admin" className='route' style={{ backgroundColor: currentPage === 'dashboard' ? '#3C95EE' : '' }} >
             <div className='nav-link' >

@@ -12,7 +12,7 @@ function AdminCategory() {
                 <Button content='Add Category' style={{ width: '140px', height: '43px', boxShadow: '0px 2.242px 9.24px rgba(0, 0, 0, 0.25)', borderRadius: '11.61765px' }} />
             </div>
 
-            <div className='categories'>
+            <div className='admin-categories'>
                 <div className='categories-header'>
                     <div className='entries'>
                         <span>show</span>

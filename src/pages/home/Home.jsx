@@ -39,7 +39,7 @@ function Home() {
 
     const fetchData = async () => {
       setLoading(true);
-      const res = await fetch(`${BASE_URL}/category`)
+      const res = await fetch(`${BASE_URL}/api/category`)
       const data = await res.json()
       //const category = data.Cdata
       const product = data.Pdata

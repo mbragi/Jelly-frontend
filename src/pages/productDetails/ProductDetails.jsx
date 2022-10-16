@@ -23,12 +23,12 @@ function ProductDetails() {
     
     const fetchData = async () => {
         setLoading(true);
-        const res = await fetch(`${BASE_URL}/details/${param.id}`)
+        const res = await fetch(`${BASE_URL}/api/details/${param.id}`)
         const data = await res.json()
-        setProduct(data.data)
+        setProduct(data.data[0])
         setLoading(false);
     };
-
+// setTimeout(() => { console.log(product) }, 5000)
     useEffect(() => { 
         fetchData();
     }, [])
@@ -60,7 +60,7 @@ function ProductDetails() {
                         <h2>{product.name}</h2>
                         {/* <p> <b> Price Range:</b>   ${product.price} -$500</p> */}
                         {
-                            product.price_range.length? 
+                            product.price_range ? 
                             <p><b> Price Range: </b>${product.price_range[0].one} -${product.price_range[0].two}</p>:
                             <p><b>Price: </b> ${product.price}</p> 
                         }
@@ -99,7 +99,7 @@ function ProductDetails() {
                     <div className='product-details-content'>
                         <h3>Key Features:</h3>
                         <li>100% and high quality, durable!</li>
-                        <li>{product.product_detail[0].key_features}</li>
+                        <li>{product.product_detail ? product.product_detail[0].key_features : ''}</li>
                         {/* <li>Light weight and compact, easy to move and clean</li>
                         <li>Simple to assemble and with covers to prevent any dust</li>
                         <li>A nice solution to the shoes and great helper for the housekeeping</li>
@@ -108,7 +108,7 @@ function ProductDetails() {
 
                         <h3>Specification:</h3>
                         <li>100% and high quality, durable!</li> 
-                        <li>{product.product_detail[0].specifications}</li>
+                        <li>{product.product_detail ? product.product_detail[0].specifications : ''}</li>
                         {/* <li>Lightweight and compact, easy to move and clean</li>
                         <li>Simple to assemble and with covers to prevent any dust</li>
                         <li>Color: purple.</li> */}
@@ -217,7 +217,7 @@ function ProductDetails() {
                                         <BsStarFill style = {{color: 'gold', weight: 'fill', fontSize: '19'}}/>
                                     </p>
 
-                                    <input type="range" />
+                                    <meter min='0' max='100' value='50' ></meter>
 
                                 </div>
 
@@ -230,7 +230,7 @@ function ProductDetails() {
                                         <BsStarFill style = {{color: '#c9c9c9', weight: 'fill', fontSize: '19'}}/>
                                     </p> 
 
-                                    <input type="range" />
+                                    <meter min='0' max='100' value='50' ></meter>
 
                                 </div>
 
@@ -243,7 +243,7 @@ function ProductDetails() {
                                         <BsStarFill style = {{color: '#c9c9c9', weight: 'fill', fontSize: '19'}}/>
                                     </p>
                                    
-                                    <input type="range" />
+                                    <meter min='0' max='100' value='50' ></meter>
 
                                 </div>
 
@@ -256,7 +256,7 @@ function ProductDetails() {
                                         <BsStarFill style = {{color: '#c9c9c9', weight: 'fill', fontSize: '19'}}/>    
                                     </p>                
                                    
-                                    <input type="range" />
+                                    <meter min='0' max='100' value='50' ></meter>
 
                                 </div>
 
@@ -270,7 +270,7 @@ function ProductDetails() {
                                     </p>
                                    
                                     
-                                    <input type="range" />
+                                    <meter min='0' max='100' value='50' ></meter>
 
                                 </div>
                                
