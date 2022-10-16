@@ -29,7 +29,7 @@ function ProductDetails() {
         setProduct(data.data[0])
 
         fetchRelatedProducts(data.data[0]);
-        
+
         setLoading(false);
     };
     const fetchRelatedProducts = async (product) => {
@@ -38,7 +38,6 @@ function ProductDetails() {
         const data = await res.json();
         setRelatedProducts(data.Pdata.filter((prod) => ( prod.category_id === product.category_id )));
     };
-// setTimeout(() => { console.log(product) }, 5000)
     useEffect(() => { 
         fetchData();
     }, [])
