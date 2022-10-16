@@ -8,7 +8,7 @@ const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
 function Ncm() {
     const [ncm, setNcm] = useState([]);
-    // const [data, setData] = useState([])
+    // const [loading, setLoading] = useState(false)
     const search = (e) => {
         let target = e.target.value
         const transformedState = target ? ncm.filter((item) => (
@@ -23,23 +23,20 @@ function Ncm() {
             const data = await res.json()
             const Categories = data.data
             const findCategoryByName = Categories.find(item => item.name === "NCM")
-            let request = { model: findCategoryByName.name }
-            const req = await fetch(`${BASE_URL}/api/product/detail`, {
-                method: 'post',
-                headers: {
-                    "content-Type": "application/json"
-                },
-                body: JSON.stringify(request)
-            })
+            let id = findCategoryByName._id
+            const req = await fetch(`${BASE_URL}/api/products/category/${id}`)
             const productData = await req.json()
-            // console.log(productData)
             const products = productData.data
-            // const product = data.Pdata
-            // console.log(product)
-            // const product = products.map(item => item.detail)
+            // console.log(products)
+            // const product = products.map((item, idx) => {
+            //     const newArr = item.detail
+            //     return (
             setNcm(products)
+            //     )
+            // }
+            // )
             // setData(products)
-            // setLoading(false)
+            // setLoading(product)
         } catch (error) {
             console.log(error.message)
         }
@@ -55,9 +52,10 @@ function Ncm() {
             <div className="ncm-content">
                 {
                     ncm.map((item, idx) => {
-                        // console.log(ncm)
+                        // console.log(item.detail[0])
+                        const detail = item.detail[0]
                         return (
-                            <ProductSpec key={idx} data={item} />
+                            <ProductSpec key={idx} data={detail} />
                         )
                     })
                 }
@@ -70,14 +68,14 @@ export const ProductSpec = ({ data }) => {
     return (
         <>
             <div className="m-content">
-                <img src={data.img} alt="product" />
+                <img src={data.photo_url} alt="product" />
                 <div className="flex-content">
-                    <p>{data.type}</p>
-                    <p>{data.name}</p>
-                    <p>{data.function}</p>
-                    <p>{data.Accessories}</p>
-                    <p>http://evtop.org/#/details/{data.Specification}</p>
-                    <p>{data.Version}</p>
+                    <p>Type:{data.type}</p>
+                    <p>Model:{data.model}</p>
+                    <p>Function:{data.function}</p>
+                    <p>Accessories:{data.Accessories}</p>
+                    <p>Product Link:{`http://evtop.org/#/details/${data.Specification}`}</p>
+                    <p>Version:{data.Version}</p>
                 </div>
             </div>
         </>
