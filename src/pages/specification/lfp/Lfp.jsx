@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './Lfp.css';
 import Search from "../Search";
 import NavBar from "../../../components/navBar/NavBar";
-import lfp from '../LFP.json'
+
+const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 function Ncm() {
     const [lfp, setLfp] = useState([]);
     const search = (e) => {
