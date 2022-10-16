@@ -27,7 +27,7 @@ function ProductDetails() {
         const res = await axios.get(`${BASE_URL}/api/details/${param.id}`)
         const data = await res.data
         console.log(data)
-        setProduct(data.data)
+        setProduct(data.data[0])
         setLoading(false);
     };
 
@@ -38,6 +38,7 @@ function ProductDetails() {
     if (!loading && !product) return <h1 style={{ textAlign: 'center' }}>404 error can't find product</h1>;
     return (
         <div>
+
             <div className='navigation-bar'>
                 <NavBar />
             </div>
@@ -60,7 +61,7 @@ function ProductDetails() {
 
                     <div className='product-name-content'>
                         <h2>{product.name}</h2>
-                        {/* <p> <b> Price Range:</b>   ${product.price} -$500</p> */}
+                        
                         {
                             product.price_range.length ?
                                 <p><b> Price Range: </b>${product.price_range[0].one} -${product.price_range[0].two}</p> :
