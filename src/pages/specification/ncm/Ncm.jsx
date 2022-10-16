@@ -23,12 +23,19 @@ function Ncm() {
             const data = await res.json()
             const Categories = data.data
             const findCategoryByName = Categories.find(item => item.name === "NCM")
-            let id = findCategoryByName._id
-            const req = await fetch(`${BASE_URL}/api/products/category/${id}`)
+            let request = { model: findCategoryByName.name }
+            const req = await fetch(`${BASE_URL}/api/product/detail`, {
+                method: 'post',
+                headers: {
+                    "content-Type": "application/json"
+                },
+                body: JSON.stringify(request)
+            })
             const productData = await req.json()
+            // console.log(productData)
             const products = productData.data
-            const product = products.map(item => item.detail)
-            setNcm(product)
+            // const product = products.map(item => item.detail)
+            setNcm(products)
             // setData(products)
             // setLoading(false)
         } catch (error) {
@@ -61,14 +68,14 @@ export const ProductSpec = ({ data }) => {
     return (
         <>
             <div className="m-content">
-                <img src={data.img_url} alt="product" />
+                <img src='' alt="product" />
                 <div className="flex-content">
-                    <p>Type:{data.type}</p>
-                    <p>Model:{data.name}</p>
-                    <p>Function:{data.function}</p>
-                    <p>Accessories:{data.Accessories}</p>
-                    <p>Product Link:{`http://evtop.org/#/details/${data.Specification}`}</p>
-                    <p>Version:{data.Version}</p>
+                    <p>{data.type}</p>
+                    <p>{data.name}</p>
+                    <p>{data.function}</p>
+                    <p>{data.Accessories}</p>
+                    <p>http://evtop.org/#/details/{data.Specification}</p>
+                    <p>{data.Version}</p>
                 </div>
             </div>
         </>
