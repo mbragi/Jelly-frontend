@@ -26,7 +26,7 @@ function ProductDetails() {
         setLoading(true);
         const res = await axios.get(`${BASE_URL}/api/details/${param.id}`)
         const data = await res.data
-        console.log(data)
+        //console.log(data)
         setProduct(data.data)
         setLoading(false);
     };
