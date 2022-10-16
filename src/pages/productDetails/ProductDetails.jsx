@@ -14,9 +14,10 @@ import { addToCart } from '../../helpers/cart';
 
 
 function ProductDetails() {
-    const [product, setProduct] = useState(null);
+    const [product, setProduct] = useState({});
+    const [relatedProducts, setRelatedProducts] = useState([]);
     const [loading, setLoading] = useState(false);
-    const param = useParams()
+    const param = useParams();
 
 
     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
@@ -26,7 +27,16 @@ function ProductDetails() {
         const res = await fetch(`${BASE_URL}/api/details/${param.id}`)
         const data = await res.json()
         setProduct(data.data[0])
+
+        fetchRelatedProducts(data.data[0]);
+        
         setLoading(false);
+    };
+    const fetchRelatedProducts = async (product) => {
+        if(!product) return;
+        const res = await fetch(`${BASE_URL}/api/category`);
+        const data = await res.json();
+        setRelatedProducts(data.Pdata.filter((prod) => ( prod.category_id === product.category_id )));
     };
 // setTimeout(() => { console.log(product) }, 5000)
     useEffect(() => { 
@@ -124,33 +134,17 @@ function ProductDetails() {
 
                         <BiChevronLeftCircle size={70} className='icon'  />
                         <div className='other-products-boxs'>
-                            <div className='other-products box'>
-                                <h3>Product Name</h3>
-                                <img src={battery} alt=''/>
-                                <p>$200</p>
-                                <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px', fontWeight:'bold' }} />
-                            </div>
+                            {
+                                relatedProducts.map((prod) => (
+                                    <div key={prod._id} className='other-products box'>
+                                        <h3>P{prod.name}</h3>
+                                        <img src={prod.img} alt=''/>
+                                        <p>{prod.price}</p>
+                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px', fontWeight:'bold' }} />
+                                    </div>
+                                ))
+                            }
 
-                            <div className='other-products box'>
-                                <h3>Product Name</h3>
-                                <img src={battery} alt=''/>
-                                <p>$200</p>
-                                <Button type={'submit'} content='GO TO DETAILS'  style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px' , fontWeight:'bold' }} />
-                            </div>
-
-                            <div className='other-products box'>
-                                <h3>Product Name</h3>
-                                <img src={battery} alt=''/>
-                                <p>$200</p>
-                                <Button type={'submit'} content='GO TO DETAILS'  style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px' , fontWeight:'bold' }} />
-                            </div>
-
-                            <div className='other-products box'>
-                                <h3>Product Name</h3>
-                                <img src={battery} alt=''/>
-                                <p>$200</p>
-                                <Button type={'submit'} content='GO TO DETAILS'  style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px' , fontWeight:'bold' }} />
-                            </div>
                         </div>
                       
 
