@@ -11,6 +11,8 @@ import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } fro
 import { Fade, Zoom } from "react-awesome-reveal";
 //import { addToCart, removeFromCart } from '../../helpers/cart';
 import { addToCart } from '../../helpers/cart';
+import MobileBar from '../../components/mobileBar/MobileBar';
+import axios from 'axios';
 
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
@@ -19,53 +21,51 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
   const [productsPerPage, setProductsPerPage] = useState(0);
+  const [distance, setDistance] = useState(500);
 
   const featuresArray = ["512.png", "bike.jpg"];
-  
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  function pageResized(){
-    if(window.innerWidth > 1000) setProductsPerPage(3);
-    if((window.innerWidth <= 1000) && (window.innerWidth >= 500)) setProductsPerPage(2);
-    if(window.innerWidth < 500) setProductsPerPage(1);
+  function pageResized() {
+    if (window.innerWidth > 1000) setProductsPerPage(3);
+    if ((window.innerWidth <= 1000) && (window.innerWidth >= 500)) setProductsPerPage(2);
+    if (window.innerWidth < 500) setProductsPerPage(1);
   }
   window.addEventListener('resize', pageResized);
 
   // const URL = process.env.REACT_APP_SERVER_URL
-  
-    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
-    const fetchData = async () => {
-      setLoading(true);
-      const res = await fetch(`${BASE_URL}/category`)
-      const data = await res.json()
-      //const category = data.Cdata
-      const product = data.Pdata
-      // setCategories(category)
-      // console.log(product)
-      setProducts(product);
-      // console.log(category);
-  
-      
-      setTotalProducts(product.length);
-      setLoading(false);
-      // getCurrentProducts(product);
+  const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
-      //remove this after using i have to do this to avoid build errors
-      console.log(loading)
-    };
+  const fetchData = async () => {
+    setLoading(true);
+    const res = await axios.get(`${BASE_URL}/api/category`)
+    let data = res.data
+    console.log(res);
+    //const category = data.Cdata
+    const product = data.Pdata
+    // setCategories(category)
+    setProducts(product);
+    setTotalProducts(product.length);
+    setLoading(false);
+    // getCurrentProducts(product);
 
-    function getQuantity(_id){
-      let cart = localStorage.getItem('cart');
-    
-      if(cart){
-        cart = JSON.parse(cart);
-        let cartProduct = cart.find((product) => product._id === _id);
-        
-        if(cartProduct) return <span className="item-quantity-in-cart">{cartProduct.quantity}</span>;
-        return '';
-      }
+    //remove this after using i have to do this to avoid build errors
+    // console.log(loading)
+  };
+
+  function getQuantity(_id) {
+    let cart = localStorage.getItem('cart');
+
+    if (cart) {
+      cart = JSON.parse(cart);
+      let cartProduct = cart.find((product) => product._id === _id);
+
+      if (cartProduct) return <span className="item-quantity-in-cart">{cartProduct.quantity}</span>;
+      return '';
+    }
   }
 
   useEffect(() => {
@@ -98,8 +98,10 @@ function Home() {
     <div className='cntainer'>
 
       <NavBar currentPage="home" />
+
+      <MobileBar />
       <div className="imgcontainer resize-max">
-        <img src={bike} alt="evtop"  className = 'evtopimg'/>
+        <img src={bike} alt="evtop" className='evtopimg' />
       </div>
 
       <div className='features-div'>
@@ -121,21 +123,21 @@ function Home() {
         <div className='vehicles'>
           <div className='vehicle'>
             <MdDirectionsBike size={100} className='icon' />
-            <p className='description-price'>Description Price</p>
+            <p className='description-price'>${200 * distance}.00</p>
           </div>
           <div className='vehicle'>
             <MdDirectionsCar size={100} className='icon' />
-            <p className='description-price'>Description Price</p>
+            <p className='description-price'>${100 * distance}.00</p>
           </div>
           <div className='vehicle'>
             <MdDirectionsBus size={100} className='icon' />
-            <p className='description-price'>Description Price</p>
+            <p className='description-price'>${50 * distance}.00</p>
           </div>
         </div>
 
         <div className='input-range-div'>
           <p className='input-range-title'>Daily Usage 1km (s)</p>
-          <input type='range' className='input-range' />
+          <input type='range' className='input-range' min={0} max={1000} value={distance} onInput={(event) => { setDistance(event.target.value) }} />
         </div>
       </div>
 
@@ -161,7 +163,7 @@ function Home() {
             <p className='promo-desc'>
               Refer friends and get upto Rs. 5000/- OFF on final price Jelly App connected | Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes
             </p>
-            <Button content="Buy Now" style={{width: '100%', height: '50px'}} />
+            <Button content="Buy Now" style={{ width: '100%', height: '50px' }} />
           </div>
         </div>
       </div>

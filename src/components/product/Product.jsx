@@ -1,10 +1,9 @@
 import React from 'react';
 import './Product.css';
 import Button from '../button/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 function Product({ product }) {
   // const URL = 'https://jelly-online-api.herokuapp.com'
-  // const URL2 = 'http://localho/st:1050'
 
   const navigate = useNavigate()
   function httpGetDetails(e) {
@@ -12,14 +11,15 @@ function Product({ product }) {
     //remove the item before setting new one
     localStorage.removeItem('product')
     //save response to browser storage
-    localStorage.setItem('product',JSON.stringify({id:product._id}))
+    localStorage.setItem('product', JSON.stringify({ id: product._id }))
     //navigate to the product page with product name
     // navigate(`/details/${product.name.replaceAll(' ','')}`)
     navigate(`/details/${product._id}`)
-   }
+  }
+  //console.log(product._id)
   return (
-    <form className='product' onSubmit={httpGetDetails}>
-      <p className='product-name' name={product.name}  >{product.name}</p>
+    <form className='product' onSubmit={httpGetDetails} >
+      <p className='product-name' name={product.name} >{product.name}</p>
       <img src={product.img} alt={product.name} className='product-img' />
       <p className="product-price">${product.price}</p>
       <Button content="Details"
