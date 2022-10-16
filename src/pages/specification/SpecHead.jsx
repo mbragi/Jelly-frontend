@@ -52,7 +52,7 @@ function SpecHead() {
             <div className="spec">
                 {loading ? <h1>Loading...</h1> :
                     data.map((item, idx) => {
-                        console.log(item)
+                        // console.log(item)
                         return (
                             <Specification key={idx} name={item} />
                         )
