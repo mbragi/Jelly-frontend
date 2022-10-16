@@ -34,6 +34,8 @@ function Ncm() {
             const productData = await req.json()
             // console.log(productData)
             const products = productData.data
+            // const product = data.Pdata
+            // console.log(product)
             // const product = products.map(item => item.detail)
             setNcm(products)
             // setData(products)
@@ -53,7 +55,7 @@ function Ncm() {
             <div className="ncm-content">
                 {
                     ncm.map((item, idx) => {
-                        console.log(ncm)
+                        // console.log(ncm)
                         return (
                             <ProductSpec key={idx} data={item} />
                         )
@@ -68,7 +70,7 @@ export const ProductSpec = ({ data }) => {
     return (
         <>
             <div className="m-content">
-                <img src='' alt="product" />
+                <img src={data.img} alt="product" />
                 <div className="flex-content">
                     <p>{data.type}</p>
                     <p>{data.name}</p>

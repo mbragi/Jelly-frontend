@@ -4,7 +4,7 @@ import Search from "../Search";
 import NavBar from "../../../components/navBar/NavBar";
 
 const BASE_URL = 'https://jelly-online-api.herokuapp.com'
-function Ncm() {
+function Lfp() {
     const [lfp, setLfp] = useState([]);
     const search = (e) => {
         let target = e.target.value
@@ -43,7 +43,7 @@ function Ncm() {
             <div className="ncm-content">
                 {
                     lfp.map((item, idx) => {
-                        console.log(lfp)
+                        // console.log(lfp)
                         return (
                             <ProductSpecLfp key={idx} item={item} />
                         )
@@ -71,4 +71,4 @@ export const ProductSpecLfp = ({ item }) => {
     )
 }
 
-export default Ncm;
+export default Lfp;

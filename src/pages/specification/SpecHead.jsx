@@ -5,6 +5,7 @@ import { useState } from "react";
 import Specification from "./Specification";
 import NavBar from '../../components/navBar/NavBar';
 import Search from './Search';
+import './Specification.css'
 import { useNavigate } from "react-router-dom";
 const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
@@ -49,10 +50,10 @@ function SpecHead() {
             <NavBar />
             <Search onchange={navigateSearch} />
             <p>Search By Product Model</p>
-            <div className="spec">
+            <div className="spec" >
                 {loading ? <h1>Loading...</h1> :
                     data.map((item, idx) => {
-                        // console.log(item)
+                        console.log(data)
                         return (
                             <Specification key={idx} name={item} />
                         )
