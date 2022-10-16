@@ -11,6 +11,7 @@ import battery from '../../assets/battery.png'
 import cart from '../../assets/images/cart.png'
 import { useParams } from 'react-router-dom'
 import { addToCart } from '../../helpers/cart';
+import axios from 'axios/lib/axios';
 
 
 function ProductDetails() {
@@ -21,10 +22,11 @@ function ProductDetails() {
 
     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
-    const fetchData = async () => {
+    async function fetchData() {
         setLoading(true);
-        const res = await fetch(`${BASE_URL}/details/${param.id}`)
-        const data = await res.json()
+        const res = await axios.get(`${BASE_URL}/api/details/${param.id}`)
+        const data = await res.data
+        console.log(data)
         setProduct(data.data)
         setLoading(false);
     };

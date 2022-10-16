@@ -8,6 +8,7 @@ import Pagination from '../../components/pagination/Pagination';
 import Footer from '../../components/footer/Footer';
 import Category from '../../components/category/Category';
 import MobileBar from '../../components/mobileBar/MobileBar';
+import axios from 'axios';
 
 
 function Products() {
@@ -53,8 +54,8 @@ function Products() {
 
     const fetchData = async () => {
       setLoading(true);
-      const res = await fetch(`${BASE_URL}/api/category`)
-      const data = await res.json()
+      const res = await axios.get(`${BASE_URL}/api/category`)
+      const data = await res.data
       const category = data.Cdata
       const product = data.Pdata
       setCategories(category)
@@ -63,8 +64,8 @@ function Products() {
       // console.log(product);
 
       setTotalProducts(product.length);
-      setLoading(false);
       getCurrentProducts(product);
+      setLoading(false);
     };
     fetchData();
   }, []);
