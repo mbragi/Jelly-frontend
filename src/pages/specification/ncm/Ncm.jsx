@@ -27,16 +27,7 @@ function Ncm() {
             const req = await fetch(`${BASE_URL}/api/products/category/${id}`)
             const productData = await req.json()
             const products = productData.data
-            // console.log(products)
-            // const product = products.map((item, idx) => {
-            //     const newArr = item.detail
-            //     return (
             setNcm(products)
-            //     )
-            // }
-            // )
-            // setData(products)
-            // setLoading(product)
         } catch (error) {
             console.log(error.message)
         }
@@ -46,13 +37,13 @@ function Ncm() {
         getData()
     }, [])
     return (
-        <div>
+        <div style={{ width: '100%' }}>
             <NavBar />
             <Search onchange={search} />
             <div className="ncm-content">
                 {
                     ncm.map((item, idx) => {
-                        console.log(item._id)
+                        console.log(item.detail[0])
                         const detail = item.detail[0]
                         return (
                             <ProductSpec key={idx} specification={item} data={detail} />

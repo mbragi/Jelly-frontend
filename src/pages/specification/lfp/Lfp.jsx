@@ -24,8 +24,8 @@ function Lfp() {
             const req = await fetch(`${BASE_URL}/api/products/category/${id}`)
             const productData = await req.json()
             const products = productData.data
-            const product = products.map(item => item.detail)
-            setLfp(product)
+
+            setLfp(products)
             // setData(products)
             // setLoading(false)
         } catch (error) {
@@ -37,15 +37,17 @@ function Lfp() {
         getData()
     }, [])
     return (
-        <div>
+        <div style={{ width: "100%" }}>
             <NavBar />
             <Search onchange={search} />
             <div className="ncm-content">
                 {
                     lfp.map((item, idx) => {
                         // console.log(lfp)
+                        const detail = item.detail[0]
+
                         return (
-                            <ProductSpecLfp key={idx} item={item} />
+                            <ProductSpecLfp key={idx} specification={item} item={detail} />
                         )
                     })
                 }
@@ -53,7 +55,7 @@ function Lfp() {
         </div>
     )
 }
-export const ProductSpecLfp = ({ item }) => {
+export const ProductSpecLfp = ({ item, specification }) => {
     return (
         <>
             <div className="m-content" key={item.id}>
@@ -63,7 +65,7 @@ export const ProductSpecLfp = ({ item }) => {
                     <p>Model:{item.model}</p>
                     <p>Function:{item.function}</p>
                     <p>Accessories:{item.Accessories}</p>
-                    <p>Product Link:{`http://evtop.org/#/details/${item.Specification}`}</p>
+                    <p>Product Link:{`http://evtop.org/#/details/${specification._id}`}</p>
                     <p>Version:{item.Version}</p>
                 </div>
             </div>

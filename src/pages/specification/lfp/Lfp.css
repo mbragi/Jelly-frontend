@@ -1,5 +1,5 @@
 .ncm-content{
-    width: 63%;
+    width: 100%;
     margin: 8px auto;
     display: flex;
     justify-content: space-between;
@@ -8,7 +8,7 @@
 .m-content{
     display: flex;
     width: 40%;
-    margin-top: 10px;
+    margin-top: 3px;
 }
 .m-content img{
     width: 200px;
