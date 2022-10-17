@@ -7,17 +7,24 @@ import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import NavBar from '../../components/navBar/NavBar'
 import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer'
-import battery from '../../assets/battery.png'
 import cart from '../../assets/images/cart.png'
 import { useParams } from 'react-router-dom'
 import { addToCart } from '../../helpers/cart';
-
+import { useNavigate } from 'react-router-dom';
 
 function ProductDetails() {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalProducts, setTotalProducts] = useState(0);
+    const [productsPerPage, setProductsPerPage] = useState(0);
     const [product, setProduct] = useState({});
     const [relatedProducts, setRelatedProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     const param = useParams();
+    const navigate = useNavigate();
+
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = relatedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
 
     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
@@ -36,10 +43,33 @@ function ProductDetails() {
         if(!product) return;
         const res = await fetch(`${BASE_URL}/api/category`);
         const data = await res.json();
-        setRelatedProducts(data.Pdata.filter((prod) => ( prod.category_id === product.category_id )));
+        const relatedProducts = data.Pdata.filter((prod) => ( prod.category_id === product.category_id ));
+        setRelatedProducts(relatedProducts);
+        setTotalProducts(relatedProducts.length);
     };
+    function pageResized(){
+        if(window.innerWidth > 1000) setProductsPerPage(3);
+        if((window.innerWidth <= 1000) && (window.innerWidth >= 500)) setProductsPerPage(2);
+        if(window.innerWidth < 500) setProductsPerPage(1);
+      }
+    window.addEventListener('resize', pageResized);
+
+
+    const handlePrev = () => {
+        if (currentPage > 1) setCurrentPage(currentPage => currentPage - 1);
+    }
+    const handleNext = () => {
+    const numberOfPages = Math.ceil(totalProducts / productsPerPage);
+    if (currentPage < numberOfPages) setCurrentPage(currentPage => currentPage + 1);
+    }
+
+    function navigateTo(_id){
+        navigate(`/details/${_id}`);
+    }
+
     useEffect(() => { 
         fetchData();
+        pageResized();
     }, [])
     if(loading) return <h1 style={{textAlign:'center'}}>Loading...</h1>;
     if(!loading && !product) return <h1 style={{textAlign:'center'}}>404 error can't find product</h1>;
@@ -131,23 +161,22 @@ function ProductDetails() {
 
                     <div className='other-products-content'>   
 
-                        <BiChevronLeftCircle size={70} className='icon'  />
+                        <BiChevronLeftCircle size={70} className='icon' onClick={() => { handlePrev() }} />
                         <div className='other-products-boxs'>
                             {
-                                relatedProducts.map((prod) => (
+                                currentProducts.map((prod) => (
                                     <div key={prod._id} className='other-products box'>
                                         <h3>P{prod.name}</h3>
                                         <img src={prod.img} alt=''/>
                                         <p>{prod.price}</p>
-                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px', fontWeight:'bold' }} />
+                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px', fontWeight:'bold' }} onClick={() => { navigateTo(prod._id) }} />
                                     </div>
                                 ))
                             }
 
                         </div>
-                      
 
-                        <BiChevronRightCircle size={70} className='icon' position="fixed"/>
+                        <BiChevronRightCircle size={70} className='icon' position="fixed" onClick={() => { handleNext() }} />
                     
                         
                     </div>
