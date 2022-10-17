@@ -26,7 +26,7 @@ function ProductDetails() {
         setLoading(true);
         const res = await axios.get(`${BASE_URL}/api/details/${param.id}`)
         const data = await res.data
-        console.log(data.data)
+        //console.log(data)
         setProduct(data.data)
         setLoading(false);
     };
@@ -45,10 +45,10 @@ function ProductDetails() {
 
 
             <div className='product-details-container'>
-
+                
                 {
-                    product.map((item) => {
-                        return (
+                    product.map((item)=>{
+                       return (
                             <>
                                 <div className='product-name'>
                                     <div className='product-name-images'>
@@ -67,13 +67,13 @@ function ProductDetails() {
 
                                     <div className='product-name-content'>
                                         <h2>{item.name}</h2>
-
-                                        {
+                                        
+                                        {/* {
                                             item.price_range.length ?
                                                 <p><b> Price Range: </b>${item.price_range[0].one} -${item.price_range[0].two}</p> :
                                                 <p><b>Price: </b> ${item.price}</p>
-                                        }
-
+                                        } */}
+                                        <p><b>Price: </b> ${item.price}</p>
                                         <p>Available colors:</p>
                                         <div className='available-colors'>
                                             <div className='purple'>
