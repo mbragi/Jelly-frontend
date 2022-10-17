@@ -52,10 +52,10 @@ function Ncm() {
             <div className="ncm-content">
                 {
                     ncm.map((item, idx) => {
-                        // console.log(item.detail[0])
+                        console.log(item._id)
                         const detail = item.detail[0]
                         return (
-                            <ProductSpec key={idx} data={detail} />
+                            <ProductSpec key={idx} specification={item} data={detail} />
                         )
                     })
                 }
@@ -64,7 +64,7 @@ function Ncm() {
     )
 }
 
-export const ProductSpec = ({ data }) => {
+export const ProductSpec = ({ data, specification }) => {
     return (
         <>
             <div className="m-content">
@@ -74,7 +74,7 @@ export const ProductSpec = ({ data }) => {
                     <p>Model:{data.model}</p>
                     <p>Function:{data.function}</p>
                     <p>Accessories:{data.Accessories}</p>
-                    <p>Product Link:{`http://evtop.org/#/details/${data.Specification}`}</p>
+                    <p>Product Link:{`http://evtop.org/#/details/${specification._id}`}</p>
                     <p>Version:{data.Version}</p>
                 </div>
             </div>
