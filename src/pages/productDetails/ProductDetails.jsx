@@ -45,7 +45,6 @@ function ProductDetails() {
 
 
             <div className='product-details-container'>
-                
                 {
                     product.map((item)=>{
                        return (
