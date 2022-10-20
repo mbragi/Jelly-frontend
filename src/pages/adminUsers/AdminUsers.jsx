@@ -6,15 +6,20 @@ function AdminUsers() {
   return (
     <AdminFrame currentPage={"users"}>
         <div className="admin-users-container">
-            <header>
-                <Button content={'Add Admin'} style ={{backgroundColor: ' rgba(53, 112, 236, 0.67)'}} />
+            <header className='add-admin-header'>
+                <Button content={'Add Admin'} style ={{
+                    backgroundColor: ' rgba(53, 112, 236, 0.67)',
+                    borderRadius: '8px',
+                    width:'150px'
+                }} 
+            />
             </header>
             <section>
                 <header className='user-lists-header'>
                     <p>User List</p>
                 </header>
-                <div>
-
+                <div className='user-lists'>
+                    
                 </div>
             </section>
         </div>
