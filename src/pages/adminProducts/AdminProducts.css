@@ -11,8 +11,9 @@
 
 .show-product{
     background-color: #ffffff;
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 20px 20px;
+   
 }
 .show-product p{
     margin: 0;
@@ -36,17 +37,30 @@
     border-radius: 8px;
     padding: 5px;
 }
+.show-product-section{
+    padding: 20px 0;
+}
 .show-product-items{
     list-style: none;
     display: flex;
     justify-content: space-between;
     padding: 0;
+    align-items: center;
 }
 .item-product{
     width: 13%;
+    text-align: center;
 }
 
-.item-product img{
+.item-imge img{
     width: 70px;
 }
 
+@media screen and (max-width:800px) {
+
+    .show-product{
+        width: 750px;
+        background-color: aquamarine;
+        overflow-x: auto;
+    }
+}
