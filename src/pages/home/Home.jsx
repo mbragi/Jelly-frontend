@@ -15,8 +15,54 @@ import { Fade, Zoom } from "react-awesome-reveal";
 import { addToCart } from '../../helpers/cart';
 import MobileBar from '../../components/mobileBar/MobileBar';
 import founders from './founders.json'
+import axios from 'axios';
     // console.log(loading)
  
+
+function Home() {
+  const [featuresIndex, setFeaturesIndex] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalProducts, setTotalProducts] = useState(0);
+  const [productsPerPage, setProductsPerPage] = useState(0);
+  const [distance, setDistance] = useState(500);
+
+  const featuresArray = ["512.png", "bike.jpg"];
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  function pageResized() {
+    if (window.innerWidth > 1000) setProductsPerPage(3);
+    if ((window.innerWidth <= 1000) && (window.innerWidth >= 500)) setProductsPerPage(2);
+    if (window.innerWidth < 500) setProductsPerPage(1);
+  }
+  window.addEventListener('resize', pageResized);
+
+  // const URL = process.env.REACT_APP_SERVER_URL
+
+  const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+
+  const fetchData = async () => {
+    setLoading(true);
+    const res = await axios.get(`${BASE_URL}/api/category`)
+    let data = res.data
+    console.log(res);
+    //const category = data.Cdata
+    const product = data.Pdata
+    // setCategories(category)
+    setProducts(product);
+    setTotalProducts(product.length);
+    setLoading(false);
+    // getCurrentProducts(product);
+
+    //remove this after using i have to do this to avoid build errors
+    // console.log(loading)
+  };
+
+
+
   function getQuantity(_id) {
     let cart = localStorage.getItem('cart');
 
@@ -54,9 +100,6 @@ import founders from './founders.json'
     const numberOfPages = Math.ceil(totalProducts / productsPerPage);
     if (currentPage < numberOfPages) setCurrentPage(currentPage => currentPage + 1);
   }
-
-
-function Home (){
 
   return (
     <div className='cntainer'>
