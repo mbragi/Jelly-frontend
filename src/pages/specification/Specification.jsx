@@ -1,6 +1,5 @@
 import React from 'react';
 import './Specification.css';
-import { RiFile3Fill } from "react-icons/ri"
 import { useNavigate } from 'react-router-dom'
 function Specification({ name }) {
     const navigate = useNavigate()
@@ -18,8 +17,7 @@ function Specification({ name }) {
 
         <form onClick={setNavigationPath} className="files" >
             <div className="text">
-                <h1>{name.name}</h1>
-                <RiFile3Fill size={260} style={{ color: '#e85d04' }} className='text' />
+                <img src={name.img_url} alt="category" />
             </div>
         </form>
     )

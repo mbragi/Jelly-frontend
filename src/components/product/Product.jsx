@@ -18,8 +18,8 @@ function Product({ product }) {
   }
   //console.log(product._id)
   return (
-    <form className='product' onSubmit={httpGetDetails}>
-      <p className='product-name' name={product.name}  >{product.name}</p>
+    <form className='product' onSubmit={httpGetDetails} >
+      <p className='product-name' name={product.name} >{product.name}</p>
       <img src={product.img} alt={product.name} className='product-img' />
       <p className="product-price">${product.price}</p>
       <Button content="Details"
