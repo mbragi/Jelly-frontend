@@ -36,3 +36,17 @@
     border-radius: 8px;
     padding: 5px;
 }
+.show-product-items{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+.item-product{
+    width: 13%;
+}
+
+.item-product img{
+    width: 70px;
+}
+

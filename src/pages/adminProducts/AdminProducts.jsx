@@ -2,6 +2,7 @@ import React from 'react'
 import './AdminProducts.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame'
 import Button from '../../components/button/Button'
+import ProImg from '../../assets/2600mah 1.jpg'
 function AdminProducts() {
   return (
     <AdminFrame currentPage={'products'}>
@@ -30,13 +31,25 @@ function AdminProducts() {
                 </div>
             </header>
             <section className='show-product-section'>
-                <ul className='show-product-header-items'>
-                    <li className='item-head'>Product</li>
-                    <li className='item-head'>Name</li>
-                    <li className='item-head'>Price</li>
-                    <li className='item-head'>Total Sales</li>
-                    <li className='item-head'>Stock</li>
-                    <li className='item-head'>Action</li>
+                <ul className='show-product-items'>
+                    <li className='item-product'>Product</li>
+                    <li className='item-product'>Name</li>
+                    <li className='item-product'>Price</li>
+                    <li className='item-product'>Total Sales</li>
+                    <li className='item-product'>Stock</li>
+                    <li className='item-product'>Status</li>
+                    <li className='item-product'>Action</li>
+                </ul>
+                <ul className='show-product-items'>
+                    <li className='item-product'>
+                        <img src={ProImg} alt="product-img"/>
+                    </li>
+                    <li className='item-product'>Li-ion cell For EV</li>
+                    <li className='item-product'>¥38</li>
+                    <li className='item-product'>38</li>
+                    <li className='item-product'>100</li>
+                    <li className='item-product'>Active</li>
+                    <li className='item-product'>Active</li>
                 </ul>
             </section>
            </section>
