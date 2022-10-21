@@ -8,3 +8,31 @@
 .admin-product-add-header h1{
     margin: 0;
 }
+
+.show-product{
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px 20px;
+}
+.show-product p{
+    margin: 0;
+}
+.header-show-product{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left-show-product{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.search-show-product{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.search-show-product input{
+    border-radius: 8px;
+    padding: 5px;
+}

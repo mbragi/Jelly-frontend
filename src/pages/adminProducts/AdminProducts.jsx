@@ -14,6 +14,32 @@ function AdminProducts() {
                     width:'150px'
                 }} />
            </header>
+           <section className='show-product'>
+            <header className='header-show-product'>
+                <div className='left-show-product'>
+                    <p>Show</p>
+                    <select>
+                        <option value="4">4</option>
+                        
+                    </select>
+                    <p>Entries</p>
+                </div>
+                <div className='search-show-product'>
+                    <p>Search:</p>
+                    <input type="text"/>
+                </div>
+            </header>
+            <section className='show-product-section'>
+                <ul className='show-product-header-items'>
+                    <li className='item-head'>Product</li>
+                    <li className='item-head'>Name</li>
+                    <li className='item-head'>Price</li>
+                    <li className='item-head'>Total Sales</li>
+                    <li className='item-head'>Stock</li>
+                    <li className='item-head'>Action</li>
+                </ul>
+            </section>
+           </section>
         </div>
     </AdminFrame>
   )
