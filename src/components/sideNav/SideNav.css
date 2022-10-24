@@ -26,6 +26,27 @@
     margin-bottom: 20px;
     text-decoration: none;
 }
+.route-product{
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+.product-sub{
+    display: none;
+}
+.nav-product{
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 10px 20px; 
+}
 .nav-link{
     width: 100%;
     color: white;

@@ -32,10 +32,17 @@ function SideNav({ currentPage }) {
             </div>
         </Link>
 
-        <Link to="/admin/products" className='route' style={{ backgroundColor: currentPage === 'products' ? '#3C95EE' : '' }} >
-            <div className='nav-link'>
+        <Link to="/admin/products" className='route-product' style={{ backgroundColor: currentPage === 'products' ? '#3C95EE' : '' }} >
+            <div className='nav-product'>
                 <MdOutlineHome size={20} />
-                <p>Products</p>
+                <div>
+                    <p style={{marginTop:"0px"}}>Products</p>
+                    <span className='product-sub' style={{ 
+                        display: currentPage === 'products' ? 'block' : 'none' }}
+                    >
+                        <p>Add Product</p>
+                    </span>
+                </div>
             </div>
         </Link>
 
