@@ -12,6 +12,7 @@ import { Fade, Zoom } from "react-awesome-reveal";
 //import { addToCart, removeFromCart } from '../../helpers/cart';
 import { addToCart } from '../../helpers/cart';
 import MobileBar from '../../components/mobileBar/MobileBar';
+import axios from 'axios';
 
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
@@ -40,13 +41,13 @@ function Home() {
 
   const fetchData = async () => {
     setLoading(true);
-    const res = await fetch(`${BASE_URL}/api/category`)
-    const data = await res.json()
+    const res = await axios.get(`${BASE_URL}/api/category`)
+    let data = res.data
+    console.log(res);
     //const category = data.Cdata
     const product = data.Pdata
     // setCategories(category)
     setProducts(product);
-    // console.log(category);
     setTotalProducts(product.length);
     setLoading(false);
     // getCurrentProducts(product);

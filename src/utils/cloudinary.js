@@ -6,7 +6,9 @@ function UploadImage() {
   const [data, setData] = useState({});
   const [counter, setCounter] = useState(0);
 
-  async function httpCreateProduct() {}
+  async function httpCreateProduct(e) {
+    e.preventDefault();
+  }
 
   async function addFile(e) {
     const { name } = e.target;
