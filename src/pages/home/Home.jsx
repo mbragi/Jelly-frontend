@@ -36,7 +36,7 @@ function Home() {
 
   // const URL = process.env.REACT_APP_SERVER_URL
 
-
+  const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
   const fetchData = async () => {
     setLoading(true);
