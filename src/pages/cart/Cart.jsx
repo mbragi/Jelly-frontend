@@ -7,7 +7,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import Footer from '../../components/footer/Footer';
 import { Link } from 'react-router-dom';
 import { addToCart, decreaseQuantity } from '../../helpers/cart';
-
+import MobileBar from '../../components/mobileBar/MobileBar';
 
 function Cart() {
     const [cart, setCart] = useState([]);
@@ -30,6 +30,7 @@ function Cart() {
     return (
         <div className='cart'>
             <NavBar />
+            <MobileBar />
             <h1 className='cart-header'>Cart</h1>
 
             <div className='cart-body'>
