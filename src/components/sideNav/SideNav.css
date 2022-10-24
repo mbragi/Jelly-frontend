@@ -35,6 +35,9 @@
     margin-bottom: 20px;
     text-decoration: none;
 }
+.product-sub{
+    display: none;
+}
 .nav-product{
     width: 100%;
     color: white;

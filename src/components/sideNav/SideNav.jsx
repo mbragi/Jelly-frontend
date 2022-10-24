@@ -37,7 +37,11 @@ function SideNav({ currentPage }) {
                 <MdOutlineHome size={20} />
                 <div>
                     <p style={{marginTop:"0px"}}>Products</p>
-                    <p>Add Product</p>
+                    <span className='product-sub' style={{ 
+                        display: currentPage === 'products' ? 'block' : 'none' }}
+                    >
+                        <p>Add Product</p>
+                    </span>
                 </div>
             </div>
         </Link>
