@@ -63,10 +63,6 @@ function ProductDetails() {
     if (currentPage < numberOfPages) setCurrentPage(currentPage => currentPage + 1);
     }
 
-    function navigateTo(_id){
-        navigate(`/details/${_id}`);
-    }
-
     useEffect(() => { 
         fetchData();
         pageResized();
@@ -169,7 +165,7 @@ function ProductDetails() {
                                         <h3>P{prod.name}</h3>
                                         <img src={prod.img} alt=''/>
                                         <p>{prod.price}</p>
-                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px', fontWeight:'bold' }} onClick={() => { navigateTo(prod._id) }} />
+                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px',padding: '15px', fontWeight:'bold' }} onClick={() => { navigate(`/details/${prod._id}`) }} />
                                     </div>
                                 ))
                             }
