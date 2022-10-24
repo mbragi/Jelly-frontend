@@ -1,30 +1,32 @@
 import React from "react";
-import ProductDetails from "./pages/productDetails/ProductDetails";
-import { HashRouter, Routes, Route } from "react-router-dom";
-import { path } from "./routes";
-import Home from "./pages/home/Home";
-import LoginPage from "./pages/login/LoginPage";
-import Cart from "./pages/cart/Cart.jsx";
-import RegisterPage from "./pages/register/RegisterPage";
-import CheckOut from "./pages/checkout/CheckOut";
-import ContactPage from "./pages/contact/ContactPage";
-import Products from "./pages/products/Products.jsx";
-import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
-import SpecHead from "./pages/specification/SpecHead";
-import VideoSection from "./pages/videoSection/VideoSection";
-import Ncm from "./pages/specification/ncm/Ncm";
-import Lfp from "./pages/specification/lfp/Lfp";
-import UploadImage from "./utils/cloudinary";
+// import ProductDetails from "./pages/productDetails/ProductDetails";
+// import { HashRouter, Routes, Route } from "react-router-dom";
+// import { path } from "./routes";
+// import Home from "./pages/home/Home";
+// import LoginPage from "./pages/login/LoginPage";
+// import Cart from "./pages/cart/Cart.jsx";
+// import RegisterPage from "./pages/register/RegisterPage";
+// import CheckOut from "./pages/checkout/CheckOut";
+// import ContactPage from "./pages/contact/ContactPage";
+// import Products from "./pages/products/Products.jsx";
+// import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
+// import SpecHead from "./pages/specification/SpecHead";
+// import VideoSection from "./pages/videoSection/VideoSection";
+// import Ncm from "./pages/specification/ncm/Ncm";
+// import Lfp from "./pages/specification/lfp/Lfp";
+// import UploadImage from "./utils/cloudinary";
 
-import AdminDashboard from './pages/adminDashboard/AdminDashboard';
-import AdminUsers from "./pages/adminUsers/AdminUsers";
-import AdminProducts from "./pages/adminProducts/AdminProducts";
+// import AdminDashboard from './pages/adminDashboard/AdminDashboard';
+// import AdminUsers from "./pages/adminUsers/AdminUsers";
+// import AdminProducts from "./pages/adminProducts/AdminProducts";
+import AdminAddProduct from "./pages/adminAddProducts/AdminAddProduct";
 
 function App() {
   return (
     <>
       <section style={{ width: "100%" }}>
-        <HashRouter>
+        <AdminAddProduct/>
+        {/* <HashRouter>
           <Routes>
             <Route exact path={path.homepage} element={<Home />} />
             <Route exact path={path.loginPage} element={<LoginPage />} />
@@ -50,7 +52,7 @@ function App() {
 
             <Route exact path="*" element={<h1>404</h1>} />
           </Routes>
-        </HashRouter>
+        </HashRouter> */}
       </section>
     </>
   );
