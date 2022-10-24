@@ -17,8 +17,12 @@ import Lfp from "./pages/specification/lfp/Lfp";
 import UploadImage from "./utils/cloudinary";
 
 import AdminDashboard from './pages/adminDashboard/AdminDashboard';
+
+import AdminCategory from "./pages/adminCategory/AdminCategory";
+
 import AdminUsers from "./pages/adminUsers/AdminUsers";
 import AdminProducts from "./pages/adminProducts/AdminProducts";
+
 
 function App() {
   return (
@@ -40,8 +44,12 @@ function App() {
 
             <Route exact path="/admin" element={<AdminDashboard />} />
             <Route exact path="/admin/dashboard" element={<AdminDashboard />} />
+
+            <Route exact path="/admin/categories" element={<AdminCategory />} />
+
             <Route exact path="/admin/users" element={<AdminUsers />} />
             <Route exact path="/admin/products" element={<AdminProducts />} />
+
             <Route exact path="/product" element={<SpecHead />} />
             <Route exact path="/video" element={<VideoSection />} />
             <Route exact path="/product/ncm" element={<Ncm />} />
