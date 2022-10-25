@@ -5,6 +5,7 @@ import AdminFrame from '../../components/adminFrame/AdminFrame';
 import Button from '../../components/button/Button'
 import logo from '../../assets/images/logo.png'
 import name from '../../assets/name.png'
+import pen from '../../assets/images/pen.png'
 
 function AdminAddProduct() {
     return (
@@ -25,14 +26,31 @@ function AdminAddProduct() {
 
                     <div className='admin-add-product-images'>
                         <div className='upload-main-image'>
-                            <img src={logo} alt="" />
+                            <img src={pen} alt={'addproduct'} style={{
+                                width: '50px',
+                                height: '40px',
+                                float:'right',
+                                borderRadius:'5px',
+                                backgroundColor: '#FFFFFF',
+                                boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040'
+                            }}  />
+                            <img src={logo} alt={'addproduct'} className='umi'/>
                         </div>
 
                         <div className='upload-sub-image'>
                             {addproducts.map((addproduct, index) => (
                                 <React.Fragment key={index}>
                                     <div className='add-sub-product-image'>
-                                        <img src={name} alt={addproduct.img} />
+                                        <img src={pen} alt={addproduct.img}  style={{
+                                        width: '40.0px',
+                                        height: '30.0px',
+                                        float:'right',
+                                        borderRadius:'5px',
+                                        backgroundColor: '#FFFFFF',
+                                        boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040'
+                                        }} />
+                                        <img src={name} alt={addproduct.img} className='usi'/>
+
                                     </div>
 
                                 </React.Fragment>

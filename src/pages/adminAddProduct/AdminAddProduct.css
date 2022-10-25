@@ -28,17 +28,17 @@
     border: 0.2px solid #000000;
 }
 
-.upload-main-image img{
+.umi{
     width: 100%;
     height: 300px;
     border-radius: 15px;
-    background-color: rgb(235, 235, 235);    
+    /* background: #971a1a;     */
 }
 
 .upload-sub-image{
     display: flex;
     flex-wrap: wrap;
-    gap:30px;
+    gap:20px;
 }
 
 .add-sub-product-image{
@@ -47,11 +47,11 @@
     border: 0.2px solid #000000;
 }
 
-.upload-sub-image img{
+.usi{
     width: 100%;
-    height: 100px;
+    height: 70px;
     border-radius: 10px;
-    background-color: rgb(213, 223, 213);
+    /* background: #971a1a;   */
 }
 
 .admin-add-product-details{
