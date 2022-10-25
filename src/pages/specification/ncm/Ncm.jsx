@@ -48,7 +48,7 @@ function Ncm() {
                         return (
                             <ProductSpec key={idx} specification={item} data={detail} />
                         )
-                    })
+                    }).reverse()
                 }
             </div>
         </div>
@@ -59,7 +59,9 @@ export const ProductSpec = ({ data, specification }) => {
     return (
         <>
             <div className="m-content">
-                <img src={data.photo_url} alt="product" />
+                <div>
+                    <img src={data.photo_url} alt="product" />
+                </div>
                 <div className="flex-content">
                     <p>Type:{data.type}</p>
                     <p>Model:{data.model}</p>

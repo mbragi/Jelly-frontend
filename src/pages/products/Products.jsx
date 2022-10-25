@@ -12,7 +12,7 @@ import axios from 'axios';
 
 
 function Products() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([])
   const [categories, setCategories] = useState([])
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -129,7 +129,7 @@ function Products() {
           <div className='products'>
 
             {loading ? <h1>Loading...</h1> :
-              products.map((product, index) => {
+              currentProducts.map((product, index) => {
 
                 console.log(currentProducts)
                 return (
