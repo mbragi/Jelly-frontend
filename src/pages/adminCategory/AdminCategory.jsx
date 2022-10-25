@@ -23,24 +23,36 @@ function AdminCategory() {
         const { name } = e.target;
         console.log(e.target.files);
         const url = await uploadFile(e.target.files[0], setCounter);
-        let newData;
+        let newData = { ...create }
         newData[name] = url;
         setCreate(newData)
-        console.log(newData)
         setCounter(0)
     }
     function inputChange(e) {
         const { name, value } = e.target
-        const newObj = { ...create }
+        const newObj = {}
         newObj[name] = value
         setCreate(newObj)
-        console.log(create)
     }
     async function httpGetCategories() {
         const request = await axios.get(`${BASE_URL}/api/cat`)
         const response = request.data.data
-        console.log(response)
         setData(response)
+    }
+    async function httpCreateCategory(e) {
+        e.preventDefault()
+        console.log(create)
+        try {
+            const request = await axios.post(`${BASE_URL}/api/`, create)
+            const response = request.data
+            console.log(response)
+            if (response) {
+                setBool(false)
+                httpCreateCategory(e)
+            }
+        } catch (error) {
+            console.log(error.message)
+        }
     }
     useEffect(() => {
         httpGetCategories()
@@ -56,7 +68,7 @@ function AdminCategory() {
                                 <div style={{ width: "50%", display: "flex", flexDirection: 'column', justifyContent: "center", alignItems: 'flex-end', paddingRight: '2rem' }}>
                                     {counter > 0 && <p>Loading...{Math.floor(counter)}%</p>}
                                     <div>
-                                        <img src={battery} alt="upload " style={{ borderRadius: '10px', objectFit: 'cover', height: "8rem", width: '8rem', border: '0.5px solid black' }} />
+                                        <img src={create.img_url || battery} alt="upload File " style={{ borderRadius: '10px', objectFit: 'cover', height: "8rem", width: '8rem', border: '0.5px solid black' }} />
                                     </div>
                                     <button style={{ cursor: 'pointer', background: " rgb(53, 112, 236)", height: '2rem', width: '5rem', marginRight: "1.5rem", border: 'none' }}>
                                         <label style={{ cursor: 'pointer' }}>
@@ -83,7 +95,7 @@ function AdminCategory() {
                                 </div>
                             </div>
                             <div style={{ width: '100%', marginTop: "0.5rem", padding: '5px', display: 'flex', justifyContent: 'center' }}>
-                                <Button content="Create Category" style={{ background: `` }} />
+                                <Button content="Create Category" onClick={httpCreateCategory} />
                             </div>
                         </div>
                     </div>
