@@ -1,23 +1,19 @@
 .admin-add-product{
-    padding: 2px 4%;
-    background: #E5E5E5
+    background: #E5E5E5;
 }
 
 .admin-add-product-header{
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
     justify-content: space-between;
-}
-
-.admin-add-product-header h1{
-    font-size: 2.5rem; 
 }
 
 .admin-add-product-container{
     display: flex;
     background-color: #ffffff;
-    border-radius: 20px;
-    padding: 30px 30px;
+    border-radius: 15px;
+    padding: 15px 2%;
 }
 
 .admin-add-product-images{
@@ -42,7 +38,7 @@
 .upload-sub-image{
     display: flex;
     flex-wrap: wrap;
-    gap:23px;
+    gap:30px;
 }
 
 .add-sub-product-image{
@@ -59,7 +55,7 @@
 }
 
 .admin-add-product-details{
-    width: 70%;
+    width: 60%;
     padding: 0px 3%;
 }
 
@@ -68,46 +64,42 @@
     justify-content: space-between;
 }
 
-.pn-sc-inpt{
-    width: 24.5vw;
-    height: 45px;
-    border-radius: 10px;
-    font-size: 1.3rem;
-}
-
-.pn-sc-selct, .pr-qu-selct{
-    width: 25vw;
+.pn-sc-inpt, .pn-sc-selct, .pr-qu-selct{
+    width: 20vw;
     height: 50px;
-    font-size: 1.3rem;
     border-radius: 10px;
+    font-size: 1.3rem;
 }
 
 .add-colours{
     margin-left: 50px;
 }
 
-.available-colors{
+.avai.pn-sc-inpt, .pn-sc-selct, .pr-qu-selct{
+    width: 20vw;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+}lable-colors{
     display: flex;
     gap: 10px;
 }
 
 .full-details textarea{
-    width: 100%;
+    width: 100%; 
     height: 142px;
+    font-size: 1.5rem;
     border-radius: 10px;
     border: 0.2px solid #000000;
-    font-size: 1.5rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.attached-video textarea{
-    width: 100%;
+.att-video{
     height: 224px;
+    font-size: 1.5rem;
     margin-bottom: 20px;
     border-radius: 10px;
     border: 0.2px solid #000000;
-    font-size: 1.5rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
@@ -117,10 +109,7 @@
     .admin-add-product-container{
         display: grid;
         margin-top: 20px;
-    }
-
-    .admin-add-product-header h1{
-        font-size: 1.0rem;  
+        padding: 3%;
     }
 
     .admin-add-product-images{
@@ -141,23 +130,11 @@
         display: grid;
     }
     
-    .pn-sc-inpt{
-        width: 73vw;
+    .pn-sc-inpt, .pn-sc-selct, .pr-qu-selct{
+        width: 85vw;
+        height: 50px;
+        border-radius: 10px;
         font-size: 1.3rem;
-    }
-    
-    .pn-sc-selct{  
-        width: 75vw;
-        font-size: 1.0rem;
-    }
-    
-    .pr-qu-selct{
-        width: 75vw;
-        font-size: 1.0rem;
-    }
-
-    .attached-video textarea, .full-details textarea{
-        width: 96%;    
     }
     
 }

@@ -40,7 +40,9 @@ function SideNav({ currentPage }) {
                     <span className='product-sub' style={{ 
                         display: currentPage === 'products' ? 'block' : 'none' }}
                     >
-                        <p>Add Product</p>
+                        <Link to='/admin/addproduct' className='route-addproduct' style={{ backgroundColor: currentPage === 'products' ? '#3C95EE' : '' }} >
+                            <p>Add Product</p>
+                        </Link>
                     </span>
                 </div>
             </div>
