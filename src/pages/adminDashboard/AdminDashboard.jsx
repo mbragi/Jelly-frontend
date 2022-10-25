@@ -131,11 +131,11 @@ function AdminDashboard() {
               </div>
 
               <div className='ordered-items'>
-                <span className='order-item'>Name</span>
-                <span className='order-item'>Units</span>
-                <span className='order-item'>Price</span>
-                <span className='order-item'>Order Date</span>
-                <span className='order-item'>Status</span>
+                <h3 className='order-item'>Name</h3>
+                <h3 className='order-item'>Units</h3>
+                <h3 className='order-item'>Price</h3>
+                <h3 className='order-item'>Order Date</h3>
+                <h3 className='order-item'>Status</h3>
 
                 <span className='order-item'>Lithium-ion Battery</span>
                 <span className='order-item'>5</span>

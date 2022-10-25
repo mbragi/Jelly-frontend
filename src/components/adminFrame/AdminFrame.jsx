@@ -9,6 +9,11 @@ function AdminFrame({ currentPage, children }) {
   function calcShowSideBar(){
     setShowSideBar(window.innerWidth > 1024 ? true : false);
   }
+  function closeSideBar(){
+    if (window.innerWidth > 1024) return;
+    if (!showSideBar) return;
+    setShowSideBar(false);
+  }
   useEffect(() => {
     calcShowSideBar();
   }, []);
@@ -16,7 +21,7 @@ function AdminFrame({ currentPage, children }) {
 
   return (
     <div className='admin-frame'>
-        { showSideBar && <SideNav currentPage={currentPage} /> }
+        { showSideBar && <SideNav currentPage={currentPage} tabIndex='-1' onBlur={ () => { closeSideBar()  } } /> }
         { window.innerWidth <= 1024 && <img src={menu} alt='menu' className='admin-menu' onClick={ () => { setShowSideBar(!showSideBar) } } /> }
         <div className='admin-body'>
             <TopNav />
