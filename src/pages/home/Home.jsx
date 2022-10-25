@@ -3,16 +3,21 @@ import NavBar from "../../components/navBar/NavBar";
 // import intro from "../../assets/intro.mp4";
 import bike from "../../assets/512.png";
 import turnSignal from "../../assets/turn-signal.jpg";
+import target from "../../assets/images/target.png";
+import eye from "../../assets/images/eye.png";
 import Button from "../../components/button/Button";
 import Footer from '../../components/footer/Footer';
 import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
-//import { addToCart, removeFromCart } from '../../helpers/cart';
+// import { addToCart, removeFromCart } from '../../helpers/cart';
 import { addToCart } from '../../helpers/cart';
 import MobileBar from '../../components/mobileBar/MobileBar';
+import founders from './founders.json'
 import axios from 'axios';
+    // console.log(loading)
+ 
 
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
@@ -55,6 +60,8 @@ function Home() {
     //remove this after using i have to do this to avoid build errors
     // console.log(loading)
   };
+
+
 
   function getQuantity(_id) {
     let cart = localStorage.getItem('cart');
@@ -194,6 +201,83 @@ function Home() {
           <BiChevronRightCircle size={50} className='icon' onClick={() => { accessoriesNext() }} />
 
         </div>
+      </div>
+
+      <div className='about-us'>
+        <div className='about-us-header'>
+          <h1>Our Mission & Vision</h1>
+        </div>
+
+        <div className='mission-vision'>
+          <div className='world-of-jelly'>
+            <h1>JELLY</h1>
+            <p>World of Jelly</p>
+          </div>
+
+          <div className='our-mission'>
+            <img src={target} alt="" />
+            <p>Our Mission</p>
+          </div>
+
+          <div className='our-vision'>
+            <img src={eye} alt="" />
+            <p>Our Vision</p>
+          </div>
+
+        </div>
+
+        <div className='mission'>
+          <h1> Our Mission</h1>
+          <p>Refer friends and get upto Rs. 5000/-OFF on final price Jelly App connected
+          <br />| Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes</p>
+        </div>
+
+        <div className='our-awesome-team'>
+          <div className='our-awesome-team-header'>
+            <h1>Our Awesome Team</h1>
+          </div>
+
+          <p> PRESENTING THE MINDS BEHIND JELLY. A UNIFIED TEAM OF EXPERTS WHO ARE PASSIONATELY DRIVEN BY THE CONCEPT OF SMART SOLUTIONS, BRINGING NEW ENERGY PRODUCT DESIGNED FOR THE INDIAN TERRAIN. THEY ENSURE THAT COMFORT AND STYLE GO HAND-IN-HAND.</p>
+        </div>
+
+        <div className='founder'>
+          <div className='founder-details-box'>
+            <div className='founder-image'>
+              <img src={turnSignal} alt="" />
+            </div>
+            <h1>XXXXXXXXX Name</h1>
+            <p>FOUNDER</p>
+          </div>
+
+          <div className='founder-voice'>
+            <h1>Founder Voice</h1>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea minus itaque nostrum obcaecati vero in numquam quaerat tempore, rerum voluptates doloribus quasi molestias! Consequuntur illo quidem eos velit, quisquam ea.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi eos, earum temporibus dignissimos tempora qui suscipit praesentium hic debitis iure ducimus. Exercitationem, dicta non quos nihil laborum nulla quo nemo.
+            </p>
+          </div>
+
+        </div>
+
+        <div className='team-details-container'>
+          {
+            founders.map((founder, index) => (
+              <React.Fragment key={index}>
+                <div className='team-details-box'>
+                  <div className='team-details-image'>
+                    <img src={turnSignal} alt={founder.name} />
+                  </div>
+                  <h2 className='team-name'>{founder.name}</h2>
+                  <p className="team-position">{founder.position}</p>
+            
+                  <Button content="View Details" style={{ height: '50px', borderRadius:'0px' }} />
+                </div>
+            
+              </React.Fragment>
+            ))
+          }
+        </div>
+
       </div>
 
       <Footer />
