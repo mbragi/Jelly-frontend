@@ -71,6 +71,7 @@ function ProductDetails() {
     useEffect(() => {
         fetchData();
         pageResized();
+        fetchRelatedProducts();
     }, [])
 
     if (loading) return <h1 style={{ textAlign: 'center' }}>Loading...</h1>;
@@ -442,6 +443,7 @@ function ProductDetails() {
 
             </div>
         </div>
+        // </div>
 
     )
 }

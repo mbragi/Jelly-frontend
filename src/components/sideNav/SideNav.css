@@ -38,6 +38,19 @@
 .product-sub{
     display: none;
 }
+
+.route-addproduct p{
+    color: white;
+}
+
+.route-addproduct p:hover{
+    color: red;
+}
+
+.nav-product a{
+    text-decoration: none;
+}
+
 .nav-product{
     width: 100%;
     color: white;
