@@ -26,31 +26,44 @@
     border-radius: 15px;
     margin-bottom: 20px;
     border: 0.2px solid #000000;
+    height: 400px;
 }
 
 .umi{
     width: 100%;
-    height: 300px;
     border-radius: 15px;
+    font-size: 3rem;
+    text-align: center;
+    color: lightgray;
+    padding: 80px 0;
+    flex-wrap: wrap;
     /* background: #971a1a;     */
 }
 
 .upload-sub-image{
     display: flex;
     flex-wrap: wrap;
-    gap:20px;
+    justify-content: space-between;
 }
-
+input[type="file"]{
+    display: none;
+}
 .add-sub-product-image{
     padding: 7px 2%;
     border-radius: 15px;
     border: 0.2px solid #000000;
+    margin-top: 10px;
+    width: 32%;
 }
 
 .usi{
     width: 100%;
     height: 70px;
     border-radius: 10px;
+    text-align: center;
+    /* border: 1px solid black; */
+    color: lightgray;
+    padding: 30px 0;
     /* background: #971a1a;   */
 }
 

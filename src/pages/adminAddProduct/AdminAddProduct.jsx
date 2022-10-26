@@ -3,8 +3,6 @@ import './AdminAddProduct.css'
 import  addproducts from './addproducts.json'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 import Button from '../../components/button/Button'
-import logo from '../../assets/images/logo.png'
-import name from '../../assets/name.png'
 import pen from '../../assets/images/pen.png'
 
 function AdminAddProduct() {
@@ -26,31 +24,40 @@ function AdminAddProduct() {
 
                     <div className='admin-add-product-images'>
                         <div className='upload-main-image'>
-                            <img src={pen} alt={'addproduct'} style={{
-                                width: '50px',
-                                height: '40px',
-                                float:'right',
-                                borderRadius:'5px',
-                                backgroundColor: '#FFFFFF',
-                                boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040'
-                            }}  />
-                            <img src={logo} alt={'addproduct'} className='umi'/>
+                            <input type="file" id='file' />
+                            <label for= "file">
+                                <img src={pen} alt={'addproduct'} style={{
+                                    width: '50px',
+                                    height: '40px',
+                                    float:'right',
+                                    borderRadius:'5px',
+                                    backgroundColor: '#FFFFFF',
+                                    boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
+                                    objectFit: 'contain',
+                                    padding: '5px'
+                                }}  />
+                            </label>
+                            <h1 className='umi'>Upload Main Image</h1>
                         </div>
 
                         <div className='upload-sub-image'>
                             {addproducts.map((addproduct, index) => (
                                 <React.Fragment key={index}>
                                     <div className='add-sub-product-image'>
+                                    <input type="file" id='file' accept='image'/>
+                                    <label for= "file">
                                         <img src={pen} alt={addproduct.img}  style={{
                                         width: '40.0px',
                                         height: '30.0px',
                                         float:'right',
                                         borderRadius:'5px',
                                         backgroundColor: '#FFFFFF',
-                                        boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040'
+                                        boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
+                                        objectFit: 'contain',
+                                        padding: '5px'
                                         }} />
-                                        <img src={name} alt={addproduct.img} className='usi'/>
-
+                                    </label>
+                                        <h5 className='usi'>Upload Sub Image</h5>
                                     </div>
 
                                 </React.Fragment>
