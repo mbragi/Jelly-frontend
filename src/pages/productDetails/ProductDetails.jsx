@@ -442,6 +442,7 @@ function ProductDetails() {
 
             </div>
         </div>
+        </div>
 
     )
 }
