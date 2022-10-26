@@ -47,8 +47,8 @@ function AdminCategory() {
             const response = request.data
             console.log(response)
             if (response) {
+                httpGetCategories()
                 setBool(false)
-                httpCreateCategory(e)
             }
         } catch (error) {
             console.log(error.message)
@@ -71,7 +71,7 @@ function AdminCategory() {
                                         <img src={create.img_url || battery} alt="upload File " style={{ borderRadius: '10px', objectFit: 'cover', height: "8rem", width: '8rem', border: '0.5px solid black' }} />
                                     </div>
                                     <button style={{ cursor: 'pointer', background: " rgb(53, 112, 236)", height: '2rem', width: '5rem', marginRight: "1.5rem", border: 'none' }}>
-                                        <label style={{ cursor: 'pointer' }}>
+                                        <label htmlFor='inputs' style={{ cursor: 'pointer' }}>
                                             <input name='img_url' type="file" onChange={onInputChange} style={{ opacity: 0, position: 'absolute', width: '1rem' }} />
                                             <span style={{ display: 'flex', alignItems: "center", width: '100%' }}>
                                                 <CloudArrowUp size={18} />
@@ -81,7 +81,7 @@ function AdminCategory() {
                                     </button>
                                 </div>
                                 <div style={{ width: "50%", display: "flex", flexDirection: "column", marginLeft: '1rem', marginTop: "4rem" }}>
-                                    <label style={{ fontSize: "1rem", fontWeight: '800', lineHeight: '3rem' }}>Category Name
+                                    <label htmlFor='inputs' style={{ fontSize: "1rem", fontWeight: '800', lineHeight: '3rem' }}>Category Name
                                     </label>
                                     <input
                                         style={{ width: '100%', borderRadius: '5px', border: "0.3px solid black", padding: '0.7rem' }}
@@ -112,13 +112,7 @@ function AdminCategory() {
                         <div className='entries'>
                             <span>show</span>
                             <select>
-                                {
-                                    data.map((item) => {
-                                        return (
-                                            <option >{item.name}</option>
-                                        )
-                                    })
-                                }
+                                <option >4</option>
                             </select>
                             <span>entries</span>
                         </div>
@@ -129,13 +123,27 @@ function AdminCategory() {
                         </div>
                     </div>
                     <hr style={{ width: '100%' }} />
-                    <div className='categories-body'>
+
+                    <div className='categories-body' style={{ height: "3rem", lineHeight: '0.5rem' }}>
                         <h3>Name</h3>
                         <h3>Product</h3>
                         <h3>Total Sales</h3>
                         <h3>Status</h3>
                         <h3>Action</h3>
                     </div>
+                    {
+                        data.map((item, idx) => {
+                            return (
+                                <div className='categories-body' key={idx} style={{ height: "3.5rem" }}>
+                                    <p>{item.name}</p>
+                                    <p>Product</p>
+                                    <p>Total Sales</p>
+                                    <p>Status</p>
+                                    <p>Action</p>
+                                </div >
+                            )
+                        })
+                    }
                 </div>
 
             </div>
