@@ -266,7 +266,7 @@ function Home() {
 
         <div className='mission-vision'>
           <div className='world-of-jelly' onClick = {about_change} style = {aboutStyles[0]} id = {0}>
-            <h1 style = {{fontSize: '1.7rem'}}>evTop</h1>
+            <h1 style = {{fontSize: '1.6rem', color: 'blue', textAlign: 'center'}}><i>evTop</i></h1>
             <p>World of evTop</p>
           </div>
 
