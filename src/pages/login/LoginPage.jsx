@@ -8,7 +8,7 @@ function LoginPage() {
     const [data, setData] = useState({});
     const [message, setMessage] = useState('')
     const [type, setType] = useState('')
-
+    const [loading, setLoading] = useState(false)
     function getDetails(event) {
         const { name, value } = event.target
         const newData = { ...data };
@@ -19,6 +19,7 @@ function LoginPage() {
 
     async function httpLoginUser(e) {
         e.preventDefault()
+        setLoading(!loading)
         let request = JSON.stringify(data)
         const res = await fetch(`${BASE_URL}/login`, {
             method: 'post',
@@ -32,7 +33,8 @@ function LoginPage() {
         let message = resData.message
 
         setMessage(message)
-        if(type === 'error'){
+        setLoading(!loading)
+        if (type === 'error') {
             console.log(message)
         }
         setType(resData.type)
@@ -40,47 +42,50 @@ function LoginPage() {
     }
 
     return (
-        <div className='login-container'>
+        <div className='overlay'>
 
-            <div className='cancel-button'>
-                <Button content={'X'} style={{ width: '50px', borderRadius: '30px', height: '40px' }} />
-            </div>
+            <div className='login-container'>
 
-            <div className='login-page'>
-
-                <div className='login-page-header'>
-                    <h2>Login via E-mail</h2>
+                <div className='cancel-button'>
+                    <Button content={'X'} style={{ width: '50px', borderRadius: '30px', height: '40px' }} />
                 </div>
-                <p>{message}</p>
-                <form onSubmit={httpLoginUser} className='login-page-form' >
-                    <div className='email-input'>
-                        <p>E-mail*</p>
-                        <input className='gen-input' onChange={getDetails} name='email' />
+
+                <div className='login-page'>
+
+                    <div className='login-page-header'>
+                        <h2>Login via E-mail</h2>
                     </div>
+                    <p>{message}</p>
+                    <form onSubmit={httpLoginUser} className='login-page-form' >
+                        <div className='email-input'>
+                            <p>E-mail*</p>
+                            <input className='gen-input' onChange={getDetails} name='email' />
+                        </div>
 
-                    <div className='password-input'>
-                        <p>Password*</p>
-                        <input className='gen-input' onChange={getDetails} name='password' />
-                    </div>
+                        <div className='password-input'>
+                            <p>Password*</p>
+                            <input className='gen-input' onChange={getDetails} name='password' />
+                        </div>
 
 
-                    <div className='login-button'>
-                        <Button type={'submit'} content='Log In' style={{ width: '100%', height: '50px', borderRadius: '10px' }} />
-                    </div>
+                        <div className='login-button'>
+                            <Button type={'submit'} content={loading ? "Processing..." : 'Log In'} style={{ width: '100%', height: '50px', borderRadius: '10px' }} />
+                        </div>
 
 
-                    <div className='forgot-password'>
-                        <h3>Forgot password?</h3>
-                    </div>
+                        <div className='forgot-password'>
+                            <h3>Forgot password?</h3>
+                        </div>
 
-                    <div className='create-new-account'>
-                        <h3>Don't have an account? <span>Create New Account</span></h3>
-                    </div>
+                        <div className='create-new-account'>
+                            <h3>Don't have an account? <span>Create New Account</span></h3>
+                        </div>
 
-                </form>
+                    </form>
+
+                </div>
 
             </div>
-
         </div>
     )
 }

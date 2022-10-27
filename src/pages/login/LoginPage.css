@@ -5,12 +5,14 @@
     max-width: 100%;
     width: 400px;
     margin: 0 auto;
+    margin-top: 3rem;
     box-sizing: border-box;
     box-shadow: -0.5px 0.5px 8px gray,  0.5px -0.5px 8px gray;
+    background-color: #ffff;
 }
 
 .login-page{
-    max-width: 100%;
+    max-width: 80%;
     width: 350px;
     margin: auto;
 }
