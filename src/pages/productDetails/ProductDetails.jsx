@@ -39,8 +39,8 @@ function ProductDetails() {
 
         const res = await axios.get(`${BASE_URL}/api/details/${param.id}`)
         const data = await res.data
-        //console.log(data)
-        setProduct(data.data)
+        // console.log(data.data)
+        setProduct(data.data[0])
 
         setLoading(false);
     };
@@ -74,6 +74,8 @@ function ProductDetails() {
         fetchRelatedProducts();
     }, [])
 
+    //console.log(product)
+    
     if (loading) return <h1 style={{ textAlign: 'center' }}>Loading...</h1>;
     if (!loading && !product) return <h1 style={{ textAlign: 'center' }}>404 error can't find product</h1>;
     return (
@@ -81,14 +83,12 @@ function ProductDetails() {
             <div className='navigation-bar'>
                 <NavBar />
             </div>
-
             <div className='product-details-container'>
                 <div className='product-name'>
                     <div className='product-name-images'>
                         <div className='product-image-big'>
                             <img src={product.img} alt="" />
                         </div>
-
                         <div className='product-image-small'>
                             <BiChevronLeft size={50} className='icon' />
                             <img src={product.img} alt="product" />
@@ -97,7 +97,6 @@ function ProductDetails() {
                             <BiChevronRight size={50} className='icon' />
                         </div>
                     </div>
-
                     <div className='product-name-content'>
                         <h2>{product.name}</h2>
                         {/* <p> <b> Price Range:</b>   ${product.price} -$500</p> */}
@@ -106,7 +105,6 @@ function ProductDetails() {
                                 <p><b> Price Range: </b>${product.price_range[0].one} -${product.price_range[0].two}</p> :
                                 <p><b>Price: </b> ${product.price}</p>
                         }
-
                         <p>Available colors:</p>
                         <div className='available-colors'>
                             <div className='purple'>
@@ -127,13 +125,7 @@ function ProductDetails() {
                             <Button type={'submit'} content='ADD TO CART' style={{ fontWeight: 'bold' }} onClick={() => { addToCart(product) }} />
                         </div>
                     </div>
-
                 </div>
-
-
-
-
-
                 <div className='product-details'>
                     <div className='product-details-header'>
                         <h2>Product Details</h2>
@@ -189,120 +181,94 @@ function ProductDetails() {
                 <div className='navigation-bar'>
                     <NavBar />
                 </div>
-
-
                 <div className='product-details-container'>
-                    {
-                        product.map((item) => {
-                            return (
-                                <>
-                                    <div className='product-name'>
-                                        <div className='product-name-images'>
-                                            <div className='product-image-big'>
-                                                <img src={item.img} alt="" />
-                                            </div>
+                    
+                    <div className='product-name'>
+                        <div className='product-name-images'>
+                            <div className='product-image-big'>
+                                <img src={product.img} alt="" />
+                            </div>
+                            <div className='product-image-small'>
+                                <BiChevronLeft size={50} className='icon' />
+                                <img src={product.img} alt="product" />
+                                <img src={product.img} alt="product" />
+                                <img src={product.img} alt="product" />
+                                <BiChevronRight size={50} className='icon' />
+                            </div>
+                        </div>
 
-                                            <div className='product-image-small'>
-                                                <BiChevronLeft size={50} className='icon' />
-                                                <img src={item.img} alt="product" />
-                                                <img src={item.img} alt="product" />
-                                                <img src={item.img} alt="product" />
-                                                <BiChevronRight size={50} className='icon' />
-                                            </div>
-                                        </div>
-
-                                        <div className='product-name-content'>
-                                            <h2>{item.name}</h2>
-
-                                            {/* {
-                                            item.price_range.length ?
-                                                <p><b> Price Range: </b>${item.price_range[0].one} -${item.price_range[0].two}</p> :
-                                                <p><b>Price: </b> ${item.price}</p>
-                                        } */}
-                                            <p><b>Price: </b> ${item.price}</p>
-                                            <p>Available colors:</p>
-                                            <div className='available-colors'>
-                                                <div className='purple'>
-                                                    <Button type={'submit'} />
-                                                </div>
-
-                                                <div className='black'>
-                                                    <Button type={'submit'} />
-                                                </div>
-
-                                                <div className='blue'>
-                                                    <Button type={'submit'} />
-                                                </div>
-                                            </div>
-
-                                            <div className='add-to-cart'>
-                                                <img src={cart} alt="" />
-                                                <Button type={'submit'} content='ADD TO CART' style={{ fontWeight: 'bold' }} onClick={() => { addToCart(product) }} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='product-details'>
-                                        <div className='product-details-header'>
-                                            <h2>Product Details</h2>
-                                        </div>
-                                        <div className='product-details-content'>
-                                            <h3>Key Features:</h3>
-                                            <li>100% and high quality, durable!</li>
-
-                                            <h3>Specification:</h3>
-                                            <li>100% and high quality, durable!</li>
-
-                                        </div>
-                                    </div>
-
-                                    <div className='other-products'>
-                                        <div className='other-products-header'>
-                                            <h2>Other products you might like</h2>
-                                        </div>
-
-                                        <div className='other-products-content'>
-
-                                            <BiChevronLeftCircle size={70} className='icon' />
-                                            <div className='other-products-boxs'>
-                                                <div className='other-products box'>
-                                                    <h3>Product Name</h3>
-                                                    <img src={battery} alt='' />
-                                                    <p>$200</p>
-                                                    <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} />
-                                                </div>
-
-                                                <div className='other-products box'>
-                                                    <h3>Product Name</h3>
-                                                    <img src={battery} alt='' />
-                                                    <p>$200</p>
-                                                    <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} />
-                                                </div>
-
-                                                <div className='other-products box'>
-                                                    <h3>Product Name</h3>
-                                                    <img src={battery} alt='' />
-                                                    <p>$200</p>
-                                                    <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} />
-                                                </div>
-
-                                                <div className='other-products box'>
-                                                    <h3>Product Name</h3>
-                                                    <img src={battery} alt='' />
-                                                    <p>$200</p>
-                                                    <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} />
-                                                </div>
-                                            </div>
-
-
-                                            <BiChevronRightCircle size={70} className='icon' position="fixed" />
-
-
-                                        </div>
-                                    </div>
-                                </>
-                            )
-                        })
-                    }
+                        <div className='product-name-content'>
+                            <h2>{product.name}</h2>
+                                {/* {
+                                product.price_range.length ?
+                                    <p><b> Price Range: </b>${product.price_range[0].one} -${product.price_range[0].two}</p> :
+                                    <p><b>Price: </b> ${product.price}</p>
+                            } */}
+                            <p><b>Price: </b> ${product.price}</p>
+                            <p>Available colors:</p>
+                            <div className='available-colors'>
+                                <div className='purple'>
+                                    <Button type={'submit'} />
+                                </div>
+                                <div className='black'>
+                                    <Button type={'submit'} />
+                                </div>
+                                <div className='blue'>
+                                    <Button type={'submit'} />
+                                </div>
+                            </div>
+                            <div className='add-to-cart'>
+                                <img src={cart} alt="" />
+                                <Button type={'submit'} content='ADD TO CART' style={{ fontWeight: 'bold' }} onClick={() => { addToCart(product) }} />
+                            </div>
+                        </div>
+                    </div>
+                    <div className='product-details'>
+                        <div className='product-details-header'>
+                            <h2>Product Details</h2>
+                        </div>
+                        <div className='product-details-content'>
+                            <h3>Key Features:</h3>
+                            <li>100% and high quality, durable!</li>
+                            <h3>Specification:</h3>
+                            <li>100% and high quality, durable!</li>
+                        </div>
+                    </div>
+                    <div className='other-products'>
+                        <div className='other-products-header'>
+                            <h2>Other products you might like</h2>
+                        </div>
+                        <div className='other-products-content'>
+                            <BiChevronLeftCircle size={70} className='icon' />
+                            <div className='other-products-boxs'>
+                                <div className='other-products box'>
+                                    <h3>Product Name</h3>
+                                    <img src={battery} alt='' />
+                                    <p>$200</p>
+                                    <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} />
+                                </div>
+                                <div className='other-products box'>
+                                    <h3>Product Name</h3>
+                                    <img src={battery} alt='' />
+                                    <p>$200</p>
+                                    <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} />
+                                </div>
+                                <div className='other-products box'>
+                                    <h3>Product Name</h3>
+                                    <img src={battery} alt='' />
+                                    <p>$200</p>
+                                    <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} />
+                                </div>
+                                <div className='other-products box'>
+                                    <h3>Product Name</h3>
+                                    <img src={battery} alt='' />
+                                    <p>$200</p>
+                                    <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} />
+                                </div>
+                            </div>
+                            <BiChevronRightCircle size={70} className='icon' position="fixed" />
+                        </div>
+                    </div>
 
                     <div className='verified-customer-fb'>
                         <div className='verified-customer-fb-header'>
@@ -322,12 +288,9 @@ function ProductDetails() {
                                     <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
                                     <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
                                     <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-
-
                                     <p>245 verified ratings</p>
                                 </div>
                             </div>
-
                             <div className='comments-from-v-purchases1'>
                                 <h3>COMMENTS FROM VERIFIED PURCHASES</h3>
                                 <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
@@ -339,14 +302,9 @@ function ProductDetails() {
                                 <p>Simple</p>
                                 <p>15-09-2022</p>
                             </div>
-
                         </div>
-
-
                         <div className='verified-ratings-comments1'>
-
                             <div className='verified-ratings'>
-
                                 <div className='verified-rating-count'>
                                     <div className='verified-rating-slider'>
                                         <p> 5
@@ -356,11 +314,8 @@ function ProductDetails() {
                                             <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
                                             <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
                                         </p>
-
                                         <meter min='0' max='100' value='50' ></meter>
-
                                     </div>
-
                                     <div className='verified-rating-slider'>
                                         <p>4
                                             <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
