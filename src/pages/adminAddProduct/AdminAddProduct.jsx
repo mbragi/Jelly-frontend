@@ -3,13 +3,15 @@ import './AdminAddProduct.css'
 import addproducts from './addproducts.json'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 import Button from '../../components/button/Button'
+import { useNavigate } from 'react-router-dom'
 import pen from '../../assets/images/pen.png'
 
 function AdminAddProduct() {
+    const navigate = useNavigate()
+
     return (
         <AdminFrame currentPage='admin-add-product'>
             <div className='admin-add-product'>
-
                 <header className='admin-add-product-header'>
                     <h1>Add Product</h1>
                     <Button className='admin-add-btn' content={'Product Lists'} style={{
@@ -17,14 +19,16 @@ function AdminAddProduct() {
                         borderRadius: '8px',
                         width: '180px',
                         height: '60px'
-                    }} />
+                    }}
+                        onClick={() => { navigate("/admin/addproduct") }}
+                    />
                 </header>
 
                 <section className='admin-add-product-container'>
 
                     <div className='admin-add-product-images'>
                         <div className='upload-main-image'>
-                            <input type="file" id='file' />
+                            <input type="file" id='file' onChange={(e) => { console.log(e.target.files) }} />
                             <label for="file">
                                 <img src={pen} alt={'addproduct'} style={{
                                     width: '50px',
@@ -44,7 +48,7 @@ function AdminAddProduct() {
                             {addproducts.map((addproduct, index) => (
                                 <React.Fragment key={index}>
                                     <div className='add-sub-product-image'>
-                                        <input type="file" id='file' accept='image' onChange={(e) => { console.log(e.target.files) }} />
+                                        <input type="file" id='file' name={addproduct.name} accept='image' onChange={(e) => { console.log(e.target.files) }} />
                                         <label for="file">
                                             <img src={pen} alt={addproduct.img} style={{
                                                 width: '40.0px',
@@ -91,24 +95,13 @@ function AdminAddProduct() {
 
                                 <div className='pr-qu'>
                                     <div className='price'>
-                                        <h1>PRICE ( )</h1>
-                                        <select name="" id="" className='pr-qu-selct'>
-                                            <option value="0"></option>
-                                            <option value="1">Kesh</option>
-                                            <option value="2">Kesh</option>
-                                            <option value="3">Kesh</option>
-                                        </select>
-
+                                        <h1>PRICE ($)</h1>
+                                        <input type="text" className='pn-sc-inpt' />
                                     </div>
 
                                     <div className='quantity'>
                                         <h1>QUANTITY</h1>
-                                        <select name="" id="" className='pr-qu-selct'>
-                                            <option value="0"></option>
-                                            <option value="1">Kesh</option>
-                                            <option value="2">Kesh</option>
-                                            <option value="3">Kesh</option>
-                                        </select>
+                                        <input type="text" className='pn-sc-inpt' />
                                     </div>
 
                                 </div>
