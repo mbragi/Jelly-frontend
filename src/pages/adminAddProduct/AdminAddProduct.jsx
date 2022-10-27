@@ -5,10 +5,25 @@ import AdminFrame from '../../components/adminFrame/AdminFrame';
 import Button from '../../components/button/Button'
 import { useNavigate } from 'react-router-dom'
 import pen from '../../assets/images/pen.png'
+import { useEffect, useState } from 'react';
+import axios from "axios"
+const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+
 
 function AdminAddProduct() {
     const navigate = useNavigate()
+    const [data, setData] = useState([])
 
+    async function httpGetCategories() {
+        const request = await axios.get(`${BASE_URL}/api/cat`)
+        const response = request.data.data
+        setData(response)
+        console.log(data)
+    }
+
+    useEffect(() => {
+        httpGetCategories()
+    }, [])
     return (
         <AdminFrame currentPage='admin-add-product'>
             <div className='admin-add-product'>
@@ -83,12 +98,18 @@ function AdminAddProduct() {
 
                                     <div className='select-categories'>
                                         <h1>SELECT CATEGORIES</h1>
-                                        <select name="" id="" className='pn-sc-selct'>
-                                            <option value="0"></option>
-                                            <option value="1">Kesh</option>
-                                            <option value="2">Kesh</option>
-                                            <option value="3">Kesh</option>
-                                        </select>
+
+                                        {data.map((item) => {
+                                            console.log(item)
+                                            return (
+                                                <select name="" id="" className='pn-sc-selct'>
+                                                    <option value="0"></option>
+                                                    <option value="1">Kesh</option>
+                                                    <option value="2">Kesh</option>
+                                                    <option value="3">Kesh</option>
+                                                </select>
+                                            )
+                                        })}
                                     </div>
 
                                 </div>
@@ -131,15 +152,34 @@ function AdminAddProduct() {
 
                             <div className='full-details'>
                                 <h1>FULL DETAILS</h1>
-                                <textarea type="text" name="" id="" />
+                                <div style={{ display: "flex", flexDirection: "row", flexWrap: 'wrap', justifyContent: "space-evenly" }}>
 
+                                    <div className='quantity'>
+                                        <h1>key Features</h1>
+                                        <input type="text" className='pn-sc-inpt' />
+                                    </div>
+                                    <div className='quantity'>
+                                        <h1>Model</h1>
+                                        <input type="text" className='pn-sc-inpt' />
+                                    </div>
+                                    <div className='quantity'>
+                                        <h1>Specifications</h1>
+                                        <input type="text" className='pn-sc-inpt' />
+                                    </div>
+                                    {/* <div className='quantity'>
+                                        <button className='pn-sc-input'>
+                                            <input type="file" className='pn-sc-inpt' />
+                                            ATTACH PDF
+                                        </button>
+                                    </div> */}
+                                </div>
                             </div>
 
                             <div className='attached-video'>
                                 <h1>ATTACHED VIDEO</h1>
-                                <div className='att-video'>
+                                <video className='att-video'>
 
-                                </div>
+                                </video>
 
                             </div>
 
