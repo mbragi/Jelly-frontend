@@ -5,7 +5,7 @@ import Button from '../../components/button/Button';
 import { useEffect } from 'react';
 import battery from "../../assets/battery.png"
 import { CloudArrowUp } from 'phosphor-react';
-import {  MdCancel } from "react-icons/md";
+import { MdCancel } from "react-icons/md";
 import axios from 'axios';
 import { uploadFile } from '../../utils/cloudinary';
 const BASE_URL = 'https://jelly-online-api.herokuapp.com'
@@ -64,13 +64,13 @@ function AdminCategory() {
                 {
                     bool &&
                     <>
-                        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%'}}>
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                             <div className="admin-categories" style={{ width: '55%' }}>
-                                <MdCancel size = {30} style = {{float: 'right', cursor: 'pointer'}} onClick = {() => setBool(!bool)} />
+                                <MdCancel size={30} style={{ float: 'right', cursor: 'pointer' }} onClick={() => setBool(!bool)} />
                                 <div style={{ width: "100%", display: "flex", flexDirection: 'row-reverse', marginBottom: '1.5rem' }}>
                                     <div style={{ width: "50%", display: "flex", flexDirection: 'column', justifyContent: "center", alignItems: 'flex-end', paddingRight: '2rem' }}>
                                         {counter > 0 && <p>Loading...{Math.floor(counter)}%</p>}
-                                        <div style = {{width: '90%'}}>
+                                        <div style={{ width: '90%' }}>
                                             <img src={create.img_url || battery} alt="upload File " style={{ borderRadius: '10px', objectFit: 'contain', height: "13rem", width: '100%', border: '0.5px solid black' }} />
                                         </div>
                                         <button style={{ cursor: 'pointer', background: " rgb(53, 112, 236)", height: '2rem', width: '6rem', float: "right", border: 'none', marginTop: '5px' }}>
@@ -98,7 +98,7 @@ function AdminCategory() {
                                     </div>
                                 </div>
                                 <div style={{ width: '100%', marginTop: "0.5rem", padding: '5px', display: 'flex', justifyContent: 'center' }}>
-                                    <Button content="Create Category" onClick={httpCreateCategory} style = {{borderRadius: '10px', width: '200px'}} />
+                                    <Button content="Create Category" onClick={httpCreateCategory} style={{ borderRadius: '10px', width: '200px' }} />
                                 </div>
                             </div>
                         </div>
@@ -152,7 +152,7 @@ function AdminCategory() {
 
             </div>
         </AdminFrame>
-)
+    )
 }
 
 export default AdminCategory;

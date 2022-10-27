@@ -60,7 +60,7 @@ export const ProductSpec = ({ data, specification }) => {
         <>
             <div className="m-content">
                 <div>
-                    <img src={data.photo_url} alt="product" />
+                    <img src={specification.img} alt="product" />
                 </div>
                 <div className="flex-content">
                     <p>Type:{data.type}</p>

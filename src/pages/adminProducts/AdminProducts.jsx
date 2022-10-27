@@ -70,8 +70,8 @@ function AdminProducts() {
                                     </li>
                                     <li className='item-product'>{item.name}</li>
                                     <li className='item-product'>{item.price}</li>
-                                    <li className='item-product'>38</li>
-                                    <li className='item-product'>100</li>
+                                    <li className='item-product'>{item.inStock === true ? "Active" : "N/A"}</li>
+                                    <li className='item-product'>{item.available_quantity || "N/A"}</li>
                                     <li className='item-product'>Active</li>
                                     <li className='item-product'>
                                         <img src={Dot} alt="3 dot vector" />
