@@ -27,6 +27,27 @@ function Home() {
   const [totalProducts, setTotalProducts] = useState(0);
   const [productsPerPage, setProductsPerPage] = useState(0);
   const [distance, setDistance] = useState(500);
+  const [changeAbout, setChangeAbout] = useState(1);
+  const [aboutStyles, setAboutStyles] = useState([
+    {
+      content: 0,
+      backgroundColor: '#D9D9D9',
+      boxShadow: 'none',
+      cursor: 'pointer'
+    },
+    {
+      content: 1,
+      backgroundColor: 'white',
+      boxShadow: '0px 4px 22px 0px #00000054',
+      cursor: 'pointer'
+    },
+    {
+      content: 2,
+      backgroundColor: '#D9D9D9',
+      boxShadow: 'none',
+      cursor: 'pointer'
+    }
+  ])
 
   const featuresArray = ["512.png", "bike.jpg"];
 
@@ -62,6 +83,41 @@ function Home() {
   };
 
 
+  const about_array = [
+    {
+      name: "World of evTop",
+      content: "Refer friends and get upto Rs. 5000/-OFF on final price Jelly App connected| Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes"
+    },
+    {
+      name: "Our Mission",
+      content: "Refer friends and get upto Rs. 5000/-OFF on final price Jelly App connected| Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes"
+    },
+    {
+      name: "Our Vision",
+      content: "Refer friends and get upto Rs. 5000/-OFF on final price Jelly App connected| Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes"
+    }
+  ]
+  const transform = (e) =>{
+    const transformArray = aboutStyles.map((item) => (
+      parseInt(e.currentTarget.id) === item.content ? {...item, backgroundColor: "white", boxShadow: "0px 4px 22px 0px #00000054"} :  {...item, backgroundColor: '#D9D9D9', boxShadow: 'none' }
+    ))
+    setAboutStyles(transformArray)
+  }
+  const about_change = (e) => {
+    if(parseInt(e.currentTarget.id) === 0){
+      setChangeAbout(0);
+      transform(e);
+    }
+    else if(parseInt(e.currentTarget.id) === 1){
+      setChangeAbout(1)
+      transform(e);
+    }
+    else if(parseInt(e.currentTarget.id) === 2){
+      setChangeAbout(2);
+      transform(e);
+    }
+    else{return;}
+  }
 
   function getQuantity(_id) {
     let cart = localStorage.getItem('cart');
@@ -209,17 +265,17 @@ function Home() {
         </div>
 
         <div className='mission-vision'>
-          <div className='world-of-jelly'>
-            <h1>JELLY</h1>
-            <p>World of Jelly</p>
+          <div className='world-of-jelly' onClick = {about_change} style = {aboutStyles[0]} id = {0}>
+            <h1 style = {{fontSize: '1.7rem'}}>evTop</h1>
+            <p>World of evTop</p>
           </div>
 
-          <div className='our-mission'>
+          <div className='our-mission' onClick = {about_change} style = {aboutStyles[1]} id = {1}>
             <img src={target} alt="" />
             <p>Our Mission</p>
           </div>
 
-          <div className='our-vision'>
+          <div className='our-vision' onClick = {about_change} style = {aboutStyles[2]} id = {2}>
             <img src={eye} alt="" />
             <p>Our Vision</p>
           </div>
@@ -227,9 +283,8 @@ function Home() {
         </div>
 
         <div className='mission'>
-          <h1> Our Mission</h1>
-          <p>Refer friends and get upto Rs. 5000/-OFF on final price Jelly App connected
-          <br />| Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes</p>
+          <h1> {about_array[changeAbout].name}</h1>
+          <p>{about_array[changeAbout].content}</p>
         </div>
 
         <div className='our-awesome-team'>
