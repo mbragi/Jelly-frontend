@@ -44,19 +44,19 @@ function AdminAddProduct() {
                             {addproducts.map((addproduct, index) => (
                                 <React.Fragment key={index}>
                                     <div className='add-sub-product-image'>
-                                    <input type="file" id='file' accept='image'/>
-                                    <label for= "file">
-                                        <img src={pen} alt={addproduct.img}  style={{
-                                        width: '40.0px',
-                                        height: '30.0px',
-                                        float:'right',
-                                        borderRadius:'5px',
-                                        backgroundColor: '#FFFFFF',
-                                        boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
-                                        objectFit: 'contain',
-                                        padding: '5px'
-                                        }} />
-                                    </label>
+                                        <input type="file" id='file' accept='image'/>
+                                        <label for= "file">
+                                            <img src={pen} alt={addproduct.img}  style={{
+                                            width: '40.0px',
+                                            height: '30.0px',
+                                            float:'right',
+                                            borderRadius:'5px',
+                                            backgroundColor: '#FFFFFF',
+                                            boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
+                                            objectFit: 'contain',
+                                            padding: '5px'
+                                            }} />
+                                        </label>
                                         <h5 className='usi'>Upload Sub Image</h5>
                                     </div>
 
