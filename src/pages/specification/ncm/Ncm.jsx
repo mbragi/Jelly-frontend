@@ -63,8 +63,8 @@ export const ProductSpec = ({ data, specification }) => {
                     <img src={specification.img} alt="product" />
                 </div>
                 <div className="flex-content">
-                    <p>Type:{data.type}</p>
-                    <p>Model:{data.model}</p>
+                    <p>Type:{specification.name}</p>
+                    <p>Model:{specification.category_name}</p>
                     <p>Function:{data.function}</p>
                     <p>Accessories:{data.Accessories}</p>
                     <p>Product Link:{`http://evtop.org/#/details/${specification._id}`}</p>
