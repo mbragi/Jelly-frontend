@@ -1,7 +1,7 @@
-import React from "react";
-import ProductDetails from "./pages/productDetails/ProductDetails";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { path } from "./routes";
+import React from "react";
+import ProductDetails from "./pages/productDetails/ProductDetails";
 import Home from "./pages/home/Home";
 import LoginPage from "./pages/login/LoginPage";
 import Cart from "./pages/cart/Cart.jsx";

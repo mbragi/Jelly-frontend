@@ -46,6 +46,7 @@ function AdminAddProduct() {
         let newData = {}
         newData[name] = url;
         setAll(newData)
+        setBool(!bool)
         console.log(newData)
         setCounter(0)
     }
@@ -105,7 +106,10 @@ function AdminAddProduct() {
                 <form onSubmit={httpCreateProduct} className='admin-add-product-container'>
 
                     <div className='admin-add-product-images'>
+
+                        {counter > 0 && <p>Loading...{Math.floor(counter)}%</p>}
                         <div className='upload-main-image'>
+
                             <input type="file" id='file' name='img' onChange={createProductIms} />
                             <label htmlFor="file">
                                 <img src={pen} alt="product" style={{
@@ -119,7 +123,13 @@ function AdminAddProduct() {
                                     padding: '5px'
                                 }} />
                             </label>
-                            <h1 className='umi'>Upload Main Image</h1>
+                            {
+                                bool ?
+                                    <>
+                                        <img src={all.img} alt="" className="umi" />
+                                    </> :
+                                    <h1 className='umi'>Upload Main Image</h1>
+                            }
                         </div>
 
                         <div className='upload-sub-image'>
@@ -154,8 +164,20 @@ function AdminAddProduct() {
                             })}
 
                         </div>
-                        {counter > 0 && <p>Loading...{Math.floor(counter)}%</p>}
-
+                        <div className='attached-video' >
+                            <h1>ATTACHED VIDEO</h1>
+                            <video src={all.video_url || ''} className='att-video'>
+                            </video>
+                            <button style={{ cursor: 'pointer', background: " rgb(53, 112, 236)", height: '2rem', width: '6rem', float: "right", border: 'none', marginTop: '5px' }}>
+                                <label >
+                                    <input name='video_url' type="file" onChange={createProductIms} style={{ opacity: 0, position: 'absolute', width: '1rem' }} />
+                                    <span style={{ display: 'flex', alignItems: "center", justifyContent: 'center', width: '100%' }}>
+                                        <CloudArrowUp size={18} />
+                                        upload
+                                    </span>
+                                </label>
+                            </button>
+                        </div>
                     </div>
 
                     <div className='admin-add-product-details'>
@@ -247,20 +269,7 @@ function AdminAddProduct() {
                                 </div>
                             </div>
 
-                            <div className='attached-video' >
-                                <h1>ATTACHED VIDEO</h1>
-                                <video src={all.video_url || ''} className='att-video'>
-                                </video>
-                                <button style={{ cursor: 'pointer', background: " rgb(53, 112, 236)", height: '2rem', width: '6rem', float: "right", border: 'none', marginTop: '5px' }}>
-                                    <label >
-                                        <input name='video_url' type="file" onChange={createProductIms} style={{ opacity: 0, position: 'absolute', width: '1rem' }} />
-                                        <span style={{ display: 'flex', alignItems: "center", justifyContent: 'center', width: '100%' }}>
-                                            <CloudArrowUp size={18} />
-                                            upload
-                                        </span>
-                                    </label>
-                                </button>
-                            </div>
+
                         </div>
                         <Button className='admin-add-btn' content={'Submit'} type="submit" style={{
                             backgroundColor: ' rgba(53, 112, 236, 0.67)',

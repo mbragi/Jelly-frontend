@@ -13,12 +13,16 @@ const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 function AdminProducts() {
     const navigate = useNavigate()
     const [data, setData] = useState([])
+    const [category, setCategory] = useState([])
+
 
     async function httpGetProducts() {
         const request = await axios.get(`${BASE_URL}/api/category`)
         const response = request.data.Pdata
+        const res = request.data.Cdata
         console.log(response)
         setData(response)
+        setCategory(res)
     }
     useEffect(() => {
         httpGetProducts()
@@ -41,10 +45,19 @@ function AdminProducts() {
                         <div className='left-show-product'>
                             <p>Show</p>
                             <select>
-                                <option value="4">4</option>
+                                <option value="4">SEARCH BY CATEGORY</option>
+
+                                {
+                                    category.map((item, idx) => {
+                                        return (
+
+                                            <option value="4">{item.name}</option>
+                                        )
+                                    })
+                                }
 
                             </select>
-                            <p>Entries</p>
+                            <p>Entries</p>:<p>{category.length}</p>
                         </div>
                         <div className='search-show-product'>
                             <p>Search:</p>
@@ -64,19 +77,19 @@ function AdminProducts() {
                         {data.map((item, idx) => {
                             console.log(item)
                             return (
-                                <ul className='show-product-items' key={idx}>
-                                    <li className='item-product item-imge'>
+                                <div className='show-product-items' key={idx}>
+                                    <p className='item-product item-imge'>
                                         <img src={item.img} alt="product-img" />
-                                    </li>
-                                    <li className='item-product'>{item.name}</li>
-                                    <li className='item-product'>{item.price}</li>
-                                    <li className='item-product'>{item.inStock === true ? "Active" : "N/A"}</li>
-                                    <li className='item-product'>{item.available_quantity || "N/A"}</li>
-                                    <li className='item-product'>Active</li>
-                                    <li className='item-product'>
+                                    </p>
+                                    <p className='item-product'>{item.name}</p>
+                                    <p className='item-product'>{item.price}</p>
+                                    <p className='item-product'>Total sales</p>
+                                    <p className='item-product'>{item.available_quantity || "N/A"}</p>
+                                    <button type='checkbox' className='item-product'>{item.inStock === true ? "Active" : "N/A"}</button >
+                                    <p className='item-product'>
                                         <img src={Dot} alt="3 dot vector" />
-                                    </li>
-                                </ul>
+                                    </p>
+                                </div>
                             )
                         })}
                         {/* <ul className='show-product-items'>

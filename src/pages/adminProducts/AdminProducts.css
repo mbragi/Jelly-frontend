@@ -8,7 +8,17 @@
 .admin-product-add-header h1{
     margin: 0;
 }
-
+.only{
+    position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+}
 .show-product{
     background-color: #ffffff;
     border-radius: 20px;
