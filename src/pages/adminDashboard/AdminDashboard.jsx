@@ -28,8 +28,8 @@ function AdminDashboard() {
       const res = request.data.data
       setUser(res)
       if (!user && user.length === 0) {
-        setMessage("No User's Signed Registered")
         setLoading(!loading)
+        setMessage("No User's Signed Registered")
       }
     } catch (error) {
       console.log(error.message)
@@ -42,7 +42,7 @@ function AdminDashboard() {
     //   second
     // }
   }, [])
-
+  if (loading) return <h1 style={{ textAlign: 'center', width: "100%" }}>Loading...</h1>;
   return (
     <AdminFrame currentPage='dashboard'>
       <div className='dashboard'>
