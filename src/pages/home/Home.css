@@ -191,8 +191,9 @@
 
 .about-us{
     /* background-color: red; */
-    padding: 1px 4%;
-    margin-top: 30px;
+    /* padding: 1px 4%; */
+    width: 85% ;
+    margin: 30px auto 0;
 }
 
 .about-us-header{
@@ -207,17 +208,20 @@
 
 .mission-vision img{
     width: 100px;
+    margin: 0 auto;
+    object-fit: cover;
 }
 
 .mission-vision p{
     margin-top: 0;
     text-align: center;
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .world-of-jelly{
     background-color:#D9D9D9;
-    padding: 10px 5%;
+    padding: 1px 5%;
     height: 120px;
 }
 
@@ -226,6 +230,9 @@
     box-shadow: 0px 4px 22px 0px #00000054;
     padding: 10px 5%;
     height: 120px;
+}
+.our-mission img{
+    margin: 0 -13%;
 }
 
 .our-vision{
@@ -376,6 +383,7 @@
         
     }
 
+
     .world-of-jelly{
       display: none;
     }
@@ -430,6 +438,9 @@
     .resize-max{
         max-width: 1300px;
         margin: 0 auto;
+    }
+    .about-us{
+        max-width: 1100px;
     }
 }
 @media(max-width: 495px){
