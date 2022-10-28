@@ -168,10 +168,10 @@ function AdminAddProduct() {
                             <h1>ATTACHED VIDEO</h1>
                             <video src={all.video_url || ''} className='att-video'>
                             </video>
-                            <button style={{ cursor: 'pointer', background: " rgb(53, 112, 236)", height: '2rem', width: '6rem', float: "right", border: 'none', marginTop: '5px' }}>
-                                <label >
-                                    <input name='video_url' type="file" onChange={createProductIms} style={{ opacity: 0, position: 'absolute', width: '1rem' }} />
-                                    <span style={{ display: 'flex', alignItems: "center", justifyContent: 'center', width: '100%' }}>
+                            <button style={{ cursor: 'pointer', background: " rgb(53, 112, 236)", height: '2rem', width: '6rem', float: "right", border: 'none', marginTop: '5px' }} type='file'>
+                                <label htmlFor='video'>
+                                    <input name='video_url' type="file" onChange={createProductIms} style={{ opacity: 0, position: 'absolute', width: '100%', cursor: 'pointer', height: '2rem', background: "green" }} />
+                                    <span style={{ display: 'flex', alignItems: "center", justifyContent: 'center', width: '100%', }}>
                                         <CloudArrowUp size={18} />
                                         upload
                                     </span>

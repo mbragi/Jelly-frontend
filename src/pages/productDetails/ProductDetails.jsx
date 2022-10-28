@@ -75,9 +75,9 @@ function ProductDetails() {
     }, [])
 
     //console.log(product)
-    
-    if (loading) return <h1 style={{ textAlign: 'center' }}>Loading...</h1>;
-    if (!loading && !product) return <h1 style={{ textAlign: 'center' }}>404 error can't find product</h1>;
+
+    if (loading) return <h1 style={{ textAlign: 'center', width: "100%" }}>Loading...</h1>;
+    if (!loading && !product) return <h1 style={{ textAlign: 'center', width: '100%' }}>404 error can't find product</h1>;
     return (
         <div>
             <div className='navigation-bar'>
@@ -182,7 +182,7 @@ function ProductDetails() {
                     <NavBar />
                 </div>
                 <div className='product-details-container'>
-                    
+
                     <div className='product-name'>
                         <div className='product-name-images'>
                             <div className='product-image-big'>
@@ -199,7 +199,7 @@ function ProductDetails() {
 
                         <div className='product-name-content'>
                             <h2>{product.name}</h2>
-                                {/* {
+                            {/* {
                                 product.price_range.length ?
                                     <p><b> Price Range: </b>${product.price_range[0].one} -${product.price_range[0].two}</p> :
                                     <p><b>Price: </b> ${product.price}</p>

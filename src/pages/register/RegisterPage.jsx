@@ -20,7 +20,7 @@ function RegisterPage() {
     async function httpRegisterUser(e) {
         e.preventDefault();
         let request = data         // console.log(request);
-        let response = await fetch(`${BASE_URL}/register`, {
+        let response = await fetch(`${BASE_URL}/api/auth/register`, {
             method: "post",
             headers: {
                 "content-Type": "application/json",

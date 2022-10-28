@@ -14,13 +14,21 @@ function AdminProducts() {
     const navigate = useNavigate()
     const [data, setData] = useState([])
     const [category, setCategory] = useState([])
-
+    const [loading, setLoading] = useState(false)
+    async function httpGetCategoryById(e) {
+        const { value } = e.target
+        setLoading(!loading)
+        const request = await axios.get(`${BASE_URL}/api/products/category/${value}`)
+        const response = request.data.data
+        console.log(response)
+        setData(response)
+    }
 
     async function httpGetProducts() {
         const request = await axios.get(`${BASE_URL}/api/category`)
         const response = request.data.Pdata
         const res = request.data.Cdata
-        console.log(response)
+        // console.log(response)
         setData(response)
         setCategory(res)
     }
@@ -44,18 +52,15 @@ function AdminProducts() {
                     <header className='header-show-product'>
                         <div className='left-show-product'>
                             <p>Show</p>
-                            <select>
-                                <option value="4">SEARCH BY CATEGORY</option>
-
+                            <select name='category_id' onChange={httpGetCategoryById}>
+                                <option >SEARCH BY CATEGORY</option>
                                 {
                                     category.map((item, idx) => {
                                         return (
-
-                                            <option value="4">{item.name}</option>
+                                            <option value={item._id} key={idx}>{item.name}</option>
                                         )
                                     })
                                 }
-
                             </select>
                             <p>Entries</p>:<p>{category.length}</p>
                         </div>
@@ -75,7 +80,7 @@ function AdminProducts() {
                             <li className='item-product'>Action</li>
                         </ul>
                         {data.map((item, idx) => {
-                            console.log(item)
+                            // console.log(item)
                             return (
                                 <div className='show-product-items' key={idx}>
                                     <p className='item-product item-imge'>

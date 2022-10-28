@@ -21,7 +21,7 @@ function LoginPage() {
         e.preventDefault()
         setLoading(!loading)
         let request = JSON.stringify(data)
-        const res = await fetch(`${BASE_URL}/login`, {
+        const res = await fetch(`${BASE_URL}/api/auth/login`, {
             method: 'post',
             headers: {
                 'content-Type': 'application/json'

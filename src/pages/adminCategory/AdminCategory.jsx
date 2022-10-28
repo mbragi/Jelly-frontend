@@ -21,8 +21,8 @@ function AdminCategory() {
         setBool(!bool)
     }
     async function onInputChange(e) {
+        console.log(e.target.name);
         const { name } = e.target;
-        console.log(e.target.files);
         const url = await uploadFile(e.target.files[0], setCounter);
         let newData = { ...create }
         newData[name] = url;
@@ -74,7 +74,7 @@ function AdminCategory() {
                                             <img src={create.img_url || battery} alt="upload File " style={{ borderRadius: '10px', objectFit: 'contain', height: "13rem", width: '100%', border: '0.5px solid black' }} />
                                         </div>
                                         <button style={{ cursor: 'pointer', background: " rgb(53, 112, 236)", height: '2rem', width: '6rem', float: "right", border: 'none', marginTop: '5px' }}>
-                                            <label htmlFor='inputs' id='label'>
+                                            <label htmlFor='file' id='label'>
                                                 <input name='img_url' type="file" onChange={onInputChange} style={{ opacity: 0, position: 'absolute', width: '1rem' }} />
                                                 <span style={{ display: 'flex', alignItems: "center", justifyContent: 'center', width: '100%' }}>
                                                     <CloudArrowUp size={18} />
