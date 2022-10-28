@@ -24,30 +24,11 @@ function LoginPage() {
         setLoading(!loading)
         const request = await axios.post(`${BASE_URL}/api/auth/login`, data)
         const res = request.data
-        // let message = res.message
+        let message = res.message
         console.log(res)
-        // console.log(message)
+        console.log(message)
         setLoading(false)
-        // setMessage(message)
-
-        // let request = JSON.stringify(data)
-        // const res = await fetch(`${BASE_URL}/api/auth/login`, {
-        //     method: 'post',
-        //     headers: {
-        //         'content-Type': 'application/json'
-        //     },
-        //     body: request
-        // })
-        // const resData = await res.json()
-        // console.log(resData)
-        // let message = resData.message
-
-        // setMessage(message)
-        // setLoading(!loading)
-        // if (type === 'error') {
-        //     console.log(message)
-        // }
-        // setType(resData.type)
+        setMessage(message)
 
     }
 
