@@ -3,6 +3,7 @@ import './LoginPage.css'
 import Button from '../../components/button/Button'
 import {useGlobalContext} from '../../context'
 import axios from 'axios';
+
 // import { type } from '@testing-library/user-event/dist/type';
 
 function LoginPage() {
