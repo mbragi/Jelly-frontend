@@ -7,6 +7,9 @@ import NavBar from '../../components/navBar/NavBar';
 import Search from './Search';
 import './Specification.css'
 import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../../context";
+import LoginPage from "../login/LoginPage";
+import RegisterPage from "../register/RegisterPage";
 const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
 // const BASE_UR = 'http://localhost:1050'
@@ -45,9 +48,11 @@ function SpecHead() {
         }
     }
 
+    const {isLogin, switchpop} = useGlobalContext();
     return (
         < div style={{ width: '100%' }}>
             <NavBar />
+            {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
             <Search onchange={navigateSearch} />
             <p>Search By Product Model</p>
             <div className="spec" >

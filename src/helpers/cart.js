@@ -1,24 +1,3 @@
-function addToCart(newProduct, cb){
-    let cart = localStorage.getItem('cart');
-    if(cart) {
-        cart = JSON.parse(cart);
-        const itemInCart = cart.find((product) => product._id === newProduct._id );
-
-        if(itemInCart){
-        cart = cart.map((product) => (
-            product._id === newProduct._id ? {...product, quantity: product.quantity + 1} : product
-        ));
-        localStorage.setItem('cart', JSON.stringify(cart));
-        }else{
-        cart.push({ ...newProduct, quantity: 1 });
-        localStorage.setItem('cart', JSON.stringify(cart));
-        }
-
-    }else{
-        localStorage.setItem('cart', JSON.stringify([{...newProduct, quantity: 1}]));
-    }
-    if(cb) cb();    
-}
 
 function removeFromCart(product, cb){
     let cart = localStorage.getItem('cart');
@@ -50,4 +29,4 @@ function decreaseQuantity(productInFocus, cb){
     if(cb) cb();    
 }
 
-export { addToCart, removeFromCart, decreaseQuantity };
+export { removeFromCart, decreaseQuantity };

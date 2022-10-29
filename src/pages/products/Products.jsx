@@ -9,6 +9,9 @@ import Footer from '../../components/footer/Footer';
 import Category from '../../components/category/Category';
 import MobileBar from '../../components/mobileBar/MobileBar';
 import axios from 'axios';
+import {useGlobalContext} from '../../context';
+import LoginPage from '../login/LoginPage';
+import RegisterPage from '../register/RegisterPage';
 
 
 function Products() {
@@ -83,9 +86,12 @@ function Products() {
     setPriceFilter(value);
   }
 
+  const {isLogin, switchpop} = useGlobalContext();
+
   return (
     <div className='container'>
       <NavBar currentPage="shop" />
+      {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
       <MobileBar />
 
       <div className='products-page'>

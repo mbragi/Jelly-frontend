@@ -28,6 +28,7 @@ function AdminDashboard() {
       const res = request.data.data
       setUser(res)
       if (!user && user.length === 0) {
+        console.log(message)
         setLoading(!loading)
         setMessage("No User's Signed Registered")
       }

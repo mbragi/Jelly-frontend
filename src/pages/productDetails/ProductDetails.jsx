@@ -9,10 +9,11 @@ import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer'
 import cart from '../../assets/images/cart.png'
 import { useParams } from 'react-router-dom'
-import { addToCart } from '../../helpers/cart';
+import { useGlobalContext } from '../../context';
 import battery from '../../assets/battery.png'
 import { useNavigate } from 'react-router-dom';
-
+import LoginPage from '../login/LoginPage';
+import RegisterPage from '../register/RegisterPage';
 import axios from 'axios/lib/axios';
 
 
@@ -75,13 +76,14 @@ function ProductDetails() {
     }, [])
 
     //console.log(product)
-
+    const {addToCart, isLogin, switchpop} = useGlobalContext()
     if (loading) return <h1 style={{ textAlign: 'center', width: "100%" }}>Loading...</h1>;
     if (!loading && !product) return <h1 style={{ textAlign: 'center', width: '100%' }}>404 error can't find product</h1>;
     return (
         <div>
             <div className='navigation-bar'>
                 <NavBar />
+                {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
             </div>
             <div className='product-details-container'>
                 <div className='product-name'>

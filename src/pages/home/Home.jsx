@@ -12,10 +12,13 @@ import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
 // import { addToCart, removeFromCart } from '../../helpers/cart';
-import { addToCart } from '../../helpers/cart';
+// import { addToCart } from '../../helpers/cart';
 import MobileBar from '../../components/mobileBar/MobileBar';
+import LoginPage from '../login/LoginPage';
+import RegisterPage from '../register/RegisterPage';
 import founders from './founders.json'
 import axios from 'axios';
+import { useGlobalContext } from '../../context'
     // console.log(loading)
  
 
@@ -48,9 +51,8 @@ function Home() {
       cursor: 'pointer'
     }
   ])
-
   const featuresArray = ["512.png", "bike.jpg"];
-
+  
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
@@ -125,7 +127,7 @@ function Home() {
     if (cart) {
       cart = JSON.parse(cart);
       let cartProduct = cart.find((product) => product._id === _id);
-
+      
       if (cartProduct) return <span className="item-quantity-in-cart">{cartProduct.quantity}</span>;
       return '';
     }
@@ -135,7 +137,7 @@ function Home() {
     fetchData();
     pageResized();
   }, []);
-
+  
   const prev = () => {
     setFeaturesIndex(featuresIndex => {
       if (featuresIndex === 0) return featuresArray.length - 1;
@@ -148,7 +150,7 @@ function Home() {
       return featuresIndex + 1;
     })
   }
-
+  
   const accessoriesPrev = () => {
     if (currentPage > 1) setCurrentPage(currentPage => currentPage - 1);
   }
@@ -156,12 +158,18 @@ function Home() {
     const numberOfPages = Math.ceil(totalProducts / productsPerPage);
     if (currentPage < numberOfPages) setCurrentPage(currentPage => currentPage + 1);
   }
-
+  
+  const {isLogin} = useGlobalContext()
+  const {switchpop, addToCart} = useGlobalContext();
+  // const obj = {};
+  // if(Object.keys(obj).length === 0 && obj.constructor === Object){
+  //   alert("jjjj")
+  // }
   return (
     <div className='cntainer'>
 
       <NavBar currentPage="home" />
-
+      {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
       <MobileBar />
       <div className="imgcontainer resize-max">
         <img src={bike} alt="evtop" className='evtopimg' />
