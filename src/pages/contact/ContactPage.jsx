@@ -6,7 +6,9 @@ import phone from '../../assets/images/phone.png'
 import address from '../../assets/images/address.png'
 import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer';
-
+import {useGlobalContext} from '../../context';
+import LoginPage from '../login/LoginPage';
+import RegisterPage from '../register/RegisterPage';
 function ContactPage() {
 
     const [data, setData] = useState({});
@@ -19,10 +21,12 @@ function ContactPage() {
         console.log(newData)
     }
 
+    const {isLogin, switchpop} =  useGlobalContext();
   return (
     <div>
         <div className='navigation-bar'>
             <NavBar currentPage="contact" />
+            {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
         </div>
 
         <div className='contact-us-header'>

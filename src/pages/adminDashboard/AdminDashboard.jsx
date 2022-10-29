@@ -29,6 +29,7 @@ function AdminDashboard() {
       setUser(res)
       if (!user && user.length === 0) {
         setMessage("No User's Signed Registered")
+        console.log(message)
         setLoading(!loading)
       }
     } catch (error) {

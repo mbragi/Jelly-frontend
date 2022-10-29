@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './LoginPage.css'
 import Button from '../../components/button/Button'
+import {useGlobalContext} from '../../context'
 // import { type } from '@testing-library/user-event/dist/type';
 
 function LoginPage() {
@@ -9,6 +10,7 @@ function LoginPage() {
     const [message, setMessage] = useState('')
     const [type, setType] = useState('')
     const [loading, setLoading] = useState(false)
+    const {setIsLogin, setSwitch, setLoginCart} = useGlobalContext();
     function getDetails(event) {
         const { name, value } = event.target
         const newData = { ...data };
@@ -30,6 +32,7 @@ function LoginPage() {
         })
         const resData = await res.json()
         console.log(resData)
+        setLoginCart(resData.data)
         let message = resData.message
 
         setMessage(message)
@@ -40,14 +43,13 @@ function LoginPage() {
         setType(resData.type)
 
     }
-
     return (
         <div className='overlay'>
 
             <div className='login-container'>
 
                 <div className='cancel-button'>
-                    <Button content={'X'} style={{ width: '50px', borderRadius: '30px', height: '40px' }} />
+                    <Button content={'X'} style={{ width: '50px', borderRadius: '30px', height: '40px' }} onClick = {() => setIsLogin(false)}/>
                 </div>
 
                 <div className='login-page'>
@@ -78,7 +80,7 @@ function LoginPage() {
                         </div>
 
                         <div className='create-new-account'>
-                            <h3>Don't have an account? <span>Create New Account</span></h3>
+                            <h3>Don't have an account? <span onClick={() => setSwitch(true)} style = {{cursor: 'pointer'}} >Create New Account</span></h3>
                         </div>
 
                     </form>

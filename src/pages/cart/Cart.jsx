@@ -6,8 +6,11 @@ import { BsArrowLeft } from 'react-icons/bs';
 // import cart from "./cart.json";
 import Footer from '../../components/footer/Footer';
 import { Link } from 'react-router-dom';
-import { addToCart, decreaseQuantity } from '../../helpers/cart';
+import { decreaseQuantity } from '../../helpers/cart';
 import MobileBar from '../../components/mobileBar/MobileBar';
+import {useGlobalContext} from '../../context';
+import LoginPage from '../login/LoginPage';
+import RegisterPage from '../register/RegisterPage';
 
 function Cart() {
     const [cart, setCart] = useState([]);
@@ -27,9 +30,13 @@ function Cart() {
     useEffect(() => {
         calculateCartTotal();
     }, []);
+
+    const {addToCart, isLogin, switchpop} = useGlobalContext();
+
     return (
         <div className='cart'>
             <NavBar />
+            {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
             <MobileBar />
             <h1 className='cart-header'>Cart</h1>
 

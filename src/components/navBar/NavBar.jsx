@@ -7,6 +7,7 @@ import { IoMdCart } from "react-icons/io";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import menu from "../../assets/menu.png";
+import { useGlobalContext } from '../../context';
 
 export default function NavBar({ currentPage }) {
   const [navbar, setNavbar] = useState(false);
@@ -31,6 +32,7 @@ export default function NavBar({ currentPage }) {
   const shower = () => {
     setShow(!show);
   }
+  const {setIsLogin} = useGlobalContext()
 
   return (
     <div className={show ? 'opacity' : ''}>
@@ -64,7 +66,7 @@ export default function NavBar({ currentPage }) {
 
               <span className='slash'> / </span>
 
-              <FaUserAlt size={25} color="rgba(203, 182, 182)" className="icon" />
+              <FaUserAlt size={25} color="rgba(203, 182, 182)" className="icon" onClick = {() => setIsLogin(true)}/>
 
             </div>
           </div>
