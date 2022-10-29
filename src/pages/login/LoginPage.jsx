@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import './LoginPage.css'
 import Button from '../../components/button/Button'
 import {useGlobalContext} from '../../context'
+import axios from 'axios';
 // import { type } from '@testing-library/user-event/dist/type';
 
 function LoginPage() {
     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
     const [data, setData] = useState({});
     const [message, setMessage] = useState('')
-    const [type, setType] = useState('')
+    // const [type, setType] = useState('')
     const [loading, setLoading] = useState(false)
     const {setIsLogin, setSwitch, setLoginCart} = useGlobalContext();
     function getDetails(event) {
@@ -16,31 +17,21 @@ function LoginPage() {
         const newData = { ...data };
         newData[name] = value;
         setData(newData);
-        console.log(newData)
+        // console.log(newData)
     }
 
     async function httpLoginUser(e) {
+
         e.preventDefault()
         setLoading(!loading)
-        let request = JSON.stringify(data)
-        const res = await fetch(`${BASE_URL}/api/auth/login`, {
-            method: 'post',
-            headers: {
-                'content-Type': 'application/json'
-            },
-            body: request
-        })
-        const resData = await res.json()
-        console.log(resData)
-        setLoginCart(resData.data)
-        let message = resData.message
-
+        const request = await axios.post(`${BASE_URL}/api/auth/login`, data)
+        const res = request.data
+        setLoginCart(res.data)
+        let message = res.message
+        console.log(res)
+        console.log(message)
+        setLoading(false)
         setMessage(message)
-        setLoading(!loading)
-        if (type === 'error') {
-            console.log(message)
-        }
-        setType(resData.type)
 
     }
     return (
