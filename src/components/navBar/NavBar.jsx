@@ -32,7 +32,7 @@ export default function NavBar({ currentPage }) {
   const shower = () => {
     setShow(!show);
   }
-  const {setIsLogin} = useGlobalContext()
+  const { setIsLogin } = useGlobalContext()
 
   return (
     <div className={show ? 'opacity' : ''}>
@@ -66,7 +66,7 @@ export default function NavBar({ currentPage }) {
 
               <span className='slash'> / </span>
 
-              <FaUserAlt size={25} color="rgba(203, 182, 182)" className="icon" onClick = {() => setIsLogin(true)}/>
+              <FaUserAlt size={25} color="rgba(203, 182, 182)" className="icon" onClick={() => setIsLogin(true)} />
 
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function NavBar({ currentPage }) {
               <Link to='/' className='link home-link' style={page("home")} >Home</Link>
               <p className='link' About Us style={page("about")}>Video</p>
               <Link to="/shop" className='link' style={page("shop")}>Shop</Link>
-              <Link to="/product" className='link' style={page("products")}>Product</Link>
+              {/* <Link to="/product" className='link' style={page("products")}>Product</Link> */}
               <Link to="/contact" className='link' style={page("contact")}>Contact us</Link>
               <p className='link' style={page("faq")}>FAQ</p>
               <Link to='/cart' className='link cart-container'>

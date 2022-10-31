@@ -19,19 +19,13 @@ const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
 function AdminDashboard() {
   const [user, setUser] = useState([])
-  const [message, setMessage] = useState('')
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
   async function httpGetAllUser(params) {
-    setLoading(!loading)
     try {
       const request = await axios.get(`${BASE_URL}/api/auth/`)
       const res = request.data.data
+      console.log(res)
       setUser(res)
-      if (!user && user.length === 0) {
-        console.log(message)
-        setLoading(!loading)
-        setMessage("No User's Signed Registered")
-      }
     } catch (error) {
       console.log(error.message)
     }
@@ -43,7 +37,7 @@ function AdminDashboard() {
     //   second
     // }
   }, [])
-  if (loading) return <h1 style={{ textAlign: 'center', width: "100%" }}>Loading...</h1>;
+
   return (
     <AdminFrame currentPage='dashboard'>
       <div className='dashboard'>
@@ -71,7 +65,7 @@ function AdminDashboard() {
                 <img src={dailyVisitors} alt="daily-signups" className='stat-img' />
               </div>
               <div className='stat-desc'>
-                <span className='stat-title'>Daily Signups</span>
+                <span className='stat-title'>Daily SignUps</span>
                 <span className='stat-count'>1,500</span>
               </div>
             </div>
@@ -201,15 +195,22 @@ function AdminDashboard() {
 
             <div className='customers'>
 
-              <div className='customer'>
+              {
+                user.map((item, idx) => {
+                  return (
+                    <div className='customer' >
 
-                <img src={name} alt='name' className='customer-img' />
-                <div className='customer-text'>
-                  <span>name</span>
-                  <span>name@gmail.com</span>
-                </div>
-              </div>
+                      <img src={name} alt='name' className='customer-img' />
 
+                      <div className='customer-text'>
+                        <span>{item.fullName}</span>
+                        <span>{item.email}</span>
+                      </div>
+                    </div>
+
+                  )
+                })
+              }
               {/* <div className='customer'>
                   <img src={name} alt='name' className='customer-img'  />
                   <div className='customer-text'>
