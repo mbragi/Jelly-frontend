@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import './LoginPage.css'
 import Button from '../../components/button/Button'
-import {useGlobalContext} from '../../context'
+import { useGlobalContext } from '../../context'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 // import { type } from '@testing-library/user-event/dist/type';
 
@@ -10,9 +11,9 @@ function LoginPage() {
     const BASE_URL = 'https://jelly-online-api.herokuapp.com'
     const [data, setData] = useState({});
     const [message, setMessage] = useState('')
-    // const [type, setType] = useState('')
+    const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
-    const {setIsLogin, setSwitch, setLoginCart} = useGlobalContext();
+    const { setIsLogin, setSwitch, setLoginCart } = useGlobalContext();
     function getDetails(event) {
         const { name, value } = event.target
         const newData = { ...data };
@@ -22,17 +23,20 @@ function LoginPage() {
     }
 
     async function httpLoginUser(e) {
-
         e.preventDefault()
         setLoading(!loading)
         const request = await axios.post(`${BASE_URL}/api/auth/login`, data)
-        const res = request.data
-        setLoginCart(res.data)
-        let message = res.message
-        console.log(res)
-        console.log(message)
-        setLoading(false)
+        const res = request.data.data
+        let message = request.data.message
         setMessage(message)
+        setLoading(!loading)
+        if (res.isAdmin === false) {
+            setLoginCart(res)
+        } else {
+            navigate('/admin')
+        }
+        console.log(message)
+        console.log(res)
 
     }
     return (
@@ -41,7 +45,7 @@ function LoginPage() {
             <div className='login-container'>
 
                 <div className='cancel-button'>
-                    <Button content={'X'} style={{ width: '50px', borderRadius: '30px', height: '40px' }} onClick = {() => setIsLogin(false)}/>
+                    <Button content={'X'} style={{ width: '50px', borderRadius: '30px', height: '40px' }} onClick={() => setIsLogin(false)} />
                 </div>
 
                 <div className='login-page'>
@@ -72,7 +76,7 @@ function LoginPage() {
                         </div>
 
                         <div className='create-new-account'>
-                            <h3>Don't have an account? <span onClick={() => setSwitch(true)} style = {{cursor: 'pointer'}} >Create New Account</span></h3>
+                            <h3>Don't have an account? <span onClick={() => setSwitch(true)} style={{ cursor: 'pointer' }} >Create New Account</span></h3>
                         </div>
 
                     </form>
