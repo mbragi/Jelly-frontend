@@ -10,8 +10,12 @@
     min-height: 400px;
     background: white;
     box-shadow: -0.5px 0.5px 8px gray,  0.5px -0.5px 8px gray;
+    overflow: scroll;
+    scrollbar-width: none;
 }
-
+.register-container::-webkit-scrollbar{
+    display: none;
+}
 .register-page{
     max-width: 100%;
     width: 350px;
