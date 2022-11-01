@@ -19,6 +19,7 @@ import RegisterPage from '../register/RegisterPage';
 import founders from './founders.json'
 import axios from 'axios';
 import { useGlobalContext } from '../../context'
+import { Link } from 'react-router-dom'
     // console.log(loading)
  
 
@@ -242,7 +243,9 @@ function Home() {
       <div className='accessories-div resize-max'>
         <div className='accessories-header'>
           <p className='accessories-title'>Accessories</p>
-          <Button content="View More" style={{ width: "20%", height: "15%", fontSize: "100%" }} />
+          <Link to = '/shop' style={{width: '20%', height: '15%'}}>
+            <Button content="View More" style={{ width: "100%", height: "100%", fontSize: "100%" }} />
+          </Link>
         </div>
 
 
@@ -300,7 +303,7 @@ function Home() {
             <h1>Our Awesome Team</h1>
           </div>
 
-          <p> PRESENTING THE MINDS BEHIND JELLY. A UNIFIED TEAM OF EXPERTS WHO ARE PASSIONATELY DRIVEN BY THE CONCEPT OF SMART SOLUTIONS, BRINGING NEW ENERGY PRODUCT DESIGNED FOR THE INDIAN TERRAIN. THEY ENSURE THAT COMFORT AND STYLE GO HAND-IN-HAND.</p>
+          <p> PRESENTING THE MINDS BEHIND EVTOP. A UNIFIED TEAM OF EXPERTS WHO ARE PASSIONATELY DRIVEN BY THE CONCEPT OF SMART SOLUTIONS, BRINGING NEW ENERGY PRODUCT DESIGNED FOR THE INDIAN TERRAIN. THEY ENSURE THAT COMFORT AND STYLE GO HAND-IN-HAND.</p>
         </div>
 
         <div className='founder'>
