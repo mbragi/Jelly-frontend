@@ -7,22 +7,12 @@ export const Auth = () => {
     
     useEffect(()=>{
         const auths = JSON.parse(localStorage.getItem('auth'))
-        if(auths.hasOwnProperty("token") === true){
-            setAuth(auths.token)
-        }else{
-            setAuth(false)
-        }
+        auths.hasOwnProperty("token") === true ? setAuth(auths.token) : setAuth(false)
         const userD = JSON.parse(localStorage.getItem('userData'))
-
-        if(userD){
-            setUserData(userD.isAdmin)
-        }else{
-            setUserData(false)
-        }
+        userD ? setUserData(userD.isAdmin) : setUserData(false)
+        
         setLoading(false)
 
-        console.log(auth)
-        console.log(userData)
     },[])
 
 
