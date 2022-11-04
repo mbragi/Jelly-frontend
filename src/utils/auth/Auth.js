@@ -9,3 +9,14 @@ export const Auth = () => {
 
     return false
 }
+
+export const IsAdmin = () => {
+    const[userData ,setUserData] = useState({})
+    useEffect(()=>{
+        setUserData(JSON.parse(localStorage.getItem('userData')))
+    },[])
+
+    if(userData.isAdmin) return userData.isAdmin
+
+    return false
+}

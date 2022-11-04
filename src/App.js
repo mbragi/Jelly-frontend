@@ -29,22 +29,23 @@ function App() {
       <section style={{ width: "100%" }}>
         <HashRouter>
           <Routes>
-          <Route exact path={path.homepage} element={<Home />} />
-          <Route exact path={path.cart} element={<Cart />} />
-          
-          <Route exact path={path.checkout} element={<CheckOut />} />
-          <Route exact path={path.product} element={<Products />} />
-          
-          <Route exact path="/contact" element={<ContactPage />} />
-          <Route exact path="/details/:id" element={<ProductDetails />} />
-          <Route exact path="/forgotpassword" element={<ForgotPassword />} />
-          
-          <Route exact path="/admin" element={<AdminDashboard />} />
-          <Route exact path="/admin/dashboard" element={<AdminDashboard />} />
-            <Route exact path="/admin/categories" element={<AdminCategory />} />
-          <Route exact path="/admin/users" element={<AdminUsers />} />
-          <Route exact path="/admin/products" element={<AdminProducts />} />
-          <Route exact path="/admin/addproduct" element={<AdminAddProduct />} />
+            <Route exact path={path.homepage} element={<Home />} />
+            <Route exact path={path.cart} element={<Cart />} />
+            
+            <Route exact path={path.checkout} element={<CheckOut />} />
+            <Route exact path={path.product} element={<Products />} />
+            
+            <Route exact path="/contact" element={<ContactPage />} />
+            <Route exact path="/details/:id" element={<ProductDetails />} />
+            <Route exact path="/forgotpassword" element={<ForgotPassword />} />
+            <Route exact path="/admin" element={<AdminDashboard />} />
+
+            <Route exact path="/admin/dashboard" element={<AdminDashboard />} />
+              <Route exact path="/admin/categories" element={<AdminCategory />} />
+            <Route exact path="/admin/users" element={<AdminUsers />} />
+
+            <Route exact path="/admin/products" element={<AdminProducts />} />
+            <Route exact path="/admin/addproduct" element={<AdminAddProduct />} />
             <Route exact path="/product" element={<SpecHead />} />
             <Route exact path="/video" element={<VideoSection />} />
             <Route exact path="/product/ncm" element={<Ncm />} />
