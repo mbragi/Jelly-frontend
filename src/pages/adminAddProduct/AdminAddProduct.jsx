@@ -1,6 +1,6 @@
 import React from 'react'
 import './AdminAddProduct.css'
-import addproducts from './addproducts.json'
+// import addproducts from './addproducts.json'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 import Button from '../../components/button/Button'
 import { useNavigate } from 'react-router-dom'
@@ -18,16 +18,20 @@ function AdminAddProduct() {
     const [create, setCreate] = useState({})
     const [sub, setSub] = useState({})
     const [all, setAll] = useState({})
-    const [image, setImage] = useState('')
+    // const [image, setImage] = useState('')
     const [counter, setCounter] = useState(0)
     const [message, setMessage] = useState('')
     const [bool, setBool] = useState(false)
+    const [bool2, setBool2] = useState(false)
+    const [bool3, setBool3] = useState(false)
+    const [bool4, setBool4] = useState(false)
+    const [bool5, setBool5] = useState(false)
+    const [bool6, setBool6] = useState(false)
     const [vid, setVid] = useState(false)
     async function httpGetCategories() {
         const request = await axios.get(`${BASE_URL}/api/cat`)
         const response = request.data.data
         setData(response)
-        // console.log(data)
     }
     async function httpCreateProduct(e) {
         e.preventDefault()
@@ -42,26 +46,28 @@ function AdminAddProduct() {
         }, 1000)
     }
     async function createProductIms(e) {
+        e.preventDefault()
         const { name } = e.target;
         console.log(e.target.files);
         const url = await uploadFile(e.target.files[0], setCounter);
-        let newData = {}
+        let newData = { ...all }
         newData[name] = url;
         setAll(newData)
         setVid(!vid)
         setCounter(0)
     }
     async function createProductVid(e) {
+        e.preventDefault()
         const { name } = e.target;
-        console.log(name);
+        // console.log(name);
         const url = await uploadFile(e.target.files[0], setCounter);
-        setImage(url)
-        let newData = {}
+        let newData = { ...all }
         newData[name] = url;
         setAll(newData)
         setCounter(0)
     }
     function createProduct(e) {
+        e.preventDefault()
         const { name, value } = e.target
         let newObj = { ...all }
         newObj[name] = value
@@ -69,20 +75,32 @@ function AdminAddProduct() {
         setAll(newObj)
     }
     async function subProduct(e) {
+        e.preventDefault()
         const { name } = e.target;
-        // console.log(e.target.name);
         const url = await uploadFile(e.target.files[0], setCounter);
-        setImage(url)
         let newData = { ...sub }
         newData[name] = url;
         setSub(newData)
         const newObj = { ...all, sub_image: newData }
         setAll(newObj)
-        setBool(!bool)
         setCounter(0)
+        if (sub.option_one) {
+            setBool(true)
+        } else if (sub.option_two) {
+            setBool2(true)
+        } else if (sub.option_three) {
+            setBool3(true)
+        } else if (sub.option_four) {
+            setBool4(true)
+        } else if (sub.option_five) {
+            setBool5(true)
+        } else if (sub.option_six) {
+            setBool6(true)
+        }
     }
 
     function onCreateDetail(e) {
+        e.preventDefault()
         // console.log(e.target.value)
         const { name, value } = e.target
         let newObj = { ...create }
@@ -123,8 +141,8 @@ function AdminAddProduct() {
                             {counter > 0 && <p>Loading...{Math.floor(counter)}%</p>}
                             <div className='upload-main-image'>
 
-                                <input type="file" name='img' onChange={createProductIms} />
-                                <label htmlFor="file">
+                                <input id='main' type="file" name='img' onChange={createProductIms} />
+                                <label htmlFor="main">
                                     <img src={pen} alt="product" style={{
                                         width: '50px',
                                         height: '40px',
@@ -144,46 +162,181 @@ function AdminAddProduct() {
                                         <h1 className='umi'>Upload Main Image</h1>
                                 }
                             </div>
+                            {/* upload sub images */}
 
                             <div className='upload-sub-image'>
-                                {addproducts.map((addproduct, index) => {
-                                    let name = addproduct.name
-                                    return (
-                                        <>
-                                            <div className='add-sub-product-image' key={index}>
-                                                <label >
+                                <>
+                                    <div className='add-sub-product-image' >
+                                        <label htmlFor='one'>
+                                            <img src={pen} alt={'input imge'} style={{
+                                                width: '40.0px',
+                                                height: '30.0px',
+                                                float: 'right',
+                                                borderRadius: '5px',
+                                                backgroundColor: '#FFFFFF',
+                                                boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
+                                                objectFit: 'contain',
+                                                padding: '5px'
+                                            }} />
+                                            <input name="option_one" id='one' type="file" onChange={subProduct} style={{
+                                                opacity: 0, position: 'absolute', width: '40.0px',
+                                                height: '30.0px',
+                                                float: 'right',
+                                                borderRadius: '5px',
+                                            }} />  {
+                                                bool ?
+                                                    <>
+                                                        <img src={sub.option_one || ""} alt="" className="usi" />
+                                                    </> :
+                                                    <h5 className='usi'>Upload Sub Image</h5>
+                                            }
+                                        </label>
+                                    </div>
+                                </>
+                                <>
+                                    <div className='add-sub-product-image' >
+                                        <label htmlFor='two' >
+                                            <img src={pen} alt={'input imge'} style={{
+                                                width: '40.0px',
+                                                height: '30.0px',
+                                                float: 'right',
+                                                borderRadius: '5px',
+                                                backgroundColor: '#FFFFFF',
+                                                boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
+                                                objectFit: 'contain',
+                                                padding: '5px'
+                                            }} />
+                                            <input name="option_two" id='two' type="file" onChange={subProduct} style={{
+                                                opacity: 0, position: 'absolute', width: '40.0px',
+                                                height: '30.0px',
+                                                float: 'right',
+                                                borderRadius: '5px',
+                                            }} />  {
+                                                bool2 ?
+                                                    <>
+                                                        <img src={sub.option_two || ""} alt="" className="usi" />
+                                                    </> :
+                                                    <h5 className='usi'>Upload Sub Image</h5>
+                                            }
+                                        </label>
+                                    </div>
+                                </> <>
+                                    <div className='add-sub-product-image' >
+                                        <label htmlFor='three' >
 
-                                                    <img src={pen} alt={'input imge'} style={{
-                                                        width: '40.0px',
-                                                        height: '30.0px',
-                                                        float: 'right',
-                                                        borderRadius: '5px',
-                                                        backgroundColor: '#FFFFFF',
-                                                        boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
-                                                        objectFit: 'contain',
-                                                        padding: '5px'
-                                                    }} />
-                                                    <input name={name} type="file" onChange={subProduct} style={{
-                                                        opacity: 0, position: 'absolute', width: '40.0px',
-                                                        height: '30.0px',
-                                                        float: 'right',
-                                                        borderRadius: '5px',
-                                                    }} />  {
-                                                        bool ?
-                                                            <>
-                                                                <img src={image} alt="" className="usi" />
-                                                            </> :
-                                                            <h5 className='usi'>Upload Sub Image</h5>
-                                                    }
-                                                </label>
-                                            </div>
-                                        </>
-                                    )
-                                })}
+                                            <img src={pen} alt={'input imge'} style={{
+                                                width: '40.0px',
+                                                height: '30.0px',
+                                                float: 'right',
+                                                borderRadius: '5px',
+                                                backgroundColor: '#FFFFFF',
+                                                boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
+                                                objectFit: 'contain',
+                                                padding: '5px'
+                                            }} />
+                                            <input name="option_three" id='three' type="file" onChange={subProduct} style={{
+                                                opacity: 0, position: 'absolute', width: '40.0px',
+                                                height: '30.0px',
+                                                float: 'right',
+                                                borderRadius: '5px',
+                                            }} />  {
+                                                bool3 ?
+                                                    <>
+                                                        <img src={sub.option_three || ""} alt="" className="usi" />
+                                                    </> :
+                                                    <h5 className='usi'>Upload Sub Image</h5>
+                                            }
+                                        </label>
+                                    </div>
+                                </> <>
+                                    <div className='add-sub-product-image' >
+                                        <label htmlFor='four'>
+
+                                            <img src={pen} alt={'input imge'} style={{
+                                                width: '40.0px',
+                                                height: '30.0px',
+                                                float: 'right',
+                                                borderRadius: '5px',
+                                                backgroundColor: '#FFFFFF',
+                                                boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
+                                                objectFit: 'contain',
+                                                padding: '5px'
+                                            }} />
+                                            <input name="option_four" id='four' type="file" onChange={subProduct} style={{
+                                                opacity: 0, position: 'absolute', width: '40.0px',
+                                                height: '30.0px',
+                                                float: 'right',
+                                                borderRadius: '5px',
+                                            }} />  {
+                                                bool4 ?
+                                                    <>
+                                                        <img src={sub.option_four || ""} alt="" className="usi" />
+                                                    </> :
+                                                    <h5 className='usi'>Upload Sub Image</h5>
+                                            }
+                                        </label>
+                                    </div>
+                                </> <>
+                                    <div className='add-sub-product-image' >
+                                        <label htmlFor='five' >
+
+                                            <img src={pen} alt={'input imge'} style={{
+                                                width: '40.0px',
+                                                height: '30.0px',
+                                                float: 'right',
+                                                borderRadius: '5px',
+                                                backgroundColor: '#FFFFFF',
+                                                boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
+                                                objectFit: 'contain',
+                                                padding: '5px'
+                                            }} />
+                                            <input id='five' name="option_five" type="file" onChange={subProduct} style={{
+                                                opacity: 0, position: 'absolute', width: '40.0px',
+                                                height: '30.0px',
+                                                float: 'right',
+                                                borderRadius: '5px',
+                                            }} />  {
+                                                bool5 ?
+                                                    <>
+                                                        <img src={sub.option_five || ""} alt="" className="usi" />
+                                                    </> :
+                                                    <h5 className='usi'>Upload Sub Image</h5>
+                                            }
+                                        </label>
+                                    </div>
+                                </> <>
+                                    <div className='add-sub-product-image' >
+                                        <label htmlFor='six'>
+
+                                            <img src={pen} alt={'input imge'} style={{
+                                                width: '40.0px',
+                                                height: '30.0px',
+                                                float: 'right',
+                                                borderRadius: '5px',
+                                                backgroundColor: '#FFFFFF',
+                                                boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
+                                                objectFit: 'contain',
+                                                padding: '5px'
+                                            }} />
+                                            <input id='six' name="option_six" type="file" onChange={subProduct} style={{
+                                                opacity: 0, position: 'absolute', width: '40.0px',
+                                                height: '30.0px',
+                                                float: 'right',
+                                                borderRadius: '5px',
+                                            }} />  {
+                                                bool6 ?
+                                                    <>
+                                                        <img src={sub.option_six || ""} alt="" className="usi" />
+                                                    </> :
+                                                    <h5 className='usi'>Upload Sub Image</h5>
+                                            }
+                                        </label>
+                                    </div>
+                                </>
 
                             </div>
-
-                            <Video onChange={createProductVid} url={image} />
+                            {/* upload video */}
+                            <Video onChange={createProductVid} url={all.video_url} />
 
 
                         </div>
@@ -304,7 +457,7 @@ export const Video = ({ onChange, url }) => {
     return (
         <div className='attached-video' >
             <h1>ATTACHED VIDEO</h1>
-            <video src={url || 'https://res.cloudinary.com/mbrag/video/upload/v1667117547/pfagtk0eccrcwuijvsc1.mp4'} autoPlay className='att-video'>
+            <video src={url || ''} autoPlay className='att-video'>
             </video>
 
             <button type='file' style={{ cursor: 'pointer', background: " rgb(53, 112, 236)", height: '2rem', width: '6rem', float: "right", border: 'none', marginTop: '5px' }}>
