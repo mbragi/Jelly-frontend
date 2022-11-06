@@ -48,6 +48,34 @@ function SideNav({ currentPage, ...otherProps }) {
             </div>
         </Link>
 
+        <Link to="/admin/add-content" className='route-add-content' style={{ backgroundColor: currentPage === 'add-content' ? '#3C95EE' : '' }} >
+            <div className='nav-add-content'>
+                <MdOutlineHome size={20} />
+                <div>
+                    <p style={{marginTop:"0px"}}> Add Content</p>
+                    <span className='add-content-sub' style={{ 
+                        display: currentPage === 'products' ? 'block' : 'none' }}
+                    >
+                        <Link to='/admin/sectionI' className='route-sections' style={{ backgroundColor: currentPage === 'add-content' ? '#3C95EE' : '' }} >
+                            <p>Section I</p>
+                        </Link>
+
+                        <Link to='/admin/sectionII' className='route-sections' style={{ backgroundColor: currentPage === 'add-content' ? '#3C95EE' : '' }} >
+                            <p>Section II</p>
+                        </Link>
+
+                        <Link to='/admin/sectionIII' className='route-sections' style={{ backgroundColor: currentPage === 'add-content' ? '#3C95EE' : '' }} >
+                            <p>Section III</p>
+                        </Link>
+
+                        <Link to='/admin/sectionIV' className='route-sections' style={{ backgroundColor: currentPage === 'add-content' ? '#3C95EE' : '' }} >
+                            <p>Section IV</p>
+                        </Link>
+                    </span>
+                </div>
+            </div>
+        </Link>
+
         <div className='route logout'>
             <div className='nav-link'>
                 <MdLogout size={20} />
