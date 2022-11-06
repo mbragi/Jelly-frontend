@@ -6,12 +6,13 @@
 }
 
 .sectionIII-header h1{
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
 }
 
 .sectionIII-container{
     background-color:#FFFFFF;
-    padding: 20px 2%;
+    padding:0 20px 2%;
+
 }
 
 .advert-details-sectionIII{

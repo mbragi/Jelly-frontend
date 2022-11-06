@@ -81,7 +81,7 @@ function SectionII() {
                         <p> Next</p>
                         <BsArrowRight size={30} />
                     </div>
-                    
+
                 </div>
 
             </AdminFrame>
