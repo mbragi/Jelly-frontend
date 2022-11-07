@@ -1,7 +1,7 @@
 import React from 'react'
 import './SectionII.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
-import SectionIIs from './sectionIIs.json'
+// import SectionIIs from './sectionIIs.json'
 import Button from '../../components/button/Button'
 import pen from '../../assets/images/pen.png'
 import {BsArrowRight } from 'react-icons/bs';
@@ -61,12 +61,11 @@ function SectionII() {
                                     width: '50px',
                                     height: '40px',
                                     float: 'right',
-                                    padding: '20px 12%',
+                                    padding: '5px',
                                     borderRadius: '5px',
                                     backgroundColor: '#FFFFFF',
                                     boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
-                                    objectFit: 'contain',
-                                    padding: '5px'
+                                    objectFit: 'contain'
                                 }} />
                             </label>
                             {

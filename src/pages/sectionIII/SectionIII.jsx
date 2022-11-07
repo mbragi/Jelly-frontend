@@ -2,7 +2,7 @@ import React from 'react'
 import './SectionIII.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 // import Button from '../../components/button/Button'
-import pen from '../../assets/images/pen.png'
+// import pen from '../../assets/images/pen.png'
 import {BsArrowRight } from 'react-icons/bs';
 import { CloudArrowUp } from 'phosphor-react';
 

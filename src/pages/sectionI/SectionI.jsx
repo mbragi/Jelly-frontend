@@ -53,7 +53,6 @@ function SectionI() {
                                 width: '50px',
                                 height: '40px',
                                 float: 'right',
-                                padding: '20px 12%',
                                 borderRadius: '5px',
                                 backgroundColor: '#FFFFFF',
                                 boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
