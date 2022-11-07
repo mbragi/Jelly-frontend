@@ -7,9 +7,14 @@ export const Auth = () => {
 
   useEffect(() => {
     const auths = JSON.parse(localStorage.getItem("auth"));
-    auths.hasOwnProperty("token") === true
+    if(auths !== null){
+      auths.hasOwnProperty("token") === true
       ? setAuth(auths.token)
       : setAuth(false);
+    }else{
+      setAuth(false)
+    }
+    
     const userD = JSON.parse(localStorage.getItem("userData"));
     userD ? setUserData(userD.isAdmin) : setUserData(false);
 
