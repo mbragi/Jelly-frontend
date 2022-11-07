@@ -45,21 +45,47 @@
 }
 
 .route-addproduct p:hover{
-    color: red;
+    color: blue;
 }
 
 .nav-product a{
     text-decoration: none;
 }
 
-.nav-product{
+.route-add-content{
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.add-content-sub{
+    display: none;
+}
+
+.route-sections p{
+    color: white;
+}
+
+.route-sections p:hover{
+    color: blue;
+}
+
+.nav-add-content a{
+    text-decoration: none;
+}
+
+.nav-product, .nav-add-content{
     width: 100%;
     color: white;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 20px;
-    padding: 10px 20px; 
+    padding: 8px 20px; 
 }
 .nav-link{
     width: 100%;

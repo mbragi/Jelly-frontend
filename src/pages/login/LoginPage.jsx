@@ -28,7 +28,7 @@ function LoginPage() {
         const request = await axios.post(`${BASE_URL}/api/auth/login`, data)
         const res = request.data.data
         localStorage.setItem("userData", JSON.stringify(res))
-        localStorage.setItem('auth',JSON.stringify({token:true}))
+        localStorage.setItem('auth', JSON.stringify({ token: true }))
         let message = request.data.message
         setMessage(message)
         setLoading(!loading)
@@ -38,8 +38,6 @@ function LoginPage() {
             navigate('/admin')
         }
         console.log(message)
-        //console.log(res)
-
     }
     return (
         <div className='overlay'>
