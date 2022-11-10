@@ -1,10 +1,12 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useState, useEffect} from "react";
+import axios from "axios";
 const AppContext = React.createContext()
 
 const AppProvider = ({children}) => {
     const [isLogin, setIsLogin] = useState(false)
     const [switchpop, setSwitch] = useState(false);
     const [login_cart, setLoginCart] = useState({})
+    const [dailyUsers, setDaliyUsers] = useState();
     function addToCart(newProduct, cb){
         let cart = localStorage.getItem('cart');
         if(Object.keys(login_cart).length !==0 && login_cart.constructor === Object){
@@ -30,10 +32,21 @@ const AppProvider = ({children}) => {
             setIsLogin(true)
         }
     }
+
+    useEffect(() => {
+        axios.get(`https://sheet.best/api/sheets/7b8852da-3445-4feb-9257-4f0b31d111ac`)
+        .then((res) => {
+            setDaliyUsers(res.data[17].ConfigurationOptions)
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }, [])
     return <AppContext.Provider value={{
             isLogin,setIsLogin,
             switchpop,setSwitch,
-            login_cart,setLoginCart, addToCart
+            login_cart,setLoginCart, addToCart,
+            dailyUsers
             }}>
         {children}
     </AppContext.Provider>
