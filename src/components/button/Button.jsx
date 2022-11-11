@@ -1,8 +1,8 @@
 import React from 'react';
 import "./Button.css";
-function Button({ content, ...otherProps }) {
+function Button({ content, id, ...otherProps }) {
     return (
-        <button {...otherProps} className="custom-button">{content}</button>
+        <button {...otherProps} className="custom-button" id = {id}>{content}</button>
     );
 }
 

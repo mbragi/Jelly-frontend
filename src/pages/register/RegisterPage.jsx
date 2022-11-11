@@ -87,7 +87,7 @@ function RegisterPage() {
 
 
                         <div className='signup-button'>
-                            <Button type={'submit'} content='Sign Up' style={{ width: '100%', height: '50px', borderRadius: '10px' }} />
+                            <Button type={'submit'} content='Sign Up' id = "Sign_up" style={{ width: '100%', height: '50px', borderRadius: '10px' }} />
                         </div>
 
 
