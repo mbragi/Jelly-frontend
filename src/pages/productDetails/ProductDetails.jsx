@@ -10,7 +10,6 @@ import Footer from '../../components/footer/Footer'
 import cart from '../../assets/images/cart.png'
 import { useParams } from 'react-router-dom'
 import { useGlobalContext } from '../../context';
-import battery from '../../assets/battery.png'
 import { useNavigate } from 'react-router-dom';
 import LoginPage from '../login/LoginPage';
 import RegisterPage from '../register/RegisterPage';
@@ -42,8 +41,10 @@ function ProductDetails() {
         const data = await res.data
         // console.log(data.data)
         setProduct(data.data[0])
-
+        
         setLoading(false);
+
+        fetchRelatedProducts(data.data[0]);
     };
     const fetchRelatedProducts = async (product) => {
         if (!product) return;
@@ -72,7 +73,6 @@ function ProductDetails() {
     useEffect(() => {
         fetchData();
         pageResized();
-        fetchRelatedProducts();
     }, [])
 
     //console.log(product)
@@ -180,97 +180,13 @@ function ProductDetails() {
                 </div>
 
 
-                <div className='navigation-bar'>
+                {/* <div className='navigation-bar'>
                     <NavBar />
-                </div>
+                </div> */}
                 <div className='product-details-container'>
 
-                    <div className='product-name'>
-                        <div className='product-name-images'>
-                            <div className='product-image-big'>
-                                <img src={product.img} alt="" />
-                            </div>
-                            <div className='product-image-small'>
-                                <BiChevronLeft size={50} className='icon' />
-                                <img src={product.img} alt="product" />
-                                <img src={product.img} alt="product" />
-                                <img src={product.img} alt="product" />
-                                <BiChevronRight size={50} className='icon' />
-                            </div>
-                        </div>
-
-                        <div className='product-name-content'>
-                            <h2>{product.name}</h2>
-                            {/* {
-                                product.price_range.length ?
-                                    <p><b> Price Range: </b>${product.price_range[0].one} -${product.price_range[0].two}</p> :
-                                    <p><b>Price: </b> ${product.price}</p>
-                            } */}
-                            <p><b>Price: </b> ${product.price}</p>
-                            <p>Available colors:</p>
-                            <div className='available-colors'>
-                                <div className='purple'>
-                                    <Button type={'submit'} />
-                                </div>
-                                <div className='black'>
-                                    <Button type={'submit'} />
-                                </div>
-                                <div className='blue'>
-                                    <Button type={'submit'} />
-                                </div>
-                            </div>
-                            <div className='add-to-cart'>
-                                <img src={cart} alt="" />
-                                <Button type={'submit'} content='ADD TO CART' style={{ fontWeight: 'bold' }} onClick={() => { addToCart(product) }} />
-                            </div>
-                        </div>
-                    </div>
-                    <div className='product-details'>
-                        <div className='product-details-header'>
-                            <h2>Product Details</h2>
-                        </div>
-                        <div className='product-details-content'>
-                            <h3>Key Features:</h3>
-                            <li>100% and high quality, durable!</li>
-                            <h3>Specification:</h3>
-                            <li>100% and high quality, durable!</li>
-                        </div>
-                    </div>
-                    <div className='other-products'>
-                        <div className='other-products-header'>
-                            <h2>Other products you might like</h2>
-                        </div>
-                        <div className='other-products-content'>
-                            <BiChevronLeftCircle size={70} className='icon' />
-                            <div className='other-products-boxs'>
-                                <div className='other-products box'>
-                                    <h3>Product Name</h3>
-                                    <img src={battery} alt='' />
-                                    <p>$200</p>
-                                    <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} />
-                                </div>
-                                <div className='other-products box'>
-                                    <h3>Product Name</h3>
-                                    <img src={battery} alt='' />
-                                    <p>$200</p>
-                                    <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} />
-                                </div>
-                                <div className='other-products box'>
-                                    <h3>Product Name</h3>
-                                    <img src={battery} alt='' />
-                                    <p>$200</p>
-                                    <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} />
-                                </div>
-                                <div className='other-products box'>
-                                    <h3>Product Name</h3>
-                                    <img src={battery} alt='' />
-                                    <p>$200</p>
-                                    <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} />
-                                </div>
-                            </div>
-                            <BiChevronRightCircle size={70} className='icon' position="fixed" />
-                        </div>
-                    </div>
+                    
+                    
 
                     <div className='verified-customer-fb'>
                         <div className='verified-customer-fb-header'>

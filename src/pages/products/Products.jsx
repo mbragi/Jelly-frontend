@@ -137,7 +137,6 @@ function Products() {
             {loading ? <h1>Loading...</h1> :
               currentProducts.map((product, index) => {
 
-                console.log(currentProducts)
                 return (
                   < Product key={index} product={product} />
                 )

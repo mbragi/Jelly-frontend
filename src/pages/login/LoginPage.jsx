@@ -31,13 +31,14 @@ function LoginPage() {
         localStorage.setItem('auth', JSON.stringify({ token: true }))
         let message = request.data.message
         setMessage(message)
-        setLoading(!loading)
+        setLoading(true)
         if (res.isAdmin === false) {
             setLoginCart(res)
         } else {
             navigate('/admin')
         }
         console.log(message)
+        setLoading(false)
     }
     return (
         <div className='overlay'>
