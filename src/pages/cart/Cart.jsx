@@ -8,15 +8,15 @@ import Footer from '../../components/footer/Footer';
 import { Link } from 'react-router-dom';
 import { decreaseQuantity } from '../../helpers/cart';
 import MobileBar from '../../components/mobileBar/MobileBar';
-import {useGlobalContext} from '../../context';
+import { useGlobalContext } from '../../context';
 import LoginPage from '../login/LoginPage';
 import RegisterPage from '../register/RegisterPage';
 
 function Cart() {
     const [cart, setCart] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
-    function calculateCartTotal(){
-        if(!localStorage.getItem('cart')) return;
+    function calculateCartTotal() {
+        if (!localStorage.getItem('cart')) return;
         setCart(JSON.parse(localStorage.getItem('cart')));
 
         let cartSum = 0;
@@ -25,13 +25,13 @@ function Cart() {
             cartSum += productTotal;
         });
         setCartTotal(cartSum);
-        
+
     }
     useEffect(() => {
         calculateCartTotal();
     }, []);
 
-    const {addToCart, isLogin, switchpop} = useGlobalContext();
+    const { addToCart, isLogin, switchpop } = useGlobalContext();
 
     return (
         <div className='cart'>
@@ -68,9 +68,7 @@ function Cart() {
                                 </React.Fragment>
                             ))
                         }
-
                     </div>
-
                     <div className='cart-summary'>
                         <div className='cart-summary-item cart-summary-header'>
                             <p>cart summary</p>
