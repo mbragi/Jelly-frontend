@@ -9,6 +9,7 @@ import Footer from '../../components/footer/Footer';
 import {useGlobalContext} from '../../context';
 import LoginPage from '../login/LoginPage';
 import RegisterPage from '../register/RegisterPage';
+import Welcome from '../../components/welcome/Welcome';
 function ContactPage() {
 
     const [data, setData] = useState({});
@@ -21,12 +22,12 @@ function ContactPage() {
         console.log(newData)
     }
 
-    const {isLogin, switchpop} =  useGlobalContext();
+    const {isLogin, switchpop, isSignUp} =  useGlobalContext();
   return (
     <div>
         <div className='navigation-bar'>
             <NavBar currentPage="contact" />
-            {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
+            {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
         </div>
 
         <div className='contact-us-header'>

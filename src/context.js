@@ -4,6 +4,7 @@ const AppContext = React.createContext()
 
 const AppProvider = ({children}) => {
     const [isLogin, setIsLogin] = useState(false)
+    const [isSignUp, setIsSignUp] = useState(false)
     const [switchpop, setSwitch] = useState(false);
     const [login_cart, setLoginCart] = useState({})
     const [dailyUsers, setDaliyUsers] = useState();
@@ -46,7 +47,8 @@ const AppProvider = ({children}) => {
             isLogin,setIsLogin,
             switchpop,setSwitch,
             login_cart,setLoginCart, addToCart,
-            dailyUsers
+            dailyUsers,
+            isSignUp, setIsSignUp
             }}>
         {children}
     </AppContext.Provider>
