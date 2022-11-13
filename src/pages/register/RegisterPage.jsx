@@ -11,7 +11,8 @@ function RegisterPage() {
     const [message, setMessage] = useState('')
     const [type, setType] = useState('')
     // const navigate = useNavigate()
-
+    
+    const {setIsLogin, setSwitch, setIsSignUp} = useGlobalContext();
     function sendDetails(event) {
         const { name, value } = event.target
         const newData = { ...data }
@@ -46,7 +47,10 @@ function RegisterPage() {
         // }, 1500)
         // }
     }
-    const {setIsLogin, setSwitch} = useGlobalContext();
+    if(type === "success"){
+        setIsSignUp(true)
+    }else{setIsSignUp(false)}
+    
     return (
         <div className="overlay">
             <div className='register-container'>
