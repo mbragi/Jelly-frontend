@@ -13,7 +13,7 @@ function Welcome(){
             <div className='welcome-div'>
                 <div className='welcome-sub'>
                     <span>
-                        <MdCancel className='welcome-cancel' size={30} id= "sign_welcome" onClick={closeWelcome}/>
+                        <span className='welcome-cancel' id= "sign_welcome" onClick={closeWelcome}><MdCancel size={30} /></span>
                     </span>
                     <img src={animate} alt="welcome" />
                 </div>
