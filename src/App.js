@@ -23,6 +23,7 @@ import SectionI from "./pages/sectionI/SectionI";
 import SectionII from "./pages/sectionII/SectionII";
 import SectionIII from "./pages/sectionIII/SectionIII";
 import SectionIV from "./pages/sectionIV/SectionIV";
+import Welcome from "./components/welcome/Welcome";
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
             <Route exact path="/sectionII" element={<SectionII />} />
             <Route exact path="/sectionIII" element={<SectionIII />} />
             <Route exact path="/sectionIV" element={<SectionIV />} />
+            <Route exact path="/welcome" element={<Welcome />} />
             
 
             <Route exact path="/product" element={<SpecHead />} />

@@ -19,7 +19,7 @@
     position: absolute;
     display: flex;
     justify-content: flex-end;
-    padding: 6px;
+    padding: 5px;
 }
 .welcome-cancel{
     position: absolute;
