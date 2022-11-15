@@ -261,7 +261,7 @@ function Home() {
                 <Zoom direction="up">
                   <img src={product.img} alt={product.name} className='accessories-slider-item-image' />
                 </Zoom>
-                <Button onClick={() => { addToCart(product, fetchData) }} content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
+                <Button onClick={() => { addToCart(product, fetchData) }} content="Add to Cart" style={{ width: "100%", height: "15%", fontSize: "100%" }} />
               </div>
             ))
           }

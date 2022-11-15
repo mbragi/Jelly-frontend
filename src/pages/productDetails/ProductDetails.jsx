@@ -110,15 +110,15 @@ function ProductDetails() {
                         <p>Available colors:</p>
                         <div className='available-colors'>
                             <div className='purple'>
-                                <Button type={'submit'} />
+                                <button type={'submit'} />
                             </div>
 
                             <div className='black'>
-                                <Button type={'submit'} />
+                                <button type={'submit'} />
                             </div>
 
                             <div className='blue'>
-                                <Button type={'submit'} />
+                                <button type={'submit'} />
                             </div>
                         </div>
 
@@ -191,7 +191,16 @@ function ProductDetails() {
                     <div className='verified-customer-fb'>
                         <div className='verified-customer-fb-header'>
                             <h1>Verified Customers Feedback</h1>
-                            <span>SEE ALL <Button type={'submit'} content='>' style={{ width: '20%', height: '50px', borderRadius: '100px', backgroundColor: 'white', color: 'blue' }} />  </span>
+
+                           
+
+                            <span>SEE ALL 
+                                {/* <Button type={'submit'} content='>'  style={{ width: '30%', height: '50px', borderRadius: '100px', backgroundColor: 'blue', color: 'blue' }} />  */}
+                            
+                                 <BiChevronRightCircle size={70} className='icon' position="fixed" color='blue' /> 
+                                 
+                            </span>
+
                         </div>
 
                         <div className='verified-ratings-comments1'>
