@@ -42,8 +42,8 @@ function Footer() {
                     <h2>Contact Us</h2>
                     <div class="content">                  
                         <ul>
-                            <li>Phone: +8618057232978</li>
-                            <li>E-mail: barnaiwu@gmail.com</li>
+                            <li id='phone'>Phone: +8618057232978</li>
+                            <li id='e-mail'>E-mail: barnaiwu@gmail.com</li>
                             <li id='address'>Address: Building 3, No. 97, <br />
                                 Yuehai Real Estate, <br />
                                 128 Industrial Zone, <br />
