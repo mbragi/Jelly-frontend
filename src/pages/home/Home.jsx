@@ -244,7 +244,7 @@ function Home() {
       <div className='accessories-div resize-max'>
         <div className='accessories-header'>
           <p className='accessories-title'>Accessories</p>
-          <Link to = '/shop' style={{width: '20%', height: '15%'}}>
+          <Link to = '/shop' style={{width: '30%', height: '15%'}}>
             <Button content="View More" style={{ width: "100%", height: "100%", fontSize: "100%" }} />
           </Link>
         </div>
