@@ -68,7 +68,7 @@ function App() {
             <Route exact path="/sectionII" element={<SectionII />} />
             <Route exact path="/sectionIII" element={<SectionIII />} />
             <Route exact path="/sectionIV" element={<SectionIV />} />
-            <Route exact path="/welcome" element={<Welcome />} />
+            {/* <Route exact path="/welcome" element={<Welcome />} /> */}
             
 
             <Route exact path="/product" element={<SpecHead />} />
