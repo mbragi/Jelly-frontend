@@ -244,7 +244,7 @@ function Home() {
       <div className='accessories-div resize-max'>
         <div className='accessories-header'>
           <p className='accessories-title'>Accessories</p>
-          <Link to = '/shop' style={{width: '20%', height: '15%'}}>
+          <Link to = '/shop' style={{width: '36%', height: '15%'}}>
             <Button content="View More" style={{ width: "100%", height: "100%", fontSize: "100%" }} />
           </Link>
         </div>
@@ -261,7 +261,7 @@ function Home() {
                 <Zoom direction="up">
                   <img src={product.img} alt={product.name} className='accessories-slider-item-image' />
                 </Zoom>
-                <Button onClick={() => { addToCart(product, fetchData) }} content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
+                <Button onClick={() => { addToCart(product, fetchData) }} content="Add to Cart" style={{ width: "100%", height: "15%", fontSize: "100%" }} />
               </div>
             ))
           }

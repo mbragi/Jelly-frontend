@@ -127,7 +127,7 @@ function Products() {
               <input type="range" className='price-range' value={priceFilter} min={0} max={1000} onInput={filterPrice} />
               <div className='price'>
                 <p><span>Price</span>: $0.00 - ${priceFilter}.00</p>
-                <Button content="Filter" style={{ borderRadius: "10px" }} onClick={() => { getCurrentProducts() }} />
+                <Button content="Filter" style={{ borderRadius: "10px", height:'50px' }} onClick={() => { getCurrentProducts() }} />
               </div>
             </div>
 
