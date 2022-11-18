@@ -1,0 +1,35 @@
+[
+  {
+    "_id": 1,
+    "img": "4.jpg",
+    "name": "option_one"
+  },
+  {
+    "_id": 2,
+    "img": "3.jpg",
+    "name": "option_two"
+  },
+  {
+    "_id": 3,
+    "img": "3.jpg",
+    "name": "option_three"
+  },
+
+  {
+    "_id": 4,
+    "img": "4.jpg",
+    "name": "option_four"
+  },
+
+  {
+    "_id": 5,
+    "img": "4.jpg",
+    "name": "option_five"
+  },
+
+  {
+    "_id": 6,
+    "img": "4.jpg",
+    "name": "option_six"
+  }
+]

@@ -7,10 +7,16 @@ import Product from '../../components/product/Product';
 import Pagination from '../../components/pagination/Pagination';
 import Footer from '../../components/footer/Footer';
 import Category from '../../components/category/Category';
+import MobileBar from '../../components/mobileBar/MobileBar';
+import axios from 'axios';
+import {useGlobalContext} from '../../context';
+import LoginPage from '../login/LoginPage';
+import RegisterPage from '../register/RegisterPage';
+import Welcome from '../../components/welcome/Welcome';
 
 
 function Products() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([])
   const [categories, setCategories] = useState([])
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,26 +26,26 @@ function Products() {
 
   const productsPerPage = 8;
 
-  function getCurrentProducts(gottenProducts){
+  function getCurrentProducts(gottenProducts) {
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    setCurrentProducts(gottenProducts ? 
+    setCurrentProducts(gottenProducts ?
       gottenProducts.filter((product) => (
-      parseInt(product.price) <= priceFilter
-      )).slice(indexOfFirstProduct, indexOfLastProduct) 
-      : 
+        parseInt(product.price) <= priceFilter
+      )).slice(indexOfFirstProduct, indexOfLastProduct)
+      :
       products.filter((product) => (
         parseInt(product.price) <= priceFilter
-        )).slice(indexOfFirstProduct, indexOfLastProduct)
+      )).slice(indexOfFirstProduct, indexOfLastProduct)
     );
 
-    setTotalProducts(gottenProducts ? 
+    setTotalProducts(gottenProducts ?
       gottenProducts.filter((product) => (
-      parseInt(product.price) <= priceFilter
-      )).length 
-      : 
+        parseInt(product.price) <= priceFilter
+      )).length
+      :
       products.filter((product) => (
-      parseInt(product.price) <= priceFilter
+        parseInt(product.price) <= priceFilter
       )).length);
     // console.log(products.filter((product) => (
     //   parseInt(product.price) <= priceFilter
@@ -52,18 +58,18 @@ function Products() {
 
     const fetchData = async () => {
       setLoading(true);
-      const res = await fetch(`${BASE_URL}/category`)
-      const data = await res.json()
+      const res = await axios.get(`${BASE_URL}/api/category`)
+      const data = await res.data
       const category = data.Cdata
       const product = data.Pdata
       setCategories(category)
       setProducts(product);
-      //console.log(category);
-      //console.log(product);
-      
+      // console.log(category);
+      // console.log(product);
+
       setTotalProducts(product.length);
-      setLoading(false);
       getCurrentProducts(product);
+      setLoading(false);
     };
     fetchData();
   }, []);
@@ -72,18 +78,23 @@ function Products() {
     getCurrentProducts();
   }, [currentPage]);
 
-  
+
   // console.log(currentProducts);
 
-  function filterPrice(event){
+  function filterPrice(event) {
     event.preventDefault();
     const { value } = event.target;
     setPriceFilter(value);
   }
 
+  const {isLogin, switchpop, isSignUp} = useGlobalContext();
+
   return (
     <div className='container'>
       <NavBar currentPage="shop" />
+      {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
+      <MobileBar />
+
       <div className='products-page'>
 
         <div className='product-header'>
@@ -116,7 +127,7 @@ function Products() {
               <input type="range" className='price-range' value={priceFilter} min={0} max={1000} onInput={filterPrice} />
               <div className='price'>
                 <p><span>Price</span>: $0.00 - ${priceFilter}.00</p>
-                <Button content="Filter" style={{ borderRadius: "10px" }} onClick={() => {   getCurrentProducts() }} />
+                <Button content="Filter" style={{ borderRadius: "10px", height:'50px' }} onClick={() => { getCurrentProducts() }} />
               </div>
             </div>
 
@@ -127,7 +138,6 @@ function Products() {
             {loading ? <h1>Loading...</h1> :
               currentProducts.map((product, index) => {
 
-                // console.log(product)
                 return (
                   < Product key={index} product={product} />
                 )

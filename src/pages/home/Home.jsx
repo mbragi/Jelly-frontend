@@ -3,14 +3,26 @@ import NavBar from "../../components/navBar/NavBar";
 // import intro from "../../assets/intro.mp4";
 import bike from "../../assets/512.png";
 import turnSignal from "../../assets/turn-signal.jpg";
+import target from "../../assets/images/target.png";
+import eye from "../../assets/images/eye.png";
 import Button from "../../components/button/Button";
 import Footer from '../../components/footer/Footer';
 import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
-//import { addToCart, removeFromCart } from '../../helpers/cart';
-import { addToCart } from '../../helpers/cart';
+// import { addToCart, removeFromCart } from '../../helpers/cart';
+// import { addToCart } from '../../helpers/cart';
+import MobileBar from '../../components/mobileBar/MobileBar';
+import LoginPage from '../login/LoginPage';
+import RegisterPage from '../register/RegisterPage';
+import founders from './founders.json'
+import axios from 'axios';
+import Welcome from '../../components/welcome/Welcome';
+import { useGlobalContext } from '../../context'
+import { Link } from 'react-router-dom'
+    // console.log(loading)
+ 
 
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
@@ -20,60 +32,114 @@ function Home() {
   const [totalProducts, setTotalProducts] = useState(0);
   const [productsPerPage, setProductsPerPage] = useState(0);
   const [distance, setDistance] = useState(500);
-
+  const [changeAbout, setChangeAbout] = useState(1);
+  const [aboutStyles, setAboutStyles] = useState([
+    {
+      content: 0,
+      backgroundColor: '#D9D9D9',
+      boxShadow: 'none',
+      cursor: 'pointer'
+    },
+    {
+      content: 1,
+      backgroundColor: 'white',
+      boxShadow: '0px 4px 22px 0px #00000054',
+      cursor: 'pointer'
+    },
+    {
+      content: 2,
+      backgroundColor: '#D9D9D9',
+      boxShadow: 'none',
+      cursor: 'pointer'
+    }
+  ])
   const featuresArray = ["512.png", "bike.jpg"];
   
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  function pageResized(){
-    if(window.innerWidth > 1000) setProductsPerPage(3);
-    if((window.innerWidth <= 1000) && (window.innerWidth >= 500)) setProductsPerPage(2);
-    if(window.innerWidth < 500) setProductsPerPage(1);
+  function pageResized() {
+    if (window.innerWidth > 1000) setProductsPerPage(3);
+    if ((window.innerWidth <= 1000) && (window.innerWidth >= 500)) setProductsPerPage(2);
+    if (window.innerWidth < 500) setProductsPerPage(1);
   }
   window.addEventListener('resize', pageResized);
 
   // const URL = process.env.REACT_APP_SERVER_URL
-  
-    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
-    const fetchData = async () => {
-      setLoading(true);
-      const res = await fetch(`${BASE_URL}/category`)
-      const data = await res.json()
-      //const category = data.Cdata
-      const product = data.Pdata
-      // setCategories(category)
-      // console.log(product)
-      setProducts(product);
-      // console.log(category);
-  
+  const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+
+  const fetchData = async () => {
+    setLoading(true);
+    const res = await axios.get(`${BASE_URL}/api/category`)
+    let data = res.data
+    console.log(res);
+    //const category = data.Cdata
+    const product = data.Pdata
+    // setCategories(category)
+    setProducts(product);
+    setTotalProducts(product.length);
+    setLoading(false);
+    // getCurrentProducts(product);
+
+    //remove this after using i have to do this to avoid build errors
+    // console.log(loading)
+  };
+
+
+  const about_array = [
+    {
+      name: "World of evTop",
+      content: "Refer friends and get upto Rs. 5000/-OFF on final price Jelly App connected| Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes"
+    },
+    {
+      name: "Our Mission",
+      content: "Refer friends and get upto Rs. 5000/-OFF on final price Jelly App connected| Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes"
+    },
+    {
+      name: "Our Vision",
+      content: "Refer friends and get upto Rs. 5000/-OFF on final price Jelly App connected| Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes"
+    }
+  ]
+  const transform = (e) =>{
+    const transformArray = aboutStyles.map((item) => (
+      parseInt(e.currentTarget.id) === item.content ? {...item, backgroundColor: "white", boxShadow: "0px 4px 22px 0px #00000054"} :  {...item, backgroundColor: '#D9D9D9', boxShadow: 'none' }
+    ))
+    setAboutStyles(transformArray)
+  }
+  const about_change = (e) => {
+    if(parseInt(e.currentTarget.id) === 0){
+      setChangeAbout(0);
+      transform(e);
+    }
+    else if(parseInt(e.currentTarget.id) === 1){
+      setChangeAbout(1)
+      transform(e);
+    }
+    else if(parseInt(e.currentTarget.id) === 2){
+      setChangeAbout(2);
+      transform(e);
+    }
+    else{return;}
+  }
+
+  function getQuantity(_id) {
+    let cart = localStorage.getItem('cart');
+
+    if (cart) {
+      cart = JSON.parse(cart);
+      let cartProduct = cart.find((product) => product._id === _id);
       
-      setTotalProducts(product.length);
-      setLoading(false);
-      // getCurrentProducts(product);
-
-      //remove this after using i have to do this to avoid build errors
-      console.log(loading)
-    };
-
-    function getQuantity(_id){
-      let cart = localStorage.getItem('cart');
-    
-      if(cart){
-        cart = JSON.parse(cart);
-        let cartProduct = cart.find((product) => product._id === _id);
-        
-        if(cartProduct) return <span className="item-quantity-in-cart">{cartProduct.quantity}</span>;
-        return '';
-      }
+      if (cartProduct) return <span className="item-quantity-in-cart">{cartProduct.quantity}</span>;
+      return '';
+    }
   }
 
   useEffect(() => {
     fetchData();
     pageResized();
   }, []);
-
+  
   const prev = () => {
     setFeaturesIndex(featuresIndex => {
       if (featuresIndex === 0) return featuresArray.length - 1;
@@ -86,7 +152,7 @@ function Home() {
       return featuresIndex + 1;
     })
   }
-
+  
   const accessoriesPrev = () => {
     if (currentPage > 1) setCurrentPage(currentPage => currentPage - 1);
   }
@@ -94,13 +160,21 @@ function Home() {
     const numberOfPages = Math.ceil(totalProducts / productsPerPage);
     if (currentPage < numberOfPages) setCurrentPage(currentPage => currentPage + 1);
   }
-
+  
+  const {isLogin} = useGlobalContext()
+  const {switchpop, addToCart, isSignUp} = useGlobalContext();
+  // const obj = {};
+  // if(Object.keys(obj).length === 0 && obj.constructor === Object){
+  //   alert("jjjj")
+  // }
   return (
     <div className='cntainer'>
 
       <NavBar currentPage="home" />
+      {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
+      <MobileBar />
       <div className="imgcontainer resize-max">
-        <img src={bike} alt="evtop"  className = 'evtopimg'/>
+        <img src={bike} alt="evtop" className='evtopimg' />
       </div>
 
       <div className='features-div'>
@@ -162,7 +236,7 @@ function Home() {
             <p className='promo-desc'>
               Refer friends and get upto Rs. 5000/- OFF on final price Jelly App connected | Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes
             </p>
-            <Button content="Buy Now" style={{width: '100%', height: '50px'}} />
+            <Button content="Buy Now" style={{ width: '100%', height: '50px' }} />
           </div>
         </div>
       </div>
@@ -170,7 +244,9 @@ function Home() {
       <div className='accessories-div resize-max'>
         <div className='accessories-header'>
           <p className='accessories-title'>Accessories</p>
-          <Button content="View More" style={{ width: "20%", height: "15%", fontSize: "100%" }} />
+          <Link to = '/shop' style={{width: '36%', height: '15%'}}>
+            <Button content="View More" style={{ width: "100%", height: "100%", fontSize: "100%" }} />
+          </Link>
         </div>
 
 
@@ -185,7 +261,7 @@ function Home() {
                 <Zoom direction="up">
                   <img src={product.img} alt={product.name} className='accessories-slider-item-image' />
                 </Zoom>
-                <Button onClick={() => { addToCart(product, fetchData) }} content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
+                <Button onClick={() => { addToCart(product, fetchData) }} content="Add to Cart" style={{ width: "100%", height: "15%", fontSize: "100%" }} />
               </div>
             ))
           }
@@ -193,6 +269,82 @@ function Home() {
           <BiChevronRightCircle size={50} className='icon' onClick={() => { accessoriesNext() }} />
 
         </div>
+      </div>
+
+      <div className='about-us'>
+        <div className='about-us-header'>
+          <h1>Our Mission & Vision</h1>
+        </div>
+
+        <div className='mission-vision'>
+          <div className='world-of-jelly' onClick = {about_change} style = {aboutStyles[0]} id = {0}>
+            <h1 style = {{fontSize: '1.6rem', color: 'blue', textAlign: 'center'}}><i>evTop</i></h1>
+            <p>World of evTop</p>
+          </div>
+
+          <div className='our-mission' onClick = {about_change} style = {aboutStyles[1]} id = {1}>
+            <img src={target} alt="" />
+            <p>Our Mission</p>
+          </div>
+
+          <div className='our-vision' onClick = {about_change} style = {aboutStyles[2]} id = {2}>
+            <img src={eye} alt="" />
+            <p>Our Vision</p>
+          </div>
+
+        </div>
+
+        <div className='mission'>
+          <h1> {about_array[changeAbout].name}</h1>
+          <p>{about_array[changeAbout].content}</p>
+        </div>
+
+        <div className='our-awesome-team'>
+          <div className='our-awesome-team-header'>
+            <h1>Our Awesome Team</h1>
+          </div>
+
+          <p> PRESENTING THE MINDS BEHIND EVTOP. A UNIFIED TEAM OF EXPERTS WHO ARE PASSIONATELY DRIVEN BY THE CONCEPT OF SMART SOLUTIONS, BRINGING NEW ENERGY PRODUCT DESIGNED FOR THE INDIAN TERRAIN. THEY ENSURE THAT COMFORT AND STYLE GO HAND-IN-HAND.</p>
+        </div>
+
+        <div className='founder'>
+          <div className='founder-details-box'>
+            <div className='founder-image'>
+              <img src={turnSignal} alt="" />
+            </div>
+            <h1>XXXXXXXXX Name</h1>
+            <p>FOUNDER</p>
+          </div>
+
+          <div className='founder-voice'>
+            <h1>Founder Voice</h1>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea minus itaque nostrum obcaecati vero in numquam quaerat tempore, rerum voluptates doloribus quasi molestias! Consequuntur illo quidem eos velit, quisquam ea.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi eos, earum temporibus dignissimos tempora qui suscipit praesentium hic debitis iure ducimus. Exercitationem, dicta non quos nihil laborum nulla quo nemo.
+            </p>
+          </div>
+
+        </div>
+
+        <div className='team-details-container'>
+          {
+            founders.map((founder, index) => (
+              <React.Fragment key={index}>
+                <div className='team-details-box'>
+                  <div className='team-details-image'>
+                    <img src={turnSignal} alt={founder.name} />
+                  </div>
+                  <h2 className='team-name'>{founder.name}</h2>
+                  <p className="team-position">{founder.position}</p>
+            
+                  <Button content="View Details" style={{ height: '50px', borderRadius:'0px' }} />
+                </div>
+            
+              </React.Fragment>
+            ))
+          }
+        </div>
+
       </div>
 
       <Footer />
