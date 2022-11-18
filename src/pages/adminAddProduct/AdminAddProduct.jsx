@@ -189,7 +189,7 @@ function AdminAddProduct() {
                                                     <>
                                                         <img src={sub.option_one || ""} alt="" className="usi" />
                                                     </> :
-                                                    <h5 className='usi'>Upload Sub Image</h5>
+                                                    <h5 className='usih1'>Upload Sub Image</h5>
                                             }
                                         </label>
                                     </div>
@@ -217,7 +217,7 @@ function AdminAddProduct() {
                                                     <>
                                                         <img src={sub.option_two || ""} alt="" className="usi" />
                                                     </> :
-                                                    <h5 className='usi'>Upload Sub Image</h5>
+                                                    <h5 className='usih1'>Upload Sub Image</h5>
                                             }
                                         </label>
                                     </div>
@@ -245,7 +245,7 @@ function AdminAddProduct() {
                                                     <>
                                                         <img src={sub.option_three || ""} alt="" className="usi" />
                                                     </> :
-                                                    <h5 className='usi'>Upload Sub Image</h5>
+                                                    <h5 className='usih1'>Upload Sub Image</h5>
                                             }
                                         </label>
                                     </div>
@@ -273,7 +273,7 @@ function AdminAddProduct() {
                                                     <>
                                                         <img src={sub.option_four || ""} alt="" className="usi" />
                                                     </> :
-                                                    <h5 className='usi'>Upload Sub Image</h5>
+                                                    <h5 className='usih1'>Upload Sub Image</h5>
                                             }
                                         </label>
                                     </div>
@@ -301,7 +301,7 @@ function AdminAddProduct() {
                                                     <>
                                                         <img src={sub.option_five || ""} alt="" className="usi" />
                                                     </> :
-                                                    <h5 className='usi'>Upload Sub Image</h5>
+                                                    <h5 className='usih1'>Upload Sub Image</h5>
                                             }
                                         </label>
                                     </div>
@@ -329,7 +329,7 @@ function AdminAddProduct() {
                                                     <>
                                                         <img src={sub.option_six || ""} alt="" className="usi" />
                                                     </> :
-                                                    <h5 className='usi'>Upload Sub Image</h5>
+                                                    <h5 className='usih1'>Upload Sub Image</h5>
                                             }
                                         </label>
                                     </div>
@@ -384,17 +384,17 @@ function AdminAddProduct() {
                                 <div className='dif-colours'>
                                     <div className='diff-colours'>
                                         <h1>COLOURS
-                                            <span className='add-colours'> Add <Button type={'submit'} content={'+'} style={{ backgroundColor: 'blue', width: '35px', height: '35px', fontSize: '20px' }} />
+                                            <span className='add-colours'> Add <Button className="add-color-btn" type={'submit'} content={'+'} style={{  width: '30px', height: '30px', fontSize:'1.4rem', borderRadius:"100%", cursor:'pointer', padding:"0",boxShadow:'none', backgroundColor:"blue", color:"white" }}  />
                                             </span>
                                         </h1>
 
                                         <div className='available-colors'>
                                             <div className='black'>
-                                                <Button type={'submit'} style={{ backgroundColor: 'black', width: '30px', height: '30px' }} />
+                                                <button type={'submit'} style={{ backgroundColor: 'black', width: '30px', height: '30px' }} />
                                             </div>
 
                                             <div className='blue'>
-                                                <Button type={'submit'} style={{ backgroundColor: 'blue', width: '30px', height: '30px' }} />
+                                                <button type={'submit'} style={{ backgroundColor: 'blue', width: '30px', height: '30px' }} />
                                             </div>
                                         </div>
                                     </div>
