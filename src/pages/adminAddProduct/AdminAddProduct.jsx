@@ -151,13 +151,14 @@ function AdminAddProduct() {
                                         backgroundColor: '#FFFFFF',
                                         boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
                                         objectFit: 'contain',
-                                        padding: '5px'
+                                        padding: '5px',
+                                        zIndex:'2'
                                     }} />
                                 </label>
                                 {
                                     vid ?
                                         <>
-                                            <img src={all.img} alt="" className="umi" />
+                                            <img src={all.img} alt="" className="umi-img" style={{width:'100%', height:'90%'}}/>
                                         </> :
                                         <h1 className='umi'>Upload Main Image</h1>
                                 }
@@ -438,7 +439,7 @@ function AdminAddProduct() {
                         <Button className='admin-add-btn' content={'Submit'} type="submit" style={{
                             backgroundColor: ' rgba(53, 112, 236, 0.67)',
                             borderRadius: '8px',
-                            width: '180px',
+                            width: '200px',
                             height: '60px'
                         }}
                             onClick={httpCreateProduct}
@@ -457,7 +458,7 @@ export const Video = ({ onChange, url }) => {
     return (
         <div className='attached-video' >
             <h1>ATTACHED VIDEO</h1>
-            <video src={url || ''} autoPlay className='att-video'>
+            <video src={url || ''} autoPlay className='att-video' controls style={{width:'100%', backgroundColor:'black'}}>
             </video>
 
             <button type='file' style={{ cursor: 'pointer', background: " rgb(53, 112, 236)", height: '2rem', width: '6rem', float: "right", border: 'none', marginTop: '5px' }}>

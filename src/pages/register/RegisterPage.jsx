@@ -56,7 +56,7 @@ function RegisterPage() {
             <div className='register-container'>
 
                 <div className='cancel-button'>
-                    <Button content='X' style={{ width: '50px', borderRadius: '25px', height: '35px', fontSize: '1rem' }} onClick = {() => {setIsLogin(false)}}/>
+                    <Button content='X' style={{ width: '60px', borderRadius: '30px', height: '50px' }} onClick = {() => {setIsLogin(false)}}/>
                 </div>
 
                 <div className='register-page'>

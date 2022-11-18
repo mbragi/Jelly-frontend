@@ -35,11 +35,11 @@ export default function NavBar({ currentPage }) {
     setShow(!show);
   }
   const { setIsLogin } = useGlobalContext()
-
+  
+  // To make the scroll smooth and return to top of page always
 
   function ScrollToTop() {
     const { pathname } = useLocation();
-
     useEffect(() => {
       window.scrollTo({
         top: 0,
@@ -47,7 +47,6 @@ export default function NavBar({ currentPage }) {
         behavior: 'smooth', 
       });
     }, [pathname]);
-
     return null;
   }
 
@@ -102,19 +101,13 @@ export default function NavBar({ currentPage }) {
             <img src={menu} alt="menu" className='menu' onClick={shower} />
             <div className={show ? 'links show' : 'links'}>
               <p onClick={shower} style={{ cursor: 'pointer' }} className='exit'><MdCancel size={35} /></p>
-
-              <Link to='/' className='link home-link' style={page("home")} onClick={ScrollToTop()} >Home</Link>
-
-              <Link to='/video' className='link' style={page("video")} onClick={ScrollToTop()} >Video</Link>
-
-              <Link to="/shop" className='link' style={page("shop")} onClick={ScrollToTop()} >Shop</Link>
-
-              {/* <Link to="/product" className='link' style={page("products")}>Product</Link> */}
               
+              <Link to='/' className='link home-link' style={page("home")} onClick={ScrollToTop()}  >Home</Link>
+              <p className='link' About Us style={page("about")} onClick={ScrollToTop()} >Video</p>
+              <Link to="/shop" className='link' style={page("shop")} onClick={ScrollToTop()} >Shop</Link>
+              {/* <Link to="/product" className='link' style={page("products")}>Product</Link> */}
               <Link to="/contact" className='link' style={page("contact")} onClick={ScrollToTop()} >Contact us</Link>
-
-              <Link to='/faq' className='link' style={page("faq")} onClick={ScrollToTop()} >FAQ</Link>
-
+              <p className='link' style={page("faq")} onClick={ScrollToTop()} >FAQ</p>
               <Link to='/cart' className='link cart-container'>
                 <p className='cart-quantity'>{cart}</p>
                 <IoMdCart size={30} color="black" />
