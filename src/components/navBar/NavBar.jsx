@@ -35,13 +35,11 @@ export default function NavBar({ currentPage }) {
     setShow(!show);
   }
   const { setIsLogin } = useGlobalContext()
-
   
   // To make the scroll smooth and return to top of page always
 
   function ScrollToTop() {
     const { pathname } = useLocation();
-  
     useEffect(() => {
       window.scrollTo({
         top: 0,
@@ -49,7 +47,6 @@ export default function NavBar({ currentPage }) {
         behavior: 'smooth', 
       });
     }, [pathname]);
-  
     return null;
   }
 
@@ -104,6 +101,7 @@ export default function NavBar({ currentPage }) {
             <img src={menu} alt="menu" className='menu' onClick={shower} />
             <div className={show ? 'links show' : 'links'}>
               <p onClick={shower} style={{ cursor: 'pointer' }} className='exit'><MdCancel size={35} /></p>
+              
               <Link to='/' className='link home-link' style={page("home")} onClick={ScrollToTop()}  >Home</Link>
               <p className='link' About Us style={page("about")} onClick={ScrollToTop()} >Video</p>
               <Link to="/shop" className='link' style={page("shop")} onClick={ScrollToTop()} >Shop</Link>
@@ -114,6 +112,7 @@ export default function NavBar({ currentPage }) {
                 <p className='cart-quantity'>{cart}</p>
                 <IoMdCart size={30} color="black" />
               </Link>
+
               <span className='borrowed-link align'>
                 <FaSearchLocation size={15} color="rgba(203, 182, 182)" className="icon" />
                 <span>Store Locator</span>
