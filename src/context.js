@@ -4,6 +4,7 @@ const AppContext = React.createContext()
 
 const AppProvider = ({children}) => {
     const [isLogin, setIsLogin] = useState(false)
+    const [isSignUp, setIsSignUp] = useState(false)
     const [switchpop, setSwitch] = useState(false);
     const [login_cart, setLoginCart] = useState({})
     const [dailyUsers, setDaliyUsers] = useState();
@@ -34,7 +35,7 @@ const AppProvider = ({children}) => {
     }
 
     useEffect(() => {
-        axios.get(`https://sheet.best/api/sheets/7b8852da-3445-4feb-9257-4f0b31d111ac`)
+        axios.get(`https://sheet.best/api/sheets/0614ab8c-47b8-48f1-8073-7fd2d1738fb5`)
         .then((res) => {
             setDaliyUsers(res.data[17].ConfigurationOptions)
         })
@@ -46,7 +47,8 @@ const AppProvider = ({children}) => {
             isLogin,setIsLogin,
             switchpop,setSwitch,
             login_cart,setLoginCart, addToCart,
-            dailyUsers
+            dailyUsers,
+            isSignUp, setIsSignUp
             }}>
         {children}
     </AppContext.Provider>

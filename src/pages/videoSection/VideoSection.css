@@ -1,3 +1,7 @@
+.video-section{
+    margin-top: 100px;
+}
+
 .video-header video{
    background-color: black;
 }
@@ -9,8 +13,6 @@
     font-size: 1.5rem;
 
 }
-
-
 
 .latest-views-likes{
     margin-bottom: 30px;

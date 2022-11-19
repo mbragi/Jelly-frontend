@@ -18,6 +18,7 @@ import LoginPage from '../login/LoginPage';
 import RegisterPage from '../register/RegisterPage';
 import founders from './founders.json'
 import axios from 'axios';
+import Welcome from '../../components/welcome/Welcome';
 import { useGlobalContext } from '../../context'
 import { Link } from 'react-router-dom'
     // console.log(loading)
@@ -161,7 +162,7 @@ function Home() {
   }
   
   const {isLogin} = useGlobalContext()
-  const {switchpop, addToCart} = useGlobalContext();
+  const {switchpop, addToCart, isSignUp} = useGlobalContext();
   // const obj = {};
   // if(Object.keys(obj).length === 0 && obj.constructor === Object){
   //   alert("jjjj")
@@ -170,7 +171,7 @@ function Home() {
     <div className='cntainer'>
 
       <NavBar currentPage="home" />
-      {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
+      {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
       <MobileBar />
       <div className="imgcontainer resize-max">
         <img src={bike} alt="evtop" className='evtopimg' />
@@ -243,7 +244,7 @@ function Home() {
       <div className='accessories-div resize-max'>
         <div className='accessories-header'>
           <p className='accessories-title'>Accessories</p>
-          <Link to = '/shop' style={{width: '20%', height: '15%'}}>
+          <Link to = '/shop' style={{width: '36%', height: '15%'}}>
             <Button content="View More" style={{ width: "100%", height: "100%", fontSize: "100%" }} />
           </Link>
         </div>
@@ -260,7 +261,7 @@ function Home() {
                 <Zoom direction="up">
                   <img src={product.img} alt={product.name} className='accessories-slider-item-image' />
                 </Zoom>
-                <Button onClick={() => { addToCart(product, fetchData) }} content="Add to Cart" style={{ width: "90%", height: "15%", fontSize: "100%" }} />
+                <Button onClick={() => { addToCart(product, fetchData) }} content="Add to Cart" style={{ width: "100%", height: "15%", fontSize: "100%" }} />
               </div>
             ))
           }

@@ -23,6 +23,7 @@ import SectionI from "./pages/sectionI/SectionI";
 import SectionII from "./pages/sectionII/SectionII";
 import SectionIII from "./pages/sectionIII/SectionIII";
 import SectionIV from "./pages/sectionIV/SectionIV";
+// import Welcome from "./components/welcome/Welcome";
 
 function App() {
   return (

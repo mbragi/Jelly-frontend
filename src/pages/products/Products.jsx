@@ -12,6 +12,7 @@ import axios from 'axios';
 import {useGlobalContext} from '../../context';
 import LoginPage from '../login/LoginPage';
 import RegisterPage from '../register/RegisterPage';
+import Welcome from '../../components/welcome/Welcome';
 
 
 function Products() {
@@ -86,12 +87,12 @@ function Products() {
     setPriceFilter(value);
   }
 
-  const {isLogin, switchpop} = useGlobalContext();
+  const {isLogin, switchpop, isSignUp} = useGlobalContext();
 
   return (
     <div className='container'>
       <NavBar currentPage="shop" />
-      {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
+      {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
       <MobileBar />
 
       <div className='products-page'>
@@ -126,7 +127,7 @@ function Products() {
               <input type="range" className='price-range' value={priceFilter} min={0} max={1000} onInput={filterPrice} />
               <div className='price'>
                 <p><span>Price</span>: $0.00 - ${priceFilter}.00</p>
-                <Button content="Filter" style={{ borderRadius: "10px" }} onClick={() => { getCurrentProducts() }} />
+                <Button content="Filter" style={{ borderRadius: "10px", height:'50px' }} onClick={() => { getCurrentProducts() }} />
               </div>
             </div>
 
@@ -137,7 +138,6 @@ function Products() {
             {loading ? <h1>Loading...</h1> :
               currentProducts.map((product, index) => {
 
-                console.log(currentProducts)
                 return (
                   < Product key={index} product={product} />
                 )

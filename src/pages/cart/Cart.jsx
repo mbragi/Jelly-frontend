@@ -10,6 +10,7 @@ import { decreaseQuantity } from '../../helpers/cart';
 import MobileBar from '../../components/mobileBar/MobileBar';
 import { useGlobalContext } from '../../context';
 import LoginPage from '../login/LoginPage';
+import Welcome from '../../components/welcome/Welcome';
 import RegisterPage from '../register/RegisterPage';
 
 function Cart() {
@@ -31,12 +32,12 @@ function Cart() {
         calculateCartTotal();
     }, []);
 
-    const { addToCart, isLogin, switchpop } = useGlobalContext();
+    const { addToCart, isLogin, switchpop, isSignUp } = useGlobalContext();
 
     return (
         <div className='cart'>
             <NavBar />
-            {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
+            {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
             <MobileBar />
             <h1 className='cart-header'>Cart</h1>
 

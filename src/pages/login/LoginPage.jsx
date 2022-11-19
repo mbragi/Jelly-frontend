@@ -31,13 +31,14 @@ function LoginPage() {
         localStorage.setItem('auth', JSON.stringify({ token: true }))
         let message = request.data.message
         setMessage(message)
-        setLoading(!loading)
+        setLoading(true)
         if (res.isAdmin === false) {
             setLoginCart(res)
         } else {
             navigate('/admin')
         }
         console.log(message)
+        setLoading(false)
     }
     return (
         <div className='overlay'>
@@ -45,7 +46,7 @@ function LoginPage() {
             <div className='login-container'>
 
                 <div className='cancel-button'>
-                    <Button content={'X'} style={{ width: '50px', borderRadius: '30px', height: '40px' }} onClick={() => setIsLogin(false)} />
+                    <Button content={'X'} style={{ width: '60px', borderRadius: '30px', height: '50px', }} onClick={() => setIsLogin(false)} />
                 </div>
 
                 <div className='login-page'>

@@ -11,7 +11,8 @@ function RegisterPage() {
     const [message, setMessage] = useState('')
     const [type, setType] = useState('')
     // const navigate = useNavigate()
-
+    
+    const {setIsLogin, setSwitch, setIsSignUp} = useGlobalContext();
     function sendDetails(event) {
         const { name, value } = event.target
         const newData = { ...data }
@@ -46,13 +47,16 @@ function RegisterPage() {
         // }, 1500)
         // }
     }
-    const {setIsLogin, setSwitch} = useGlobalContext();
+    if(type === "success"){
+        setIsSignUp(true)
+    }else{setIsSignUp(false)}
+    
     return (
         <div className="overlay">
             <div className='register-container'>
 
                 <div className='cancel-button'>
-                    <Button content='X' style={{ width: '50px', borderRadius: '25px', height: '35px', fontSize: '1rem' }} onClick = {() => {setIsLogin(false)}}/>
+                    <Button content='X' style={{ width: '60px', borderRadius: '30px', height: '50px' }} onClick = {() => {setIsLogin(false)}}/>
                 </div>
 
                 <div className='register-page'>
@@ -87,7 +91,7 @@ function RegisterPage() {
 
 
                         <div className='signup-button'>
-                            <Button type={'submit'} content='Sign Up' style={{ width: '100%', height: '50px', borderRadius: '10px' }} />
+                            <Button type={'submit'} content='Sign Up' id = "Sign_up" style={{ width: '100%', height: '50px', borderRadius: '10px' }} />
                         </div>
 
 

@@ -1,5 +1,5 @@
 .product-details-container{
-    width: 85%;
+    width: 88%;
     margin: 0 auto;  
 }
 
@@ -55,6 +55,7 @@
     border-radius: 500px;
     width: 30px;
     height: 30px;
+    cursor: pointer;
     background-color: purple;
 }
 
@@ -62,6 +63,7 @@
     border-radius: 500px;
     width: 30px;
     height: 30px;
+    cursor: pointer;
     background-color: black;
 }
 
@@ -69,8 +71,10 @@
     border-radius: 500px;
     width: 30px;
     height: 30px;
+    cursor: pointer;
     background-color: blue;
 }
+
 
 .add-to-cart {
     display: flex;
@@ -173,8 +177,9 @@
 }
 
 .verified-customer-fb-header span{
-  color: blue;
   font-weight: bolder;
+  display: flex;
+  align-items: center;
 }
 
 .verified-ratings-comments1{

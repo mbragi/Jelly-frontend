@@ -26,6 +26,8 @@
 .cancel-button{
     display: flex;
     justify-content: flex-end;
+    padding: 0 1%;
+
 } 
 
 .register-page-form{
