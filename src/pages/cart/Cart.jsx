@@ -28,6 +28,39 @@ function Cart() {
         setCartTotal(cartSum);
 
     }
+    function cartCheckout(){
+        if(!localStorage.getItem('cart')){
+            //restrict from going to the next page
+        }else{
+            
+            const user_id =JSON.parse(localStorage.getItem('userData'))._id
+            const products = []
+            cart.forEach((product) =>{
+                products.push(
+                    {
+                        product_id: product._id,
+                        product_name: product.name,
+                        quantity:product.quantity,
+                        price: product.price
+                    }
+                )
+            })
+
+            const checkoutData = {
+                user_id,
+                products:[
+                    ...products
+                ],
+                total: cartTotal,
+                sub_total: cartTotal,
+                grand_total:cartTotal,
+                shipping_price: "0.00"
+            }
+
+            console.log(checkoutData)
+           
+        }
+    }
     useEffect(() => {
         calculateCartTotal();
     }, []);
@@ -88,7 +121,7 @@ function Cart() {
                         </div>
 
                         <p className='cart-summary-disclaimer'>
-                            <p className='disclaimer'>Shipping price might change based on your location</p>
+                            <p className='disclaimer' onClick={cartCheckout}>Shipping price might change based on your location</p>
                             <Link to="/checkout">
                                 <Button content="CHECK OUT" style={{ borderRadius: 5 }} className='button' />
                             </Link>
