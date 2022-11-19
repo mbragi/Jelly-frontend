@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Cart.css';
 import NavBar from '../../components/navBar/NavBar';
 import Button from '../../components/button/Button';
@@ -12,10 +13,13 @@ import { useGlobalContext } from '../../context';
 import LoginPage from '../login/LoginPage';
 import Welcome from '../../components/welcome/Welcome';
 import RegisterPage from '../register/RegisterPage';
+import axios from 'axios';
 
 function Cart() {
     const [cart, setCart] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
+    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+    const navigate = useNavigate()
     function calculateCartTotal() {
         if (!localStorage.getItem('cart')) return;
         setCart(JSON.parse(localStorage.getItem('cart')));
@@ -28,7 +32,7 @@ function Cart() {
         setCartTotal(cartSum);
 
     }
-    function cartCheckout(){
+    async function cartCheckout(){
         if(!localStorage.getItem('cart')){
             //restrict from going to the next page
         }else{
@@ -56,8 +60,11 @@ function Cart() {
                 grand_total:cartTotal,
                 shipping_price: "0.00"
             }
+            const request = await axios.post(`${BASE_URL}/api/cart/`, checkoutData)
+            const response = request.data
+            response.success ? navigate('/checkout') : console.log(request.message)
 
-            console.log(checkoutData)
+            //navigate('/checkout')
            
         }
     }
@@ -121,10 +128,10 @@ function Cart() {
                         </div>
 
                         <p className='cart-summary-disclaimer'>
-                            <p className='disclaimer' onClick={cartCheckout}>Shipping price might change based on your location</p>
-                            <Link to="/checkout">
-                                <Button content="CHECK OUT" style={{ borderRadius: 5 }} className='button' />
-                            </Link>
+                            <p className='disclaimer'>Shipping price might change based on your location</p>
+                            {/* <Link to="/checkout">
+                            </Link> */}
+                            <Button content="CHECK OUT" onClick={cartCheckout} style={{ borderRadius: 5 }} className='button' />
                         </p>
 
                     </div>
