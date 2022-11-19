@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import "./Home.css";
 import NavBar from "../../components/navBar/NavBar";
 // import intro from "../../assets/intro.mp4";
 import bike from "../../assets/512.png";
@@ -6,8 +7,6 @@ import turnSignal from "../../assets/turn-signal.jpg";
 import target from "../../assets/images/target.png";
 import eye from "../../assets/images/eye.png";
 import Button from "../../components/button/Button";
-import Footer from '../../components/footer/Footer';
-import "./Home.css";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
@@ -16,12 +15,13 @@ import { Fade, Zoom } from "react-awesome-reveal";
 import MobileBar from '../../components/mobileBar/MobileBar';
 import LoginPage from '../login/LoginPage';
 import RegisterPage from '../register/RegisterPage';
-import founders from './founders.json'
+// import founders from './founders.json'
 import axios from 'axios';
 import Welcome from '../../components/welcome/Welcome';
 import { useGlobalContext } from '../../context'
 import { Link } from 'react-router-dom'
 import ReactCountryFlag from "react-country-flag"
+import Footer from '../../components/footer/Footer';
     // console.log(loading)
  
 
@@ -300,7 +300,7 @@ function Home() {
           <p>{about_array[changeAbout].content}</p>
         </div>
 
-        <div className='our-awesome-team'>
+        {/* <div className='our-awesome-team'>
           <div className='our-awesome-team-header'>
             <h1>Our Awesome Team</h1>
           </div>
@@ -344,7 +344,7 @@ function Home() {
               </React.Fragment>
             ))
           }
-        </div>
+        </div> */}
 
       </div>
       
