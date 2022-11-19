@@ -112,7 +112,7 @@ input[type="file"]{
     gap: 8px;
 }
 
-.avai.pn-sc-inpt, .pn-sc-selct, .pr-qu-selct{
+.pn-sc-inpt, .pn-sc-selct, .pr-qu-selct{
     width: 20vw;
     height: 50px;
     border-radius: 10px;
@@ -147,7 +147,7 @@ input[type="file"]{
     .admin-add-product-container{
         display: grid;
         margin-top: 20px;
-        padding: 3%;
+        padding: 1%;
     }
 
     .admin-add-product-images{
@@ -169,10 +169,14 @@ input[type="file"]{
     }
     
     .pn-sc-inpt, .pn-sc-selct, .pr-qu-selct{
-        width: 85vw;
+        width: 80vw;
         height: 50px;
         border-radius: 10px;
         font-size: 1.3rem;
+    }
+
+    .quantity-det{
+        width: 100%;
     }
     
 }
