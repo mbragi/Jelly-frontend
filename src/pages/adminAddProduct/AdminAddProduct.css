@@ -69,7 +69,7 @@ input[type="file"]{
     /* border: 1px solid black; */
     color: lightgray;
     margin-top: 15px;
-    object-fit: fill;
+    object-fit: contain;
     /* background: #971a1a;   */
 }
 

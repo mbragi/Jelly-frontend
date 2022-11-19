@@ -8,7 +8,7 @@ import eye from "../../assets/images/eye.png";
 import Button from "../../components/button/Button";
 import Footer from '../../components/footer/Footer';
 import "./Home.css";
-import { BiBorderRadius, BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
+import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
 import { Fade, Zoom } from "react-awesome-reveal";
 // import { addToCart, removeFromCart } from '../../helpers/cart';
