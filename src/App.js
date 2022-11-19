@@ -21,6 +21,8 @@ import AdminProducts from "./pages/adminProducts/AdminProducts";
 import AdminAddProduct from "./pages/adminAddProduct/AdminAddProduct";
 import SectionI from "./pages/sectionI/SectionI";
 import SectionII from "./pages/sectionII/SectionII";
+import SectionIIb from "./pages/sectionII/SectionIIb";
+import SectionIIc from "./pages/sectionII/SectionIIc";
 import SectionIII from "./pages/sectionIII/SectionIII";
 import SectionIV from "./pages/sectionIV/SectionIV";
 // import Welcome from "./components/welcome/Welcome";
@@ -66,6 +68,8 @@ function App() {
             </Route> */}
             <Route exact path="/sectionI" element={<SectionI />} />
             <Route exact path="/sectionII" element={<SectionII />} />
+            <Route exact path="/sectionIIb" element={<SectionIIb />} />
+            <Route exact path="/sectionIIc" element={<SectionIIc />} />
             <Route exact path="/sectionIII" element={<SectionIII />} />
             <Route exact path="/sectionIV" element={<SectionIV />} />
             {/* <Route exact path="/welcome" element={<Welcome />} /> */}
