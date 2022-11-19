@@ -1,6 +1,5 @@
 import React from 'react'
-
-import './SectionIIc.css'
+import './AdminSectionIIc.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 import pen from '../../assets/images/pen.png'
 import {BsArrowRight } from 'react-icons/bs';
@@ -193,7 +192,7 @@ function SectionIIc() {
 
                     <div className='sectionIIc-next'>
 
-                    <Link to="/sectionIII" className='sectionIIc-next-link'>
+                    <Link to="/admin/sectionIII" className='sectionIIc-next-link'>
                         <span> Next  </span>
                         <BsArrowRight size={35} color='blue'/>
                     </Link>

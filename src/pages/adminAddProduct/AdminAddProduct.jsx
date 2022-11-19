@@ -416,19 +416,19 @@ function AdminAddProduct() {
                                     <h1>FULL DETAILS</h1>
                                     <div style={{ display: "flex", flexDirection: "row", flexWrap: 'wrap', justifyContent: "space-evenly" }}>
 
-                                        <div className='quantity'>
+                                        <div className='quantity-det'>
                                             <h1>key Features</h1>
                                             <input type="text" name='key_features' className='pn-sc-inpt' onChange={onCreateDetail} />
                                         </div>
-                                        <div className='quantity'>
+                                        <div className='quantity-det'>
                                             <h1>Model</h1>
                                             <input type="text" name='model' className='pn-sc-inpt' onChange={onCreateDetail} />
                                         </div>
-                                        <div className='quantity'>
+                                        <div className='quantity-det'>
                                             <h1>Specifications</h1>
                                             <input type="text" name='specification' className='pn-sc-inpt' onChange={onCreateDetail} />
                                         </div>
-                                        <div className='quantity'>
+                                        <div className='quantity-det'>
                                             <h1>Version</h1>
                                             <input type="text" name='version' className='pn-sc-inpt' onChange={onCreateDetail} />
                                         </div>

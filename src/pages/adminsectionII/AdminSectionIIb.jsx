@@ -1,5 +1,5 @@
 import React from 'react'
-import './SectionIIb.css'
+import './AdminSectionIIb.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 import pen from '../../assets/images/pen.png'
 import {BsArrowRight } from 'react-icons/bs';

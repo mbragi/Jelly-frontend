@@ -1,5 +1,5 @@
 import React from 'react'
-import './SectionII.css'
+import './AdminSectionII.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 // import SectionIIs from './sectionIIs.json'
 import pen from '../../assets/images/pen.png'
@@ -79,7 +79,7 @@ function SectionII() {
                     </section>
 
                     <div className='sectionII-next'>
-                        <Link to="/sectionIIc" className='sectionII-next-link'>
+                        <Link to="/admin/sectionIIc" className='sectionII-next-link'>
                             <span> Next  </span>
                             <BsArrowRight size={35} color='blue'/>
                         </Link>

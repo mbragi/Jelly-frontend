@@ -124,7 +124,7 @@ function ProductDetails() {
 
                         <div className='add-to-cart'>
                             <img src={cart} alt="" />
-                            <Button type={'submit'} content='ADD TO CART' style={{ fontWeight: 'bold' }} onClick={() => { addToCart(product) }} />
+                            <Button type={'submit'} content='ADD TO CART' style={{ fontWeight: 'lighter', width:'200px', color:'white' }} onClick={() => { addToCart(product) }} />
                         </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@ function ProductDetails() {
                                         <h3>P{prod.name}</h3>
                                         <img src={prod.img} alt='' />
                                         <p>{prod.price}</p>
-                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold' }} onClick={() => { navigate(`/details/${prod._id}`) }} />
+                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold',fontSize:'15px' }} onClick={() => { navigate(`/details/${prod._id}`) }} />
                                     </div>
                                 ))
                             }
@@ -177,144 +177,132 @@ function ProductDetails() {
 
 
                     </div>
+
                 </div>
-
-
-                {/* <div className='navigation-bar'>
-                    <NavBar />
-                </div> */}
-                <div className='product-details-container'>
-
-                    
+                
                     
 
-                    <div className='verified-customer-fb'>
-                        <div className='verified-customer-fb-header'>
-                            <h1>Verified Customers Feedback</h1>
+                <div className='verified-customer-fb'>
+                    <div className='verified-customer-fb-header'>
+                        <h1>Verified Customers Feedback</h1>
 
-                           
+                        <span>SEE ALL 
+                            <BiChevronRightCircle size={50} className='icon' position="fixed" color='blue' />       
+                        </span>
 
-                            <span>SEE ALL 
-                                {/* <Button type={'submit'} content='>'  style={{ width: '30%', height: '50px', borderRadius: '100px', backgroundColor: 'blue', color: 'blue' }} />  */}
-                            
-                                 <BiChevronRightCircle size={70} className='icon' position="fixed" color='blue' /> 
-                                 
-                            </span>
+                    </div>
 
-                        </div>
+                    <div className='verified-ratings-comments1'>
 
-                        <div className='verified-ratings-comments1'>
+                        <div className='verified-ratings'>
+                            <h3>VERIFIED RATINGS</h3>
 
-                            <div className='verified-ratings'>
-                                <h3>VERIFIED RATINGS</h3>
-
-                                <div className='verified-ratings-box'>
-                                    <h2>3.5/5</h2>
-                                    <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                    <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                    <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                    <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                    <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-                                    <p>245 verified ratings</p>
-                                </div>
-                            </div>
-                            <div className='comments-from-v-purchases1'>
-                                <h3>COMMENTS FROM VERIFIED PURCHASES</h3>
-                                <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                <p style={{ fontWeight: 'bold' }}>I like it</p>
-                                <p>Simple</p>
-                                <p>15-09-2022</p>
-                            </div>
-                        </div>
-                        <div className='verified-ratings-comments1'>
-                            <div className='verified-ratings'>
-                                <div className='verified-rating-count'>
-                                    <div className='verified-rating-slider'>
-                                        <p> 5
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                        </p>
-                                        <meter min='0' max='100' value='50' ></meter>
-                                    </div>
-                                    <div className='verified-rating-slider'>
-                                        <p>4
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-                                        </p>
-
-                                        <meter min='0' max='100' value='50' ></meter>
-
-                                    </div>
-
-                                    <div className='verified-rating-slider'>
-                                        <p>3
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-                                        </p>
-
-
-                                        <meter min='0' max='100' value='50' ></meter>
-
-
-                                    </div>
-
-                                    <div className='verified-rating-slider'>
-
-                                        <p>2
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-                                        </p>
-
-                                        <meter min='0' max='100' value='50' ></meter>
-
-                                    </div>
-
-                                    <div className='verified-rating-slider'>
-                                        <p>1
-                                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-                                            <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-                                        </p>
-
-
-
-                                        <meter min='0' max='100' value='50' ></meter>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div className='comments-from-v-purchases2'>
+                            <div className='verified-ratings-box'>
+                                <h2>3.5/5</h2>
                                 <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
                                 <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
                                 <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
                                 <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
                                 <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
-                                <p style={{ fontWeight: 'bold' }}>I like it</p>
-                                <p>Simple</p>
-                                <p>15-09-2022</p>
+                                <p>245 verified ratings</p>
                             </div>
-
                         </div>
+                        <div className='comments-from-v-purchases1'>
+                            <h3>COMMENTS FROM VERIFIED PURCHASES</h3>
+                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                            <p style={{ fontWeight: 'bold' }}>I like it</p>
+                            <p>Simple</p>
+                            <p>15-09-2022</p>
+                        </div>
+                    </div>
+                    <div className='verified-ratings-comments1'>
+                        <div className='verified-ratings'>
+                            <div className='verified-rating-count'>
+                                <div className='verified-rating-slider'>
+                                    <p> 5
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                    </p>
+                                    <meter min='0' max='100' value='50' ></meter>
+                                </div>
+                                <div className='verified-rating-slider'>
+                                    <p>4
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
+                                    </p>
+
+                                    <meter min='0' max='100' value='50' ></meter>
+
+                                </div>
+
+                                <div className='verified-rating-slider'>
+                                    <p>3
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
+                                    </p>
+
+
+                                    <meter min='0' max='100' value='50' ></meter>
+
+
+                                </div>
+
+                                <div className='verified-rating-slider'>
+
+                                    <p>2
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
+                                    </p>
+
+                                    <meter min='0' max='100' value='50' ></meter>
+
+                                </div>
+
+                                <div className='verified-rating-slider'>
+                                    <p>1
+                                        <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
+                                        <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
+                                    </p>
+
+
+
+                                    <meter min='0' max='100' value='50' ></meter>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className='comments-from-v-purchases2'>
+                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                            <BsStarFill style={{ color: 'gold', weight: 'fill', fontSize: '19' }} />
+                            <BsStarFill style={{ color: '#c9c9c9', weight: 'fill', fontSize: '19' }} />
+                            <p style={{ fontWeight: 'bold' }}>I like it</p>
+                            <p>Simple</p>
+                            <p>15-09-2022</p>
+                        </div>
+
                     </div>
 
                 </div>
@@ -324,8 +312,8 @@ function ProductDetails() {
                 </div>
 
             </div>
+
         </div>
-        // </div>
 
     )
 }

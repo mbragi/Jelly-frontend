@@ -86,3 +86,21 @@ input[type="file"]{
     letter-spacing: 0em;
 
 }
+
+
+@media screen and (max-width:900px) {
+    
+    .uploaded-image-previewed-here{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .uploaded-image-previewed{
+        padding: 7px 5%;
+        margin-top: 30px;
+        width: 250px;
+    }
+    
+}
+

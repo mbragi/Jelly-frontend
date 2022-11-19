@@ -12,7 +12,7 @@
 .sectionI-container{
     background-color:#FFFFFF;
     box-shadow: 0px 2px 4px 0px #00000040;
-    padding: 20px 2%;
+    padding: 5% 1%;
 }
 
 .umi-sec{
@@ -24,6 +24,8 @@
     letter-spacing: 0.3rem;
 }
 .upload-main-image-sectionI{
+    width: 90%;
+    margin: 0 auto;
     padding: 20px 2%;
     border-radius: 15px;
     border: 0.2px solid #000000;
