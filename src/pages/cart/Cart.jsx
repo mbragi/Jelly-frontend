@@ -98,12 +98,14 @@ function Cart() {
                 </div>
 
             </div>
-            <Link to="/shop" className='continue'>
-                <BsArrowLeft size={30} />
-                <p>
-                    Continue Shopping
-                </p>
-            </Link>
+            <div className="continue-head">
+                <Link to="/shop" className='continue'>
+                    <BsArrowLeft size={30} />
+                    <p>
+                        Continue Shopping
+                    </p>
+                </Link>
+            </div>
 
             <Footer />
         </div>

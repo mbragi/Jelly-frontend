@@ -21,7 +21,7 @@
 
 .know-us-better h1{
     text-align: center;
-    font-size: 4.0rem;
+    font-size: 3rem;
     margin-bottom: 0;
 }
 .phone-email-address{
@@ -81,17 +81,20 @@
     justify-content: space-between;
     margin: 5% 0 30px;
 }
-
+.input-grow{
+    width: 30%;
+}
 .fme-input{
     padding: 15px;
     font-size: 1.5em;
     letter-spacing: 2px;
     border-radius: 10px;
     background-color: #d9d9d971;
-    width:26vw;
+    width: 100%;
     outline: none;
     border: none;
 }
+
 
 .subject input{
     padding: 15px;
@@ -160,5 +163,22 @@
     .subject input{
         margin-bottom: 30px;
     }
+    .input-grow{
+        width: 100%;
+    }
     
+}
+@media(min-width: 1280px){
+    .phone-email-address, .contact-us-header, .contact-page{
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+}
+@media(max-width: 495px){
+    .know-us-better h1{
+        font-size: 2rem;
+    }
+    .input-grow{
+        width: 100%;
+    }
 }

@@ -90,8 +90,8 @@ footer *{
 
 }
 @media(min-width: 1280px){
-    .resize-max{
-        max-width: 90%;
+    .footer{
+        max-width: 1300px;
         margin: 0 auto;
     }
 }

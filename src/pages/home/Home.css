@@ -347,7 +347,7 @@
 .our-partners{
     text-align: center;
     margin-top: 20px;
-    margin-bottom: -20px;
+    margin-bottom: 20px;
     background-color: rgb(65, 160, 130);
     width: 100%;
 }
@@ -373,7 +373,7 @@
 }
 
 .country-flag{
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     display: flex;
     gap: 20px;
@@ -381,8 +381,6 @@
     flex-wrap: wrap;
     margin-bottom: 20px;
 }
-
-
 
 @media screen and (max-width: 720px){
     .intro{
@@ -502,12 +500,20 @@
         max-width: 1300px;
         margin: inherit auto 0;
     }
-    .resize-max{
+    .resize-max, .promo, .our-partners{
         max-width: 1300px;
         margin: 0 auto;
     }
     .about-us{
         max-width: 1100px;
+    }
+    :root{
+        background-color: #f8f9fa;
+    }
+    .white-change{
+        background: white;
+        max-width: 1300px;
+        margin: 0 auto;
     }
 }
 @media(max-width: 495px){
