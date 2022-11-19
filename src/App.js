@@ -19,6 +19,10 @@ import AdminCategory from "./pages/adminCategory/AdminCategory";
 import AdminUsers from "./pages/adminUsers/AdminUsers";
 import AdminProducts from "./pages/adminProducts/AdminProducts";
 import AdminAddProduct from "./pages/adminAddProduct/AdminAddProduct";
+import SectionI from "./pages/sectionI/SectionI";
+import SectionII from "./pages/sectionII/SectionII";
+import SectionIII from "./pages/sectionIII/SectionIII";
+import SectionIV from "./pages/sectionIV/SectionIV";
 
 function App() {
   return (
@@ -61,6 +65,23 @@ function App() {
                 path="/admin/addproduct"
                 element={<AdminAddProduct />}
               />
+            </Route>
+            {/* <Route path='/admin/addcontent' element = {<PrivateRoutes/>}>
+              <Route exact path="/admin/addcontent" element={<AdminAddContent />} />
+            </Route> */}
+            <Route path="/admin/sectionI" element={<PrivateRoutes />}>
+              <Route exact path="/admin/sectionI" element={<SectionI />} />
+            </Route>
+            <Route path="/admin/sectionII" element={<PrivateRoutes />}>
+              <Route exact path="/admin/sectionII" element={<SectionII />} />
+            </Route>
+
+            <Route path="/admin/sectionIII" element={<PrivateRoutes />}>
+              <Route exact path="/admin/sectionIII" element={<SectionIII />} />
+            </Route>
+
+            <Route path="/admin/sectionIV" element={<PrivateRoutes />}>
+              <Route exact path="/admin/sectionIV" element={<SectionIV />} />
             </Route>
 
             <Route exact path="/product" element={<SpecHead />} />

@@ -15,6 +15,7 @@ import Button from '../../components/button/Button';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
+import { useGlobalContext } from '../../context';
 const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
 function AdminDashboard() {
@@ -37,7 +38,7 @@ function AdminDashboard() {
     //   second
     // }
   }, [])
-
+  const {dailyUsers} = useGlobalContext();
   return (
     <AdminFrame currentPage='dashboard'>
       <div className='dashboard'>
@@ -81,7 +82,7 @@ function AdminDashboard() {
               </div>
               <div className='stat-desc'>
                 <span className='stat-title'>Daily visitors</span>
-                <span className='stat-count'>1,500</span>
+                <span className='stat-count'>{dailyUsers}</span>
               </div>
             </div>
 
@@ -119,6 +120,7 @@ function AdminDashboard() {
 
           <div className='stat-chart-container'>
             <div className='stat-chart' style={{ backgroundImage: `url(${websiteViews})` }}></div>
+            {/* <iframe  seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSfcNIB2hshbwNM9AROHxmiTzMjE3pNqp6YHWQHjPjor-q8IoKS1tql-ylNnqqNVQt5Ud0sNQsqo38A/pubchart?oid=378787187&amp;format=interactive" style = {{objectFit:'contain'}}></iframe> */}
             <div className='stat-chart-desc'>
               <h3 className='chart-title'>Website Views</h3>
               <span className='prev-performance'>Last 7 days performance</span>

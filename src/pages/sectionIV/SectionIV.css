@@ -1,0 +1,48 @@
+.sectionIV-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sectionIV-header h1{
+    letter-spacing: 0.1rem;
+}
+
+.sectionIV-container{
+    background-color:#FFFFFF;
+    padding: 20px 2%;
+    padding-top: 0;
+}
+
+.search-sectionIV{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    font-size: 1.5rem;
+}
+.search-sectionIV select{
+    border-radius: 8px;
+    padding: 5px 1%;
+    width: 200px;
+    font-size: 1.3rem;
+}   
+
+.about-details-sectionIV textarea{
+    padding: 10px 2%;
+    font-size: 1.5rem;
+    width: 80%;
+    border-radius: 10px;
+    font-size: 1.5em;
+}
+
+.sectionIV-next{
+    float: right;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: blue;
+    padding: 0px 5%;
+    font-weight: bolder;
+}
