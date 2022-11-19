@@ -5,6 +5,8 @@ import AdminFrame from '../../components/adminFrame/AdminFrame';
 import pen from '../../assets/images/pen.png'
 import {BsArrowRight } from 'react-icons/bs';
 import { CloudArrowUp, Plus } from 'phosphor-react';
+import { Link } from 'react-router-dom';
+
 
 
 function SectionII() {
@@ -77,8 +79,10 @@ function SectionII() {
                     </section>
 
                     <div className='sectionII-next'>
-                        <p> Next</p>
-                        <BsArrowRight size={30} />
+                        <Link to="/sectionIIc" className='sectionII-next-link'>
+                            <span> Next  </span>
+                            <BsArrowRight size={35} color='blue'/>
+                        </Link>
                     </div>
 
                 </div>
