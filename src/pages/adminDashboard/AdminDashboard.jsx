@@ -39,7 +39,8 @@ function AdminDashboard() {
     //   second
     // }
   }, [])
-  const {dailyUsers} = useGlobalContext();
+  const {dailyUsers, previousUsers} = useGlobalContext();
+  const percent = dailyUsers / previousUsers;
   return (
     <AdminFrame currentPage='dashboard'>
       <div className='dashboard'>
@@ -87,7 +88,10 @@ function AdminDashboard() {
               </div>
             </div>
 
-            <p className='bottom-stat'>+3% than yesterday</p>
+            {dailyUsers > previousUsers ?
+              <p className='bottom-stat' style={{color: 'green'}}>+{percent.toFixed()}% than yesterday</p> : 
+              <p className='bottom-stat' style={{color: 'red'}}>-{percent.toFixed()}% than yesterday</p>
+            }
           </div>
 
           <div className='mini-stat'>
@@ -101,7 +105,6 @@ function AdminDashboard() {
                 <span className='stat-count'>1,500</span>
               </div>
             </div>
-
             <p className='bottom-stat'>+3% than yesterday</p>
           </div>
 
