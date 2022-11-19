@@ -1,21 +1,27 @@
-.sectionI-header{
+.sectionIIb-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.sectionI-header h1{
+.sectionIIb-header h1{
     letter-spacing: 0.1rem;
 }
 
-.sectionI-container{
+.sectionIIb-container{
     background-color:#FFFFFF;
     box-shadow: 0px 2px 4px 0px #00000040;
-    padding: 20px 2%;
+    padding: 0 0 5%;
 }
 
-.umi-sec{
+.sectionIIb-add-image{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.umi-secb{
     width: 100%;
     font-size: 3.5rem;
     text-align: center;
@@ -23,13 +29,15 @@
     padding: 80px 0;
     letter-spacing: 0.3rem;
 }
-.upload-main-image-sectionI{
+.upload-Sub-image-sectionIIb{
+    width: 90%;
+    margin: 0 auto;
     padding: 20px 2%;
     border-radius: 15px;
     border: 0.2px solid #000000;
 }
 
-.sectionI-next-link{
+.sectionIIb-next{
     gap: 10px;
     color: blue;
     padding: 0 5%;

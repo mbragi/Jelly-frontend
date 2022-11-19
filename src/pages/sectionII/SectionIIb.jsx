@@ -1,20 +1,16 @@
 import React from 'react'
-import './SectionII.css'
+import './SectionIIb.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
-// import SectionIIs from './sectionIIs.json'
 import pen from '../../assets/images/pen.png'
 import {BsArrowRight } from 'react-icons/bs';
-import { CloudArrowUp, Plus } from 'phosphor-react';
-import { Link } from 'react-router-dom';
+import { CloudArrowUp, X } from 'phosphor-react';
 
-
-
-function SectionII() {
-    return (
-        <div>
-           <AdminFrame currentPage='sectionII'>
-                <div className='sectionII'>
-                    <header className='sectionII-header'>
+function SectionIIb() {
+  return (
+    <div>
+           <AdminFrame currentPage='sectionIIb'>
+                <div className='sectionIIb'>
+                    <header className='sectionIIb-header'>
                         <h1>Section II</h1>
 
                         <button type='file' 
@@ -48,14 +44,13 @@ function SectionII() {
                         </button>
                     </header>
 
-                    <section className='sectionII-container'>
-                        <div className='sectionII-add-image'>
+                    <section className='sectionIIb-container'>
+                        <div className='sectionIIb-add-image'>
+                            <X size={50} color={'white'} style={{backgroundColor:'black', borderRadius:'100%', padding:'10px '}} />
                                
-                                <Plus size={20} style= {{cursor:'pointer'}}/>
-                                <p> Add Image</p>
                         </div>
 
-                        <div className='upload-main-image-sectionII'>
+                        <div className='upload-Sub-image-sectionIIb'>
 
                             <input id='filezz' type="file" name='img' />
                             <label htmlFor="filezz">
@@ -71,25 +66,23 @@ function SectionII() {
                                 }} />
                             </label>
                             {
-                                <h1 className='umi-sec'>Upload Main <br /> Image</h1>
+                                <h1 className='umi-secb'>Upload Sub <br /> Image</h1>
                             }
                         </div>
 
 
                     </section>
 
-                    <div className='sectionII-next'>
-                        <Link to="/sectionIIc" className='sectionII-next-link'>
-                            <span> Next  </span>
-                            <BsArrowRight size={35} color='blue'/>
-                        </Link>
+                    <div className='sectionIIb-next'>
+                        <p> Next</p>
+                        <BsArrowRight size={30} />
                     </div>
 
                 </div>
 
             </AdminFrame>
-        </div>
-    )
+    </div>
+  )
 }
 
-export default SectionII
+export default SectionIIb
