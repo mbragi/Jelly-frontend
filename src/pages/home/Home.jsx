@@ -16,7 +16,7 @@ import { Fade, Zoom } from "react-awesome-reveal";
 import MobileBar from '../../components/mobileBar/MobileBar';
 import LoginPage from '../login/LoginPage';
 import RegisterPage from '../register/RegisterPage';
-import founders from './founders.json'
+// import founders from './founders.json'
 import axios from 'axios';
 import Welcome from '../../components/welcome/Welcome';
 import { useGlobalContext } from '../../context'
