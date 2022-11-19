@@ -85,6 +85,7 @@ function ProductDetails() {
                 <NavBar />
                 {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
             </div>
+            
             <div className='product-details-container'>
                 <div className='product-name'>
                     <div className='product-name-images'>
@@ -307,10 +308,11 @@ function ProductDetails() {
 
                 </div>
 
-                <div className='footer'>
-                    <Footer />
-                </div>
 
+            </div>
+
+            <div>
+                <Footer />
             </div>
 
         </div>
