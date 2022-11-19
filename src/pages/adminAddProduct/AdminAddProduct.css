@@ -4,6 +4,7 @@
 
 .admin-add-product-header{
     display: flex;
+    padding: 0 1%;
     align-items: center;
     margin-bottom: 10px;
     justify-content: space-between;

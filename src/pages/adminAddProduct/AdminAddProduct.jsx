@@ -384,7 +384,17 @@ function AdminAddProduct() {
                                 <div className='dif-colours'>
                                     <div className='diff-colours'>
                                         <h1>COLOURS
-                                            <span className='add-colours'> Add <Button className="add-color-btn" type={'submit'} content={'+'} style={{  width: '30px', height: '30px', fontSize:'1.4rem', borderRadius:"100%", cursor:'pointer', padding:"0",boxShadow:'none', backgroundColor:"blue", color:"white" }}  />
+                                            <span className='add-colours'> Add <Button className="add-color-btn" type={'submit'} content={'+'} 
+                                            style={{  
+                                            width: '30px', 
+                                            height: '30px', 
+                                            fontSize:'1.4rem', 
+                                            borderRadius:"100%", 
+                                            cursor:'pointer', 
+                                            padding:"0",
+                                            boxShadow:'none',
+                                            backgroundColor:"rgba(53, 112, 236, 0.67)", 
+                                            color:"white" }}  />
                                             </span>
                                         </h1>
 
