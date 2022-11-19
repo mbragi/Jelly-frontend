@@ -131,7 +131,7 @@ function AdminDashboard() {
           showViews ?
           <div className="overlay" onClick={() => setShowViews(false)}>
             <div className="view-content">
-              <iframe className='view-head' title='This Week Users' src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTg6djg8sVfhZgbiRAScr6lQSRpCS3eYEehf_XJh8qHYsXmovM4hrUhxPcXgfNHN2qwD9g3xD0mKw_-/pubchart?oid=1354677804&amp;format=interactive" frameborder="0"></iframe>
+              <iframe className='view-head' title='This Week Users' src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTg6djg8sVfhZgbiRAScr6lQSRpCS3eYEehf_XJh8qHYsXmovM4hrUhxPcXgfNHN2qwD9g3xD0mKw_-/pubchart?oid=2108549516&amp;format=interactive" frameborder="0"></iframe>
               {/* <div className="close-view">
               
                 <span className='show-view'>╳</span>
