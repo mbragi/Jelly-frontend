@@ -21,6 +21,7 @@ import axios from 'axios';
 import Welcome from '../../components/welcome/Welcome';
 import { useGlobalContext } from '../../context'
 import { Link } from 'react-router-dom'
+import ReactCountryFlag from "react-country-flag"
     // console.log(loading)
  
 
@@ -346,8 +347,161 @@ function Home() {
         </div>
 
       </div>
+      
+      
+      <div className='our-partners'>
+        <h1>OUR PARTNERS</h1>
+        <h3>What sets us apart from the competition ?  <span>Our ability to listen to our customers !</span></h3>
+        <p>We work with China Truck Factory provide trucks(including customized trucks) - fulfilling orders with short delivery times and complex technical specifications. We have earned the trust of thousands of clients, including these fine clients:</p>
 
-      <Footer />
+        <div className='country-flag'>
+          <ReactCountryFlag
+            countryCode="US"
+            svg
+            style={{
+                width: '180px',
+                height: '150px',
+                borderRadius: "15px",
+                cursor:'pointer',
+            }}
+            title="United States"
+          />
+
+          <ReactCountryFlag
+            countryCode="GB"
+            svg
+            style={{
+                width: '180px',
+                height: '150px',
+                borderRadius: "15px",
+                cursor:'pointer'
+            }}
+            title="United Kingdom"
+          />
+          <ReactCountryFlag
+            countryCode="CN"
+            svg
+            style={{
+              width: '180px',
+              height: '150px',
+              borderRadius: "15px",
+              cursor:'pointer'
+            }}
+            title="China"
+          />
+          <ReactCountryFlag
+            countryCode="BR"
+            svg
+            style={{
+              width: '180px',
+              height: '150px',
+              borderRadius: "15px",
+              cursor:'pointer'
+            }}
+            title="Brazil"
+          />
+          <ReactCountryFlag
+            countryCode="PY"
+            svg
+            style={{
+              width: '180px',
+              height: '150px',
+              borderRadius: "15px",
+              cursor:'pointer'
+            }}
+            title="Paraguay"
+          />
+          <ReactCountryFlag
+            countryCode="BE"
+            svg
+            style={{
+              width: '180px',
+              height: '150px',
+              borderRadius: "15px",
+              cursor:'pointer'
+            }}
+            title="Belgium"
+          />
+
+          <ReactCountryFlag
+            countryCode="IT"
+            svg
+            style={{
+              width: '180px',
+              height: '150px',
+              borderRadius: "15px",
+              cursor:'pointer'
+            }}
+            title="Italy"
+          />
+
+          <ReactCountryFlag
+            countryCode="EU"
+            svg
+            style={{
+              width: '180px',
+              height: '150px',
+              borderRadius: "15px",
+              cursor:'pointer'
+            }}
+            title="European Union"
+          />
+
+          <ReactCountryFlag
+            countryCode="DE"
+            svg
+            style={{
+              width: '180px',
+              height: '150px',
+              borderRadius: "15px",
+              cursor:'pointer'
+            }}
+            title="Germany"
+          />
+
+          <ReactCountryFlag
+            countryCode="FR"
+            svg
+            style={{
+              width: '180px',
+              height: '150px',
+              borderRadius: "15px",
+              cursor:'pointer'
+            }}
+            title="France"
+          />
+
+          <ReactCountryFlag
+            countryCode="TH"
+            svg
+            style={{
+              width: '180px',
+              height: '150px',
+              borderRadius: "15px",
+              cursor:'pointer'
+            }}
+            title="Thailand"
+          />
+
+          <ReactCountryFlag
+            countryCode="AU"
+            svg
+            style={{
+              width: '180px',
+              height: '150px',
+              borderRadius: "15px",
+              cursor:'pointer'
+            }}
+            title="Australia"
+            
+          />
+
+        </div>
+
+      </div>
+
+      <Footer/>
+
     </div>
   )
 }

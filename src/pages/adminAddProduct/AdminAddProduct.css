@@ -4,6 +4,7 @@
 
 .admin-add-product-header{
     display: flex;
+    padding: 0 1%;
     align-items: center;
     margin-bottom: 10px;
     justify-content: space-between;
@@ -69,7 +70,7 @@ input[type="file"]{
     /* border: 1px solid black; */
     color: lightgray;
     margin-top: 15px;
-    object-fit: fill;
+    object-fit: contain;
     /* background: #971a1a;   */
 }
 
