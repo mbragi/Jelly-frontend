@@ -1,5 +1,5 @@
 import React from 'react'
-import './SectionIV.css'
+import './AdminSectionIV.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 // import Button from '../../components/button/Button'
 // import pen from '../../assets/images/pen.png'
@@ -51,7 +51,9 @@ function sectionIV() {
                 <section className='sectionIV-container'>
                     <div className='search-sectionIV'>
                         <p>Select:</p>
-                        <select type="text" />
+                        <select name="" id="">
+                            <option value="0">Kesh</option>
+                        </select>
                     </div>
                     
                     <div className='about-details-sectionIV'>
@@ -62,7 +64,7 @@ function sectionIV() {
                 </section>
 
                 <div className='sectionIV-next'>
-                    <Link to="/sectionI" className='sectionIV-next-link'>
+                    <Link to="/admin/sectionI" className='sectionIV-next-link'>
                         <span> Next  </span>
                         <BsArrowRight size={35} color='blue'/>
                     </Link>

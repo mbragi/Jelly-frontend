@@ -1,5 +1,5 @@
 import React from 'react'
-import './SectionI.css'
+import './AdminSectionI.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 import pen from '../../assets/images/pen.png'
 import { BsArrowRight } from 'react-icons/bs';
@@ -7,7 +7,7 @@ import { CloudArrowUp } from 'phosphor-react';
 import { Link } from 'react-router-dom';
 
 
-function SectionI() {
+function AdminSectionI() {
     return (
         <AdminFrame currentPage='sectionI'>
             <div className='sectionI'>
@@ -71,7 +71,7 @@ function SectionI() {
 
                 <div className='sectionI-next'>
 
-                    <Link to="/sectionII" className='sectionI-next-link'>
+                    <Link to="/admin/sectionII" className='sectionI-next-link'>
                         <span> Next  </span>
                         <BsArrowRight size={35} color='blue'/>
                     </Link>
@@ -85,4 +85,4 @@ function SectionI() {
     )
 }
 
-export default SectionI
+export default AdminSectionI

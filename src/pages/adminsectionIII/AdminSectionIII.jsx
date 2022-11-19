@@ -1,5 +1,5 @@
 import React from 'react'
-import './SectionIII.css'
+import './AdminSectionIII.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 // import Button from '../../components/button/Button'
 // import pen from '../../assets/images/pen.png'
@@ -85,7 +85,7 @@ function SectionIII() {
                 </section>
 
                 <div className='sectionIII-next'>
-                    <Link to="/sectionIV" className='sectionIII-next-link'>
+                    <Link to="/admin/sectionIV" className='sectionIII-next-link'>
                         <span> Next  </span>
                         <BsArrowRight size={35} color='blue'/>
                     </Link>
