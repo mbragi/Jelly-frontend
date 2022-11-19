@@ -2,7 +2,6 @@ import React from 'react'
 import './SectionII.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 // import SectionIIs from './sectionIIs.json'
-import Button from '../../components/button/Button'
 import pen from '../../assets/images/pen.png'
 import {BsArrowRight } from 'react-icons/bs';
 import { CloudArrowUp, Plus } from 'phosphor-react';

@@ -63,11 +63,7 @@ function App() {
               <Route exact path="/admin/products" element={<AdminProducts />} />
             </Route>
             <Route path="/admin/addproduct" element={<PrivateRoutes />}>
-              <Route
-                exact
-                path="/admin/addproduct"
-                element={<AdminAddProduct />}
-              />
+              <Route exact path="/admin/addproduct" element={<AdminAddProduct />} />
             </Route>
             {/* <Route path='/admin/addcontent' element = {<PrivateRoutes/>}>
               <Route exact path="/admin/addcontent" element={<AdminAddContent />} />
