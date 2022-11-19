@@ -16,6 +16,7 @@ function AdminCategory() {
     const [data, setData] = useState([])
     const [create, setCreate] = useState({});
     const [counter, setCounter] = useState(0)
+
     async function addCategory(e) {
         e.preventDefault()
         setBool(!bool)
@@ -37,8 +38,10 @@ function AdminCategory() {
     }
     async function httpGetCategories() {
         const request = await axios.get(`${BASE_URL}/api/cat`)
-        const response = request.data.data
-        setData(response)
+        const response = request.data
+        const category = response.data
+
+        setData(category)
     }
     async function httpCreateCategory(e) {
         e.preventDefault()
@@ -116,7 +119,7 @@ function AdminCategory() {
                         <div className='entries'>
                             <span>show</span>
                             <select>
-                                <option >4</option>
+                                <option >{data.length}</option>
                             </select>
                             <span>entries</span>
                         </div>
@@ -128,23 +131,25 @@ function AdminCategory() {
                     </div>
                     <hr style={{ width: '100%' }} />
 
-                    <div className='categories-body' style={{ height: "3rem", lineHeight: '0.5rem' }}>
-                        <h3>Name</h3>
-                        <h3>Product</h3>
-                        <h3>Total Sales</h3>
-                        <h3>Status</h3>
-                        <h3>Action</h3>
-                    </div>
+                    <ul className='categories-body' style={{ height: "3rem", lineHeight: '2rem' }}>
+                        <li style={{ fontSize: '24px' }}>Name</li>
+                        <li style={{ fontSize: '24px' }}>Product</li>
+                        <li style={{ fontSize: '24px' }}>Total Sales</li>
+                        <li style={{ fontSize: '24px' }}>Status</li>
+                        <li style={{ fontSize: '24px' }}>Action</li>
+                    </ul>
                     {
+
                         data.map((item, idx) => {
+                            console.log(data)
                             return (
-                                <div className='categories-body' key={idx} style={{ height: "3.5rem" }}>
-                                    <p>{item.name}</p>
-                                    <p>Product</p>
-                                    <p>Total Sales</p>
-                                    <p>Status</p>
-                                    <p>Action</p>
-                                </div >
+                                <ul className='categories-body' key={idx} style={{ height: "3.5rem" }}>
+                                    <li>{item.name}</li>
+                                    <li>{item.product_number}</li>
+                                    <li>Total Sales</li>
+                                    <li>Status</li>
+                                    <li>Action</li>
+                                </ul >
                             )
                         })
                     }

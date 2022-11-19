@@ -14,7 +14,7 @@ import VideoSection from "./pages/videoSection/VideoSection";
 import Ncm from "./pages/specification/ncm/Ncm";
 import Lfp from "./pages/specification/lfp/Lfp";
 import UploadImage from "./utils/cloudinary";
-import AdminDashboard from './pages/adminDashboard/AdminDashboard';
+import AdminDashboard from "./pages/adminDashboard/AdminDashboard";
 import AdminCategory from "./pages/adminCategory/AdminCategory";
 import AdminUsers from "./pages/adminUsers/AdminUsers";
 import AdminProducts from "./pages/adminProducts/AdminProducts";
@@ -27,7 +27,6 @@ import SectionIII from "./pages/sectionIII/SectionIII";
 import SectionIV from "./pages/sectionIV/SectionIV";
 // import Welcome from "./components/welcome/Welcome";
 
-
 function App() {
   return (
     <>
@@ -36,33 +35,40 @@ function App() {
           <Routes>
             <Route exact path={path.homepage} element={<Home />} />
             <Route exact path={path.cart} element={<Cart />} />
-            
+
             <Route exact path={path.checkout} element={<CheckOut />} />
             <Route exact path={path.product} element={<Products />} />
-            
+
             <Route exact path="/contact" element={<ContactPage />} />
             <Route exact path="/details/:id" element={<ProductDetails />} />
             <Route exact path="/forgotpassword" element={<ForgotPassword />} />
 
-
-            <Route path='/admin' element = {<PrivateRoutes/>}>
-              <Route  path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin" element={<PrivateRoutes />}>
+              <Route path="/admin" element={<AdminDashboard />} />
             </Route>
-            <Route path='/admin/dashboard' element = {<PrivateRoutes/>}>
+            <Route path="/admin/dashboard" element={<PrivateRoutes />}>
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
             </Route>
-            <Route path='/admin/categories' element = {<PrivateRoutes/>}>
-            <Route exact path="/admin/categories" element={<AdminCategory />} />
+            <Route path="/admin/categories" element={<PrivateRoutes />}>
+              <Route
+                exact
+                path="/admin/categories"
+                element={<AdminCategory />}
+              />
             </Route>
-            <Route path='/admin/users' element = {<PrivateRoutes/>}>
+            <Route path="/admin/users" element={<PrivateRoutes />}>
               <Route exact path="/admin/users" element={<AdminUsers />} />
             </Route>
-            <Route path='/admin/products' element = {<PrivateRoutes/>}>
+            <Route path="/admin/products" element={<PrivateRoutes />}>
               <Route exact path="/admin/products" element={<AdminProducts />} />
             </Route>
-            {/* <Route path='/admin/addproduct' element = {<PrivateRoutes/>}> */}
-              <Route exact path="/admin/addproduct" element={<AdminAddProduct />} />
-            {/* </Route>          */}
+            <Route path="/admin/addproduct" element={<PrivateRoutes />}>
+              <Route
+                exact
+                path="/admin/addproduct"
+                element={<AdminAddProduct />}
+              />
+            </Route>
             {/* <Route path='/admin/addcontent' element = {<PrivateRoutes/>}>
               <Route exact path="/admin/addcontent" element={<AdminAddContent />} />
             </Route> */}

@@ -2,7 +2,7 @@ import React from 'react'
 import './SectionI.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 import pen from '../../assets/images/pen.png'
-import {BsArrowRight } from 'react-icons/bs';
+import { BsArrowRight } from 'react-icons/bs';
 import { CloudArrowUp } from 'phosphor-react';
 
 
@@ -13,30 +13,30 @@ function SectionI() {
                 <header className='sectionI-header'>
                     <h1>Section I</h1>
 
-                    <button type='file' 
-                        style={{ 
-                            cursor: 'pointer', 
-                            background: " rgb(53, 112, 236)", 
-                            height: '3.5rem', 
-                            width: '13rem', 
-                            float: "right", 
+                    <button type='file'
+                        style={{
+                            cursor: 'pointer',
+                            background: " rgb(53, 112, 236)",
+                            height: '3.5rem',
+                            width: '13rem',
+                            float: "right",
                             border: 'none',
                             color: 'white',
-                            borderRadius:'15px'
+                            borderRadius: '15px'
                         }}>
 
                         <label id='label'>
-                            <input  type="file" style={{  
-                                width: '1rem' 
+                            <input type="file" style={{
+                                width: '1rem'
                             }} />
 
                             <span style={{
                                 display: 'flex',
-                                gap:'5px', 
-                                alignItems: "center", 
-                                justifyContent: 'center', 
-                                width: '100%' 
-                            }}>                           
+                                gap: '5px',
+                                alignItems: "center",
+                                justifyContent: 'center',
+                                width: '100%'
+                            }}>
                                 <CloudArrowUp size={18} />  Upload
                             </span>
                         </label>
@@ -68,7 +68,7 @@ function SectionI() {
                 </section>
 
                 <div className='sectionI-next'>
-                    <p> Next</p>
+                    <p > Next</p>
                     <BsArrowRight size={30} />
                 </div>
 

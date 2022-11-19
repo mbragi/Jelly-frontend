@@ -35,6 +35,7 @@ function UploadImage() {
           onChange={addFile}
           style={{
             width: "15rem",
+            background: "red",
             padding: "2rem",
             border: "1px solid black",
             margin: "2rem",
