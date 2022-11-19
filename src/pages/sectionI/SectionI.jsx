@@ -1,10 +1,10 @@
 import React from 'react'
 import './SectionI.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
-// import Button from '../../components/button/Button'
 import pen from '../../assets/images/pen.png'
 import { BsArrowRight } from 'react-icons/bs';
 import { CloudArrowUp } from 'phosphor-react';
+import { Link } from 'react-router-dom';
 
 
 function SectionI() {
@@ -47,8 +47,8 @@ function SectionI() {
 
                 <section className='sectionI-container'>
                     <div className='upload-main-image-sectionI'>
-                        <input type="file" name='img' />
-                        <label htmlFor="file">
+                        <input id='filez' type="file" name='img' />
+                        <label htmlFor="filez">
                             <img src={pen} alt="product" style={{
                                 width: '50px',
                                 height: '40px',
@@ -68,9 +68,14 @@ function SectionI() {
 
                 </section>
 
+
                 <div className='sectionI-next'>
-                    <p > Next</p>
-                    <BsArrowRight size={30} />
+
+                    <Link to="/sectionII" className='sectionI-next-link'>
+                        <span> Next  </span>
+                        <BsArrowRight size={35} color='blue'/>
+                    </Link>
+
                 </div>
 
             </div>

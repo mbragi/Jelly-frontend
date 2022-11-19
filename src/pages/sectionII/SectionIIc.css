@@ -1,21 +1,21 @@
-.sectionII-header{
+.sectionIIc-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.sectionII-header h1{
+.sectionIIc-header h1{
     letter-spacing: 0.1rem;
 }
 
-.sectionII-container{
+.sectionIIc-container{
     background-color:#FFFFFF;
     box-shadow: 0px 2px 4px 0px #00000040;
     padding: 0 0 5%;
 }
 
-.sectionII-add-image{
+.sectionIIc-add-image{
     padding: 0 10%;
     font-weight: bolder;
     display: flex;
@@ -24,7 +24,7 @@
     justify-content: flex-end;
 }
 
-.umi-sec{
+.umi-secc{
     width: 100%;
     font-size: 3.5rem;
     text-align: center;
@@ -32,7 +32,7 @@
     padding: 80px 0;
     letter-spacing: 0.3rem;
 }
-.upload-main-image-sectionII{
+.upload-main-image-sectionIIc{
     width: 90%;
     margin: 0 auto;
     padding: 20px 2%;
@@ -40,7 +40,7 @@
     border: 0.2px solid #000000;
 }
 
-.sectionII-next-link{
+.sectionIIc-next-link{
     gap: 10px;
     color: blue;
     padding: 0 5%;
@@ -51,4 +51,38 @@
     margin-top: 30px;
     margin-bottom: 30px;
     text-decoration: none;
+}
+
+.uploaded-image-previewed-here{
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+.uploaded-image-previewed{
+    padding: 7px 1%;
+    background-color:#FFFFFF;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 23%;
+    box-shadow: 0px 0px 3.364999294281006px 0px #00000040;
+}
+
+.uiph{
+    width: 50%;
+    margin: 0 auto;
+    height: 170px;
+    color: lightgray;
+    margin-top: 50px;
+    font-size: 1.6rem;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+
 }
