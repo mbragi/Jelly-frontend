@@ -345,6 +345,12 @@ function Home() {
           }
         </div>
 
+        <div className='our-partners'>
+          <h1>OUR PARTNERS</h1>
+          <p>What sets us apart from the competition? <span>Our ability to listen to our customers!</span></p>
+
+        </div>
+
       </div>
 
       <Footer />
