@@ -131,9 +131,9 @@ function AdminDashboard() {
           showViews ?
           <div className="overlay" onClick={() => setShowViews(false)}>
             <div className="view-content">
-            {/* <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS7mwWV6GDS7d4gNMW3oKJjeOhcHFgD013uXAAHsMepoU4nmvFtiC7Fky7xon35sHPL83efOgqlOQpo/pubchart?oid=629464970&amp;format=interactive"></iframe> */}
-              <iframe className='view-head' title='This Week Users' src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS7mwWV6GDS7d4gNMW3oKJjeOhcHFgD013uXAAHsMepoU4nmvFtiC7Fky7xon35sHPL83efOgqlOQpo/pubchart?oid=629464970&amp;format=interactive" frameborder="0"></iframe>
+              <iframe className='view-head' title='This Week Users' src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTg6djg8sVfhZgbiRAScr6lQSRpCS3eYEehf_XJh8qHYsXmovM4hrUhxPcXgfNHN2qwD9g3xD0mKw_-/pubchart?oid=1354677804&amp;format=interactive" frameborder="0"></iframe>
               {/* <div className="close-view">
+              
                 <span className='show-view'>╳</span>
               </div> */}
             </div>
