@@ -166,8 +166,9 @@
     .input-grow{
         width: 100%;
     }
-    
+
 }
+
 @media(min-width: 1280px){
     .phone-email-address, .contact-us-header, .contact-page{
         max-width: 1300px;
@@ -181,4 +182,5 @@
     .input-grow{
         width: 100%;
     }
+ 
 }

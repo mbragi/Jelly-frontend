@@ -85,6 +85,7 @@ function ProductDetails() {
                 <NavBar />
                 {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
             </div>
+
             <div className='product-details-container'>
                 <div className='product-name'>
                     <div className='product-name-images'>
@@ -124,7 +125,7 @@ function ProductDetails() {
 
                         <div className='add-to-cart'>
                             <img src={cart} alt="" />
-                            <Button type={'submit'} content='ADD TO CART' style={{ fontWeight: 'lighter', width:'200px', color:'white', border: 'none', boxShadow: 'none' }} onClick={() => { addToCart(product) }} />
+                            <Button type={'submit'} content='ADD TO CART' style={{  width:'200px', color:'white', border: 'none', boxShadow: 'none', fontSize:'1rem' }} onClick={() => { addToCart(product) }} />
                         </div>
                     </div>
                 </div>
@@ -166,7 +167,7 @@ function ProductDetails() {
                                         <h3>P{prod.name}</h3>
                                         <img src={prod.img} alt='' />
                                         <p>{prod.price}</p>
-                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold',fontSize:'15px' }} onClick={() => { navigate(`/details/${prod._id}`) }} />
+                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px',fontSize:'0.9rem' }} onClick={() => { navigate(`/details/${prod._id}`) }} />
                                     </div>
                                 ))
                             }

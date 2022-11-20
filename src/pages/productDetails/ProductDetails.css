@@ -81,7 +81,7 @@
     align-items: center;
     gap: 10px;
     width: 300px;
-    background-color:  rgb(53, 112, 236);
+    background-color:  rgba(53, 111, 236, 0.527);
     padding: 3% 4%;
 }
 
