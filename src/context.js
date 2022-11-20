@@ -8,6 +8,7 @@ const AppProvider = ({children}) => {
     const [switchpop, setSwitch] = useState(false);
     const [login_cart, setLoginCart] = useState({})
     const [dailyUsers, setDaliyUsers] = useState();
+    const [previousUsers, setPreviousUsers] = useState();
     function addToCart(newProduct, cb){
         let cart = localStorage.getItem('cart');
         if(Object.keys(login_cart).length !==0 && login_cart.constructor === Object){
@@ -35,9 +36,10 @@ const AppProvider = ({children}) => {
     }
 
     useEffect(() => {
-        axios.get(`https://sheet.best/api/sheets/0614ab8c-47b8-48f1-8073-7fd2d1738fb5`)
+        axios.get(`https://script.google.com/macros/s/AKfycbyfZV8MYJnfjfGsegopvyzSnvyt1G59OXFj0EClEo-hNlEH5Vh_NXcDNBYQLTeibM6SUw/exec`)
         .then((res) => {
-            setDaliyUsers(res.data[17].ConfigurationOptions)
+            setDaliyUsers(res.data.data[0][1])
+            setPreviousUsers(res.data.data[0][0])
         })
         .catch((err) => {
             console.log(err);
@@ -47,7 +49,7 @@ const AppProvider = ({children}) => {
             isLogin,setIsLogin,
             switchpop,setSwitch,
             login_cart,setLoginCart, addToCart,
-            dailyUsers,
+            dailyUsers, previousUsers,
             isSignUp, setIsSignUp
             }}>
         {children}
