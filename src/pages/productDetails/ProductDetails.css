@@ -273,8 +273,16 @@
     }
   }
 
-
-
+@media(min-width: 1280px){
+    .resize-details{
+        max-width: 1300px;
+        margin: 15px auto;
+    }
+    .product-name{
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+}
 
 
 
