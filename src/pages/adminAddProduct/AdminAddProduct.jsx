@@ -160,7 +160,7 @@ function AdminAddProduct() {
                                         <>
                                             <img src={all.img} alt="" className="umi-img" style={{width:'100%', height:'90%'}}/>
                                         </> :
-                                        <h1 className='umi'>Upload Main Image</h1>
+                                        <h1 className='umi'>Upload Main Image  <br />(2600 x 1900) </h1>
                                 }
                             </div>
                             {/* upload sub images */}
@@ -189,7 +189,7 @@ function AdminAddProduct() {
                                                     <>
                                                         <img src={sub.option_one || ""} alt="" className="usi" />
                                                     </> :
-                                                    <h5 className='usih1'>Upload Sub Image</h5>
+                                                    <h5 className='usih1'>Upload Sub Image <br /> (2600 x 1900) </h5>
                                             }
                                         </label>
                                     </div>
@@ -217,7 +217,7 @@ function AdminAddProduct() {
                                                     <>
                                                         <img src={sub.option_two || ""} alt="" className="usi" />
                                                     </> :
-                                                    <h5 className='usih1'>Upload Sub Image</h5>
+                                                    <h5 className='usih1'>Upload Sub Image <br />(2600 x 1900) </h5>
                                             }
                                         </label>
                                     </div>
@@ -245,7 +245,7 @@ function AdminAddProduct() {
                                                     <>
                                                         <img src={sub.option_three || ""} alt="" className="usi" />
                                                     </> :
-                                                    <h5 className='usih1'>Upload Sub Image</h5>
+                                                    <h5 className='usih1'>Upload Sub Image <br />(2600 x 1900) </h5>
                                             }
                                         </label>
                                     </div>
@@ -273,7 +273,7 @@ function AdminAddProduct() {
                                                     <>
                                                         <img src={sub.option_four || ""} alt="" className="usi" />
                                                     </> :
-                                                    <h5 className='usih1'>Upload Sub Image</h5>
+                                                    <h5 className='usih1'>Upload Sub Image <br />(2600 x 1900) </h5>
                                             }
                                         </label>
                                     </div>
@@ -301,7 +301,7 @@ function AdminAddProduct() {
                                                     <>
                                                         <img src={sub.option_five || ""} alt="" className="usi" />
                                                     </> :
-                                                    <h5 className='usih1'>Upload Sub Image</h5>
+                                                    <h5 className='usih1'>Upload Sub Image <br />(2600 x 1900) </h5>
                                             }
                                         </label>
                                     </div>
@@ -329,7 +329,7 @@ function AdminAddProduct() {
                                                     <>
                                                         <img src={sub.option_six || ""} alt="" className="usi" />
                                                     </> :
-                                                    <h5 className='usih1'>Upload Sub Image</h5>
+                                                    <h5 className='usih1'>Upload Sub Image <br />(2600 x 1900) </h5>
                                             }
                                         </label>
                                     </div>
