@@ -85,7 +85,7 @@ function ProductDetails() {
                 <NavBar />
                 {isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
             </div>
-            
+
             <div className='product-details-container'>
                 <div className='product-name'>
                     <div className='product-name-images'>
@@ -125,11 +125,11 @@ function ProductDetails() {
 
                         <div className='add-to-cart'>
                             <img src={cart} alt="" />
-                            <Button type={'submit'} content='ADD TO CART' style={{ fontWeight: 'lighter', width:'200px', color:'white' }} onClick={() => { addToCart(product) }} />
+                            <Button type={'submit'} content='ADD TO CART' style={{  width:'200px', color:'white', border: 'none', boxShadow: 'none', fontSize:'1rem' }} onClick={() => { addToCart(product) }} />
                         </div>
                     </div>
                 </div>
-                <div className='product-details'>
+                <div className='product-details resize-details'>
                     <div className='product-details-header'>
                         <h2>Product Details</h2>
                     </div>
@@ -152,7 +152,7 @@ function ProductDetails() {
                     </div>
                 </div>
 
-                <div className='other-products'>
+                <div className='other-products resize-details'>
                     <div className='other-products-header'>
                         <h2>Other products you might like</h2>
                     </div>
@@ -167,7 +167,7 @@ function ProductDetails() {
                                         <h3>P{prod.name}</h3>
                                         <img src={prod.img} alt='' />
                                         <p>{prod.price}</p>
-                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold',fontSize:'15px' }} onClick={() => { navigate(`/details/${prod._id}`) }} />
+                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px',fontSize:'0.9rem' }} onClick={() => { navigate(`/details/${prod._id}`) }} />
                                     </div>
                                 ))
                             }
@@ -183,7 +183,7 @@ function ProductDetails() {
                 
                     
 
-                <div className='verified-customer-fb'>
+                <div className='verified-customer-fb resize-details'>
                     <div className='verified-customer-fb-header'>
                         <h1>Verified Customers Feedback</h1>
 
@@ -310,10 +310,7 @@ function ProductDetails() {
 
 
             </div>
-
-            <div>
-                <Footer />
-            </div>
+            <Footer />
 
         </div>
 

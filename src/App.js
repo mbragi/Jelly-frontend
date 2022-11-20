@@ -20,8 +20,8 @@ import AdminUsers from "./pages/adminUsers/AdminUsers";
 import AdminProducts from "./pages/adminProducts/AdminProducts";
 import AdminAddProduct from "./pages/adminAddProduct/AdminAddProduct";
 import AdminSectionI from "./pages/adminsectionI/AdminSectionI";
-import AdminSectionII from "./pages/adminsectionII/AdminSectionII";
-import AdminSectionIIb from "./pages/adminsectionII/AdminSectionIIb";
+// import AdminSectionII from "./pages/adminsectionII/AdminSectionII";
+// import AdminSectionIIb from "./pages/adminsectionII/AdminSectionIIb";
 import AdminSectionIIc from "./pages/adminsectionII/AdminSectionIIc";
 import AdminSectionIII from "./pages/adminsectionIII/AdminSectionIII";
 import AdminSectionIV from "./pages/adminsectionIV/AdminSectionIV";
@@ -60,22 +60,33 @@ function App() {
               <Route exact path="/admin/users" element={<AdminUsers />} />
             </Route>
             {/* <Route path="/admin/products" element={<PrivateRoutes />}> */}
-              <Route exact path="/admin/products" element={<AdminProducts />} />
+            <Route exact path="/admin/products" element={<AdminProducts />} />
             {/* </Route> */}
             {/* <Route path="/admin/addproduct" element={<PrivateRoutes />}> */}
-              <Route exact path="/admin/addproduct" element={<AdminAddProduct />} />
+            <Route
+              exact
+              path="/admin/addproduct"
+              element={<AdminAddProduct />}
+            />
             {/* </Route> */}
             {/* <Route path='/admin/addcontent' element = {<PrivateRoutes/>}>
               <Route exact path="/admin/addcontent" element={<AdminAddContent />} />
             </Route> */}
             <Route exact path="/admin/sectionI" element={<AdminSectionI />} />
-            <Route exact path="/admin/sectionII" element={<AdminSectionII />} />
-            <Route exact path="/admin/sectionIIb" element={<AdminSectionIIb />} />
-            <Route exact path="/admin/sectionIIc" element={<AdminSectionIIc />} />
-            <Route exact path="admin/sectionIII" element={<AdminSectionIII />} />
+            {/* <Route exact path="/admin/sectionII" element=            {<AdminSectionII />} />
+            <Route exact path="/admin/sectionIIb" element={<AdminSectionIIb />} /> */}
+            <Route
+              exact
+              path="/admin/sectionIIc"
+              element={<AdminSectionIIc />}
+            />
+            <Route
+              exact
+              path="admin/sectionIII"
+              element={<AdminSectionIII />}
+            />
             <Route exact path="/admin/sectionIV" element={<AdminSectionIV />} />
             {/* <Route exact path="/welcome" element={<Welcome />} /> */}
-            
 
             <Route exact path="/product" element={<SpecHead />} />
             <Route exact path="/video" element={<VideoSection />} />

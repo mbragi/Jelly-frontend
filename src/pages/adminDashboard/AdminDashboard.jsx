@@ -20,6 +20,7 @@ const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
 function AdminDashboard() {
   const [user, setUser] = useState([])
+  const [showViews, setShowViews] = useState(false);
   // const [loading, setLoading] = useState(false)
   async function httpGetAllUser(params) {
     try {
@@ -38,7 +39,8 @@ function AdminDashboard() {
     //   second
     // }
   }, [])
-  const {dailyUsers} = useGlobalContext();
+  const {dailyUsers, previousUsers} = useGlobalContext();
+  const percent = dailyUsers / previousUsers;
   return (
     <AdminFrame currentPage='dashboard'>
       <div className='dashboard'>
@@ -86,7 +88,10 @@ function AdminDashboard() {
               </div>
             </div>
 
-            <p className='bottom-stat'>+3% than yesterday</p>
+            {dailyUsers > previousUsers ?
+              <p className='bottom-stat' style={{color: 'green'}}>+{percent.toFixed()}% than yesterday</p> : 
+              <p className='bottom-stat' style={{color: 'red'}}>-{percent.toFixed()}% than yesterday</p>
+            }
           </div>
 
           <div className='mini-stat'>
@@ -100,7 +105,6 @@ function AdminDashboard() {
                 <span className='stat-count'>1,500</span>
               </div>
             </div>
-
             <p className='bottom-stat'>+3% than yesterday</p>
           </div>
 
@@ -119,14 +123,25 @@ function AdminDashboard() {
         <div className='stat-charts'>
 
           <div className='stat-chart-container'>
-            <div className='stat-chart' style={{ backgroundImage: `url(${websiteViews})` }}></div>
-            {/* <iframe  seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSfcNIB2hshbwNM9AROHxmiTzMjE3pNqp6YHWQHjPjor-q8IoKS1tql-ylNnqqNVQt5Ud0sNQsqo38A/pubchart?oid=378787187&amp;format=interactive" style = {{objectFit:'contain'}}></iframe> */}
+            <div className='stat-chart' onClick={() => setShowViews(true)} style={{ backgroundImage: `url(${websiteViews})`, cursor: 'pointer' }}></div>
             <div className='stat-chart-desc'>
               <h3 className='chart-title'>Website Views</h3>
               <span className='prev-performance'>Last 7 days performance</span>
             </div>
             <span className='time-updated'>updated 3 minutes ago</span>
           </div>
+          {
+          showViews ?
+          <div className="overlay" onClick={() => setShowViews(false)}>
+            <div className="view-content">
+              <iframe className='view-head' title='This Week Users' src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTg6djg8sVfhZgbiRAScr6lQSRpCS3eYEehf_XJh8qHYsXmovM4hrUhxPcXgfNHN2qwD9g3xD0mKw_-/pubchart?oid=2108549516&amp;format=interactive" frameborder="0"></iframe>
+              {/* <div className="close-view">
+              
+                <span className='show-view'>╳</span>
+              </div> */}
+            </div>
+          </div> : null
+          }
 
           <div className='stat-chart-container'>
             <div className='stat-chart' style={{ backgroundImage: `url(${websiteSales})` }}></div>

@@ -76,15 +76,15 @@ function ContactPage() {
 
             <form action="" className='contact-page-form'>
                 <div className='fullname-mobile-email'>
-                    <div className='full-name'>
+                    <div className='full-name input-grow'>
                         <input className='fme-input' onChange={contactDetails} name='fullName' placeholder='Enter Full Name'/>
                     </div>
 
-                    <div className='mobile-number'>
+                    <div className='mobile-number input-grow'>
                         <input className='fme-input' onChange={contactDetails} name='mobile' placeholder='Enter Mobile Number'/>
                     </div>
 
-                    <div className='email-address'>
+                    <div className='email-address input-grow'>
                         <input className='fme-input' onChange={contactDetails}  name='email' placeholder='Enter Email Address' />
                     </div>
                 
@@ -100,7 +100,7 @@ function ContactPage() {
             </form>    
 
             <div className='send-message'>
-                <Button id="sm-button" type={'submit'} content='Send Message' style={{ width: '350px', height: '70px', borderRadius: '70px'}} />
+                <Button id="sm-button" type={'submit'} content='Send Message' style={{ width: '300px', height: '70px', borderRadius: '100px'}} />
             </div>
         </div>
 

@@ -81,7 +81,7 @@
     align-items: center;
     gap: 10px;
     width: 300px;
-    background-color:  rgb(53, 112, 236);
+    background-color:  rgba(53, 111, 236, 0.527);
     padding: 3% 4%;
 }
 
@@ -273,8 +273,16 @@
     }
   }
 
-
-
+@media(min-width: 1280px){
+    .resize-details{
+        max-width: 1300px;
+        margin: 15px auto;
+    }
+    .product-name{
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+}
 
 
 

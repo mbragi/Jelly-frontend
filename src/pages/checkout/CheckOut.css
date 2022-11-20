@@ -140,4 +140,8 @@ h2 + hr{
     }
 
   }
- 
+ @media(min-width: 1280px){
+    .col-2{
+        max-width: 1300px;
+    }
+ }

@@ -95,7 +95,7 @@ function Home() {
     },
     {
       name: "Our Mission",
-      content: "Refer friends and get upto Rs. 5000/-OFF on final price Jelly App connected| Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes"
+      content: "Develop and design smart e-mobility solutions, which positively impacts lives across communities and contribute towards a sustainable future."
     },
     {
       name: "Our Vision",
@@ -174,13 +174,13 @@ function Home() {
       <NavBar currentPage="home" />
       {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
       <MobileBar />
-      <div className="imgcontainer resize-max">
+      <div className="imgcontainer resize-max white-change">
         <img src={bike} alt="evtop" className='evtopimg' />
       </div>
 
-      <div className='features-div'>
+      <div className='features-div white-change' >
 
-        <div className='features-slider-div'>
+        <div className='features-slider-div '>
           <BiChevronLeftCircle size={50} className='icon' onClick={() => { prev() }} />
           <Fade direction="up" spy={featuresIndex} className='slider-attention-seeker'>
             <img src={require(`../../assets/${featuresArray[featuresIndex]}`)} alt="bike" className='slider-item' />
@@ -192,7 +192,7 @@ function Home() {
       </div>
 
 
-      <div className='transport-cost-div resize-max'>
+      <div className='transport-cost-div resize-max white-change'>
         <h1 className='transport-cost-header'>Transportation Cost Comparison (Monthly)</h1>
         <div className='vehicles'>
           <div className='vehicle'>
@@ -242,7 +242,7 @@ function Home() {
         </div>
       </div>
 
-      <div className='accessories-div resize-max'>
+      <div className='accessories-div resize-max white-change'>
         <div className='accessories-header'>
           <p className='accessories-title'>Accessories</p>
           <Link to = '/shop' style={{width: '36%', height: '15%'}}>
@@ -272,7 +272,7 @@ function Home() {
         </div>
       </div>
 
-      <div className='about-us'>
+      <div className='about-us white-change'>
         <div className='about-us-header'>
           <h1>Our Mission & Vision</h1>
         </div>
@@ -297,7 +297,7 @@ function Home() {
 
         <div className='mission'>
           <h1> {about_array[changeAbout].name}</h1>
-          <p>{about_array[changeAbout].content}</p>
+          <p style = {{fontSize: '1.2rem'}}>{about_array[changeAbout].content}</p>
         </div>
 
         {/* <div className='our-awesome-team'>
