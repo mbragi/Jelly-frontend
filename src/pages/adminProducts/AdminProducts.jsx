@@ -97,45 +97,6 @@ function AdminProducts() {
                                 </div>
                             )
                         })}
-                        {/* <ul className='show-product-items'>
-                            <li className='item-product item-imge'>
-                                <img src={ProImg} alt="product-img" />
-                            </li>
-                            <li className='item-product'>Li-ion cell For EV</li>
-                            <li className='item-product'>¥38</li>
-                            <li className='item-product'>38</li>
-                            <li className='item-product'>100</li>
-                            <li className='item-product'>Active</li>
-                            <li className='item-product'>
-                                <img src={Dot} alt="3 dot vector" />
-                            </li>
-                        </ul>
-                        <ul className='show-product-items'>
-                            <li className='item-product item-imge'>
-                                <img src={ProImg} alt="product-img" />
-                            </li>
-                            <li className='item-product'>Li-ion cell For EV</li>
-                            <li className='item-product'>¥38</li>
-                            <li className='item-product'>38</li>
-                            <li className='item-product'>100</li>
-                            <li className='item-product'>Active</li>
-                            <li className='item-product'>
-                                <img src={Dot} alt="3 dot vector" />
-                            </li>
-                        </ul>
-                        <ul className='show-product-items'>
-                            <li className='item-product item-imge'>
-                                <img src={ProImg} alt="product-img" />
-                            </li>
-                            <li className='item-product'>Li-ion cell For EV</li>
-                            <li className='item-product'>¥38</li>
-                            <li className='item-product'>38</li>
-                            <li className='item-product'>100</li>
-                            <li className='item-product'>Active</li>
-                            <li className='item-product'>
-                                <img src={Dot} alt="3 dot vector" />
-                            </li>
-                        </ul> */}
                     </section>
                 </section>
             </div>

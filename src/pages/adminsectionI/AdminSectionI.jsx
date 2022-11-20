@@ -23,6 +23,7 @@ function AdminSectionI() {
         newObj[name] = photoUrl
         console.log(newObj)
         setData(newObj)
+        setCounter(0)
         setPreview(true)
     }
 

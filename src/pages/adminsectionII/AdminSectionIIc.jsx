@@ -2,19 +2,27 @@ import React from 'react'
 import './AdminSectionIIc.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 import pen from '../../assets/images/pen.png'
-import { BsArrowRight } from 'react-icons/bs';
+import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import { CloudArrowUp } from 'phosphor-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import { uploadFile } from '../../utils/cloudinary';
 const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
 
 
 function SectionIIc() {
     const [loading, setLoading] = useState(false)
+    const [loading1, setLoading1] = useState(false)
+    const [loading2, setLoading2] = useState(false)
+    const [loading3, setLoading3] = useState(false)
+    const [loading4, setLoading4] = useState(false)
     const [data, setData] = useState({})
+    const [sub, setSub] = useState({})
+    const [object, setObject] = useState({})
+    const [counter, setCounter] = useState(0)
 
     async function httpGetBanner() {
         const res = await axios.get(`${BASE_URL}/api/app/banner`)
@@ -22,6 +30,33 @@ function SectionIIc() {
         const map = response.map(item => item).reverse()
         console.log(map)
         setData(map[0])
+    }
+
+    async function setImage(e) {
+        const { name } = e.target
+        const url = await uploadFile(e.target.files[0], setCounter)
+        let newData = { ...sub }
+        newData[name] = url;
+        setSub(newData)
+        const newObj = { ...object, ...sub }
+        setObject(newObj)
+        setCounter(0)
+        if (sub.img_one) {
+            setLoading1(true)
+        } else if (sub.img_two) {
+            setLoading2(true)
+        } else if (sub.img_three) {
+            setLoading3(true)
+        } else if (sub.img_four) {
+            setLoading4(true)
+        }
+    }
+
+    async function httpCreateHomePageImages() {
+        let Obj = { ...object, img_main: data._id }
+        console.log(Obj)
+        const res = await axios.post(`${BASE_URL}/api/app/create/home`, Obj)
+        console.log(res.data)
     }
 
     useEffect(() => {
@@ -37,7 +72,8 @@ function SectionIIc() {
                     <header className='sectionIIc-header'>
                         <h1>Section II</h1>
 
-                        <button type='file'
+
+                        <button onClick={httpCreateHomePageImages} type='file'
                             style={{
                                 cursor: 'pointer',
                                 background: " rgb(53, 112, 236)",
@@ -50,10 +86,6 @@ function SectionIIc() {
                             }}>
 
                             <label id='label'>
-                                <input type="file" style={{
-                                    width: '1rem'
-                                }} />
-
                                 <span style={{
                                     display: 'flex',
                                     gap: '5px',
@@ -69,11 +101,7 @@ function SectionIIc() {
                     </header>
 
                     <section className='sectionIIc-container'>
-                        {/* <div className='sectionIIc-add-image'>
-                               
-                                <Plus size={20} style= {{cursor:'pointer'}}/>
-                                <p> Add Image</p>
-                        </div> */}
+
 
                         <div className='uploaded-main-image-sectionIIc'>
 
@@ -99,6 +127,7 @@ function SectionIIc() {
 
                     </section>
                     <div className='uploaded-image-previewed-here'>
+                        {counter > 0 && <p>Loading... {Math.floor(counter)} %</p>}
                         <>
                             <div className='uploaded-image-previewed' >
                                 <label htmlFor='one'>
@@ -117,9 +146,10 @@ function SectionIIc() {
                                         height: '30.0px',
                                         float: 'right',
                                         borderRadius: '5px',
-                                    }} />  {
-
-                                        <h5 className='uiph'>Uploaded image is previewed here</h5>
+                                    }} onChange={setImage} />  {
+                                        loading1 ?
+                                            <img src={sub.img_one} alt="" className="uiph" />
+                                            : <h5 className='uiph'>Upload Slide Image</h5>
                                     }
                                 </label>
                             </div>
@@ -144,9 +174,10 @@ function SectionIIc() {
                                         height: '30.0px',
                                         float: 'right',
                                         borderRadius: '5px',
-                                    }} />  {
-
-                                        <h5 className='uiph'>Uploaded image is previewed here</h5>
+                                    }} onChange={setImage} />  {
+                                        loading2 ?
+                                            <img src={sub.img_two} alt="" className="uiph" />
+                                            : <h5 className='uiph'>Upload Slide Image</h5>
                                     }
                                 </label>
                             </div>
@@ -171,9 +202,10 @@ function SectionIIc() {
                                         height: '30.0px',
                                         float: 'right',
                                         borderRadius: '5px',
-                                    }} />  {
-
-                                        <h5 className='uiph'>Uploaded image is previewed here</h5>
+                                    }} onChange={setImage} />  {
+                                        loading3 ?
+                                            <img src={sub.img_three} alt="" className="uiph" /> :
+                                            <h5 className='uiph'>Upload Slide Image</h5>
                                     }
                                 </label>
                             </div>
@@ -198,9 +230,10 @@ function SectionIIc() {
                                         height: '30.0px',
                                         float: 'right',
                                         borderRadius: '5px',
-                                    }} />  {
-
-                                        <h5 className='uiph'>Uploaded image is previewed here</h5>
+                                    }} onChange={setImage} />  {
+                                        loading4 ?
+                                            <img src={sub.img_four} alt="" className="uiph" /> :
+                                            <h5 className='uiph'>Upload Slide Image</h5>
                                     }
                                 </label>
                             </div>
@@ -211,6 +244,11 @@ function SectionIIc() {
 
 
                     <div className='sectionIIc-next'>
+                        <div className='sectionIIc-add-image'>
+
+                            <BsArrowLeft size={20} style={{ cursor: 'pointer' }} />
+                            <a href="/admin/sectionI#/admin/sectionI"> Change Banner</a>
+                        </div>
 
                         <Link to="/admin/sectionIII" className='sectionIIc-next-link'>
                             <span> Next  </span>
