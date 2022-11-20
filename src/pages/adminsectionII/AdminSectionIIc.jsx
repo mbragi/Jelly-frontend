@@ -53,7 +53,7 @@ function SectionIIc() {
     }
 
     async function httpCreateHomePageImages() {
-        let Obj = { ...object, img_main: data._id }
+        let Obj = { ...object, img_main: data.photoUrl }
         console.log(Obj)
         const res = await axios.post(`${BASE_URL}/api/app/create/home`, Obj)
         console.log(res.data)

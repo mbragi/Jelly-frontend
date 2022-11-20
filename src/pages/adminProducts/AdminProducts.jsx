@@ -27,14 +27,14 @@ function AdminProducts() {
 
     async function httpUpdateProduct(e) {
         const { id, checked } = e.target
-        console.log(id, checked)
+        // console.log(id, checked)
         if (checked === true) {
             setIsActive(false)
         } else {
             setIsActive(true)
         }
         let data = { inStock: isActive }
-        console.log(data)
+        // console.log(data)
         const res = await axios.put(`${BASE_URL}/api/update/${id}`, data)
         console.log(res.data)
         httpGetProducts()
@@ -96,7 +96,7 @@ function AdminProducts() {
                             <li className='item-product'>Action</li>
                         </ul>
                         {data.map((item, idx) => {
-                            console.log(item.inStock)
+                            // console.log(item.inStock)
                             return (
                                 <div className='show-product-items' key={idx}>
                                     <p className='item-product item-imge'>

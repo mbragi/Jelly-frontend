@@ -22,8 +22,9 @@ import { useGlobalContext } from '../../context'
 import { Link } from 'react-router-dom'
 import ReactCountryFlag from "react-country-flag"
 import Footer from '../../components/footer/Footer';
-    // console.log(loading)
- 
+// console.log(loading)
+const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+
 
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
@@ -34,6 +35,7 @@ function Home() {
   const [productsPerPage, setProductsPerPage] = useState(0);
   const [distance, setDistance] = useState(500);
   const [changeAbout, setChangeAbout] = useState(1);
+  const [data, setData] = useState({})
   const [aboutStyles, setAboutStyles] = useState([
     {
       content: 0,
@@ -54,8 +56,15 @@ function Home() {
       cursor: 'pointer'
     }
   ])
-  const featuresArray = ["512.png", "bike.jpg"];
-  
+
+  async function httpGetHomePage() {
+    const res = await axios.get(`${BASE_URL}/api/app/homepage`)
+    const map = res.data.data.map(item => item).reverse()
+    setData(map[0])
+    console.log(map[0])
+  }
+  const featuresArray = [data.img_one, data.img_two, data.img_three, data.img_four];
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
@@ -68,7 +77,6 @@ function Home() {
 
   // const URL = process.env.REACT_APP_SERVER_URL
 
-  const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
   const fetchData = async () => {
     setLoading(true);
@@ -102,26 +110,26 @@ function Home() {
       content: "Refer friends and get upto Rs. 5000/-OFF on final price Jelly App connected| Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes"
     }
   ]
-  const transform = (e) =>{
+  const transform = (e) => {
     const transformArray = aboutStyles.map((item) => (
-      parseInt(e.currentTarget.id) === item.content ? {...item, backgroundColor: "white", boxShadow: "0px 4px 22px 0px #00000054"} :  {...item, backgroundColor: '#D9D9D9', boxShadow: 'none' }
+      parseInt(e.currentTarget.id) === item.content ? { ...item, backgroundColor: "white", boxShadow: "0px 4px 22px 0px #00000054" } : { ...item, backgroundColor: '#D9D9D9', boxShadow: 'none' }
     ))
     setAboutStyles(transformArray)
   }
   const about_change = (e) => {
-    if(parseInt(e.currentTarget.id) === 0){
+    if (parseInt(e.currentTarget.id) === 0) {
       setChangeAbout(0);
       transform(e);
     }
-    else if(parseInt(e.currentTarget.id) === 1){
+    else if (parseInt(e.currentTarget.id) === 1) {
       setChangeAbout(1)
       transform(e);
     }
-    else if(parseInt(e.currentTarget.id) === 2){
+    else if (parseInt(e.currentTarget.id) === 2) {
       setChangeAbout(2);
       transform(e);
     }
-    else{return;}
+    else { return; }
   }
 
   function getQuantity(_id) {
@@ -130,7 +138,7 @@ function Home() {
     if (cart) {
       cart = JSON.parse(cart);
       let cartProduct = cart.find((product) => product._id === _id);
-      
+
       if (cartProduct) return <span className="item-quantity-in-cart">{cartProduct.quantity}</span>;
       return '';
     }
@@ -139,8 +147,9 @@ function Home() {
   useEffect(() => {
     fetchData();
     pageResized();
+    httpGetHomePage()
   }, []);
-  
+
   const prev = () => {
     setFeaturesIndex(featuresIndex => {
       if (featuresIndex === 0) return featuresArray.length - 1;
@@ -153,7 +162,7 @@ function Home() {
       return featuresIndex + 1;
     })
   }
-  
+
   const accessoriesPrev = () => {
     if (currentPage > 1) setCurrentPage(currentPage => currentPage - 1);
   }
@@ -161,9 +170,9 @@ function Home() {
     const numberOfPages = Math.ceil(totalProducts / productsPerPage);
     if (currentPage < numberOfPages) setCurrentPage(currentPage => currentPage + 1);
   }
-  
-  const {isLogin} = useGlobalContext()
-  const {switchpop, addToCart, isSignUp} = useGlobalContext();
+
+  const { isLogin } = useGlobalContext()
+  const { switchpop, addToCart, isSignUp } = useGlobalContext();
   // const obj = {};
   // if(Object.keys(obj).length === 0 && obj.constructor === Object){
   //   alert("jjjj")
@@ -175,7 +184,7 @@ function Home() {
       {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
       <MobileBar />
       <div className="imgcontainer resize-max white-change">
-        <img src={bike} alt="evtop" className='evtopimg' />
+        <img src={data.img_main} alt="evtop" className='evtopimg' />
       </div>
 
       <div className='features-div white-change' >
@@ -183,7 +192,7 @@ function Home() {
         <div className='features-slider-div '>
           <BiChevronLeftCircle size={50} className='icon' onClick={() => { prev() }} />
           <Fade direction="up" spy={featuresIndex} className='slider-attention-seeker'>
-            <img src={require(`../../assets/${featuresArray[featuresIndex]}`)} alt="bike" className='slider-item' />
+            <img src={featuresArray[featuresIndex]} alt="bike" className='slider-item' />
           </Fade>
           <BiChevronRightCircle size={50} className='icon' onClick={() => { next() }} />
         </div>
@@ -245,7 +254,7 @@ function Home() {
       <div className='accessories-div resize-max white-change'>
         <div className='accessories-header'>
           <p className='accessories-title'>Accessories</p>
-          <Link to = '/shop' style={{width: '36%', height: '15%'}}>
+          <Link to='/shop' style={{ width: '36%', height: '15%' }}>
             <Button content="View More" style={{ width: "100%", height: "100%", fontSize: "100%" }} />
           </Link>
         </div>
@@ -278,17 +287,17 @@ function Home() {
         </div>
 
         <div className='mission-vision'>
-          <div className='world-of-jelly' onClick = {about_change} style = {aboutStyles[0]} id = {0}>
-            <h1 style = {{fontSize: '1.6rem', color: 'blue', textAlign: 'center'}}><i>evTop</i></h1>
+          <div className='world-of-jelly' onClick={about_change} style={aboutStyles[0]} id={0}>
+            <h1 style={{ fontSize: '1.6rem', color: 'blue', textAlign: 'center' }}><i>evTop</i></h1>
             <p>World of evTop</p>
           </div>
 
-          <div className='our-mission' onClick = {about_change} style = {aboutStyles[1]} id = {1}>
+          <div className='our-mission' onClick={about_change} style={aboutStyles[1]} id={1}>
             <img src={target} alt="" />
             <p>Our Mission</p>
           </div>
 
-          <div className='our-vision' onClick = {about_change} style = {aboutStyles[2]} id = {2}>
+          <div className='our-vision' onClick={about_change} style={aboutStyles[2]} id={2}>
             <img src={eye} alt="" />
             <p>Our Vision</p>
           </div>
@@ -297,7 +306,7 @@ function Home() {
 
         <div className='mission'>
           <h1> {about_array[changeAbout].name}</h1>
-          <p style = {{fontSize: '1.2rem'}}>{about_array[changeAbout].content}</p>
+          <p style={{ fontSize: '1.2rem' }}>{about_array[changeAbout].content}</p>
         </div>
 
         {/* <div className='our-awesome-team'>
@@ -347,8 +356,8 @@ function Home() {
         </div> */}
 
       </div>
-      
-      
+
+
       <div className='our-partners'>
         <h1>OUR PARTNERS</h1>
         <h3>What sets us apart from the competition ?  <span>Our ability to listen to our customers !</span></h3>
@@ -359,10 +368,10 @@ function Home() {
             countryCode="US"
             svg
             style={{
-                width: '180px',
-                height: '150px',
-                borderRadius: "15px",
-                cursor:'pointer',
+              width: '180px',
+              height: '150px',
+              borderRadius: "15px",
+              cursor: 'pointer',
             }}
             title="United States"
           />
@@ -371,10 +380,10 @@ function Home() {
             countryCode="GB"
             svg
             style={{
-                width: '180px',
-                height: '150px',
-                borderRadius: "15px",
-                cursor:'pointer'
+              width: '180px',
+              height: '150px',
+              borderRadius: "15px",
+              cursor: 'pointer'
             }}
             title="United Kingdom"
           />
@@ -385,7 +394,7 @@ function Home() {
               width: '180px',
               height: '150px',
               borderRadius: "15px",
-              cursor:'pointer'
+              cursor: 'pointer'
             }}
             title="China"
           />
@@ -396,7 +405,7 @@ function Home() {
               width: '180px',
               height: '150px',
               borderRadius: "15px",
-              cursor:'pointer'
+              cursor: 'pointer'
             }}
             title="Brazil"
           />
@@ -407,7 +416,7 @@ function Home() {
               width: '180px',
               height: '150px',
               borderRadius: "15px",
-              cursor:'pointer'
+              cursor: 'pointer'
             }}
             title="Paraguay"
           />
@@ -418,7 +427,7 @@ function Home() {
               width: '180px',
               height: '150px',
               borderRadius: "15px",
-              cursor:'pointer'
+              cursor: 'pointer'
             }}
             title="Belgium"
           />
@@ -430,7 +439,7 @@ function Home() {
               width: '180px',
               height: '150px',
               borderRadius: "15px",
-              cursor:'pointer'
+              cursor: 'pointer'
             }}
             title="Italy"
           />
@@ -442,7 +451,7 @@ function Home() {
               width: '180px',
               height: '150px',
               borderRadius: "15px",
-              cursor:'pointer'
+              cursor: 'pointer'
             }}
             title="European Union"
           />
@@ -454,7 +463,7 @@ function Home() {
               width: '180px',
               height: '150px',
               borderRadius: "15px",
-              cursor:'pointer'
+              cursor: 'pointer'
             }}
             title="Germany"
           />
@@ -466,7 +475,7 @@ function Home() {
               width: '180px',
               height: '150px',
               borderRadius: "15px",
-              cursor:'pointer'
+              cursor: 'pointer'
             }}
             title="France"
           />
@@ -478,7 +487,7 @@ function Home() {
               width: '180px',
               height: '150px',
               borderRadius: "15px",
-              cursor:'pointer'
+              cursor: 'pointer'
             }}
             title="Thailand"
           />
@@ -490,17 +499,17 @@ function Home() {
               width: '180px',
               height: '150px',
               borderRadius: "15px",
-              cursor:'pointer'
+              cursor: 'pointer'
             }}
             title="Australia"
-            
+
           />
 
         </div>
 
       </div>
 
-      <Footer/>
+      <Footer />
 
     </div>
   )
