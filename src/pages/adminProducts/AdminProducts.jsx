@@ -15,6 +15,7 @@ function AdminProducts() {
     const [data, setData] = useState([])
     const [category, setCategory] = useState([])
     const [loading, setLoading] = useState(false)
+    const [isActive, setIsActive] = useState(true)
     async function httpGetCategoryById(e) {
         const { value } = e.target
         setLoading(!loading)
@@ -22,6 +23,21 @@ function AdminProducts() {
         const response = request.data.data
         console.log(response)
         setData(response)
+    }
+
+    async function httpUpdateProduct(e) {
+        const { id, checked } = e.target
+        console.log(id, checked)
+        if (checked === true) {
+            setIsActive(false)
+        } else {
+            setIsActive(true)
+        }
+        let data = { inStock: isActive }
+        console.log(data)
+        const res = await axios.put(`${BASE_URL}/api/update/${id}`, data)
+        console.log(res.data)
+        httpGetProducts()
     }
 
     async function httpGetProducts() {
@@ -80,7 +96,7 @@ function AdminProducts() {
                             <li className='item-product'>Action</li>
                         </ul>
                         {data.map((item, idx) => {
-                            // console.log(item)
+                            console.log(item.inStock)
                             return (
                                 <div className='show-product-items' key={idx}>
                                     <p className='item-product item-imge'>
@@ -90,7 +106,10 @@ function AdminProducts() {
                                     <p className='item-product'>{item.price}</p>
                                     <p className='item-product'>Total sales</p>
                                     <p className='item-product'>{item.available_quantity || "N/A"}</p>
-                                    <button type='checkbox' className='item-product'>{item.inStock === true ? "Active" : "N/A"}</button >
+                                    <button type='submit' className={item.inStock === true ? 'item-producta' : "item-productb"}><span style={{ width: '100%' }}><input type="text" className='item-product' checked={item.inStock} id={item._id} style={{ width: '100%', position: 'absolute', right: '3%', opacity: '0' }} onClick={httpUpdateProduct} />
+                                        {item.inStock === true ? "Available" : "Out of Stock"}
+                                    </span>
+                                    </button >
                                     <p className='item-product'>
                                         <img src={Dot} alt="3 dot vector" />
                                     </p>
@@ -100,7 +119,7 @@ function AdminProducts() {
                     </section>
                 </section>
             </div>
-        </AdminFrame>
+        </AdminFrame >
     )
 }
 

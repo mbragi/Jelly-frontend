@@ -60,8 +60,20 @@
 .item-product{
     width: 13%;
     text-align: center;
+    cursor: pointer;
+}.item-producta {
+    width: 13%;
+    text-align: center;
+    position: relative;
+    background-color: rgba(15, 190, 44, 0.441);
+    border: none;
+}.item-productb {
+    width: 13%;
+    text-align: center;
+    position: relative;
+    background-color: rgba(122, 8, 8, 0.612);
+    border: none;
 }
-
 .item-imge img{
     width: 70px;
 }
