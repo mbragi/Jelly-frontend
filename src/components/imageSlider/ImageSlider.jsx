@@ -1,0 +1,34 @@
+import React from 'react';
+import './ImageSlider.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { Fade } from "react-awesome-reveal";
+
+function ImageSlider({ images }) {
+
+    const settings = {
+        infinite: true,
+        dots: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        lazyLoad: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+       
+      };
+
+    return (
+        <div className='slider-container'>
+            <Slider {...settings} className='slider'>
+                {images.map((item) => (
+                    <img src={item}  alt={item} className='slider-image' />
+                ))}
+            </Slider>
+        </div>
+        //         <Fade direction="up" className='slider-attention-seeker'>
+        //         </Fade>
+    )
+}
+
+export default ImageSlider;

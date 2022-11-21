@@ -7,8 +7,8 @@ import turnSignal from "../../assets/turn-signal.jpg";
 import target from "../../assets/images/target.png";
 import eye from "../../assets/images/eye.png";
 import Button from "../../components/button/Button";
-import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { MdDirectionsBike, MdDirectionsCar, MdDirectionsBus, MdOutlineStar } from "react-icons/md";
+import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { Fade, Zoom } from "react-awesome-reveal";
 // import { addToCart, removeFromCart } from '../../helpers/cart';
 // import { addToCart } from '../../helpers/cart';
@@ -22,9 +22,9 @@ import { useGlobalContext } from '../../context'
 import { Link } from 'react-router-dom'
 import ReactCountryFlag from "react-country-flag"
 import Footer from '../../components/footer/Footer';
+import ImageSlider from '../../components/imageSlider/ImageSlider';
 // console.log(loading)
 const BASE_URL = 'https://jelly-online-api.herokuapp.com'
-
 
 function Home() {
   const [featuresIndex, setFeaturesIndex] = useState(0);
@@ -187,18 +187,8 @@ function Home() {
         <img src={data.img_main} alt="evtop" className='evtopimg' />
       </div>
 
-      <div className='features-div white-change' >
-
-        <div className='features-slider-div '>
-          <BiChevronLeftCircle size={50} className='icon' onClick={() => { prev() }} />
-          <Fade direction="up" spy={featuresIndex} className='slider-attention-seeker'>
-            <img src={featuresArray[featuresIndex]} alt="bike" className='slider-item' />
-          </Fade>
-          <BiChevronRightCircle size={50} className='icon' onClick={() => { next() }} />
-        </div>
-
-
-      </div>
+      
+        <ImageSlider images={featuresArray} /><br /><br /><br />
 
 
       <div className='transport-cost-div resize-max white-change'>
