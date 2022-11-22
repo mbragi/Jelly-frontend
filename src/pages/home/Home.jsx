@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import "./Home.css";
 import NavBar from "../../components/navBar/NavBar";
 // import intro from "../../assets/intro.mp4";
-import bike from "../../assets/512.png";
 import turnSignal from "../../assets/turn-signal.jpg";
 import target from "../../assets/images/target.png";
 import eye from "../../assets/images/eye.png";
@@ -27,7 +26,6 @@ import ImageSlider from '../../components/imageSlider/ImageSlider';
 const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
 function Home() {
-  const [featuresIndex, setFeaturesIndex] = useState(0);
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -150,18 +148,6 @@ function Home() {
     httpGetHomePage()
   }, []);
 
-  const prev = () => {
-    setFeaturesIndex(featuresIndex => {
-      if (featuresIndex === 0) return featuresArray.length - 1;
-      return featuresIndex - 1;
-    })
-  }
-  const next = () => {
-    setFeaturesIndex(featuresIndex => {
-      if (featuresIndex === (featuresArray.length - 1)) return 0;
-      return featuresIndex + 1;
-    })
-  }
 
   const accessoriesPrev = () => {
     if (currentPage > 1) setCurrentPage(currentPage => currentPage - 1);
@@ -216,7 +202,7 @@ function Home() {
 
       <div className='promo'>
         <div className="resize-promo resize-max">
-          <Fade direction="up" spy={featuresIndex} className='promo-attention-seeker'>
+          <Fade direction="up" className='promo-attention-seeker'>
             <img src={turnSignal} alt="promo" className='promo-img' />
           </Fade>
           <div className='promo-info'>

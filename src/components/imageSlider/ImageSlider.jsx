@@ -3,7 +3,6 @@ import './ImageSlider.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Fade } from "react-awesome-reveal";
 
 function ImageSlider({ images }) {
 
