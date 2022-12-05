@@ -714,8 +714,8 @@ function Home() {
 
               <div className='footer-right-bottom'>
                 <ul>
-                  <li>Privacy Policy</li>
-                  <li>Terms & Condition </li>
+                  <li>Privacy Policy &&</li>
+                  <li>Terms and Condition  &&</li>
                   <li>Return and Cancellation</li>
                 </ul>
               </div>
