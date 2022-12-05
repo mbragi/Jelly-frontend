@@ -50,9 +50,10 @@ footer *{
 }
 
 .footer-bottom, center{
-    padding: 10px;
-    font-size: 0.9rem;
-    background:  #3570EC;
+    padding: 5px;
+    font-size: 1rem;
+    background:  #317B7C;
+    color: white;
     display: flex;
     justify-content: space-around;
 }
@@ -60,7 +61,7 @@ footer *{
 .footer-right-bottom ul{
     display: flex;
     justify-content: space-around;
-    gap: 10px;
+    gap: 7px;
 }
 
 
