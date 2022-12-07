@@ -8,20 +8,20 @@ function ImageSlider({ images }) {
 
     const settings = {
         infinite: true,
-        dots: true,
+        dots: false,
         slidesToShow: 1,
         slidesToScroll: 1,
         lazyLoad: true,
         autoplay: true,
         autoplaySpeed: 2000,
-       
-      };
+
+    };
 
     return (
         <div className='slider-container'>
             <Slider {...settings} className='slider'>
-                {images.map((item) => (
-                    <img src={item}  alt={item} className='slider-image' />
+                {images.map((item, idx) => (
+                    <img src={item} key={idx} alt={item} className='slider-image' />
                 ))}
             </Slider>
         </div>

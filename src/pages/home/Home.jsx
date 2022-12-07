@@ -4,30 +4,29 @@ import "./Home.css";
 import turnSignal from "../../assets/turn-signal.jpg";
 import Banner from '../../assets/new layout/Toubu1.jpg'
 import Company from '../../assets/new layout/weibu2.jpg'
-import Weibu from '../../assets/new layout/Weibu05.jpg'
+import lady3 from '../../assets/new layout/lady3.jpg'
+import lady2 from '../../assets/new layout/lady2.jpg'
 import lady from '../../assets/lady.jpg'
 import ladyA from '../../assets/ladyAfter.jpg'
-// import NavBar from '../../components/navBar/NavBar';
 import { MdLocalPhone, MdOutlineMailOutline, } from "react-icons/md";
 import { FaUserAlt, FaSearchLocation } from "react-icons/fa";
 import { HiPencilAlt } from "react-icons/hi";
 import { IoMdCart } from "react-icons/io";
-import { useLocation, Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useGlobalContext } from '../../context';
 import Button from '../../components/button/Button';
 import { MdOutlineStar } from "react-icons/md";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { Fade, Zoom } from "react-awesome-reveal";
 import axios from 'axios';
-import LoginPage from '../login/LoginPage';
-import RegisterPage from '../register/RegisterPage';
-import Welcome from '../../components/welcome/Welcome';
+import Footer from '../../components/footer/Footer';
+import ImageSlider from '../../components/imageSlider/ImageSlider';
 
 
 
 
 function Home() {
-  const [show, setShow] = useState(false)
+  // const [show, setShow] = useState(false)s
   const [loading, setLoading] = useState(false);
   const BASE_URL = 'https://jelly-online-api.herokuapp.com'
   const [products, setProducts] = useState([]);
@@ -80,18 +79,10 @@ function Home() {
     const numberOfPages = Math.ceil(totalProducts / productsPerPage);
     if (currentPage < numberOfPages) setCurrentPage(currentPage => currentPage + 1);
   }
-
-  useEffect(() => {
-    fetchData();
-    pageResized();
-    // httpGetHomePage()
-  }, []);
-  const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
-  const shower = () => {
-    setShow(!show);
-  }
-  const { switchpop, addToCart, isSignUp, isLogin } = useGlobalContext();
-
+  //Navigation Related
+  // const shower = () => {
+  //   setShow(!show);
+  // }
   function ScrollToTop() {
     const { pathname } = useLocation();
     useEffect(() => {
@@ -100,10 +91,20 @@ function Home() {
         left: 0,
         behavior: 'smooth',
       });
-      shower()
     }, [pathname]);
     return null;
   }
+  useEffect(() => {
+    fetchData();
+    pageResized();
+    // httpGetHomePage()
+  }, []);
+  const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
+  const featuresArray = [lady, lady2, lady3];
+
+
+  const { addToCart } = useGlobalContext();
+
   return (
     <div style={{ width: '100%' }}>
       <section className="navigation">
@@ -132,6 +133,7 @@ function Home() {
         </div>
         <div className='nav-two'>
           <div className='nav-sub' >
+            {/* <p onClick={shower} style={{ cursor: 'pointer' ,vis}} className='exit'><MdCancel size={35} /></p> */}
             <Link to='/' className='lin' onClick={ScrollToTop()}  >Home</Link>
             <p className='lin' onClick={ScrollToTop()} >Video</p>
             <Link to="/shop" className='lin' onClick={ScrollToTop()} >Shop</Link>
@@ -143,11 +145,12 @@ function Home() {
               <IoMdCart size={30} color="white" />
             </Link>
           </div>
-          {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
+
         </div>
       </section>
       <section className='section-two'>
-        <img src={lady} alt="lady" />
+        <ImageSlider images={featuresArray} /><br /><br /><br />
+
         <img src={ladyA} alt="ladyAfter" />
       </section>
       <section className="section-three">
@@ -237,25 +240,8 @@ function Home() {
       </section>
       <section className='section-four'>
         <img src={Company} alt="company" />
-        <div className='new-footer'>
-          <div className='new-footer-top'>
-            <img src={Weibu} alt="brain" />
-          </div>
-          <div class="fotter-bottom" >
-            <center>
-              <div className="footer-left-bottom">
-                <p>Copyright © 2013-2022 Dongguan EVTOP Materials Co.Ltd. All Rights Reserved.</p>
-              </div>
-
-              <div className='footer-right-bottom'>
-                <ul>
-                  <li>Privacy Policy &&</li>
-                  <li>Terms and Condition  &&</li>
-                  <li>Return and Cancellation</li>
-                </ul>
-              </div>
-            </center>
-          </div>
+        <div>
+          <Footer />
         </div>
       </section>
     </div>

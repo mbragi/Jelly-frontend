@@ -65,11 +65,7 @@
     display: flex;
     flex-direction: column;
 }
-.new-footer-top{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
+
 .brain{
     display: flex;
     flex-direction: row-reverse;
