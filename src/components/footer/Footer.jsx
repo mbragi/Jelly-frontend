@@ -79,7 +79,7 @@ function Footer() {
             <div className='new-footer-top'>
                 <img src={Weibu} alt="brain" />
             </div>
-            <div class="fotter-bottom" >
+            <div className="fotter-bottom" >
                 <center>
                     <div className="footer-left-bottom">
                         <p>Copyright © 2013-2022 Dongguan EVTOP Materials Co.Ltd. All Rights Reserved.</p>
