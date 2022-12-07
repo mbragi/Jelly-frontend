@@ -3,11 +3,17 @@ import React, { useEffect, useState } from 'react'
 import "./Home.css";
 import turnSignal from "../../assets/turn-signal.jpg";
 import Banner from '../../assets/new layout/Toubu1.jpg'
-import Company from '../../assets/new layout/weibu2.jpg'
+import beforeCompany from '../../assets/new layout/beforeCompanyPics.jpg'
 import lady3 from '../../assets/new layout/lady3.jpg'
 import lady2 from '../../assets/new layout/lady2.jpg'
 import lady from '../../assets/lady.jpg'
 import ladyA from '../../assets/ladyAfter.jpg'
+import one from '../../assets/new layout/1.png'
+import two from '../../assets/new layout/2.jpg'
+import three from '../../assets/new layout/3.jpg'
+import four from '../../assets/new layout/4.jpg'
+import five from '../../assets/new layout/5.jpg'
+import six from '../../assets/new layout/6.jpg'
 import { MdLocalPhone, MdOutlineMailOutline, } from "react-icons/md";
 import { FaUserAlt, FaSearchLocation } from "react-icons/fa";
 import { HiPencilAlt } from "react-icons/hi";
@@ -24,11 +30,11 @@ import ImageSlider from '../../components/imageSlider/ImageSlider';
 
 
 
+const BASE_URL = 'https://jelly-online-api.herokuapp.com'
 
 function Home() {
   // const [show, setShow] = useState(false)s
   const [loading, setLoading] = useState(false);
-  const BASE_URL = 'https://jelly-online-api.herokuapp.com'
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
@@ -106,7 +112,7 @@ function Home() {
   const { addToCart } = useGlobalContext();
 
   return (
-    <div style={{ width: '100%' }}>
+    <div style={{ width: '100%', overflow: 'hidden' }}>
       <section className="navigation">
         <img src={Banner} alt="background" className='photoUrl' />
         <div className='nav-one'>
@@ -239,10 +245,29 @@ function Home() {
         </div>
       </section>
       <section className='section-four'>
-        <img src={Company} alt="company" />
-        <div>
-          <Footer />
+        <div className='section-four-top'>
+          <img src={beforeCompany} alt="company" />
+          <div className='section-four-gallery'>
+            <div className="section-four-sideA">
+              <img src={one} alt="1" className='small' />
+              <img src={two} alt="2" className='small' />
+              <img src={three} alt="3" className='large' />
+            </div>
+            <div className="section-four-sideB">
+              <img src={four} alt="4" className='large' />
+              <img src={five} alt="5" className='small' />
+              <img src={six} alt="6" className='small' />
+            </div>
+            <div className="section-four-title">
+              <p className="text">
+                A group of energetic and diligent people are gathered here
+                Dedicated time and energy to the BMS management system, more affirmation and enthusiasm for new energy.
+                Evtop Bms Hardware engineer Mr Tomasz said:Bms development seems to be considered simple by everyone, but when laying out the PCB circuit, it needs a very careful & reasonable design to get the best performance.At the same time, matching suitable IC, MOS, and all raw materials is a key step. Every piece of BMS is like having many living organs..
+              </p>
+            </div>
+          </div>
         </div>
+        <Footer />
       </section>
     </div>
   )

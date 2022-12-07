@@ -14,7 +14,6 @@ function ImageSlider({ images }) {
         lazyLoad: true,
         autoplay: true,
         autoplaySpeed: 2000,
-
     };
 
     return (
@@ -25,8 +24,6 @@ function ImageSlider({ images }) {
                 ))}
             </Slider>
         </div>
-        //         <Fade direction="up" className='slider-attention-seeker'>
-        //         </Fade>
     )
 }
 
