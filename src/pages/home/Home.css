@@ -8,7 +8,9 @@
 .photoUrl{
     height: 550px;
 }
-
+.ladyAfter{
+    padding: 4rem 0 0 0;
+}
 .nav-one{
     opacity: 3;
     width: 100%;

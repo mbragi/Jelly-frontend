@@ -163,8 +163,8 @@ function Home() {
         </div>
       </section>
       <section className='section-two'>
-        <ImageSlider images={featuresArray} /><br /><br /><br />
-        <img src={ladyA} alt="ladyAfter" />
+        <ImageSlider images={featuresArray} />
+        <img src={ladyA} alt="ladyAfter" className='ladyAfter' />
       </section>
       <section className="section-three">
         <div className='accessories-div resize-max white-change'>
