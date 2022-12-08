@@ -20,7 +20,7 @@ function ImageSlider({ images }) {
         <div className='slider-container'>
             <Slider {...settings} className='slider'>
                 {images.map((item, idx) => (
-                    <img src={item} key={idx} alt={item} className='slider-image' />
+                    <img src={item} alt={item} s className='slider-image' />
                 ))}
             </Slider>
         </div>
