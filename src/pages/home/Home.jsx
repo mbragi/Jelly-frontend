@@ -4,7 +4,7 @@ import "./Home.css";
 import turnSignal from "../../assets/turn-signal.jpg";
 // import Banner from '../../assets/new layout/banner2.jpg'
 import beforeCompany from '../../assets/new layout/beforeCompanyPics.jpg'
-import logo from '../../assets/new layout/logo.png'
+// import logo from '../../assets/new layout/logo.png'
 
 import ladyA from '../../assets/ladyAfter.jpg'
 import one from '../../assets/new layout/1.png'
@@ -122,7 +122,7 @@ function Home() {
     <div style={{ width: '100%', overflow: 'hidden' }}>
       <section className="navigation">
         <img src={data.img_main} alt="background" className='photoUrl' />
-        <img src={logo} alt="background" className='logoUrl' />
+        {/* <img src={logo} alt="background" className='logoUrl' /> */}
         <div className='nav-one'>
           <div className='nav-top'>
 
