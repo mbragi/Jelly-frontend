@@ -8,7 +8,7 @@ function ImageSlider({ images }) {
 
     const settings = {
         infinite: true,
-        dots: false,
+        dots: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         lazyLoad: true,
