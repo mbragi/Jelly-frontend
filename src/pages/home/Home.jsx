@@ -45,8 +45,6 @@ function Home() {
     const res = await axios.get(`${BASE_URL}/api/app/homepage`)
     const map = res.data.data.map(item => item).reverse()
     setData(map[0])
-    console.log(data)
-    console.log(map[0])
   }
   const fetchData = async () => {
     setLoading(true);
@@ -60,6 +58,8 @@ function Home() {
     // getCurrentProducts(product);
 
     //remove this after using i have to do this to avoid build errors
+    // console.log(map[0])
+    // console.log(data)
   };
 
   function pageResized() {
