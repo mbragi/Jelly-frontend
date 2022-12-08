@@ -1,13 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './AdminSectionI.css'
 import AdminFrame from '../../components/adminFrame/AdminFrame';
 import pen from '../../assets/images/pen.png'
 import { BsArrowRight } from 'react-icons/bs';
 import { CloudArrowUp } from 'phosphor-react';
 import { Link } from 'react-router-dom';
+import { uploadFile } from '../../utils/cloudinary'
+import axios from 'axios';
+const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+
 
 
 function AdminSectionI() {
+    const [counter, setCounter] = useState(0)
+    const [data, setData] = useState({})
+    const [preview, setPreview] = useState(false)
+    async function setImage(e) {
+        const { name } = e.target
+        console.log(e.target.files)
+        const photoUrl = await uploadFile(e.target.files[0], setCounter)
+        const newObj = { ...data }
+        newObj[name] = photoUrl
+        console.log(newObj)
+        setData(newObj)
+        setCounter(0)
+        setPreview(true)
+    }
+
+    async function httpCreateBanner() {
+        setPreview(false)
+        console.log(data)
+        const res = await axios.post(`${BASE_URL}/api/app/create/banner`, data)
+        console.log(res.data)
+        setData({})
+    }
+
     return (
         <AdminFrame currentPage='sectionI'>
             <div className='sectionI'>
@@ -24,12 +51,9 @@ function AdminSectionI() {
                             border: 'none',
                             color: 'white',
                             borderRadius: '15px'
-                        }}>
+                        }} onClick={httpCreateBanner}>
 
                         <label id='label'>
-                            <input type="file" style={{
-                                width: '1rem'
-                            }} />
 
                             <span style={{
                                 display: 'flex',
@@ -46,8 +70,9 @@ function AdminSectionI() {
                 </header>
 
                 <section className='sectionI-container'>
+                    {counter > 0 && <p>Loading...{Math.floor(counter)}%</p>}
                     <div className='upload-main-image-sectionI'>
-                        <input id='filez' type="file" name='img' />
+                        <input id='filez' type="file" name='photoUrl' onChange={setImage} />
                         <label htmlFor="filez">
                             <img src={pen} alt="product" style={{
                                 width: '50px',
@@ -61,7 +86,8 @@ function AdminSectionI() {
                             }} />
                         </label>
                         {
-                            <h1 className='umi-sec'>Upload Main <br /> Image</h1>
+                            preview ? <img src={data.photoUrl} alt="" className="umi-sec" /> :
+                                <h1 className='umi-sec'>Upload Main <br /> Image</h1>
                         }
                     </div>
 
@@ -71,9 +97,9 @@ function AdminSectionI() {
 
                 <div className='sectionI-next'>
 
-                    <Link to="/admin/sectionII" className='sectionI-next-link'>
+                    <Link to="/admin/sectionIIc" className='sectionI-next-link'>
                         <span> Next  </span>
-                        <BsArrowRight size={35} color='blue'/>
+                        <BsArrowRight size={35} color='blue' />
                     </Link>
 
                 </div>

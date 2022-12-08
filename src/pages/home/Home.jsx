@@ -2,12 +2,10 @@
 import React, { useEffect, useState } from 'react'
 import "./Home.css";
 import turnSignal from "../../assets/turn-signal.jpg";
-import Banner from '../../assets/new layout/banner2.jpg'
+// import Banner from '../../assets/new layout/banner2.jpg'
 import beforeCompany from '../../assets/new layout/beforeCompanyPics.jpg'
 import logo from '../../assets/new layout/logo.png'
-import lady3 from '../../assets/new layout/lady3.jpg'
-import lady2 from '../../assets/new layout/lady2.jpg'
-import lady from '../../assets/lady.jpg'
+
 import ladyA from '../../assets/ladyAfter.jpg'
 import one from '../../assets/new layout/1.png'
 import two from '../../assets/new layout/2.jpg'
@@ -114,8 +112,8 @@ function Home() {
     httpGetHomePage()
   }, []);
   const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
-  const featuresArray = [lady, lady2, lady3];
-  // const featuresArray = [data.img_one, data.img_two, data.img_three, data.img_four];
+  // const featuresArray = [lady, lady2, lady3];
+  const featuresArray = [data.img_one, data.img_two, data.img_three];
 
 
   const { addToCart } = useGlobalContext();
@@ -123,7 +121,7 @@ function Home() {
   return (
     <div style={{ width: '100%', overflow: 'hidden' }}>
       <section className="navigation">
-        <img src={Banner} alt="background" className='photoUrl' />
+        <img src={data.img_main} alt="background" className='photoUrl' />
         <img src={logo} alt="background" className='logoUrl' />
         <div className='nav-one'>
           <div className='nav-top'>
