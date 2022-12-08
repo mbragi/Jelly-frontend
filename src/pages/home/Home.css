@@ -47,26 +47,13 @@
     width: 50%;
     align-items: center;
 }
-.lin{
-    color: white;
-    cursor: pointer;
-    transition: 1s ease-in-out;
-        text-decoration: none;
-        font-size: 24px;
-}
+
 .section-two{
     width: 100%;
     display: flex;
     flex-direction: column;
 }
-.small{
-    width: 18%;
-    height: 200px;
-}
-.large{
-    height: 200px;
-        width: 48%;
-}
+
 .section-four{
     width: 100%;
     display: flex;
@@ -86,7 +73,7 @@
     justify-content: space-evenly;
     flex-wrap:wrap;
     width: 80%;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     margin-top: 1rem;
 }
 .section-four-sideB {
@@ -104,20 +91,76 @@
         flex-wrap: wrap;
         width: 70%;
         margin-bottom: 2rem
+        
 }
-.text{
+.small {
+    width: 80%;
+    height: 150px;
+    margin: 16px 0px 16px 0;
+    transition: 2s ease-in-out;
+}
+
+.large {
+    height: 150px;
+    width: 80%;
+    margin: 16px 0px 16px 0;
+    transition: 2s ease-in-out;
+}
+.text {
     color: #FFFFFF;
-    line-height: 2rem;
+    line-height: 1.5rem;
+    font-size: 16px;
+    width: 90%;
+    
     /* font-family: 'Times New Roman', Times, serif; */
     font-family: 'Poppins', sans-serif;
 }
 @media  screen and (min-width: 600px) {
     .section-four-sideA{
+        margin-bottom: 2rem;
         flex-wrap: nowrap;
     }
     .section-four-sideB{
-        flex-wrap: nowrap;
+        margin-bottom: 2rem; flex-wrap: nowrap;
     }
+        .small {
+            width: 18%;
+            height: 200px;
+        }
+    
+        .large {
+            height: 200px;
+            width: 48%;
+        }
+                .small:hover {
+                    cursor: pointer;
+                    transform: rotate(360deg);
+                }
+        
+                .large:hover {
+                    cursor: pointer;
+                    transform: rotate(360deg);
+                }
+                .text {
+                    color: #FFFFFF;
+                    line-height: 2rem;
+                    /* font-family: 'Times New Roman', Times, serif; */
+                    font-family: 'Poppins', sans-serif;
+                    width: 100%;
+                }
+ .lin {
+     color: white;
+     cursor: pointer;
+     /* transition: 1s ease-in-out; */
+     text-decoration: none;
+     font-size: 24px;
+ }
+ .logoUrl{
+    position: absolute;
+    width: 30rem;
+    top: 30%;
+    left: 30%;
+ }
 }
 .section-four-top{
     background-color: #1D1B1C;
@@ -540,7 +583,11 @@
     .intro {
         height: 50vh;
     }
-
+    .promo{
+        /* background-color: blue; */
+        padding: 0px 0px 72px;
+   
+    }
     .features-header {
         width: 320px;
         height: 60px;
@@ -573,21 +620,35 @@
     }
 
     .resize-promo {
-        display: block;
-    }
-
-    .mission-vision {
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 50px;
+        /* display: block; */display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
 
     }
-
-
-    /* .world-of-jelly{
-      display: none;
+    .promo-img{
+        /* width: 100%; */
+        height: 300px;
     }
-     */
+        .lin {
+            color: white;
+            cursor: pointer;
+            /* transition: 1s ease-in-out; */
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .logoUrl{
+            position: absolute;
+            width: 15rem;
+            top: 30%;
+            left: 25%;
+        }
+        .photoUrl{
+            height: 300px;
+        }
+
     .our-mission {
         background-color: #FFFFFF;
         box-shadow: 0px 4px 22px 0px #00000054;

@@ -86,7 +86,11 @@ function Footer() {
                     <p className='text-jelly'>WeChat(jelly)</p>
                 </div>
                 <div className='footer-text'>
-
+                    <p className='footer-text-info'>Address: 128 Industrial Zone, Tangxia Town, Dongguan 523710,China.</p>
+                    <p className='footer-text-info'>MOB/Whatsapp: 86-1805723297(Jelly)</p>
+                    <p className='footer-text-info'>TEL: 400-69170001</p>
+                    <p className='footer-text-info'>Email 1: contact@evtop.org</p>
+                    <p className='footer-text-info'>Email 2: 254610608@qq.com</p>
                 </div>
                 <div className="footer-links">
                     <TwitterLogo size={42} color="#3a25d4" weight="fill" />

@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react'
 import "./Home.css";
 import turnSignal from "../../assets/turn-signal.jpg";
-import Banner from '../../assets/new layout/Toubu1.jpg'
+import Banner from '../../assets/new layout/banner2.jpg'
 import beforeCompany from '../../assets/new layout/beforeCompanyPics.jpg'
+import logo from '../../assets/new layout/logo.png'
 import lady3 from '../../assets/new layout/lady3.jpg'
 import lady2 from '../../assets/new layout/lady2.jpg'
 import lady from '../../assets/lady.jpg'
@@ -39,8 +40,16 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
   const [productsPerPage, setProductsPerPage] = useState(0);
+  const [data, setData] = useState({})
 
 
+  async function httpGetHomePage() {
+    const res = await axios.get(`${BASE_URL}/api/app/homepage`)
+    const map = res.data.data.map(item => item).reverse()
+    setData(map[0])
+    console.log(data)
+    console.log(map[0])
+  }
   const fetchData = async () => {
     setLoading(true);
     const res = await axios.get(`${BASE_URL}/api/category`)
@@ -53,7 +62,6 @@ function Home() {
     // getCurrentProducts(product);
 
     //remove this after using i have to do this to avoid build errors
-    // console.log(loading)
   };
 
   function pageResized() {
@@ -103,10 +111,11 @@ function Home() {
   useEffect(() => {
     fetchData();
     pageResized();
-    // httpGetHomePage()
+    httpGetHomePage()
   }, []);
   const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
   const featuresArray = [lady, lady2, lady3];
+  // const featuresArray = [data.img_one, data.img_two, data.img_three, data.img_four];
 
 
   const { addToCart } = useGlobalContext();
@@ -115,6 +124,7 @@ function Home() {
     <div style={{ width: '100%', overflow: 'hidden' }}>
       <section className="navigation">
         <img src={Banner} alt="background" className='photoUrl' />
+        <img src={logo} alt="background" className='logoUrl' />
         <div className='nav-one'>
           <div className='nav-top'>
 
@@ -156,7 +166,6 @@ function Home() {
       </section>
       <section className='section-two'>
         <ImageSlider images={featuresArray} /><br /><br /><br />
-
         <img src={ladyA} alt="ladyAfter" />
       </section>
       <section className="section-three">
