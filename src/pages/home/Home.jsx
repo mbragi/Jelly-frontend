@@ -167,15 +167,15 @@ function Home() {
         <div style={{ width: '95%', padding: '4rem 0 0 0 ' }}>
           <Carousel className='slider' showThumbs={false}>
             <div style={{ width: '100%', }}>
-              <img src={data.img_one} className='slider-image' height='400px' width='900px' />
+              <img src={data.img_one} className='slider-image' height='400px' width='900px' alt='slides' />
 
             </div>
             <div>
-              <img src={data.img_two} className='slider-image' />
+              <img src={data.img_two} className='slider-image' alt='slides' />
 
             </div>
             <div>
-              <img src={data.img_three} className='slider-image' />
+              <img src={data.img_three} className='slider-image' alt='slides' />
 
             </div>
           </Carousel>
