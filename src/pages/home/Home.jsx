@@ -25,8 +25,9 @@ import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { Fade, Zoom } from "react-awesome-reveal";
 import axios from 'axios';
 import Footer from '../../components/footer/Footer';
-import ImageSlider from '../../components/imageSlider/ImageSlider';
-
+// import ImageSlider from '../../components/imageSlider/ImageSlider';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 
 const BASE_URL = 'https://jelly-online-api.herokuapp.com'
@@ -113,7 +114,7 @@ function Home() {
   }, []);
   const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
   // const featuresArray = [lady, lady2, lady3];
-  const featuresArray = [data.img_one, data.img_two, data.img_three];
+
 
 
   const { addToCart } = useGlobalContext();
@@ -163,7 +164,22 @@ function Home() {
         </div>
       </section>
       <section className='section-two'>
-        <ImageSlider images={featuresArray} />
+        <div style={{ width: '95%', padding: '4rem 0 0 0 ' }}>
+          <Carousel className='slider' showThumbs={false}>
+            <div style={{ width: '100%', }}>
+              <img src={data.img_one} className='slider-image' height='400px' width='900px' />
+
+            </div>
+            <div>
+              <img src={data.img_two} className='slider-image' />
+
+            </div>
+            <div>
+              <img src={data.img_three} className='slider-image' />
+
+            </div>
+          </Carousel>
+        </div>
         <img src={ladyA} alt="ladyAfter" className='ladyAfter' />
       </section>
       <section className="section-three">
