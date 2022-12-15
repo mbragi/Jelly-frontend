@@ -4,15 +4,11 @@ import "./Home.css";
 import turnSignal from "../../assets/turn-signal.jpg";
 // import Banner from '../../assets/new layout/banner2.jpg'
 import beforeCompany from '../../assets/new layout/beforeCompanyPics.jpg'
+import footer from '../../assets/new layout/footer.jpg'
 // import logo from '../../assets/new layout/logo.png'
 
 import ladyA from '../../assets/ladyAfter.jpg'
-import one from '../../assets/new layout/1.png'
-import two from '../../assets/new layout/2.jpg'
-import three from '../../assets/new layout/3.jpg'
-import four from '../../assets/new layout/4.jpg'
-import five from '../../assets/new layout/5.jpg'
-import six from '../../assets/new layout/6.jpg'
+
 import { MdLocalPhone, MdOutlineMailOutline, } from "react-icons/md";
 import { FaUserAlt, FaSearchLocation } from "react-icons/fa";
 import { HiPencilAlt } from "react-icons/hi";
@@ -24,7 +20,7 @@ import { MdOutlineStar } from "react-icons/md";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { Fade, Zoom } from "react-awesome-reveal";
 import axios from 'axios';
-import Footer from '../../components/footer/Footer';
+// import Footer from '../../components/footer/Footer';
 // import ImageSlider from '../../components/imageSlider/ImageSlider';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
@@ -270,27 +266,11 @@ function Home() {
       <section className='section-four'>
         <div className='section-four-top'>
           <img src={beforeCompany} alt="company" />
-          <div className='section-four-gallery'>
-            <div className="section-four-sideA">
-              <img src={one} alt="1" className='small' />
-              <img src={two} alt="2" className='small' />
-              <img src={three} alt="3" className='large' />
-            </div>
-            <div className="section-four-sideB">
-              <img src={four} alt="4" className='large' />
-              <img src={five} alt="5" className='small' />
-              <img src={six} alt="6" className='small' />
-            </div>
-            <div className="section-four-title">
-              <p className="text">
-                A group of energetic and diligent people are gathered here
-                Dedicated time and energy to the BMS management system, more affirmation and enthusiasm for new energy.
-                Evtop Bms Hardware engineer Mr Tomasz said:Bms development seems to be considered simple by everyone, but when laying out the PCB circuit, it needs a very careful & reasonable design to get the best performance.At the same time, matching suitable IC, MOS, and all raw materials is a key step. Every piece of BMS is like having many living organs..
-              </p>
-            </div>
-          </div>
         </div>
-        <Footer />
+        <div className='section-four'>
+          <img src={footer} alt="homeFooter" />
+        </div>
+        {/* <Footer /> */}
       </section>
     </div>
   )
