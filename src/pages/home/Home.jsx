@@ -160,8 +160,8 @@ function Home() {
         </div>
       </section>
       <section className='section-two'>
-        <div style={{ width: '95%', padding: '4rem 0 0 0 ' }}>
-          <Carousel className='slider' showThumbs={false} autoPlay={true}>
+        <div style={{ width: '100%' }}>
+          <Carousel className='slide' showThumbs={false} autoPlay={true}>
             <div style={{ width: '100%', }}>
               <img src={data.img_one} className='slider-image' height='400px' width='900px' alt='slides' />
 
