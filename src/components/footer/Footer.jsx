@@ -1,9 +1,7 @@
 import React from 'react'
-import Weibu from '../../assets/new layout/Weibu05.jpg'
-import code from '../../assets/new layout/code.png'
-// import logo from '../../assets/new layout/logoint.png'
+import footer from '../../assets/new layout/footer.jpg'
+
 import './Footer.css'
-import { InstagramLogo, LinkedinLogo, TelegramLogo, TwitterLogo, WhatsappLogo } from 'phosphor-react'
 
 
 function Footer() {
@@ -80,28 +78,7 @@ function Footer() {
         // </div>
         <div className='new-footer'>
             <div className='new-footer-top'>
-                <img src={Weibu} alt="brain" />
-                <div className='footer-code'>
-                    <img src={code} alt="code" className='code' />
-                    <p className='text-jelly'>WeChat(jelly)</p>
-                </div>
-                <div className='footer-text'>
-                    <p className='footer-text-info'>Address: 128 Industrial Zone, Tangxia Town, Dongguan 523710,China.</p>
-                    <p className='footer-text-info'>MOB/Whatsapp: 86-1805723297(Jelly)</p>
-                    <p className='footer-text-info'>TEL: 400-69170001</p>
-                    <p className='footer-text-info'>Email 1: contact@evtop.org</p>
-                    <p className='footer-text-info'>Email 2: 254610608@qq.com</p>
-                </div>
-                <div className="footer-links">
-                    <TwitterLogo size={42} color="#3a25d4" weight="fill" />
-                    <LinkedinLogo size={42} color="#3a25d4" weight="fill" />
-                    <WhatsappLogo size={42} color="#3a25d4" weight="fill" />
-                    <TelegramLogo size={42} color="#3a25d4" weight="fill" />
-                    <InstagramLogo size={42} color="#f70868" />
-
-                </div>
-            </div>
-            <div className="fotter-bottom" >
+                <img src={footer} alt="brain" />
                 <center>
                     <div className="footer-left-bottom">
                         <p>Copyright © 2013-2022 Dongguan EVTOP Materials Co.Ltd. All Rights Reserved.</p>

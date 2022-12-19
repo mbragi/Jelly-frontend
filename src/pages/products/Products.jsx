@@ -9,7 +9,7 @@ import Footer from '../../components/footer/Footer';
 import Category from '../../components/category/Category';
 import MobileBar from '../../components/mobileBar/MobileBar';
 import axios from 'axios';
-import {useGlobalContext} from '../../context';
+import { useGlobalContext } from '../../context';
 import LoginPage from '../login/LoginPage';
 import RegisterPage from '../register/RegisterPage';
 import Welcome from '../../components/welcome/Welcome';
@@ -87,10 +87,10 @@ function Products() {
     setPriceFilter(value);
   }
 
-  const {isLogin, switchpop, isSignUp} = useGlobalContext();
+  const { isLogin, switchpop, isSignUp } = useGlobalContext();
 
   return (
-    <div className='container'>
+    <div className='container' >
       <NavBar currentPage="shop" />
       {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
       <MobileBar />
@@ -127,7 +127,7 @@ function Products() {
               <input type="range" className='price-range' value={priceFilter} min={0} max={1000} onInput={filterPrice} />
               <div className='price'>
                 <p><span>Price</span>: $0.00 - ${priceFilter}.00</p>
-                <Button content="Filter" style={{ borderRadius: "10px", height:'50px' }} onClick={() => { getCurrentProducts() }} />
+                <Button content="Filter" style={{ borderRadius: "10px", height: '50px' }} onClick={() => { getCurrentProducts() }} />
               </div>
             </div>
 

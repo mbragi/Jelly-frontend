@@ -4,7 +4,7 @@ import {
   legacy_createStore as createStore,
 } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
-import localStorage from "redux-persist/lib/storage";
+import sessionStorage from "redux-persist/lib/storage/session";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import rootReducers from "./root-reducer";
@@ -13,8 +13,8 @@ const middlewares = [thunk];
 
 const persistConfig = {
   key: "root",
-  storage: localStorage,
-  whitelist: [], // only keys defined in rootReducer will be persisted
+  storage: sessionStorage,
+  whitelist: ["Auth"], // only keys defined in rootReducer will be persisted
 };
 
 if (process.env.NODE_ENV === "development") {

@@ -4,7 +4,6 @@ import "./Home.css";
 import turnSignal from "../../assets/turn-signal.jpg";
 // import Banner from '../../assets/new layout/banner2.jpg'
 import beforeCompany from '../../assets/new layout/beforeCompanyPics.jpg'
-import footer from '../../assets/new layout/footer.jpg'
 // import logo from '../../assets/new layout/logo.png'
 
 import ladyA from '../../assets/ladyAfter.jpg'
@@ -20,7 +19,7 @@ import { MdOutlineStar } from "react-icons/md";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
 import { Fade, Zoom } from "react-awesome-reveal";
 import axios from 'axios';
-// import Footer from '../../components/footer/Footer';
+import Footer from '../../components/footer/Footer';
 // import ImageSlider from '../../components/imageSlider/ImageSlider';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
@@ -268,9 +267,8 @@ function Home() {
           <img src={beforeCompany} alt="company" />
         </div>
         <div className='section-four'>
-          <img src={footer} alt="homeFooter" />
+          <Footer />
         </div>
-        {/* <Footer /> */}
       </section>
     </div>
   )
