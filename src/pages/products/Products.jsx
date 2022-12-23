@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from '../../components/navBar/NavBar';
 import Button from '../../components/button/Button';
 import './Products.css';
-import logoFaint from '../../assets/logo-faint.png';
+import logoFaint from '../../assets/new layout/logoint.png';
 import Product from '../../components/product/Product';
 import Pagination from '../../components/pagination/Pagination';
 import Footer from '../../components/footer/Footer';
