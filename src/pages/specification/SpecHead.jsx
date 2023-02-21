@@ -10,9 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../../context";
 import LoginPage from "../login/LoginPage";
 import RegisterPage from "../register/RegisterPage";
-const BASE_URL = 'https://jelly-online-api.herokuapp.com'
-
-// const BASE_UR = 'http://localhost:1050'
+const BASE_URL = 'https://evtop-api.herokuapp.com'
 
 function SpecHead() {
     const [data, setData] = useState([])
@@ -48,7 +46,7 @@ function SpecHead() {
         }
     }
 
-    const {isLogin, switchpop} = useGlobalContext();
+    const { isLogin, switchpop } = useGlobalContext();
     return (
         < div style={{ width: '100%' }}>
             <NavBar />

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+const BASE_URL = 'https://evtop-api.herokuapp.com'
 
 function AdminProducts() {
     const navigate = useNavigate()

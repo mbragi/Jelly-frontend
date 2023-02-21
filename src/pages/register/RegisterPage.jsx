@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import './RegisterPage.css'
 import Button from '../../components/button/Button'
-import {useGlobalContext} from '../../context'
+import { useGlobalContext } from '../../context'
 // import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
-    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+    const BASE_URL = 'https://evtop-api.herokuapp.com'
     const [data, setData] = useState({});
     const [resData, setResData] = useState({})
     const [message, setMessage] = useState('')
     const [type, setType] = useState('')
     // const navigate = useNavigate()
-    
-    const {setIsLogin, setSwitch, setIsSignUp} = useGlobalContext();
+
+    const { setIsLogin, setSwitch, setIsSignUp } = useGlobalContext();
     function sendDetails(event) {
         const { name, value } = event.target
         const newData = { ...data }
@@ -47,16 +47,16 @@ function RegisterPage() {
         // }, 1500)
         // }
     }
-    if(type === "success"){
+    if (type === "success") {
         setIsSignUp(true)
-    }else{setIsSignUp(false)}
-    
+    } else { setIsSignUp(false) }
+
     return (
         <div className="overlay">
             <div className='register-container'>
 
                 <div className='cancel-button'>
-                    <Button content='X' style={{ width: '60px', borderRadius: '30px', height: '50px' }} onClick = {() => {setIsLogin(false)}}/>
+                    <Button content='X' style={{ width: '60px', borderRadius: '30px', height: '50px' }} onClick={() => { setIsLogin(false) }} />
                 </div>
 
                 <div className='register-page'>
@@ -91,13 +91,13 @@ function RegisterPage() {
 
 
                         <div className='signup-button'>
-                            <Button type={'submit'} content='Sign Up' id = "Sign_up" style={{ width: '100%', height: '50px', borderRadius: '10px' }} />
+                            <Button type={'submit'} content='Sign Up' id="Sign_up" style={{ width: '100%', height: '50px', borderRadius: '10px' }} />
                         </div>
 
 
                         <div className='Have-an-account'>
                             <p>{message}</p>
-                            <h3>Have an account? <span onClick={() => setSwitch(false)} style = {{cursor: 'pointer'}}>Login</span></h3>
+                            <h3>Have an account? <span onClick={() => setSwitch(false)} style={{ cursor: 'pointer' }}>Login</span></h3>
                         </div>
 
                     </form>

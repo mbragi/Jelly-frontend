@@ -25,7 +25,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
 
-const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+const BASE_URL = 'https://evtop-api.herokuapp.com'
 
 function Home() {
   // const [show, setShow] = useState(false)s

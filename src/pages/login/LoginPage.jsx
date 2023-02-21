@@ -8,7 +8,8 @@ import { useNavigate } from 'react-router-dom';
 // import { type } from '@testing-library/user-event/dist/type';
 
 function LoginPage() {
-    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+
+    const BASE_URL = 'https://evtop-api.herokuapp.com'
     const [data, setData] = useState({});
     const [message, setMessage] = useState('')
     const navigate = useNavigate()
@@ -54,7 +55,7 @@ function LoginPage() {
                     <div className='login-page-header'>
                         <h2>Login via E-mail</h2>
                     </div>
-                    <p style={{color: 'green', fontSize:'2rem'}} >{message}</p>
+                    <p style={{ color: 'green', fontSize: '2rem' }} >{message}</p>
                     <form onSubmit={httpLoginUser} className='login-page-form' >
                         <div className='email-input'>
                             <p>E-mail*</p>

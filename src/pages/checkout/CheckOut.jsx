@@ -5,7 +5,6 @@ import { FaArrowLeft } from 'react-icons/fa'
 import item from "../../assets/turn-signal.jpg"
 import Button from '../../components/button/Button'
 import Footer from "../../components/footer/Footer";
-import { PayPalButtons } from "@paypal/react-paypal-js";
 
 
 function CheckOut() {
@@ -82,7 +81,6 @@ function CheckOut() {
                             <h2>Payment Method</h2>
                             <hr />
                             <div className="paypal">
-                                <PayPalButtons style={{ layout: "horizontal" }} />
                                 {/* <div className="groupc"  style= {{ height: '100%', width: '40%', margin: 'auto 10% '}}>
                                     <span style = {{fontSize: '5rem', color: 'lightgray'}}>●</span>
                                     <h2>Paypal</h2> */}
