@@ -31,19 +31,14 @@ function ProductDetails() {
     const currentProducts = relatedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
 
-    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+    const BASE_URL = 'https://evtop-api.herokuapp.com'
 
     async function fetchData() {
         setLoading(true);
-
-
         const res = await axios.get(`${BASE_URL}/api/details/${param.id}`)
         const data = await res.data
-        // console.log(data.data)
         setProduct(data.data[0])
-        
         setLoading(false);
-
         fetchRelatedProducts(data.data[0]);
     };
     const fetchRelatedProducts = async (product) => {
@@ -76,7 +71,7 @@ function ProductDetails() {
     }, [])
 
     //console.log(product)
-    const {addToCart, isLogin, switchpop} = useGlobalContext()
+    const { addToCart, isLogin, switchpop } = useGlobalContext()
     if (loading) return <h1 style={{ textAlign: 'center', width: "100%" }}>Loading...</h1>;
     if (!loading && !product) return <h1 style={{ textAlign: 'center', width: '100%' }}>404 error can't find product</h1>;
     return (
@@ -124,7 +119,7 @@ function ProductDetails() {
 
                         <div className='add-to-cart'>
                             <img src={cart} alt="" />
-                            <Button type={'submit'} content='ADD TO CART' style={{ fontWeight: 'lighter', width:'200px', color:'white', border: 'none', boxShadow: 'none' }} onClick={() => { addToCart(product) }} />
+                            <Button type={'submit'} content='ADD TO CART' style={{ fontWeight: 'lighter', width: '200px', color: 'white', border: 'none', boxShadow: 'none' }} onClick={() => { addToCart(product) }} />
                         </div>
                     </div>
                 </div>
@@ -166,7 +161,7 @@ function ProductDetails() {
                                         <h3>P{prod.name}</h3>
                                         <img src={prod.img} alt='' />
                                         <p>{prod.price}</p>
-                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold',fontSize:'15px' }} onClick={() => { navigate(`/details/${prod._id}`) }} />
+                                        <Button type={'submit'} content='GO TO DETAILS' style={{ width: '100%', height: '50px', borderRadius: '0px', padding: '15px', fontWeight: 'bold', fontSize: '15px' }} onClick={() => { navigate(`/details/${prod._id}`) }} />
                                     </div>
                                 ))
                             }
@@ -179,15 +174,15 @@ function ProductDetails() {
                     </div>
 
                 </div>
-                
-                    
+
+
 
                 <div className='verified-customer-fb resize-details'>
                     <div className='verified-customer-fb-header'>
                         <h1>Verified Customers Feedback</h1>
 
-                        <span>SEE ALL 
-                            <BiChevronRightCircle size={50} className='icon' position="fixed" color='blue' />       
+                        <span>SEE ALL
+                            <BiChevronRightCircle size={50} className='icon' position="fixed" color='blue' />
                         </span>
 
                     </div>

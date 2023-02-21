@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import axios from "axios"
 import { CloudArrowUp } from 'phosphor-react';
 import { uploadFile } from '../../utils/cloudinary';
-const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+const BASE_URL = 'https://evtop-api.herokuapp.com'
 
 
 function AdminAddProduct() {
@@ -152,13 +152,13 @@ function AdminAddProduct() {
                                         boxShadow: '0px 0.8718905448913574px 15.694029808044434px 0px #00000040',
                                         objectFit: 'contain',
                                         padding: '5px',
-                                        zIndex:'2'
+                                        zIndex: '2'
                                     }} />
                                 </label>
                                 {
                                     vid ?
                                         <>
-                                            <img src={all.img} alt="" className="umi-img" style={{width:'100%', height:'90%'}}/>
+                                            <img src={all.img} alt="" className="umi-img" style={{ width: '100%', height: '90%' }} />
                                         </> :
                                         <h1 className='umi'>Upload Main Image</h1>
                                 }
@@ -384,17 +384,18 @@ function AdminAddProduct() {
                                 <div className='dif-colours'>
                                     <div className='diff-colours'>
                                         <h1>COLOURS
-                                            <span className='add-colours'> Add <Button className="add-color-btn" type={'submit'} content={'+'} 
-                                            style={{  
-                                            width: '30px', 
-                                            height: '30px', 
-                                            fontSize:'1.4rem', 
-                                            borderRadius:"100%", 
-                                            cursor:'pointer', 
-                                            padding:"0",
-                                            boxShadow:'none',
-                                            backgroundColor:"rgba(53, 112, 236, 0.67)", 
-                                            color:"white" }}  />
+                                            <span className='add-colours'> Add <Button className="add-color-btn" type={'submit'} content={'+'}
+                                                style={{
+                                                    width: '30px',
+                                                    height: '30px',
+                                                    fontSize: '1.4rem',
+                                                    borderRadius: "100%",
+                                                    cursor: 'pointer',
+                                                    padding: "0",
+                                                    boxShadow: 'none',
+                                                    backgroundColor: "rgba(53, 112, 236, 0.67)",
+                                                    color: "white"
+                                                }} />
                                             </span>
                                         </h1>
 
@@ -468,7 +469,7 @@ export const Video = ({ onChange, url }) => {
     return (
         <div className='attached-video' >
             <h1>ATTACHED VIDEO</h1>
-            <video src={url || ''} autoPlay className='att-video' controls style={{width:'100%', backgroundColor:'black'}}>
+            <video src={url || ''} autoPlay className='att-video' controls style={{ width: '100%', backgroundColor: 'black' }}>
             </video>
 
             <button type='file' style={{ cursor: 'pointer', background: " rgb(53, 112, 236)", height: '2rem', width: '6rem', float: "right", border: 'none', marginTop: '5px' }}>

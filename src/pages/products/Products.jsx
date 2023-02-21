@@ -54,7 +54,7 @@ function Products() {
   useEffect(() => {
     // const URL = process.env.REACT_APP_SERVER_URL
 
-    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+    const BASE_URL = 'https://evtop-api.herokuapp.com'
 
     const fetchData = async () => {
       setLoading(true);

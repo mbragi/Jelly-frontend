@@ -16,7 +16,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { useGlobalContext } from '../../context';
-const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+const BASE_URL = 'https://evtop-api.herokuapp.com'
 
 function AdminDashboard() {
   const [user, setUser] = useState([])

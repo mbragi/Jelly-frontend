@@ -18,7 +18,7 @@ import axios from 'axios';
 function Cart() {
     const [cart, setCart] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
-    const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+    const BASE_URL = 'https://evtop-api.herokuapp.com'
     const navigate = useNavigate()
     function calculateCartTotal() {
         if (!localStorage.getItem('cart')) return;

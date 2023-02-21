@@ -8,7 +8,7 @@ import { CloudArrowUp } from 'phosphor-react';
 import { MdCancel } from "react-icons/md";
 import axios from 'axios';
 import { uploadFile } from '../../utils/cloudinary';
-const BASE_URL = 'https://jelly-online-api.herokuapp.com'
+const BASE_URL = 'https://evtop-api.herokuapp.com'
 
 
 function AdminCategory() {
