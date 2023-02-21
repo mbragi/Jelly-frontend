@@ -23,7 +23,6 @@ function AdminProducts() {
         console.log(response)
         setData(response)
     }
-
     async function httpGetProducts() {
         const request = await axios.get(`${BASE_URL}/api/category`)
         const response = request.data.Pdata

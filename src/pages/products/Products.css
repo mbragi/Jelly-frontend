@@ -1,20 +1,25 @@
 .container{
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .products-page{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.product-header{
     width: 100%;
+}
+/* background-color: brown; */
+.product-header{
+    width: 110%;
     height: 200px;
     background: url("../../assets/product-header-bg.png") no-repeat;
     background-size: 100% 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 6rem;
 }
 .header-logo{
     /* width: 200px; */

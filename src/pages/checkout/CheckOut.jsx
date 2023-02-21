@@ -5,10 +5,11 @@ import { FaArrowLeft } from 'react-icons/fa'
 import item from "../../assets/turn-signal.jpg"
 import Button from '../../components/button/Button'
 import Footer from "../../components/footer/Footer";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 
 
-function CheckOut (){
-    return(
+function CheckOut() {
+    return (
         <div>
             <NavBar />
             <div className="col-2">
@@ -45,8 +46,8 @@ function CheckOut (){
                         <span>Select State*</span>
                         <input type="text" placeholder="City" /><br />
                     </div>
-                    <div className="flex" style = {{color: 'blue',fontSize: '1.3rem', fontWeight: 'bold'}}>
-                        <FaArrowLeft style = {{fontSize: '1.2rem', marginTop: '3%'}} /> Continue Shopping <br /><br />
+                    <div className="flex" style={{ color: 'blue', fontSize: '1.3rem', fontWeight: 'bold' }}>
+                        <FaArrowLeft style={{ fontSize: '1.2rem', marginTop: '3%' }} /> Continue Shopping <br /><br />
                     </div>
                 </div>
                 <div className="cart-order">
@@ -62,17 +63,17 @@ function CheckOut (){
                     <hr />
                     <section className="section">
                         <hr />
-                        <div className="groupc" style={{width: '100%'}}>
-                            <h2 style={{color: 'gray'}}>Cart Subtotal</h2>
+                        <div className="groupc" style={{ width: '100%' }}>
+                            <h2 style={{ color: 'gray' }}>Cart Subtotal</h2>
                             <h3>元1410</h3>
                         </div>
                         <hr />
-                        <div className="groupc" style={{width: '100%'}}>
-                            <h2 style={{color: 'gray'}}>Shippping</h2>
+                        <div className="groupc" style={{ width: '100%' }}>
+                            <h2 style={{ color: 'gray' }}>Shippping</h2>
                             <h3>+元250</h3>
                         </div>
                         <hr />
-                        <div className="groupc" style={{width: '100%'}}>
+                        <div className="groupc" style={{ width: '100%' }}>
                             <h2>Order Total</h2>
                             <h3>元1660</h3>
                         </div>
@@ -81,20 +82,21 @@ function CheckOut (){
                             <h2>Payment Method</h2>
                             <hr />
                             <div className="paypal">
-                                <div className="groupc"  style= {{ height: '100%', width: '40%', margin: 'auto 10% '}}>
+                                <PayPalButtons style={{ layout: "horizontal" }} />
+                                {/* <div className="groupc"  style= {{ height: '100%', width: '40%', margin: 'auto 10% '}}>
                                     <span style = {{fontSize: '5rem', color: 'lightgray'}}>●</span>
-                                    <h2>Paypal</h2>
-                                </div>
+                                    <h2>Paypal</h2> */}
+                                {/* </div> */}
                             </div>
                         </div>
                         <div className="btnc">
-                            <Button content = 'Proceed To Checkout' style = {{marginTop: '5%', width: '100%', height: '60px'}} /> <br />
+                            <Button content='Proceed To Checkout' style={{ marginTop: '5%', width: '100%', height: '60px' }} /> <br />
                         </div>
                     </section>
                 </div>
-            </div>
+            </div >
             <Footer />
-        </div>
+        </div >
     )
 }
 

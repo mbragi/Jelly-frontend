@@ -124,11 +124,11 @@ function ProductDetails() {
 
                         <div className='add-to-cart'>
                             <img src={cart} alt="" />
-                            <Button type={'submit'} content='ADD TO CART' style={{ fontWeight: 'lighter', width:'200px', color:'white' }} onClick={() => { addToCart(product) }} />
+                            <Button type={'submit'} content='ADD TO CART' style={{ fontWeight: 'lighter', width:'200px', color:'white', border: 'none', boxShadow: 'none' }} onClick={() => { addToCart(product) }} />
                         </div>
                     </div>
                 </div>
-                <div className='product-details'>
+                <div className='product-details resize-details'>
                     <div className='product-details-header'>
                         <h2>Product Details</h2>
                     </div>
@@ -151,7 +151,7 @@ function ProductDetails() {
                     </div>
                 </div>
 
-                <div className='other-products'>
+                <div className='other-products resize-details'>
                     <div className='other-products-header'>
                         <h2>Other products you might like</h2>
                     </div>
@@ -182,7 +182,7 @@ function ProductDetails() {
                 
                     
 
-                <div className='verified-customer-fb'>
+                <div className='verified-customer-fb resize-details'>
                     <div className='verified-customer-fb-header'>
                         <h1>Verified Customers Feedback</h1>
 
@@ -307,11 +307,9 @@ function ProductDetails() {
 
                 </div>
 
-                <div className='footer'>
-                    <Footer />
-                </div>
 
             </div>
+            <Footer />
 
         </div>
 

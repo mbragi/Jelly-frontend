@@ -14,19 +14,16 @@ function ImageSlider({ images }) {
         lazyLoad: true,
         autoplay: true,
         autoplaySpeed: 2000,
-       
-      };
+    };
 
     return (
         <div className='slider-container'>
             <Slider {...settings} className='slider'>
-                {images.map((item) => (
-                    <img src={item}  alt={item} className='slider-image' />
+                {images.map((item, idx) => (
+                    <img src={item} alt={item} s className='slider-image' />
                 ))}
             </Slider>
         </div>
-        //         <Fade direction="up" className='slider-attention-seeker'>
-        //         </Fade>
     )
 }
 
