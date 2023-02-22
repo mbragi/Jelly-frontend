@@ -46,7 +46,6 @@ function Home() {
     setLoading(true);
     const res = await axios.get(`${BASE_URL}/api/category`)
     let data = res.data
-    console.log(res);
     const product = data.Pdata
     setProducts(product);
     setTotalProducts(product.length);
