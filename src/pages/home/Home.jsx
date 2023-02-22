@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 import "./Home.css";
-import turnSignal from "../../assets/turn-signal.jpg";
+// import turnSignal from "../../assets/turn-signal.jpg";
 // import Banner from '../../assets/new layout/banner2.jpg'
 import beforeCompany from '../../assets/new layout/beforeCompanyPics.jpg'
 // import logo from '../../assets/new layout/logo.png'
@@ -15,9 +15,9 @@ import { IoMdCart } from "react-icons/io";
 import { Link, useLocation } from 'react-router-dom';
 import { useGlobalContext } from '../../context';
 import Button from '../../components/button/Button';
-import { MdOutlineStar } from "react-icons/md";
+// import { MdOutlineStar } from "react-icons/md";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
-import { Fade, Zoom } from "react-awesome-reveal";
+import { Zoom } from "react-awesome-reveal";
 import axios from 'axios';
 import Footer from '../../components/footer/Footer';
 // import ImageSlider from '../../components/imageSlider/ImageSlider';
@@ -123,22 +123,22 @@ function Home() {
           <div className='nav-top'>
 
             <p className='phone'>
-              <MdLocalPhone size={30} color="rgb(106,87,28)" className="icon" />
-              +86 1805723297
+              <MdLocalPhone size={28} color="rgb(106,87,28)" className="icon" />
+              <span>+86 1805723297</span>
             </p>
             <p className='email'>
-              <MdOutlineMailOutline size={30} color="rgb(106,87,28)" className="icon" />
-              254510608@qq.com
+              <MdOutlineMailOutline size={29} color="rgb(106,87,28)" className="icon" />
+              <span>254510608@qq.com</span>
             </p>
             <p className='store-locator'>
               <FaSearchLocation size={25} color="rgb(106,87,28)" className="icon" />
-              Store Locator
+              <span>Store Locator</span>            
             </p>
             <p className='dealers-enquiry'>
               <HiPencilAlt size={25} color="rgb(106,87,28)" className="icon" />
-              Dealers Enquiry
+              <span>Dealers Enquiry</span>
             </p>
-            <FaUserAlt size={25} color="rgb(106,87,28)" className="icon" />
+            <FaUserAlt size={23} color="rgb(106,87,28)" className="icon" />
           </div>
         </div>
         <div className='nav-two'>
@@ -159,17 +159,17 @@ function Home() {
         </div>
       </section>
       <section className='section-two'>
-        <div style={{ width: '100%' }}>
+        <div>
           <Carousel className='slide' showThumbs={false} autoPlay={true}>
-            <div style={{ width: '100%', }}>
-              <img src={data.img_one} className='slider-image' height='400px' width='900px' alt='slides' />
+            <div className = "check">
+              <img src={data.img_one} className='slider-image' alt='slides' />
 
             </div>
-            <div>
+            <div className = "check">
               <img src={data.img_two} className='slider-image' alt='slides' />
 
             </div>
-            <div>
+            <div className = "check">
               <img src={data.img_three} className='slider-image' alt='slides' />
 
             </div>
@@ -233,7 +233,7 @@ function Home() {
 
           </div>
         </div>
-        <div>
+        {/* <div>
           <div className='promo'>
             <div className="resize-promo resize-max">
               <Fade direction="up" className='promo-attention-seeker'>
@@ -260,7 +260,7 @@ function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
       <section className='section-four'>
         <div className='section-four-top'>

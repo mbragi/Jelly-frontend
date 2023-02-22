@@ -23,7 +23,7 @@ function Product({ product }) {
       <img src={product.img} alt={product.name} className='product-img' />
       <p className="product-price">${product.price}</p>
       <Button content="Details"
-        style={{ borderRadius: "10px", width: '100%', margin: '0.4rem' }}
+        style={{ borderRadius: "10px", width: '100%', margin: '0.4rem' , height: "40px"}}
         name={product.name}
       />
     </form>
