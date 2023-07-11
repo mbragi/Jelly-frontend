@@ -23,6 +23,7 @@
     align-items: center;
     position: absolute;
     top: 0;
+    padding: 15px 0;
 }
 .nav-top{
     background-color: #56718955;
@@ -73,9 +74,10 @@
 }
 */
 .slider-image {
-    object-fit: contain;
-    border: 1px solid green;
-    height: 500px;
+    object-fit: cover;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .check{
     width: 100%;
@@ -629,6 +631,10 @@
         padding: 0px 0px 72px;
    
     }
+    .nav-top{
+        justify-content: space-between;
+        padding: 0px 26px;
+    }
     .features-header {
         width: 320px;
         height: 60px;
@@ -688,7 +694,7 @@
         }
         .photoUrl{
             object-position: center top;
-            object-fit: fill;
+            object-fit: cover;
             height: 40vh;
         }
         .section-two{

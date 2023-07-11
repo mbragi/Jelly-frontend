@@ -13,11 +13,10 @@ import { useEffect } from 'react';
 
 export default function NavBar({ currentPage }) {
   const [navbar, setNavbar] = useState(false);
-  console.log("navbar===>", navbar)
   const navigate = useNavigate()
   const [show, setShow] = useState(false)
   const changeNav = () => {
-    if (window.scrollY >= 100) {
+    if (window.scrollY >= 100 && !navbar) {
       setNavbar(true);
     } else {
       setNavbar(false)
@@ -103,7 +102,6 @@ export default function NavBar({ currentPage }) {
             <p onClick={shower} style={{ cursor: 'pointer' }} className='exit'><MdCancel size={35} /></p>
 
             <Link to='/' className='link home-link' style={page("home")} onClick={ScrollToTop()}  >Home</Link>
-            <p className='link' About Us style={page("about")} onClick={ScrollToTop()} >Video</p>
             <Link to="/shop" className='link' style={page("shop")} onClick={ScrollToTop()} >Shop</Link>
             {/* <Link to="/product" className='link' style={page("products")}>Product</Link> */}
             <Link to="/contact" className='link' style={page("contact")} onClick={ScrollToTop()} >Contact us</Link>

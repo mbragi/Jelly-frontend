@@ -10,6 +10,7 @@ import {useGlobalContext} from '../../context';
 import LoginPage from '../login/LoginPage';
 import RegisterPage from '../register/RegisterPage';
 import Welcome from '../../components/welcome/Welcome';
+import MobileBar from '../../components/mobileBar/MobileBar'
 function ContactPage() {
 
     const [data, setData] = useState({});
@@ -28,8 +29,10 @@ function ContactPage() {
         <div className='navigation-bar'>
             <NavBar currentPage="contact" />
             {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
+        
         </div>
-
+        <MobileBar />
+        <br /><br /><br />
         <div className='contact-us-header'>
             <h1>Contact Us</h1>
         </div>

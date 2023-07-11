@@ -6,11 +6,17 @@
     width: 400px;
     margin: 0 auto;
     box-sizing: border-box;
-    box-shadow: -0.5px 0.5px 8px gray,  0.5px -0.5px 8px gray;
+    /* box-shadow: -0.5px 0.5px 8px gray,  0.5px -0.5px 8px gray; */
     background-color: #ffff;
     transition: .5s ease-in;
+    padding: 20px;
 }
-
+.cont-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .login-page{
     max-width: 80%;
     width: 350px;
@@ -44,10 +50,12 @@
     margin-top: 30px;
     color: white;
 }
-
+.forgot-password h3{
+    font-size: .9rem;
+}
 .forgot-password, .create-new-account span{
     color: blue;
-    font: 1.2rem;
+    font-size: 1rem;
 }
 .forgot-password, .create-new-account span:hover{
     color: rgb(89, 89, 154);

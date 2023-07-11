@@ -47,7 +47,7 @@ function LoginPage() {
             <div className='login-container'>
 
                 <div className='cancel-button'>
-                    <Button content={'X'} style={{ width: '60px', borderRadius: '30px', height: '50px', }} onClick={() => setIsLogin(false)} />
+                    <span style ={{cursor:'pointer'}} onClick={() => setIsLogin(false)}>🗙</span>
                 </div>
 
                 <div className='login-page'>
@@ -78,7 +78,7 @@ function LoginPage() {
                         </div>
 
                         <div className='create-new-account'>
-                            <h3>Don't have an account? <span onClick={() => setSwitch(true)} style={{ cursor: 'pointer' }} >Create New Account</span></h3>
+                            <h3>Don't have an account? <span onClick={() => setSwitch(true)} style={{ cursor: 'pointer' }} >create a new account</span></h3>
                         </div>
 
                     </form>

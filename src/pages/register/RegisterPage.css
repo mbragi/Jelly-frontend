@@ -6,10 +6,8 @@
     max-width: 100%;
     width: 400px;
     margin: 0 auto;
-    box-sizing: border-box;
     min-height: 400px;
     background: white;
-    box-shadow: -0.5px 0.5px 8px gray,  0.5px -0.5px 8px gray;
     overflow: scroll;
     scrollbar-width: none;
 }
