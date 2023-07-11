@@ -1,10 +1,9 @@
-
+'use client';
 import React, { useEffect, useState } from 'react'
 import "./Home.css";
-import turnSignal from "../../assets/turn-signal.jpg";
-// import Banner from '../../assets/new layout/banner2.jpg'
 import beforeCompany from '../../assets/new layout/beforeCompanyPics.jpg'
-// import logo from '../../assets/new layout/logo.png'
+import slider1 from '../../assets/slider/slider1.jpg'
+import slider2 from '../../assets/slider/slider2.jpg'
 
 import ladyA from '../../assets/ladyAfter.jpg'
 
@@ -15,15 +14,16 @@ import { IoMdCart } from "react-icons/io";
 import { Link, useLocation } from 'react-router-dom';
 import { useGlobalContext } from '../../context';
 import Button from '../../components/button/Button';
-import { MdOutlineStar } from "react-icons/md";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
-import { Fade, Zoom } from "react-awesome-reveal";
+import { Zoom } from "react-awesome-reveal";
 import axios from 'axios';
 import Footer from '../../components/footer/Footer';
-// import ImageSlider from '../../components/imageSlider/ImageSlider';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import LoginPage from '../login/LoginPage';
+import RegisterPage from '../register/RegisterPage';
+import Welcome from '../../components/welcome/Welcome';
 import { Carousel } from 'react-responsive-carousel';
-
+import MobileBar from '../../components/mobileBar/MobileBar'
 
 const BASE_URL = 'https://evtop-api.herokuapp.com'
 
@@ -36,7 +36,7 @@ function Home() {
   const [productsPerPage, setProductsPerPage] = useState(0);
   const [data, setData] = useState({})
 
-
+  const {isLogin, switchpop, isSignUp,setIsLogin} =  useGlobalContext();
   async function httpGetHomePage() {
     const res = await axios.get(`${BASE_URL}/api/app/homepage`)
     const map = res.data.data.map(item => item).reverse()
@@ -46,7 +46,6 @@ function Home() {
     setLoading(true);
     const res = await axios.get(`${BASE_URL}/api/category`)
     let data = res.data
-    console.log(res);
     const product = data.Pdata
     setProducts(product);
     setTotalProducts(product.length);
@@ -107,45 +106,50 @@ function Home() {
     pageResized();
     httpGetHomePage()
   }, []);
+  
   const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;
   // const featuresArray = [lady, lady2, lady3];
 
 
 
   const { addToCart } = useGlobalContext();
+  
 
   return (
     <div style={{ width: '100%', overflow: 'hidden' }}>
+      {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
+      <MobileBar />
       <section className="navigation">
-        <img src={data.img_main} alt="background" className='photoUrl' />
+      <div className='section-four-top'>
+          <img src={data.img_main} alt="background" className='photoUrl' />
+        </div>
         {/* <img src={logo} alt="background" className='logoUrl' /> */}
         <div className='nav-one'>
           <div className='nav-top'>
 
             <p className='phone'>
               <MdLocalPhone size={30} color="rgb(106,87,28)" className="icon" />
-              +86 1805723297
+              <span>+86 1805723297</span>
             </p>
             <p className='email'>
-              <MdOutlineMailOutline size={30} color="rgb(106,87,28)" className="icon" />
-              254510608@qq.com
+              <MdOutlineMailOutline size={29} color="rgb(106,87,28)" className="icon" />
+              <span>254510608@qq.com</span>
             </p>
             <p className='store-locator'>
               <FaSearchLocation size={25} color="rgb(106,87,28)" className="icon" />
-              Store Locator
+              <span>Store Locator</span>            
             </p>
             <p className='dealers-enquiry'>
               <HiPencilAlt size={25} color="rgb(106,87,28)" className="icon" />
-              Dealers Enquiry
+              <span>Dealers Enquiry</span>
             </p>
-            <FaUserAlt size={25} color="rgb(106,87,28)" className="icon" />
+            <FaUserAlt size={25} color="rgb(106,87,28)" className="icon" onClick={() => setIsLogin(true)} />
           </div>
         </div>
         <div className='nav-two'>
           <div className='nav-sub' >
             {/* <p onClick={shower} style={{ cursor: 'pointer' ,vis}} className='exit'><MdCancel size={35} /></p> */}
             <Link to='/' className='lin' onClick={ScrollToTop()}  >Home</Link>
-            <p className='lin' onClick={ScrollToTop()} >Video</p>
             <Link to="/shop" className='lin' onClick={ScrollToTop()} >Shop</Link>
 
             <p className='lin' onClick={ScrollToTop()} >FAQ</p>
@@ -157,25 +161,23 @@ function Home() {
           </div>
 
         </div>
-      </section>
+      </section><br />
       <section className='section-two'>
-        <div style={{ width: '100%' }}>
-          <Carousel className='slide' showThumbs={false} autoPlay={true}>
-            <div style={{ width: '100%', }}>
-              <img src={data.img_one} className='slider-image' height='400px' width='900px' alt='slides' />
+        <div>
+          <Carousel showThumbs={false} infiniteLoop={true} autoPlay={true}>
+            <div className = "check">
+              <img src={slider1} className='slider-image' alt='slides' />
 
             </div>
-            <div>
-              <img src={data.img_two} className='slider-image' alt='slides' />
-
-            </div>
-            <div>
-              <img src={data.img_three} className='slider-image' alt='slides' />
+            <div className = "check">
+              <img src={slider2} className='slider-image' alt='slides' />
 
             </div>
           </Carousel>
+        </div><br />
+        <div className='section-four-top'>
+          <img src={ladyA} alt="ladyAfter" className='ladyAfter' />
         </div>
-        <img src={ladyA} alt="ladyAfter" className='ladyAfter' />
       </section>
       <section className="section-three">
         <div className='accessories-div resize-max white-change'>
@@ -233,7 +235,7 @@ function Home() {
 
           </div>
         </div>
-        <div>
+        {/* <div>
           <div className='promo'>
             <div className="resize-promo resize-max">
               <Fade direction="up" className='promo-attention-seeker'>
@@ -260,7 +262,7 @@ function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
       <section className='section-four'>
         <div className='section-four-top'>
