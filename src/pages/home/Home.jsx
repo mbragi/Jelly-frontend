@@ -119,7 +119,7 @@ function Home() {
     <div style={{ width: '100%', overflow: 'hidden' }}>
       {isSignUp ? <Welcome /> : isLogin ? !switchpop ? <LoginPage /> : <RegisterPage /> : null}
       <MobileBar />
-      <section className="navigation">
+      <section className="navigation resize-max">
       <div className='section-four-top'>
           <img src={data.img_main} alt="background" className='photoUrl' />
         </div>
@@ -162,7 +162,7 @@ function Home() {
 
         </div>
       </section><br />
-      <section className='section-two'>
+      <section className='section-two resize-max'>
         <div>
           <Carousel showThumbs={false} infiniteLoop={true} autoPlay={true}>
             <div className = "check">
@@ -264,7 +264,7 @@ function Home() {
           </div>
         </div> */}
       </section>
-      <section className='section-four'>
+      <section className='section-four resize-max'>
         <div className='section-four-top'>
           <img src={beforeCompany} alt="company" />
         </div>
