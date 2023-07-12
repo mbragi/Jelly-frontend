@@ -148,7 +148,6 @@ function Home() {
         </div>
         <div className='nav-two'>
           <div className='nav-sub' >
-            {/* <p onClick={shower} style={{ cursor: 'pointer' ,vis}} className='exit'><MdCancel size={35} /></p> */}
             <Link to='/' className='lin' onClick={ScrollToTop()}  >Home</Link>
             <Link to="/shop" className='lin' onClick={ScrollToTop()} >Shop</Link>
 
@@ -235,34 +234,6 @@ function Home() {
 
           </div>
         </div>
-        {/* <div>
-          <div className='promo'>
-            <div className="resize-promo resize-max">
-              <Fade direction="up" className='promo-attention-seeker'>
-                <img src={turnSignal} alt="promo" className='promo-img' />
-              </Fade>
-              <div className='promo-info'>
-                <h2 className='promo-header'>Jelly e-indicaator</h2>
-
-
-                <div className='ratings'>
-                  <MdOutlineStar size={20} color="orange" />
-                  <MdOutlineStar size={20} color="orange" />
-                  <MdOutlineStar size={20} color="orange" />
-                  <MdOutlineStar size={20} color="orange" />
-                  <MdOutlineStar size={20} color="orange" />
-                  <p className='number-of-ratings'>(20)</p>
-                </div>
-
-                <p className='promo-price'>Buy at: $99</p>
-                <p className='promo-desc'>
-                  Refer friends and get upto Rs. 5000/- OFF on final price Jelly App connected | Removable battery | Ignition key switch with handle lock | BIS Approved Cell | Peddle Assist sensor with multi riding modes
-                </p>
-                <Button content="Buy Now" style={{ width: '100%', height: '50px' }} />
-              </div>
-            </div>
-          </div>
-        </div> */}
       </section>
       <section className='section-four resize-max'>
         <div className='section-four-top'>
