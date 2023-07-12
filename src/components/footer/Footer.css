@@ -190,8 +190,8 @@
 
 
 }
-@media(min-width: 1280px){
-    .footer{
+@media(min-width: 1480px){
+    .new-footer{
         max-width: 1300px;
         margin: 0 auto;
     }
