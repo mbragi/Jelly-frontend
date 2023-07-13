@@ -132,7 +132,7 @@
         margin-top: 20px;
     }
 }
-@media(min-width: 1280px){
+@media(min-width: 1480px){
     .cart-header, .cart-body{
         max-width: 1300px;
         margin: 0 auto;

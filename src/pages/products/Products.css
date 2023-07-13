@@ -111,7 +111,7 @@
         width: 100%;
     }
 }
-@media(min-width: 1280px){
+@media(min-width: 1480px){
     .product-header, .sort-container, .product-body{
         max-width: 1300px;
     }

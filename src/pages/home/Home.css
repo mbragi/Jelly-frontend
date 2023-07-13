@@ -771,7 +771,7 @@
 
 }
 
-@media(min-width: 1280px) {
+@media(min-width: 1480px) {
     .features-slider-div {
         max-width: 1300px;
         margin: inherit auto 0;
@@ -783,7 +783,9 @@
         max-width: 1300px;
         margin: 0 auto;
     }
-
+    .photoUrl{
+        object-fit: contain;
+    }
     .about-us {
         max-width: 1100px;
     }
